@@ -1,0 +1,161 @@
+{
+  "Main": {
+    "document_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Document description"
+      }
+    },
+    "headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Headline"
+      }
+    },
+    "subheadline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Subheadline"
+      }
+    },
+    "hero_art": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Hero Art"
+      }
+    },
+    "call_to_action": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Call to action"
+      }
+    },
+    "customers_headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Customers headline"
+      }
+    },
+    "customer_logos": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "logo"
+            }
+          }
+        },
+        "label": "Customer logos"
+      }
+    },
+    "add_book_a_demo_section": {
+      "type": "Boolean",
+      "config": {
+        "default_value": true,
+        "label": "Add Book a demo section"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "text_with_illustration": [
+            {
+              "name": "illustration_on_left",
+              "display": "Illustration on left"
+            }
+          ]
+        },
+        "choices": {
+          "text_with_illustration": {
+            "type": "Slice",
+            "fieldset": "Text with illustration",
+            "description": "2 column section container Icon, title, text, and button text on one side and a illustration on the other",
+            "icon": "art_track",
+            "display": "list",
+            "non-repeat": {
+              "section_headline": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Section Headline"
+                }
+              },
+              "section_subheadline": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Section subheadline"
+                }
+              },
+              "section_paragraph": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "section paragraph"
+                }
+              },
+              "learn_more_route": {
+                "type": "Text",
+                "config": {
+                  "label": "Learn More Route"
+                }
+              },
+              "section_icon": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Section Icon"
+                }
+              },
+              "section_illustration": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "mobile",
+                      "width": 800,
+                      "height": 500
+                    }
+                  ],
+                  "label": "Section illustration"
+                }
+              },
+              "section_background_colour": {
+                "type": "Select",
+                "config": {
+                  "options": ["None", "Dark", "Yellow", "Blue"],
+                  "default_value": "None",
+                  "label": "Section background colour"
+                }
+              },
+              "section_background_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Section background image"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}
