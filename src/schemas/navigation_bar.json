@@ -23,26 +23,32 @@
         "label": "Logo Text"
       }
     },
-    "navigation_links": {
-      "type": "Group",
+    "product_pages_nav": {
+      "type": "StructuredText",
       "config": {
-        "fields": {
-          "link_text": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label": "Link Text"
-            }
-          },
-          "link_id": {
-            "type": "StructuredText",
-            "config": {
-              "single": "paragraph",
-              "label": "Link ID"
-            }
-          }
-        },
-        "label": "navigation links"
+        "single": "heading3",
+        "label": "product pages nav"
+      }
+    },
+    "customers_page_nav": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "customers page nav"
+      }
+    },
+    "contact_page_nav": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "contact page nav"
+      }
+    },
+    "get_a_demo_button": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "get a demo button"
       }
     }
   }

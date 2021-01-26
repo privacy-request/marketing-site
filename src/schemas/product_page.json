@@ -1,5 +1,19 @@
 {
     "Main": {
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "route"
+            }
+        },
+        "hero_background_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Hero Background Image"
+            }
+        },
         "page_title": {
             "type": "StructuredText",
             "config": {
@@ -49,12 +63,7 @@
             "fieldset": "Slice zone",
             "config": {
                 "labels": {
-                    "text_with_illustration": [
-                        {
-                            "name": "illustration_on_left",
-                            "display": "Illustration on left"
-                        }
-                    ]
+                    "text_with_illustration": []
                 },
                 "choices": {
                     "text_with_illustration": {

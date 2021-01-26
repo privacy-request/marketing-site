@@ -1,11 +1,8 @@
-import * as React from "react"
-import Layout from '../components/layout';
+import * as React from "react";
+import Layout from "../components/Layout";
 
-const IndexPage = () => {
-  return (
-    <Layout>
-    </Layout>
-  )
-}
+const HomePage = ({ path }) => {
+  return <Layout path></Layout>;
+};
 
-export default IndexPage
+export default HomePage;
