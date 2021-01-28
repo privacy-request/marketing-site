@@ -25,6 +25,7 @@ const Tooltip = styled.div`
   transform: translateY(3rem) translateX(-50%);
   visibility: hidden;
   opacity: 0;
+  background: ${({ theme }) => theme.colour.white};
   ${NavItemWithTooltip}:hover & {
     visibility: visible;
     opacity: 1;
@@ -44,7 +45,6 @@ const TooltipNavItem = styled(NavItem)`
   justify-content: flex-start;
   white-space: nowrap;
   cursor: pointer;
-  margin-bottom: ${({ isLastChild }) => (!isLastChild ? "1.4rem" : "0")};
   :hover {
     opacity: ${({ theme }) => theme.text_decoration.opacity};
   }

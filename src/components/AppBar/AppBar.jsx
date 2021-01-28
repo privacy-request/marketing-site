@@ -8,19 +8,27 @@ import NavMobile from "./NavMobile/NavMobile";
 
 const AppBar = ({ path }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleWindowResize = () => {
     const mobileThresholdMet = window.innerWidth < SCREEN_SIZES.TABLET;
     mobileThresholdMet !== isMobile && setIsMobile(mobileThresholdMet);
   };
 
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    setScrolled(offset > 1);
+  };
+
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
+    window.addEventListener("scroll", handleScroll);
     handleWindowResize();
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   });
+
   return (
     <StaticQuery
       query={graphql`
@@ -102,7 +110,7 @@ const AppBar = ({ path }) => {
           path,
         };
         return (
-          <AppBarContainer>
+          <AppBarContainer scrolled={scrolled}>
             <Logo logoIconUrl={logo_icon.url} logoTextUrl={logo_text.url} />
             {isMobile ? (
               <NavMobile {...navProps} />

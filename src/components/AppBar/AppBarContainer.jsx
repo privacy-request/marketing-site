@@ -1,17 +1,41 @@
+import React from "react";
+
 import styled from "styled-components";
 import { SCREEN_SIZES } from "../utils/constants";
 
-const AppBarContainer = styled.div`
+const Container = styled.div`
   height: ${({ theme }) => theme.dimensions.app_bar_height};
-  max-width: ${({ theme }) => theme.dimensions.site_max_width};
-  margin: auto;
+  width: 100vw;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 ${({ theme }) => theme.spacing.page_horizontal};
+
+  ${({ scrolled }) =>
+    scrolled &&
+    `
+    position: sticky;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
+  `}
+  top: 0;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     height: ${({ theme }) => theme.dimensions.app_bar_height_mobile};
   }
 `;
+
+const Content = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0 ${({ theme }) => theme.spacing.page_horizontal};
+  max-width: ${({ theme }) => theme.dimensions.site_max_width};
+`;
+
+const AppBarContainer = ({ children, scrolled }) => {
+  return (
+    <Container scrolled={scrolled}>
+      <Content>{children}</Content>
+    </Container>
+  );
+};
 
 export default AppBarContainer;
