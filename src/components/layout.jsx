@@ -4,7 +4,7 @@ import AppBar from "./AppBar/AppBar";
 import { ThemeProvider } from "styled-components";
 import theme from "./utils/theme";
 
-const layout = ({ children, path }) => {
+const Layout = ({ children, path }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -14,4 +14,4 @@ const layout = ({ children, path }) => {
   );
 };
 
-export default layout;
+export default Layout;

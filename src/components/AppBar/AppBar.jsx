@@ -1,32 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
-import NavDesktop from "./NavDesktop";
-import NavMobile from "./NavMobile";
-
-const Container = styled.div`
-  height: 10rem;
-  max-width: ${({ theme }) => theme.dimensions.site_max_width};
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 ${({ theme }) => theme.spacing.page_horizontal};
-`;
-
-const Logo = styled.div``;
-
-const LogoIcon = styled.img`
-  margin-right: 1.4rem;
-`;
-
-const LogoText = styled.img``;
+import { SCREEN_SIZES } from "../utils/constants";
+import AppBarContainer from "./AppBarContainer";
+import Logo from "./Logo";
+import NavDesktop from "./NavDesktop/NavDesktop";
+import NavMobile from "./NavMobile/NavMobile";
 
 const AppBar = ({ path }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleWindowResize = () => {
-    const mobileThresholdMet = window.innerWidth < 1000;
+    const mobileThresholdMet = window.innerWidth < SCREEN_SIZES.TABLET;
     mobileThresholdMet !== isMobile && setIsMobile(mobileThresholdMet);
   };
 
@@ -62,6 +46,12 @@ const AppBar = ({ path }) => {
                   customers_page_nav {
                     text
                   }
+                  homepage_nav {
+                    text
+                  }
+                  contact_page_nav {
+                    text
+                  }
                 }
               }
             }
@@ -84,6 +74,8 @@ const AppBar = ({ path }) => {
         const {
           product_pages_nav,
           customers_page_nav,
+          contact_page_nav,
+          homepage_nav,
           get_a_demo_button,
           logo_text,
           logo_icon,
@@ -91,6 +83,8 @@ const AppBar = ({ path }) => {
         const getADemoBtnText = get_a_demo_button.text;
         const productPagesNavText = product_pages_nav.text;
         const customersPageNavText = customers_page_nav.text;
+        const contactPageNavText = contact_page_nav.text;
+        const homepageNavText = homepage_nav.text;
 
         const productPages = data.allPrismicProductPage.edges.map((page) => {
           const url = page.node.uuid;
@@ -101,22 +95,21 @@ const AppBar = ({ path }) => {
         const navProps = {
           getADemoBtnText,
           productPagesNavText,
-          productPages,
           customersPageNavText,
+          contactPageNavText,
+          homepageNavText,
+          productPages,
           path,
         };
         return (
-          <Container>
-            <Logo>
-              <LogoIcon src={logo_icon.url} />
-              <LogoText src={logo_text.url} />
-            </Logo>
+          <AppBarContainer>
+            <Logo logoIconUrl={logo_icon.url} logoTextUrl={logo_text.url} />
             {isMobile ? (
               <NavMobile {...navProps} />
             ) : (
               <NavDesktop {...navProps} />
             )}
-          </Container>
+          </AppBarContainer>
         );
       }}
     />

@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled, { withTheme } from "styled-components";
-import { NavItem } from "../utils/typography";
-import { STATIC_ROUTES } from "../utils/constants";
-import NavTooltip from "./NavTooltip";
+import { NavItem } from "../../typography";
+import { STATIC_ROUTES } from "../../utils/constants";
+import TooltipMenu from "./TooltipMenu";
 
 const Nav = styled.nav``;
 
 const NavLink = styled(Link)`
   margin-right: ${({ theme }) => theme.spacing.nav_items};
-  text-decoration: none;
   ${NavItem}:hover & {
     opacity: ${({ theme }) => theme.text_decoration.opacity};
   }
@@ -32,7 +31,6 @@ const GetADemoBtn = styled(Link)`
 const NavUL = styled.ul`
   display: flex;
   align-items: center;
-  list-style: none;
 `;
 
 const NavDesktop = ({
@@ -46,15 +44,23 @@ const NavDesktop = ({
   return (
     <Nav>
       <NavUL>
-        <NavTooltip
+        <TooltipMenu
           title={productPagesNavText}
           pages={productPages}
           path={path}
         />
-        <NavItem active={path === STATIC_ROUTES.CUSTOMERS} bold>
+        <NavItem
+          fontSize={theme.font_size.link.small}
+          active={path === STATIC_ROUTES.CUSTOMERS}
+          bold
+        >
           <NavLink to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</NavLink>
         </NavItem>
-        <NavItem bold colour={theme.colour.blue.dark}>
+        <NavItem
+          bold
+          colour={theme.colour.blue.dark}
+          fontSize={theme.font_size.link.small}
+        >
           <GetADemoBtn to={STATIC_ROUTES.CUSTOMERS}>
             {getADemoBtnText}
           </GetADemoBtn>

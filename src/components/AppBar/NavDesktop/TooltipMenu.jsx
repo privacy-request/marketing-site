@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
-import { NavItem } from "../utils/typography";
+import styled, { withTheme } from "styled-components";
+import { NavItem } from "../../typography";
 
 const NavItemWithTooltip = styled(NavItem)`
   margin-right: ${({ theme }) => theme.spacing.nav_items};
@@ -20,7 +20,7 @@ const Title = styled.span`
 const Tooltip = styled.div`
   position: absolute;
   left: 50%;
-  top: 4.1rem;
+  top: 5rem;
   transition: all 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.05s;
   transform: translateY(3rem) translateX(-50%);
   visibility: hidden;
@@ -71,8 +71,8 @@ const TooltipTriangle = styled.div`
   }
 `;
 
-const NavTooltip = ({ title, pages, path }) => (
-  <NavItemWithTooltip bold>
+const TooltipMenu = ({ title, pages, path, theme }) => (
+  <NavItemWithTooltip fontSize={theme.font_size.link.small} bold>
     <Title>{title}</Title>
     <Tooltip>
       <TooltipContent>
@@ -91,4 +91,4 @@ const NavTooltip = ({ title, pages, path }) => (
   </NavItemWithTooltip>
 );
 
-export default NavTooltip;
+export default withTheme(TooltipMenu);

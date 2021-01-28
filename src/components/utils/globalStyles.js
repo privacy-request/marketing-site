@@ -13,7 +13,7 @@ export default createGlobalStyle`
         // 1 rem = 10px; 10px/16px = 62.5%
         font-size: 62.5%;
         color: ${({ theme }) => theme.colour.grey.dark};
-
+        letter-spacing: .12rem;
         @font-face {
             font-family: "alliance-no-1";
             src: url("/fonts/AllianceNo1-Light.otf");
@@ -26,6 +26,9 @@ export default createGlobalStyle`
             font-weight: bold;
         }
         font-family: "alliance-no-1";
+        ul {
+            list-style: none;
+        }
     }
 
 `;
