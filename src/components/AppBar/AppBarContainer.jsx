@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import styled from "styled-components";
 import { SCREEN_SIZES } from "../utils/constants";
@@ -30,7 +30,17 @@ const Content = styled.div`
   max-width: ${({ theme }) => theme.dimensions.site_max_width};
 `;
 
-const AppBarContainer = ({ children, scrolled }) => {
+const AppBarContainer = ({ children }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    setScrolled(offset > 1);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
   return (
     <Container scrolled={scrolled}>
       <Content>{children}</Content>
