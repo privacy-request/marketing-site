@@ -1,10 +1,39 @@
 {
   "Main": {
-    "document_description": {
+    "page_name": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Document description"
+        "single": "heading1",
+        "label": "Page name"
+      }
+    },
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Page title"
+      }
+    },
+    "page_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Page description"
+      }
+    },
+    "page_keywords": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "keyword": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "keyword"
+            }
+          }
+        },
+        "label": "Page keywords"
       }
     },
     "headline": {
@@ -59,6 +88,14 @@
         "label": "Customer logos"
       }
     },
+    "product_over_section_background": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "product overview section background"
+      }
+    },
     "add_book_a_demo_section": {
       "type": "Boolean",
       "config": {
@@ -86,25 +123,25 @@
             "icon": "art_track",
             "display": "list",
             "non-repeat": {
-              "section_headline": {
+              "heading": {
                 "type": "StructuredText",
                 "config": {
                   "single": "heading3",
-                  "label": "Section Headline"
+                  "label": "heading"
                 }
               },
-              "section_subheadline": {
+              "subheading": {
                 "type": "StructuredText",
                 "config": {
                   "single": "heading4",
-                  "label": "Section subheadline"
+                  "label": "subheading"
                 }
               },
-              "section_paragraph": {
+              "paragraph": {
                 "type": "StructuredText",
                 "config": {
                   "single": "paragraph",
-                  "label": "section paragraph"
+                  "label": "paragraph"
                 }
               },
               "learn_more_route": {
@@ -113,15 +150,15 @@
                   "label": "Learn More Route"
                 }
               },
-              "section_icon": {
+              "icon": {
                 "type": "Image",
                 "config": {
                   "constraint": {},
                   "thumbnails": [],
-                  "label": "Section Icon"
+                  "label": "icon"
                 }
               },
-              "section_illustration": {
+              "illustration": {
                 "type": "Image",
                 "config": {
                   "constraint": {},
@@ -132,23 +169,7 @@
                       "height": 500
                     }
                   ],
-                  "label": "Section illustration"
-                }
-              },
-              "section_background_colour": {
-                "type": "Select",
-                "config": {
-                  "options": ["None", "Dark", "Yellow", "Blue"],
-                  "default_value": "None",
-                  "label": "Section background colour"
-                }
-              },
-              "section_background_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Section background image"
+                  "label": "Illustration"
                 }
               }
             },

@@ -28,9 +28,10 @@ const SubItems = styled.ul`
 
   ${({ isOpen }) =>
     isOpen &&
-    `
+    `  
     max-height: 1000px;
     transition: max-height 0.2s cubic-bezier(1, 0, 1, 0);
+    margin-bottom: .7rem;
   `}
   height: auto;
 `;

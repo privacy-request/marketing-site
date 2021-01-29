@@ -1,7 +1,24 @@
+const website = require("./config/website");
+
+const pathPrefix = website.pathPrefix === "/" ? "" : website.pathPrefix;
+
 module.exports = {
+  /* General Information */
+  pathPrefix: website.pathPrefix,
   siteMetadata: {
-    title: "marketing-site",
+    siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
+    pathPrefix,
+    title: website.title,
+    titleAlt: website.titleAlt,
+    description: website.description,
+    banner: website.logo,
+    siteLanguage: website.siteLanguage,
+    ogLanguage: website.ogLanguage,
+    twitter: website.twitter,
+    facebook: website.facebook,
   },
+
+  /* Plugins */
   plugins: [
     "gatsby-plugin-styled-components",
     {
@@ -13,16 +30,28 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: "gatsby-source-prismic",
       options: {
-        repositoryName: 'pr-marketing-site',
-        accessToken: 'MC5YXzBrLXhFQUFDRUFiTDVK.77-977-977-977-9QO-_vVvvv70277-9Ge-_vVnvv71HXe-_vRYjZO-_vSzvv73vv70vXu-_vVEuZ1xQ',
+        repositoryName: "pr-marketing-site",
+        accessToken: website.prismicAccessToken,
         schemas: {
           homepage: require("./src/schemas/homepage.json"),
           navigation_bar: require("./src/schemas/navigation_bar.json"),
           product_page: require("./src/schemas/product_page.json"),
         },
-
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: website.title,
+        short_name: website.titleAlt,
+        description: website.description,
+        start_url: website.pathPrefix,
+        background_color: website.backgroundColor,
+        theme_color: website.themeColor,
+        display: "standalone",
+        icon: website.favicon,
       },
     },
   ],
