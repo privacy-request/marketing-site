@@ -65,6 +65,14 @@
         "label": "Call to action"
       }
     },
+    "call_to_action_icon": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Call to action icon"
+      }
+    },
     "customers_headline": {
       "type": "StructuredText",
       "config": {

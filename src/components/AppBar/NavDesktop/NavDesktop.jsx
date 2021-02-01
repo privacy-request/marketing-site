@@ -1,34 +1,15 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled, { withTheme } from "styled-components";
-import { NavItem } from "../../typography";
+import styled from "styled-components";
+import { DesktopNavItem, DesktopNavDemo, CallToAction } from "../../typography";
 import { STATIC_ROUTES } from "../../utils/constants";
 import TooltipMenu from "./TooltipMenu";
 
-const Nav = styled.nav``;
-
 const NavLink = styled(Link)`
-  margin-right: ${({ theme }) => theme.spacing.nav_items};
-  ${NavItem}:hover & {
-    opacity: ${({ theme }) => theme.text_decoration.opacity};
-  }
+  margin-right: ${({ theme }) => theme.spacing.navItems};
 `;
 
-const GetADemoBtn = styled(Link)`
-  color: ${({ theme }) => theme.colour.blue.dark};
-  text-decoration: none;
-  border: 2px solid ${({ theme }) => theme.colour.blue.dark};
-  border-radius: 4rem;
-  box-sizing: border-box;
-  height: 4.8rem;
-  width: 14.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`;
-
-const NavUL = styled.ul`
+const NavList = styled.ul`
   display: flex;
   align-items: center;
 `;
@@ -39,35 +20,26 @@ const NavDesktop = ({
   productPages,
   customersPageNavText,
   path,
-  theme,
 }) => {
   return (
-    <Nav>
-      <NavUL>
+    <nav>
+      <NavList>
         <TooltipMenu
           title={productPagesNavText}
           pages={productPages}
           path={path}
         />
-        <NavItem
-          fontSize={theme.font_size.link.small}
-          active={path === STATIC_ROUTES.CUSTOMERS}
-          bold
-        >
+        <DesktopNavItem>
           <NavLink to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</NavLink>
-        </NavItem>
-        <NavItem
-          bold
-          colour={theme.colour.blue.dark}
-          fontSize={theme.font_size.link.small}
-        >
-          <GetADemoBtn to={STATIC_ROUTES.CUSTOMERS}>
+        </DesktopNavItem>
+        <DesktopNavItem>
+          <CallToAction inverted to={STATIC_ROUTES.CALENDAR}>
             {getADemoBtnText}
-          </GetADemoBtn>
-        </NavItem>
-      </NavUL>
-    </Nav>
+          </CallToAction>
+        </DesktopNavItem>
+      </NavList>
+    </nav>
   );
 };
 
-export default withTheme(NavDesktop);
+export default NavDesktop;

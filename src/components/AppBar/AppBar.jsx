@@ -5,23 +5,11 @@ import AppBarContainer from "./AppBarContainer";
 import Logo from "./Logo";
 import NavDesktop from "./NavDesktop/NavDesktop";
 import NavMobile from "./NavMobile/NavMobile";
+import ScreenSize from "../utils/ScreenSize";
 
 const AppBar = ({ path }) => {
   const data = useStaticQuery(query);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const handleWindowResize = () => {
-    const mobileThresholdMet = window.innerWidth < SCREEN_SIZES.TABLET;
-    mobileThresholdMet !== isMobile && setIsMobile(mobileThresholdMet);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-    handleWindowResize();
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  });
+  const isMobile = ScreenSize();
 
   const {
     product_pages_nav,
@@ -39,7 +27,7 @@ const AppBar = ({ path }) => {
   const homepageNavText = homepage_nav.text;
 
   const productPages = data.allPrismicProductPage.edges.map((page) => {
-    const url = page.node.uuid;
+    const url = page.node.uid;
     const title = page.node.data.page_title.text;
     return { url, title };
   });

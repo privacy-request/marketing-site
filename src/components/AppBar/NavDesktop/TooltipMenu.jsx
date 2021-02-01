@@ -1,20 +1,15 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled, { withTheme } from "styled-components";
-import { NavItem } from "../../typography";
+import styled from "styled-components";
+import { DesktopNavItem, DesktopNavSubitem } from "../../typography";
 
-const NavItemWithTooltip = styled(NavItem)`
-  margin-right: ${({ theme }) => theme.spacing.nav_items};
+const TooltipWrapper = styled.ul`
+  margin-right: ${({ theme }) => theme.spacing.navItems};
   position: relative;
 `;
 
-const NavLink = styled(Link)``;
-
-const Title = styled.span`
+const Title = styled(DesktopNavItem)`
   cursor: default;
-  ${NavItemWithTooltip}:hover & {
-    opacity: ${({ theme }) => theme.text_decoration.opacity};
-  }
 `;
 
 const Tooltip = styled.div`
@@ -26,7 +21,8 @@ const Tooltip = styled.div`
   visibility: hidden;
   opacity: 0;
   background: ${({ theme }) => theme.colour.white};
-  ${NavItemWithTooltip}:hover & {
+  z-index: 1;
+  ${TooltipWrapper}:hover & {
     visibility: visible;
     opacity: 1;
     transform: translateY(0) translateX(-50%);
@@ -37,23 +33,20 @@ const TooltipContent = styled.ul`
   border: 1px solid rgba(227, 227, 227, 0.5);
   border-radius: 4px;
   box-shadow: 0px 12px 28px rgba(32, 53, 70, 0.11);
-  padding: 2rem;
+  padding: 1.5rem 2rem;
 `;
 
-const TooltipNavItem = styled(NavItem)`
+const TooltipTypography = styled(DesktopNavSubitem)`
   display: flex;
   justify-content: flex-start;
   white-space: nowrap;
   cursor: pointer;
-  :hover {
-    opacity: ${({ theme }) => theme.text_decoration.opacity};
-  }
 `;
 
 const TooltipTriangle = styled.div`
   position: absolute;
   top: -2.5rem;
-  left: 0px;
+  left: 0;
   width: 100%;
   height: 3.5rem;
 
@@ -71,24 +64,24 @@ const TooltipTriangle = styled.div`
   }
 `;
 
-const TooltipMenu = ({ title, pages, path, theme }) => (
-  <NavItemWithTooltip fontSize={theme.font_size.link.small} bold>
-    <Title>{title}</Title>
+const TooltipMenu = ({ title, pages, path }) => (
+  <TooltipWrapper>
+    <Title as="div">{title}</Title>
     <Tooltip>
       <TooltipContent>
         {pages.map((page, index) => (
-          <TooltipNavItem
+          <TooltipTypography
             key={`page-${page.url}`}
             active={path === page.url}
             isLastChild={index + 1 === pages.length}
           >
-            <NavLink to={page.url}>{page.title}</NavLink>
-          </TooltipNavItem>
+            <Link to={page.url}>{page.title}</Link>
+          </TooltipTypography>
         ))}
       </TooltipContent>
       <TooltipTriangle />
     </Tooltip>
-  </NavItemWithTooltip>
+  </TooltipWrapper>
 );
 
-export default withTheme(TooltipMenu);
+export default TooltipMenu;

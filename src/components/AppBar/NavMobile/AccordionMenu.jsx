@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styled, { withTheme } from "styled-components";
-import { NavItem } from "../../typography";
+import styled from "styled-components";
+import { MobileNavSubitem } from "../../typography";
 import { Link } from "gatsby";
 
 const Container = styled.div`
@@ -36,7 +36,7 @@ const SubItems = styled.ul`
   height: auto;
 `;
 
-const AccordionMenu = ({ title, pages, theme, parentMenuOpen }) => {
+const AccordionMenu = ({ title, pages, parentMenuOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   !parentMenuOpen && isOpen && setIsOpen(false);
@@ -49,16 +49,13 @@ const AccordionMenu = ({ title, pages, theme, parentMenuOpen }) => {
       </Title>
       <SubItems isOpen={isOpen}>
         {pages.map((page) => (
-          <NavItem
-            fontSize={theme.font_size.link.medium}
-            colour={theme.colour.white}
-          >
+          <MobileNavSubitem>
             <Link to={page.url}>{page.title}</Link>
-          </NavItem>
+          </MobileNavSubitem>
         ))}
       </SubItems>
     </Container>
   );
 };
 
-export default withTheme(AccordionMenu);
+export default AccordionMenu;

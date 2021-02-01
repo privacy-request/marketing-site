@@ -1,4 +1,4 @@
-import { typographyThemes } from "../typography";
+import { typographyTheme } from "../typography";
 
 export default Object.assign(
   {
@@ -30,14 +30,18 @@ export default Object.assign(
       },
     },
     spacing: {
-      page_horizontal: "3rem",
-      nav_items: "3.7rem",
+      pageHorizontal: "5rem",
+      navItems: "3.7rem",
     },
     dimensions: {
-      site_max_width: "124rem",
-      app_bar_height: "10rem",
-      app_bar_height_mobile: "7.9rem",
+      siteMaxWidth: "124rem",
+      appBarHeight: "10rem",
+      appBarHeightMobile: "7.9rem",
+      callToActionHeight: "4.8rem",
+    },
+    borderRadius: {
+      button: "4rem",
     },
   },
-  typographyThemes
+  typographyTheme
 );

@@ -5,9 +5,12 @@ import { STATIC_ROUTES } from "../utils/constants";
 
 const LogoIcon = styled.img`
   margin-right: 1.4rem;
+  padding-bottom: 2px;
 `;
 
-const LogoText = styled.img``;
+const LogoText = styled.img`
+  height: 2.4rem;
+`;
 
 const Logo = ({ logoIconUrl, logoTextUrl }) => (
   <Link to={STATIC_ROUTES.HOME}>
