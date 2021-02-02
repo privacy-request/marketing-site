@@ -10,6 +10,17 @@ const HomepageContainer = styled.div`
   max-width: 114rem;
 `;
 
+const ProductSectionBackground = styled.img`
+  position: absolute;
+  max-width: 144rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+`;
+
+const ProductSectionContainer = styled.div``;
+
 const HomePage = ({ path, data }) => {
   const {
     customerLogos,
@@ -34,13 +45,16 @@ const HomePage = ({ path, data }) => {
           headline={customerHeadline.text}
           logos={customerLogos}
         />
+        <ProductSectionContainer>
+          <ProductSectionBackground src={productSectionBackground.url} />
+        </ProductSectionContainer>
       </HomepageContainer>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query MyQuery {
+  query HomepageQuery {
     homepage: allPrismicHomepage {
       edges {
         node {

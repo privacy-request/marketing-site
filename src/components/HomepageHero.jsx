@@ -2,25 +2,29 @@ import React from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import { HomepageHeadline, Paragraph, CallToAction } from "./typography";
-import { STATIC_ROUTES } from "./utils/constants";
+import { STATIC_ROUTES, SCREEN_SIZES } from "./utils/constants";
 import ScreenSize from "./utils/ScreenSize";
 
 const HeroContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3.9rem;
+  margin-bottom: 8.7rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-bottom: 3.9rem;
+  }
 `;
 
 const Header = styled.header`
-  margin: ${({ isMobile }) =>
-    !isMobile ? "1.4rem 0rem 0 auto" : "1.4rem 3rem 0 0"};
+  margin: 4.5rem 0rem 0 auto;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin: 2.4rem 3rem 0 0;
+  }
   max-width: 55rem;
 `;
 
 const HeroArt = styled.img`
   width: 100%;
   position: absolute;
-  top: -12px;
   right: -52px;
 `;
 
@@ -32,6 +36,12 @@ const HeroArtContainer = styled.div`
 
 const Icon = styled.img`
   margin-right: 1.2rem;
+`;
+
+const Subheadline = styled(Paragraph)`
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-bottom: 3.2rem;
+  }
 `;
 
 const HomepageHero = () => {
@@ -46,10 +56,10 @@ const HomepageHero = () => {
 
   const isMobile = ScreenSize();
   return (
-    <HeroContainer>
+    <HeroContainer isMobile={isMobile}>
       <Header isMobile={isMobile}>
         <HomepageHeadline>{headline.text}</HomepageHeadline>
-        <Paragraph>{subheadline.text}</Paragraph>
+        <Subheadline isMobile={isMobile}>{subheadline.text}</Subheadline>
         <CallToAction to={STATIC_ROUTES.CALENDAR}>
           <Icon src={callToActionIcon.url} />
           {callToAction.text}
