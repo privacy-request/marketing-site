@@ -6,7 +6,7 @@ module.exports = {
     "Privacy Request provides data privacy solutions for companies to help them comply with emerging laws such as CCPA, GDPR.",
   url: "https://privacyrequest.com", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
-  logo: "/Logo.jpg", // Used for SEO
+  logo: "/logo-icon.png", // Used for SEO
   ogLanguage: "en_US", // Facebook Language
 
   // JSONLD / Manifest
