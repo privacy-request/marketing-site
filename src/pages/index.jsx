@@ -1,21 +1,23 @@
 import * as React from "react";
+import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO/SEO";
 import HomepageHero from "../components/HomepageHero";
+import TrustedCustomers from "../components/TrustedCustomers";
+
+const HomepageContainer = styled.div`
+  margin-left: auto;
+  max-width: 114rem;
+`;
 
 const HomePage = ({ path, data }) => {
   const {
-    callToAction,
-    callToActionIcon,
     customerLogos,
     customerHeadline,
-    headline,
-    heroArt,
     description,
     keywords,
     title,
     productSectionBackground,
-    subheadline,
   } = data.homepage.edges[0].node.data;
   const keywordsString = keywords.map((word) => word.keyword.text).join(",");
   return (
@@ -26,13 +28,13 @@ const HomePage = ({ path, data }) => {
         path={path}
         keywords={keywordsString}
       />
-      <HomepageHero
-        callToActionText={callToAction.text}
-        callToActionIcon={callToActionIcon}
-        headline={headline.text}
-        heroArt={heroArt}
-        subheadline={subheadline.text}
-      />
+      <HomepageContainer>
+        <HomepageHero />
+        <TrustedCustomers
+          headline={customerHeadline.text}
+          logos={customerLogos}
+        />
+      </HomepageContainer>
     </Layout>
   );
 };
@@ -43,12 +45,6 @@ export const query = graphql`
       edges {
         node {
           data {
-            callToAction: call_to_action {
-              text
-            }
-            callToActionIcon: call_to_action_icon {
-              url
-            }
             customerLogos: customer_logos {
               logo {
                 url
@@ -57,13 +53,6 @@ export const query = graphql`
             }
             customerHeadline: customers_headline {
               text
-            }
-            headline {
-              text
-            }
-            heroArt: hero_art {
-              url
-              alt
             }
             description: page_description {
               text
@@ -78,9 +67,6 @@ export const query = graphql`
             }
             productSectionBackground: product_over_section_background {
               url
-            }
-            subheadline {
-              text
             }
           }
         }

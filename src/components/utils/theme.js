@@ -30,7 +30,7 @@ export default Object.assign(
       },
     },
     spacing: {
-      pageHorizontal: "5rem",
+      pageHorizontal: "3rem",
       navItems: "3.7rem",
     },
     dimensions: {
