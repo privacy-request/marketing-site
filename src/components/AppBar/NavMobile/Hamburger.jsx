@@ -8,7 +8,7 @@ const ThreeLines = styled.div`
   padding: 0px;
   margin: 10px;
   cursor: pointer;
-  transition: all 300ms ease;
+  transition: all 200ms ease;
   ${({ active }) => active && "transform: rotate(360deg)"};
 `;
 

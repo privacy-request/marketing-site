@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import { HomepageHeadline, Paragraph, CallToAction } from "./typography";
+import { STATIC_ROUTES } from "./utils/constants";
 import ScreenSize from "./utils/ScreenSize";
 
 const HeroContainer = styled.div`
@@ -49,7 +50,7 @@ const HomepageHero = () => {
       <Header isMobile={isMobile}>
         <HomepageHeadline>{headline.text}</HomepageHeadline>
         <Paragraph>{subheadline.text}</Paragraph>
-        <CallToAction>
+        <CallToAction to={STATIC_ROUTES.CALENDAR}>
           <Icon src={callToActionIcon.url} />
           {callToAction.text}
         </CallToAction>

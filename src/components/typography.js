@@ -108,6 +108,10 @@ export const CallToAction = styled(Link)`
   justify-content: center;
   width: fit-content;
   padding: 0 2.4rem;
+  transition: transform 0.1s ease 0s;
+  :active {
+    transform: translateY(1px);
+  }
 `;
 
 export const Paragraph = styled.p`
