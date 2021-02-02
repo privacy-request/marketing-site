@@ -24,7 +24,7 @@ export default createGlobalStyle`
             src: url("/fonts/AllianceNo1-Bold.ttf");
             font-weight: bold;
         }
-        font-family: "alliance-no-1";
+        font-family: "alliance-no-1", sans-serif;
         ul {
             list-style: none;
         }

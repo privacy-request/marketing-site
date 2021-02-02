@@ -11,7 +11,7 @@ module.exports = {
     title: website.title,
     titleAlt: website.titleAlt,
     description: website.description,
-    banner: website.logo,
+    banner: website.banner,
     siteLanguage: website.siteLanguage,
     ogLanguage: website.ogLanguage,
     twitter: website.twitter,
