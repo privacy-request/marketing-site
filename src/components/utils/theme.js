@@ -29,15 +29,40 @@ export default Object.assign(
         },
       },
     },
-    spacing: {
-      pageHorizontal: "3rem",
-      navItems: "3.7rem",
+    width: {
+      site: "144rem",
+      section: "120rem",
+      sectionColumLg: "70rem",
+      sectionColum: "49rem",
+      heroHeadline: "49rem",
     },
-    dimensions: {
-      siteMaxWidth: "124rem",
-      appBarHeight: "10rem",
-      appBarHeightMobile: "7.9rem",
-      callToActionHeight: "4.8rem",
+    padding: {
+      site: "3rem",
+    },
+    margin: {
+      navItemDesktop: "3.7rem",
+      homepageHero: {
+        desktop: "0 0 8.7rem auto",
+        mobile: "1.2rem 0 3.9rem 0",
+      },
+      homepageHeader: "4.5rem",
+      homepageSections: "0rem",
+      customerLogos: {
+        desktop: "4.2rem",
+        mobile: "3.2rem",
+      },
+      paragraph: "2.8rem",
+      homepageHeadline: {
+        desktop: "4.5rem",
+        mobile: "1rem",
+      },
+    },
+    height: {
+      appBar: {
+        desktop: "10rem",
+        mobile: "7.9rem",
+      },
+      callToAction: "4.8rem",
     },
     borderRadius: {
       button: "4rem",

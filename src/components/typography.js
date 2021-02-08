@@ -4,7 +4,7 @@ import { SCREEN_SIZES } from "./utils/constants";
 
 const fontSize = {
   paragraph: {
-    small: "1.8rem",
+    small: "1.6rem",
     medium: "2rem",
     large: "2.4rem",
   },
@@ -15,6 +15,7 @@ const fontSize = {
     large: "2.4rem",
   },
   header: {
+    xsmall: "1.5rem",
     small: "3.2rem",
     medium: "4rem",
     large: "5.6rem",
@@ -75,6 +76,8 @@ export const MobileNavSubitem = styled(MobileNavItem)`
 // Homepage
 export const HomepageHeadline = styled.h1`
   font-size: ${fontSize.header.xlarge};
+  line-height: ${lineHeight.xlarge};
+  width: ${({ theme: { width } }) => width.heroHeadline};
   background: linear-gradient(
     92.13deg,
     #009dff 3.73%,
@@ -85,10 +88,13 @@ export const HomepageHeadline = styled.h1`
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  margin-bottom: 1.2rem;
+  margin-bottom: ${({ theme: { margin } }) => margin.homepageHeadline.desktop};
 
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.header.small};
+    line-height: ${lineHeight.medium};
+    margin-bottom: ${({ theme: { margin } }) => margin.homepageHeadline.mobile};
+    width: 100%;
   }
 `;
 
@@ -102,7 +108,7 @@ export const CallToAction = styled(Link)`
     inverted ? theme.colour.white : theme.colour.blue.dark};
   border: 2px solid ${({ theme }) => theme.colour.blue.dark};
   border-radius: ${({ theme }) => theme.borderRadius.button};
-  height: 4.8rem;
+  height: ${({ theme: { height } }) => height.callToAction};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,5 +122,27 @@ export const CallToAction = styled(Link)`
 
 export const Paragraph = styled.p`
   font-size: ${fontSize.paragraph.medium};
-  margin-bottom: 2.8rem;
+  margin-bottom: ${({ theme: { margin } }) => margin.paragraph};
+
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.small};
+  }
+`;
+
+export const Header = styled.h2`
+  font-size: ${fontSize.header.large};
+  margin-bottom: ${({ theme: { margin } }) => margin.HomepageHeadline};
+
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.header.small};
+    margin-bottom: 0.4rem;
+    line-height: ${lineHeight.medium};
+  }
+`;
+
+export const Subheader = styled.h3`
+  font-size: ${fontSize.header.xsmall};
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-bottom: 0.8rem;
+  }
 `;

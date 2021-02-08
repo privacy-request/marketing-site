@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { DesktopNavItem, DesktopNavSubitem } from "../../typography";
 
 const TooltipWrapper = styled.ul`
-  margin-right: ${({ theme }) => theme.spacing.navItems};
+  margin-right: ${({ theme: { margin } }) => margin.navItemDesktop};
   position: relative;
 `;
 

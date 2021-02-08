@@ -3,34 +3,38 @@ import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import { HomepageHeadline, Paragraph, CallToAction } from "./typography";
 import { STATIC_ROUTES, SCREEN_SIZES } from "./utils/constants";
-import ScreenSize from "./utils/ScreenSize";
+import Image from "./Image";
+import isMobileScreen from "./utils/isMobileScreen";
 
 const HeroContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8.7rem;
+  margin: ${({ theme: { margin } }) => margin.homepageHero.desktop};
+  max-width: ${({ theme: { width } }) => width.section};
+  margin-left: auto;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    margin-bottom: 3.9rem;
+    margin: ${({ theme: { margin } }) => margin.homepageHero.mobile};
   }
 `;
 
 const Header = styled.header`
-  margin: 4.5rem 0rem 0 auto;
-  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    margin: 2.4rem 3rem 0 0;
+  margin-top: ${({ theme: { margin } }) => margin.homepageHeader};
+  margin-left: ${({ theme: { margin } }) => margin.homepageSections};
+  max-width: ${({ theme }) => theme.width.sectionColum};
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-top: 0;
   }
-  max-width: 55rem;
 `;
 
-const HeroArt = styled.img`
-  width: 100%;
+const HeroArt = styled(Image)`
+  top: -10rem;
+  left: -7rem;
+  z-index: -1;
   position: absolute;
-  right: -52px;
 `;
 
 const HeroArtContainer = styled.div`
-  width: 100%;
-  max-width: 60rem;
+  width: ${({ theme }) => theme.width.sectionColumLg};
   position: relative;
 `;
 
@@ -53,8 +57,7 @@ const HomepageHero = () => {
     heroArt,
     subheadline,
   } = data.homepage.edges[0].node.data;
-
-  const isMobile = ScreenSize();
+  const isMobile = isMobileScreen();
   return (
     <HeroContainer isMobile={isMobile}>
       <Header isMobile={isMobile}>
@@ -67,7 +70,7 @@ const HomepageHero = () => {
       </Header>
       {!isMobile && (
         <HeroArtContainer>
-          <HeroArt src={heroArt.url} />
+          <HeroArt image={heroArt} />
         </HeroArtContainer>
       )}
     </HeroContainer>
@@ -92,6 +95,10 @@ const query = graphql`
             heroArt: hero_art {
               url
               alt
+              dimensions {
+                height
+                width
+              }
             }
             subheadline {
               text

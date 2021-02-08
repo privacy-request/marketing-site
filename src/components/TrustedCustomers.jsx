@@ -3,8 +3,13 @@ import styled from "styled-components";
 import { Paragraph } from "./typography";
 import { SCREEN_SIZES } from "./utils/constants";
 
-const TrustedCustomersWrapper = styled.div`
-  text-align: center;
+const TrustedCustomersWrapper = styled.section`
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    text-align: center;
+  }
+  max-width: ${({ theme: { width } }) => width.section};
+  margin-left: auto;
+  margin-bottom: 6.2rem;
 `;
 
 const Logos = styled.div`
@@ -12,9 +17,9 @@ const Logos = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-top: 4.2rem;
+  margin-top: ${({ theme: { margin } }) => margin.customerLogos.desktop};
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    margin-top: 3.2rem;
+    margin-top: ${({ theme: { margin } }) => margin.customerLogos.mobile};
   }
 `;
 
@@ -25,12 +30,16 @@ const Logo = styled.img`
   margin: 1.2rem;
 `;
 
+const CustomersHeadline = styled(Paragraph)`
+  margin-left: ${({ theme: { margin } }) => margin.homepageSections};
+`;
+
 const TrustedCustomers = ({ headline, logos }) => (
   <TrustedCustomersWrapper>
-    <Paragraph>{headline}</Paragraph>
+    <CustomersHeadline>{headline}</CustomersHeadline>
     <Logos>
       {logos.map((logo) => (
-        <Logo src={logo.logo.url} />
+        <Logo key={`logo-${logo.logo.url}`} src={logo.logo.url} />
       ))}
     </Logos>
   </TrustedCustomersWrapper>

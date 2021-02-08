@@ -4,22 +4,13 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO/SEO";
 import HomepageHero from "../components/HomepageHero";
 import TrustedCustomers from "../components/TrustedCustomers";
+import HomepageProducts from "../components/HomepageProducts";
 
-const HomepageContainer = styled.div`
-  margin-left: auto;
-  max-width: 114rem;
+const MarginWrapper = styled.div`
+  margin: auto;
+  max-width: ${({ theme: { width } }) => width.site};
+  padding: 0 ${({ theme: { padding } }) => padding.site};
 `;
-
-const ProductSectionBackground = styled.img`
-  position: absolute;
-  max-width: 144rem;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-`;
-
-const ProductSectionContainer = styled.div``;
 
 const HomePage = ({ path, data }) => {
   const {
@@ -28,7 +19,6 @@ const HomePage = ({ path, data }) => {
     description,
     keywords,
     title,
-    productSectionBackground,
   } = data.homepage.edges[0].node.data;
   const keywordsString = keywords.map((word) => word.keyword.text).join(",");
   return (
@@ -39,16 +29,14 @@ const HomePage = ({ path, data }) => {
         path={path}
         keywords={keywordsString}
       />
-      <HomepageContainer>
+      <MarginWrapper>
         <HomepageHero />
         <TrustedCustomers
           headline={customerHeadline.text}
           logos={customerLogos}
         />
-        <ProductSectionContainer>
-          <ProductSectionBackground src={productSectionBackground.url} />
-        </ProductSectionContainer>
-      </HomepageContainer>
+      </MarginWrapper>
+      <HomepageProducts />
     </Layout>
   );
 };

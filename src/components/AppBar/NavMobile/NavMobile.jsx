@@ -8,10 +8,10 @@ import AccordionMenu from "./AccordionMenu";
 
 const MobileMenu = styled.ul`
   position: absolute;
-  height: calc(100vh - ${({ theme }) => theme.dimensions.appBarHeight});
+  height: calc(100vh - ${({ theme: { height } }) => height.appBar.desktop});
   width: 100vw;
   background: ${({ theme }) => theme.colour.blue.dark};
-  top: ${({ theme }) => theme.dimensions.appBarHeight};
+  top: ${({ theme: { height } }) => height.appBar.desktop};
   left: 0;
   z-index: 1;
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0.5")};
@@ -20,14 +20,14 @@ const MobileMenu = styled.ul`
   transform: scale(${({ isOpen }) => (isOpen ? "1" : "0")}, 1);
 
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    top: ${({ theme }) => theme.dimensions.appBarHeightMobile};
-    height: calc(100vh - ${({ theme }) => theme.dimensions.appBarHeightMobile});
+    top: ${({ theme: { height } }) => height.appBar.mobile};
+    height: calc(100vh - ${({ theme: { height } }) => height.appBar.mobile});
     transition: all 0.25s cubic-bezier(0, 1, 0, 1);
   }
 `;
 
 const MobileMenuList = styled.ul`
-  padding: 2.8rem ${({ theme }) => theme.spacing.pageHorizontal};
+  padding: 2.8rem ${({ theme: { padding } }) => padding.site};
 `;
 
 const NavMobile = ({

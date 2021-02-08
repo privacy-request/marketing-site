@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { SCREEN_SIZES } from "../utils/constants";
 import AppBarContainer from "./AppBarContainer";
 import Logo from "./Logo";
 import NavDesktop from "./NavDesktop/NavDesktop";
 import NavMobile from "./NavMobile/NavMobile";
-import ScreenSize from "../utils/ScreenSize";
+import isMobileScreen from "../utils/isMobileScreen";
 
 const AppBar = ({ path }) => {
   const data = useStaticQuery(query);
-  const isMobile = ScreenSize();
+  const isMobile = isMobileScreen();
 
   const {
     product_pages_nav,

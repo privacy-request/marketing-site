@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import { DesktopNavItem, DesktopNavDemo, CallToAction } from "../../typography";
+import { DesktopNavItem, CallToAction } from "../../typography";
 import { STATIC_ROUTES } from "../../utils/constants";
 import TooltipMenu from "./TooltipMenu";
 
 const NavLink = styled(Link)`
-  margin-right: ${({ theme }) => theme.spacing.navItems};
+  margin-right: ${({ theme: { margin } }) => margin.navItemDesktop};
 `;
 
 const NavList = styled.ul`
@@ -33,7 +33,7 @@ const NavDesktop = ({
           <NavLink to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</NavLink>
         </DesktopNavItem>
         <DesktopNavItem>
-          <CallToAction inverted to={STATIC_ROUTES.CALENDAR}>
+          <CallToAction inverted="true" to={STATIC_ROUTES.CALENDAR}>
             {getADemoBtnText}
           </CallToAction>
         </DesktopNavItem>

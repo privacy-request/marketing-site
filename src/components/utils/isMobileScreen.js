@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SCREEN_SIZES } from "./constants";
 
-const ScreenSize = () => {
+const IsMobileScreen = () => {
   const [isMobile, setIsMobile] = useState(false);
   const handleWindowResize = () => {
     const mobileThresholdMet = window.innerWidth < SCREEN_SIZES.LAPTOP;
@@ -19,4 +19,4 @@ const ScreenSize = () => {
   return isMobile;
 };
 
-export default ScreenSize;
+export default IsMobileScreen;
