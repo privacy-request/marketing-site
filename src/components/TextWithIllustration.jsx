@@ -60,7 +60,7 @@ const TextWithIllustration = ({
         <Paragraph>{paragraph.text}</Paragraph>
         <CallToAction to={route}>Learn More</CallToAction>
       </TextContainer>
-      <Illustration {...(isMobile ? mobileProps : desktopProps)} />
+      <Illustration {...(isMobileScreen() ? mobileProps : desktopProps)} />
     </>
   );
 };

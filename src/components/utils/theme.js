@@ -20,7 +20,7 @@ export default Object.assign(
           blue:
             "linear-gradient(92.13deg, #009DFF 3.73%, #6BCBFF 60.51%, #8FD8FF 86.59%)",
         },
-        backgrounds: {
+        background: {
           light:
             "linear-gradient(360deg, #FFFFFF 11.41%, rgba(255, 255, 255, 0) 53.93%)",
           medium: "linear-gradient(183.3deg, #6BCBFF 27.45%, #8FD8FF 95.76%)",
@@ -53,7 +53,7 @@ export default Object.assign(
       },
       paragraph: "2.8rem",
       homepageHeadline: {
-        desktop: "4.5rem",
+        desktop: "1.2rem",
         mobile: "1rem",
       },
     },

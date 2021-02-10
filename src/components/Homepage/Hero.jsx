@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
-import { HomepageHeadline, Paragraph, CallToAction } from "./typography";
-import { STATIC_ROUTES, SCREEN_SIZES } from "./utils/constants";
-import Image from "./Image";
-import isMobileScreen from "./utils/isMobileScreen";
+import { HomepageHeadline, Paragraph, CallToAction } from "../typography";
+import { STATIC_ROUTES, SCREEN_SIZES } from "../utils/constants";
+import Image from "../Image";
+import isMobileScreen from "../utils/isMobileScreen";
 
 const HeroContainer = styled.div`
   display: flex;

@@ -39,6 +39,9 @@ module.exports = {
           navigation_bar: require("./src/schemas/navigation_bar.json"),
           product_page: require("./src/schemas/product_page.json"),
         },
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true;
+        },
       },
     },
     {
@@ -52,6 +55,14 @@ module.exports = {
         theme_color: website.themeColor,
         display: "standalone",
         icon: website.favicon,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/,
+        },
       },
     },
   ],

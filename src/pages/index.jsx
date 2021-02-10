@@ -2,9 +2,9 @@ import * as React from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO/SEO";
-import HomepageHero from "../components/HomepageHero";
+import Hero from "../components/Homepage/Hero";
 import TrustedCustomers from "../components/TrustedCustomers";
-import HomepageProducts from "../components/HomepageProducts";
+import HomepageProducts from "../components/Homepage/Products";
 
 const MarginWrapper = styled.div`
   margin: auto;
@@ -30,7 +30,7 @@ const HomePage = ({ path, data }) => {
         keywords={keywordsString}
       />
       <MarginWrapper>
-        <HomepageHero />
+        <Hero />
         <TrustedCustomers
           headline={customerHeadline.text}
           logos={customerLogos}
