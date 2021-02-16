@@ -1,35 +1,41 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import HomepageProductsBackground1 from "../../../assets/hpProducts1.svg";
-import HomepageProductsBackground2 from "../../../assets/hpProducts2.svg";
+import HomepageProductsBackgroundLeft2 from "../../../assets/hpProductsLeft2.svg";
+import HomepageProductsBackgroundLeft from "../../../assets/hpProductsLeft.svg";
+import HomepageProductsBackgroundRight from "../../../assets/hpProductsRight.svg";
 
 const backgroundStyles = css`
   position: absolute;
-  max-width: 150rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 110%;
-  left: 0;
-  right: 0;
-  top: 40px;
+  top: 0;
+  width: 1440px;
+  height: 100%;
   z-index: 1;
 `;
 
-const Background = styled(HomepageProductsBackground1)`
+const BackgroundLeft = styled(HomepageProductsBackgroundLeft)`
   ${backgroundStyles}
   mix-blend-mode: multiply;
+  top: 50px;
 `;
 
-const Background2 = styled(HomepageProductsBackground2)`
+const BackgroundRight = styled(HomepageProductsBackgroundRight)`
   ${backgroundStyles}
+  mix-blend-mode: multiply;
+  right: 0;
+  top: 30px;
+`;
+
+const BackgroundLeft2 = styled(HomepageProductsBackgroundLeft2)`
+  ${backgroundStyles}
+  top: 500px;
   mix-blend-mode: screen;
 `;
 
 const HomepageBackground = () => (
   <>
-    <Background />
-    <Background2 />
+    <BackgroundLeft />
+    <BackgroundLeft2 />
+    <BackgroundRight />
   </>
 );
 

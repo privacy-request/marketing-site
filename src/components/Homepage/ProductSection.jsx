@@ -5,7 +5,7 @@ import { SCREEN_SIZES } from "../utils/constants";
 
 const sectionStyles = [
   css`
-    height: 78rem;
+    height: 80rem;
     h2 {
       color: ${({ theme }) => theme.colour.blue.dark};
     }
@@ -35,7 +35,6 @@ const sectionStyles = [
 
 const Section = styled.section`
   height: 67.5rem;
-  max-width: ${({ theme: { width } }) => width.site};
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -52,6 +51,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   height: 100%;
   max-width: ${({ theme: { width } }) => width.section};
+  margin: auto;
   margin-left: auto;
   z-index: 10;
 
