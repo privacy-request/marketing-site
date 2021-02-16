@@ -11,19 +11,14 @@ const AppBar = ({ path }) => {
   const isMobile = isMobileScreen();
 
   const {
-    product_pages_nav,
-    customers_page_nav,
-    contact_page_nav,
-    homepage_nav,
-    get_a_demo_button,
-    logo_text,
-    logo_icon,
+    productPagesNav,
+    customersPageNav,
+    contactPageNav,
+    homepageNav,
+    getADemoBtn,
+    logoText,
+    logoIcon,
   } = data.allPrismicNavigationBar.edges[0].node.data;
-  const getADemoBtnText = get_a_demo_button.text;
-  const productPagesNavText = product_pages_nav.text;
-  const customersPageNavText = customers_page_nav.text;
-  const contactPageNavText = contact_page_nav.text;
-  const homepageNavText = homepage_nav.text;
 
   const productPages = data.allPrismicProductPage.edges.map((page) => {
     const url = page.node.uid;
@@ -32,18 +27,20 @@ const AppBar = ({ path }) => {
   });
 
   const navProps = {
-    getADemoBtnText,
-    productPagesNavText,
-    customersPageNavText,
-    contactPageNavText,
-    homepageNavText,
+    getADemoBtnText: getADemoBtn.text,
+    productPagesNavText: productPagesNav.text,
+    customersPageNavText: customersPageNav.text,
+    contactPageNavText: contactPageNav.text,
+    homepageNavText: homepageNav.text,
     productPages,
     path,
   };
 
+  console.log({ logoIcon, logoText });
+
   return (
     <AppBarContainer>
-      <Logo logoIconUrl={logo_icon.url} logoTextUrl={logo_text.url} />
+      <Logo logoIcon={logoIcon} logoText={logoText} />
       {isMobile ? <NavMobile {...navProps} /> : <NavDesktop {...navProps} />}
     </AppBarContainer>
   );
@@ -55,27 +52,35 @@ const query = graphql`
       edges {
         node {
           data {
-            product_pages_nav {
+            productPagesNav: product_pages_nav {
               text
             }
-            get_a_demo_button {
+            getADemoBtn: get_a_demo_button {
               text
             }
-            logo_text {
+            logoText: logo_text {
               url
               alt
+              dimensions {
+                height
+                width
+              }
             }
-            logo_icon {
+            logoIcon: logo_icon {
               url
               alt
+              dimensions {
+                height
+                width
+              }
             }
-            customers_page_nav {
+            customersPageNav: customers_page_nav {
               text
             }
-            homepage_nav {
+            homepageNav: homepage_nav {
               text
             }
-            contact_page_nav {
+            contactPageNav: contact_page_nav {
               text
             }
           }
