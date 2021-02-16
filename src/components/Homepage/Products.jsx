@@ -17,7 +17,12 @@ const HomepageProducts = () => {
     <ProductsWrapper>
       {!isMobile && <Background />}
       {sections.map((section, index) => (
-        <ProductSection index={index} key={index} section={section} />
+        <ProductSection
+          index={index}
+          key={index}
+          section={section}
+          isMobile={isMobile}
+        />
       ))}
     </ProductsWrapper>
   );
@@ -38,6 +43,10 @@ const query = graphql`
                 icon {
                   alt
                   url
+                  dimensions {
+                    height
+                    width
+                  }
                 }
                 desktopIllustration: illustration {
                   url

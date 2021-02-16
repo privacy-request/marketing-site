@@ -36,8 +36,6 @@ const AppBar = ({ path }) => {
     path,
   };
 
-  console.log({ logoIcon, logoText });
-
   return (
     <AppBarContainer>
       <Logo logoIcon={logoIcon} logoText={logoText} />

@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import TextWithIllustration from "../TextWithIllustration";
 import { SCREEN_SIZES } from "../utils/constants";
+import Image from "../Image";
 
 const sectionStyles = [
   css`
@@ -51,7 +52,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   height: 100%;
   max-width: ${({ theme: { width } }) => width.section};
-  margin: auto;
   margin-left: auto;
   z-index: 10;
 
@@ -59,6 +59,8 @@ const Wrapper = styled.div`
     flex-direction: column-reverse;
   }
 `;
+
+const Icon = styled(Image)``;
 
 const Product = ({ index, section }) => {
   return (

@@ -3,11 +3,19 @@ import styled from "styled-components";
 import isMobileScreen from "./utils/isMobileScreen";
 import { Header, Subheader, Paragraph, CallToAction } from "./typography";
 import Illustration from "./Illustration";
+import Image from "./Image";
 
 const TextContainer = styled.div`
   max-width: ${({ theme: { width } }) => width.sectionColum};
   margin-bottom: 4.5rem;
   z-index: 1;
+  position: relative;
+`;
+
+const Icon = styled(Image)`
+  position: absolute;
+  right: calc(100% + 4rem);
+  top: 0.7rem;
 `;
 
 const TextWithIllustration = ({
@@ -30,8 +38,8 @@ const TextWithIllustration = ({
   mobileHorizontalOffset,
   mobileVisualHeight,
   mobileVisualWidth,
-  isMobile,
 }) => {
+  const isMobile = isMobileScreen();
   const mobileProps = {
     illustration: mobileIllustration,
     verticalMargin: mobileVerticalMargin,
@@ -55,12 +63,13 @@ const TextWithIllustration = ({
   return (
     <>
       <TextContainer>
+        {!isMobile && <Icon image={icon} />}
         <Header>{heading.text}</Header>
         <Subheader>{subheading.text}</Subheader>
         <Paragraph>{paragraph.text}</Paragraph>
         <CallToAction to={route}>Learn More</CallToAction>
       </TextContainer>
-      <Illustration {...(isMobileScreen() ? mobileProps : desktopProps)} />
+      <Illustration {...(isMobile ? mobileProps : desktopProps)} />
     </>
   );
 };
