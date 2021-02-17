@@ -13,7 +13,7 @@ const MobileMenu = styled.ul`
   background: ${({ theme }) => theme.colour.blue.dark};
   top: ${({ theme: { height } }) => height.appBar.desktop};
   left: 0;
-  z-index: 1;
+  z-index: 4;
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0.5")};
   transition: all 0.25s cubic-bezier(1, 0, 1, 0);
   transform-origin: top left;

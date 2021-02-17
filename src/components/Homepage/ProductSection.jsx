@@ -46,28 +46,33 @@ const Section = styled.section`
   }
 `;
 
+const SiteWrapper = styled.div`
+  height: 100%;
+  max-width: ${({ theme: { width } }) => width.site};
+  margin: auto;
+  z-index: 1;
+`;
+
 const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 100%;
   max-width: ${({ theme: { width } }) => width.section};
   margin-left: auto;
-  z-index: 10;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     flex-direction: column-reverse;
   }
 `;
 
-const Icon = styled(Image)``;
-
 const Product = ({ index, section }) => {
   return (
     <Section index={index}>
-      <Wrapper>
-        <TextWithIllustration {...section.primary} />
-      </Wrapper>
+      <SiteWrapper>
+        <Wrapper>
+          <TextWithIllustration {...section.primary} />
+        </Wrapper>
+      </SiteWrapper>
     </Section>
   );
 };
