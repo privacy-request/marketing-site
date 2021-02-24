@@ -5,6 +5,7 @@ import SEO from "../components/SEO/SEO";
 import Hero from "../components/Homepage/Hero";
 import TrustedCustomers from "../components/TrustedCustomers";
 import HomepageProducts from "../components/Homepage/Products";
+import Testimonials from "../components/Testimonials/Testimonials";
 
 const MarginWrapper = styled.div`
   margin: auto;
@@ -13,13 +14,7 @@ const MarginWrapper = styled.div`
 `;
 
 const HomePage = ({ path, data }) => {
-  const {
-    customerLogos,
-    customerHeadline,
-    description,
-    keywords,
-    title,
-  } = data.homepage.edges[0].node.data;
+  const { description, keywords, title } = data.homepage.edges[0].node.data;
   const keywordsString = keywords.map((word) => word.keyword.text).join(",");
   return (
     <Layout path={path}>
@@ -31,12 +26,10 @@ const HomePage = ({ path, data }) => {
       />
       <MarginWrapper>
         <Hero />
-        <TrustedCustomers
-          headline={customerHeadline.text}
-          logos={customerLogos}
-        />
+        <TrustedCustomers />
       </MarginWrapper>
       <HomepageProducts />
+      <Testimonials />
     </Layout>
   );
 };
@@ -47,15 +40,6 @@ export const query = graphql`
       edges {
         node {
           data {
-            customerLogos: customer_logos {
-              logo {
-                url
-                alt
-              }
-            }
-            customerHeadline: customers_headline {
-              text
-            }
             description: page_description {
               text
             }

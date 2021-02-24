@@ -4,7 +4,9 @@ import { SCREEN_SIZES } from "./utils/constants";
 
 const fontSize = {
   paragraph: {
-    small: "1.6rem",
+    xxsmall: "1.4rem",
+    xsmall: "1.6rem",
+    small: "1.8rem",
     medium: "2rem",
     large: "2.4rem",
   },
@@ -15,6 +17,7 @@ const fontSize = {
     large: "2.4rem",
   },
   header: {
+    xxsmall: "1.3rem",
     xsmall: "1.5rem",
     small: "3.2rem",
     medium: "4rem",
@@ -73,31 +76,6 @@ export const MobileNavSubitem = styled(MobileNavItem)`
   font-weight: normal;
 `;
 
-// Homepage
-export const HomepageHeadline = styled.h1`
-  font-size: ${fontSize.header.xlarge};
-  line-height: ${lineHeight.xlarge};
-  width: ${({ theme: { width } }) => width.heroHeadline};
-  background: linear-gradient(
-    92.13deg,
-    #009dff 3.73%,
-    #6bcbff 60.51%,
-    #8fd8ff 86.59%
-  );
-
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  margin-bottom: ${({ theme: { margin } }) => margin.homepageHeadline.desktop};
-
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    font-size: ${fontSize.header.small};
-    line-height: ${lineHeight.medium};
-    margin-bottom: ${({ theme: { margin } }) => margin.homepageHeadline.mobile};
-    width: 100%;
-  }
-`;
-
 // Shared
 export const CallToAction = styled(Link)`
   font-size: ${fontSize.link.medium};
@@ -125,7 +103,7 @@ export const Paragraph = styled.p`
   margin-bottom: ${({ theme: { margin } }) => margin.paragraph};
 
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    font-size: ${fontSize.paragraph.small};
+    font-size: ${fontSize.paragraph.xsmall};
   }
 `;
 
@@ -145,4 +123,57 @@ export const Subheader = styled.h3`
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 0.8rem;
   }
+`;
+
+// Homepage
+export const HomepageHeadline = styled.h1`
+  font-size: ${fontSize.header.xlarge};
+  line-height: ${lineHeight.xlarge};
+  width: ${({ theme: { width } }) => width.heroHeadline};
+  background: linear-gradient(
+    92.13deg,
+    #009dff 3.73%,
+    #6bcbff 60.51%,
+    #8fd8ff 86.59%
+  );
+
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: ${({ theme: { margin } }) => margin.homepageHeadline.desktop};
+
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.header.small};
+    line-height: ${lineHeight.medium};
+    margin-bottom: ${({ theme: { margin } }) => margin.homepageHeadline.mobile};
+    width: 100%;
+  }
+`;
+
+export const TestimonialsHeadline = styled(Paragraph)`
+  font-size: ${fontSize.paragraph.small};
+  margin-bottom: 4.8rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin-bottom: 2.7rem;
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const TestimonialParagraph = styled(Paragraph)`
+  font-size: ${({ theme }) => theme.fontSize.paragraph.large};
+  margin-bottom: 1.6rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin-bottom: 0.8rem;
+    font-size: ${({ theme }) => theme.fontSize.paragraph.xxsmall};
+  }
+`;
+export const NameAndJob = styled(Paragraph)`
+  font-size: ${({ theme }) => theme.fontSize.header.xxsmall};
+  color: ${({ theme }) => theme.colour.blue.dark};
+  font-weight: bold;
+  margin-bottom: 0;
+`;
+
+export const Company = styled.span`
+  color: ${({ theme }) => theme.colour.grey.dark};
 `;

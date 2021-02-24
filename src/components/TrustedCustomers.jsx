@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
 import { Paragraph } from "./typography";
 import { SCREEN_SIZES } from "./utils/constants";
 
@@ -34,15 +35,41 @@ const CustomersHeadline = styled(Paragraph)`
   margin-left: ${({ theme: { margin } }) => margin.homepageSections};
 `;
 
-const TrustedCustomers = ({ headline, logos }) => (
-  <TrustedCustomersWrapper>
-    <CustomersHeadline>{headline}</CustomersHeadline>
-    <Logos>
-      {logos.map((logo) => (
-        <Logo key={`logo-${logo.logo.url}`} src={logo.logo.url} />
-      ))}
-    </Logos>
-  </TrustedCustomersWrapper>
-);
+const TrustedCustomers = () => {
+  const data = useStaticQuery(query);
+  const { customerLogos, customerHeadline } = data.homepage.edges[0].node.data;
+  return (
+    <TrustedCustomersWrapper>
+      <CustomersHeadline>{customerHeadline.text}</CustomersHeadline>
+      <Logos>
+        {customerLogos.map((logo) => (
+          <Logo key={`logo-${logo.logo.url}`} src={logo.logo.url} />
+        ))}
+      </Logos>
+    </TrustedCustomersWrapper>
+  );
+};
+
+const query = graphql`
+  query TrustedCustomersQuery {
+    homepage: allPrismicHomepage {
+      edges {
+        node {
+          data {
+            customerLogos: customer_logos {
+              logo {
+                url
+                alt
+              }
+            }
+            customerHeadline: customers_headline {
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default TrustedCustomers;

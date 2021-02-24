@@ -7,6 +7,7 @@ import ProductSection from "./ProductSection";
 
 const ProductsWrapper = styled.div`
   position: relative;
+  z-index: 0;
 `;
 
 const HomepageProducts = () => {

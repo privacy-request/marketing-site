@@ -1,0 +1,55 @@
+{
+  "Main": {
+    "testimonial_headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Testimonial headline"
+      }
+    },
+    "testimonials": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "avatar": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Avatar"
+            }
+          },
+          "name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading6",
+              "label": "name"
+            }
+          },
+          "job_title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "Job title"
+            }
+          },
+          "company": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "Company"
+            }
+          },
+          "testimonial": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Testimonial"
+            }
+          }
+        },
+        "label": "Testimonials"
+      }
+    }
+  }
+}
