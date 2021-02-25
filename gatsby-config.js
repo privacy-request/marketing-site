@@ -39,6 +39,7 @@ module.exports = {
           navigation_bar: require("./src/schemas/navigation_bar.json"),
           product_page: require("./src/schemas/product_page.json"),
           testimonials: require("./src/schemas/testimonials.json"),
+          mailing_list_form: require("./src/schemas/mailing_list_form.json"),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true;

@@ -125,6 +125,27 @@ export const Subheader = styled.h3`
   }
 `;
 
+// BookADemo
+export const BookADemoHeadline = styled.h5`
+  font-size: ${fontSize.header.large};
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.3rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.large};
+  }
+`;
+
+export const BookADemoParagraph = styled.p`
+  font-size: ${fontSize.paragraph.large};
+  margin-bottom: 4.8rem;
+  text-align: center;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.small};
+    margin-bottom: 2.6rem;
+  }
+`;
+
 // Homepage
 export const HomepageHeadline = styled.h1`
   font-size: ${fontSize.header.xlarge};
@@ -150,24 +171,26 @@ export const HomepageHeadline = styled.h1`
   }
 `;
 
-export const TestimonialsHeadline = styled(Paragraph)`
+// Testimonials
+export const TestimonialsHeadline = styled.h5`
   font-size: ${fontSize.paragraph.small};
+  font-weight: normal;
   margin-bottom: 4.8rem;
-  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 2.7rem;
     font-size: ${fontSize.paragraph.xsmall};
   }
 `;
 
-export const TestimonialParagraph = styled(Paragraph)`
+export const TestimonialParagraph = styled.p`
   font-size: ${({ theme }) => theme.fontSize.paragraph.large};
   margin-bottom: 1.6rem;
-  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 0.8rem;
     font-size: ${({ theme }) => theme.fontSize.paragraph.xxsmall};
   }
 `;
-export const NameAndJob = styled(Paragraph)`
+export const NameAndJob = styled.p`
   font-size: ${({ theme }) => theme.fontSize.header.xxsmall};
   color: ${({ theme }) => theme.colour.blue.dark};
   font-weight: bold;

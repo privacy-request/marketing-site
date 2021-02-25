@@ -1,0 +1,32 @@
+{
+  "Main": {
+    "headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Headline"
+      }
+    },
+    "paragraph": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Paragraph"
+      }
+    },
+    "email_input_placeholder": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Email input placeholder"
+      }
+    },
+    "submit_button_text": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading6",
+        "label": "submit button text"
+      }
+    }
+  }
+}

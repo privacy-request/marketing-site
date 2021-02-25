@@ -35,6 +35,7 @@ export default Object.assign(
       sectionColumLg: "70rem",
       sectionColum: "49rem",
       heroHeadline: "49rem",
+      bookADemo: "83.4rem",
     },
     padding: {
       site: "3rem",
@@ -66,6 +67,8 @@ export default Object.assign(
     },
     borderRadius: {
       button: "4rem",
+      bookADemo: "1rem",
+      input: "0.8rem",
     },
   },
   typographyTheme

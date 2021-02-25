@@ -6,6 +6,7 @@ import Hero from "../components/Homepage/Hero";
 import TrustedCustomers from "../components/TrustedCustomers";
 import HomepageProducts from "../components/Homepage/Products";
 import Testimonials from "../components/Testimonials/Testimonials";
+import BookADemo from "../components/BookADemo";
 
 const MarginWrapper = styled.div`
   margin: auto;
@@ -30,6 +31,7 @@ const HomePage = ({ path, data }) => {
       </MarginWrapper>
       <HomepageProducts />
       <Testimonials />
+      <BookADemo />
     </Layout>
   );
 };
