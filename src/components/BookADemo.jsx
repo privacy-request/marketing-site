@@ -11,11 +11,14 @@ import BookADemoLeft from "../../assets/bookADemoLeft.svg";
 import BookADemoRight from "../../assets/bookADemoRight.svg";
 
 const Wrapper = styled.section`
-  margin: auto;
   padding: 3rem;
   width: fit-content;
   position: relative;
-  margin-top: 3rem;
+  margin: 3rem auto 9rem auto;
+
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-bottom: 5rem;
+  }
 `;
 const MailingListForm = styled.form`
   display: flex;
@@ -50,6 +53,7 @@ const Box = styled.div`
     width: 100%;
     width: fit-content;
   }
+  box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.09);
 `;
 
 const BookADemoBackgroundLeft = styled(BookADemoLeft)`

@@ -200,3 +200,19 @@ export const NameAndJob = styled.p`
 export const Company = styled.span`
   color: ${({ theme }) => theme.colour.grey.dark};
 `;
+
+// Footer
+export const PrivacyCenterTitle = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  font-weight: bold;
+  opacity: 0.3;
+`;
+
+export const PrivacyCenterNavItem = styled(DesktopNavSubitem)`
+  font-size: ${fontSize.link.xsmall};
+  line-height: 3rem;
+`;
+
+export const Copyright = styled.p`
+  font-size: ${fontSize.link.xsmall};
+`;

@@ -1,0 +1,91 @@
+{
+  "Main": {
+    "contact": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Contact"
+      }
+    },
+    "email": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Email"
+      }
+    },
+    "phone": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Phone"
+      }
+    },
+    "privacy_center_icon": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Privacy center icon"
+      }
+    },
+    "privacy_center": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Privacy center"
+      }
+    },
+    "privacy_center_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "text": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "Text"
+            }
+          },
+          "route": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "Route"
+            }
+          }
+        },
+        "label": "Privacy center links"
+      }
+    },
+    "social_media_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "icon": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Icon"
+            }
+          },
+          "url": {
+            "type": "Link",
+            "config": {
+              "label": "url"
+            }
+          }
+        },
+        "label": "Social media links"
+      }
+    },
+    "copyright": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Copyright"
+      }
+    }
+  }
+}

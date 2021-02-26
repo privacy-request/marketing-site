@@ -40,6 +40,7 @@ module.exports = {
           product_page: require("./src/schemas/product_page.json"),
           testimonials: require("./src/schemas/testimonials.json"),
           mailing_list_form: require("./src/schemas/mailing_list_form.json"),
+          footer: require("./src/schemas/footer.json"),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true;

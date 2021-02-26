@@ -10,7 +10,7 @@ export default Object.assign(
       },
       grey: {
         dark: "#203546",
-        medium: "#E6F5FF",
+        medium: "#E3E3E3;",
         light: "#E6F5FF",
       },
       white: "#FFFFFF",
@@ -36,6 +36,7 @@ export default Object.assign(
       sectionColum: "49rem",
       heroHeadline: "49rem",
       bookADemo: "83.4rem",
+      footer: "126.4rem",
     },
     padding: {
       site: "3rem",
