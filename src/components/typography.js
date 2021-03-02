@@ -46,7 +46,7 @@ export const DesktopNavItem = styled.li`
   line-height: ${lineHeight.small};
   opacity: ${({ active }) => (active ? textDecoration.opacity : "1")};
   :hover {
-    opacity: ${textDecoration.opacity};
+    opacity: ${({ noHover }) => (noHover ? "1" : textDecoration.opacity)};
   }
 `;
 

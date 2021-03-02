@@ -56,7 +56,7 @@ const FooterNav = () => {
           <Link to={STATIC_ROUTES.HOME}>{homepageNav.text}</Link>
         </FooterNavItem>
         <NavSubList>
-          <DesktopNavItem>{productPagesNav.text}</DesktopNavItem>
+          <DesktopNavItem noHover>{productPagesNav.text}</DesktopNavItem>
           {productPages.map(({ url, title }) => (
             <DesktopNavSubitem>
               <Link to={url}>{title}</Link>
@@ -67,9 +67,9 @@ const FooterNav = () => {
           <Link to={STATIC_ROUTES.CUSTOMERS}>{customersPageNav.text}</Link>
         </FooterNavItem>
         <NavSubList>
-          <DesktopNavItem>{contact.text}</DesktopNavItem>
-          <DesktopNavSubitem>{email.text}</DesktopNavSubitem>
-          <DesktopNavSubitem>{phone.text}</DesktopNavSubitem>
+          <DesktopNavItem noHover>{contact.text}</DesktopNavItem>
+          <DesktopNavSubitem noHover>{email.text}</DesktopNavSubitem>
+          <DesktopNavSubitem noHover>{phone.text}</DesktopNavSubitem>
         </NavSubList>
       </NavList>
     </nav>
