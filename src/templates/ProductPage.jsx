@@ -21,10 +21,11 @@ const Wrapper = styled.main`
 `;
 
 const HeroBackgroundImage = styled(Image)`
+  top: -145px;
+  display: flex;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -150px;
+  width: 143.3rem;
+  height: 509px;
   z-index: -1;
   opacity: 0.55;
 `;
@@ -38,13 +39,13 @@ const Hero = styled.header`
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 const Icon = styled.img`
   margin-right: 1.2rem;
 `;
 
 const ProductPage = ({ data, path }) => {
-  console.log(data);
   const {
     description,
     keywords,
@@ -127,6 +128,12 @@ export const productPageQuery = graphql`
                 }
                 url
               }
+              verticalMargin: vertical_margin
+              horizontalMargin: horizontal_margin
+              verticalOffset: vertical_offset
+              horizontalOffset: horizontal_offset
+              visualHeight: visual_height
+              visualWidth: visual_width
               paragraph {
                 text
               }

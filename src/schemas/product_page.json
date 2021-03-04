@@ -57,29 +57,6 @@
         "label": "Subheadline"
       }
     },
-    "customer_heading": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading3",
-        "label": "Customer Heading"
-      }
-    },
-    "customer_logos": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "logo": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "logo"
-            }
-          }
-        },
-        "label": "customer_logos"
-      }
-    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
@@ -120,8 +97,56 @@
                 "type": "Image",
                 "config": {
                   "constraint": {},
-                  "thumbnails": [],
+                  "thumbnails": [
+                    {
+                      "name": "mobile",
+                      "width": 800,
+                      "height": 500
+                    }
+                  ],
                   "label": "Illustration"
+                }
+              },
+              "visual_height": {
+                "type": "Number",
+                "config": {
+                  "label": "Visual height",
+                  "placeholder": "0"
+                }
+              },
+              "visual_width": {
+                "type": "Number",
+                "config": {
+                  "label": "Visual width",
+                  "placeholder": "0"
+                }
+              },
+              "vertical_offset": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical offset",
+                  "placeholder": "0"
+                }
+              },
+              "horizontal_offset": {
+                "type": "Number",
+                "config": {
+                  "label": "horizontal offset",
+                  "placeholder": "0"
+                }
+              },
+              "vertical_margin": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical margin",
+                  "placeholder": "0"
+                }
+              },
+              "horizontal_margin": {
+                "type": "Number",
+                "config": {
+                  "label": "Horizontal margin",
+                  "placeholder": "0"
                 }
               }
             },

@@ -68,8 +68,11 @@ const Wrapper = styled.section`
   }
 `;
 
-const PerkIllustration = styled(Image)`
+const PerkIllustration = styled(Illustration)`
   margin: auto;
+  @media only screen and (min-width: ${SCREEN_SIZES.LAPTOP}px) {
+    position: absolute;
+  }
 `;
 
 const ProductPerks = ({ perks }) => {
@@ -78,7 +81,7 @@ const ProductPerks = ({ perks }) => {
   return (
     <>
       {perks.map((perk, index) => {
-        const { heading, illustration, paragraph, subheadline1 } = perk.primary;
+        const { heading, paragraph, subheadline1, ...rest } = perk.primary;
         return (
           <Wrapper index={index} isMobile={isMobile}>
             <TextContainer>
@@ -87,7 +90,7 @@ const ProductPerks = ({ perks }) => {
               <Paragraph>{paragraph.text}</Paragraph>
               <CallToAction to={"/calendar"}>Learn More</CallToAction>
             </TextContainer>
-            <PerkIllustration image={illustration} />
+            <PerkIllustration {...rest} />
           </Wrapper>
         );
       })}

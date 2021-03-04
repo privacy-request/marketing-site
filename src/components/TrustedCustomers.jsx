@@ -17,7 +17,7 @@ const TrustedCustomersWrapper = styled.section`
 const Logos = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: ${({ theme: { margin } }) => margin.customerLogos.desktop};
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
@@ -29,7 +29,7 @@ const Logo = styled.img`
   height: fit-content;
   max-width: 13.6rem;
   max-height: 4.4rem;
-  margin: 1.2rem;
+  margin: 1.2rem 2.6rem;
 `;
 
 const CustomersHeadline = styled(Paragraph)`
