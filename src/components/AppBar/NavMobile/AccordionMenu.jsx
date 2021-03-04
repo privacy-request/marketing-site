@@ -50,7 +50,7 @@ const AccordionMenu = ({ title, pages, parentMenuOpen }) => {
       <SubItems isOpen={isOpen}>
         {pages.map((page) => (
           <MobileNavSubitem>
-            <Link to={page.url}>{page.title}</Link>
+            <Link to={`/${page.url}`}>{page.title}</Link>
           </MobileNavSubitem>
         ))}
       </SubItems>

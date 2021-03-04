@@ -5,6 +5,7 @@ import { Paragraph } from "./typography";
 import { SCREEN_SIZES } from "./utils/constants";
 
 const TrustedCustomersWrapper = styled.section`
+  text-align: ${({ centerText }) => (centerText ? "center" : "left")};
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     text-align: center;
   }
@@ -35,11 +36,11 @@ const CustomersHeadline = styled(Paragraph)`
   margin-left: ${({ theme: { margin } }) => margin.homepageSections};
 `;
 
-const TrustedCustomers = () => {
+const TrustedCustomers = ({ centerText }) => {
   const data = useStaticQuery(query);
   const { customerLogos, customerHeadline } = data.homepage.edges[0].node.data;
   return (
-    <TrustedCustomersWrapper>
+    <TrustedCustomersWrapper centerText={centerText}>
       <CustomersHeadline>{customerHeadline.text}</CustomersHeadline>
       <Logos>
         {customerLogos.map((logo) => (

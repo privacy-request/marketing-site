@@ -63,7 +63,7 @@ const TextWithIllustration = ({
   return (
     <>
       <TextContainer>
-        {!isMobile && <Icon image={icon} />}
+        {!isMobile && icon && <Icon image={icon} />}
         <Header>{heading.text}</Header>
         <Subheader>{subheading.text}</Subheader>
         <Paragraph>{paragraph.text}</Paragraph>

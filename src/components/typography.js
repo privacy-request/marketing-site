@@ -216,3 +216,16 @@ export const PrivacyCenterNavItem = styled(DesktopNavSubitem)`
 export const Copyright = styled.p`
   font-size: ${fontSize.link.xsmall};
 `;
+
+// ProductPage
+export const ProductPageHeadline = styled.h1`
+  font-size: ${fontSize.header.medium};
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+`;
+
+export const ProductPageSubheadline = styled.h2`
+  font-size: ${fontSize.paragraph.medium};
+  font-weight: normal;
+  margin-bottom: 3rem;
+`;

@@ -75,7 +75,7 @@ const TooltipMenu = ({ title, pages, path }) => (
             active={path === page.url}
             isLastChild={index + 1 === pages.length}
           >
-            <Link to={page.url}>{page.title}</Link>
+            <Link to={`/${page.url}`}>{page.title}</Link>
           </TooltipTypography>
         ))}
       </TooltipContent>

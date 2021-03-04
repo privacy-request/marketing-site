@@ -32,6 +32,7 @@ export default Object.assign(
     width: {
       site: "144rem",
       section: "120rem",
+      productPage: "123.3rem",
       sectionColumLg: "70rem",
       sectionColum: "49rem",
       heroHeadline: "49rem",

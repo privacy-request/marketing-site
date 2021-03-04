@@ -16,14 +16,13 @@ const MarginWrapper = styled.div`
 
 const HomePage = ({ path, data }) => {
   const { description, keywords, title } = data.homepage.edges[0].node.data;
-  const keywordsString = keywords.map((word) => word.keyword.text).join(",");
   return (
     <Layout path={path}>
       <SEO
         title={title.text}
         desc={description.text}
         path={path}
-        keywords={keywordsString}
+        keywords={keywords}
       />
       <MarginWrapper>
         <Hero />
