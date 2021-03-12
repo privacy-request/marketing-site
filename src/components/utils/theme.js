@@ -45,7 +45,7 @@ export default Object.assign(
     margin: {
       navItemDesktop: "3.7rem",
       homepageHero: {
-        desktop: "0 0 8.7rem auto",
+        desktop: "0 0 2.7rem auto",
         mobile: "1.2rem 0 3.9rem 0",
       },
       homepageHeader: "5.6rem",
