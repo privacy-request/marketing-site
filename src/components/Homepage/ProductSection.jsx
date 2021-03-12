@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import TextWithIllustration from "../TextWithIllustration";
 import { SCREEN_SIZES } from "../utils/constants";
-import Image from "../Image";
+import SectionText from "../SectionText";
+import Illustration from "../Illustration";
 
 const sectionStyles = [
   css`
@@ -70,7 +70,8 @@ const Product = ({ index, section }) => {
     <Section index={index}>
       <SiteWrapper>
         <Wrapper>
-          <TextWithIllustration {...section.primary} />
+          <SectionText {...section.primary} callToActionText="Learn More" />
+          <Illustration {...section.primary} />
         </Wrapper>
       </SiteWrapper>
     </Section>

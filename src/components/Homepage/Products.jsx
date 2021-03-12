@@ -49,7 +49,7 @@ const query = graphql`
                     width
                   }
                 }
-                desktopIllustration: illustration {
+                illustration {
                   url
                   alt
                   dimensions {

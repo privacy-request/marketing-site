@@ -8,18 +8,16 @@ const Img = styled.img`
 
 const Image = ({
   className,
-  image: {
-    url,
-    alt,
-    dimensions: { height, width },
-  },
+  width,
+  height,
+  image: { url, alt, dimensions },
 }) => (
   <Img
     className={className}
     src={url}
     alt={alt}
-    height={height}
-    width={width}
+    height={height ? height : dimensions.height}
+    width={width ? width : dimensions.width}
   />
 );
 

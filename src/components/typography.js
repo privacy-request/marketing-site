@@ -108,7 +108,8 @@ export const Paragraph = styled.p`
 `;
 
 export const Header = styled.h2`
-  font-size: ${fontSize.header.large};
+  font-size: ${({ size }) =>
+    size ? fontSize.header[size] : fontSize.header.large};
   margin-bottom: ${({ theme: { margin } }) => margin.HomepageHeadline};
 
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
@@ -222,6 +223,9 @@ export const ProductPageHeadline = styled.h1`
   font-size: ${fontSize.header.medium};
   font-weight: bold;
   margin-bottom: 1.5rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    font-size: ${fontSize.header.small};
+  }
 `;
 
 export const ProductPageSubheadline = styled.h2`

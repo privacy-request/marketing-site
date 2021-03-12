@@ -6,7 +6,6 @@ import SEO from "../components/SEO/SEO";
 import Image from "../components/Image";
 import TrustedCustomers from "../components/TrustedCustomers";
 import ProductPerks from "../components/ProductPage/ProductPerks";
-import Illustration from "../components/Illustration";
 import BookADemo from "../components/BookADemo";
 import { STATIC_ROUTES, SCREEN_SIZES } from "../components/utils/constants";
 import {
@@ -33,13 +32,20 @@ const HeroBackgroundImage = styled(Image)`
 const Hero = styled.header`
   max-width: 82rem;
   min-height: 23rem;
-  margin: 3rem auto 7.5rem auto;
+  margin: 3rem auto 7.4rem auto;
   text-align: center;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
   position: relative;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    text-align: left;
+    padding: 0 3rem;
+    align-items: end;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+  }
 `;
 const Icon = styled.img`
   margin-right: 1.2rem;
@@ -134,10 +140,27 @@ export const productPageQuery = graphql`
               horizontalOffset: horizontal_offset
               visualHeight: visual_height
               visualWidth: visual_width
+              mobileWidth: mobile_width
+              mobileIllustration: illustration_mobile {
+                url
+                alt
+                dimensions {
+                  height
+                  width
+                }
+              }
+              verticalMargin: vertical_margin
+              horizontalMargin: horizontal_margin
+              mobileHorizontalOffset: mobile_horizontal_offset
+              mobileVerticalOffset: mobile_vertical_offset
+              mobileVerticalMargin: mobile_vertical_margin
+              mobileHorizontalMargin: mobile_horizontal_margin
+              mobileVisualHeight: mobile_visual_height
+              mobileVisualWidth: mobile_visual_width
               paragraph {
                 text
               }
-              subheadline1 {
+              subheading {
                 text
               }
             }

@@ -11,7 +11,7 @@ const TrustedCustomersWrapper = styled.section`
   }
   max-width: ${({ theme: { width } }) => width.section};
   margin-left: auto;
-  margin-bottom: 6.2rem;
+  margin-bottom: 2.6rem;
 `;
 
 const Logos = styled.div`

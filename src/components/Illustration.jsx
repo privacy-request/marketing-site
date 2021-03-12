@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "./Image";
+import isMobileScreen from "./utils/isMobileScreen";
+import { SCREEN_SIZES } from "./utils/constants";
 
 const Img = styled(Image)`
   right: 0;
+  bottom: 0;
   top: ${({ verticalOffset }) => (verticalOffset ? verticalOffset : 0)}px;
   left: ${({ horizontalOffset }) =>
     horizontalOffset ? horizontalOffset : 0}px;
@@ -16,7 +19,15 @@ const Wrapper = styled.div`
   display: flex;
   width: ${({ width }) => `${width}px` || "100%"};
   margin: ${({ verticalMargin, horizontalMargin }) =>
-    `${verticalMargin || 0}px ${horizontalMargin || 0}px`};
+    `${verticalMargin || 0}px ${
+      horizontalMargin ? `${horizontalMargin}px` : "auto"
+    }`};
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin: ${({ verticalMargin, horizontalMargin }) =>
+      `${verticalMargin || 0}px ${
+        horizontalMargin ? `${horizontalMargin}px` : "0"
+      }`};
+  }
   height: ${({ height }) => height}px;
   z-index: 2;
 `;
@@ -29,19 +40,63 @@ const Illustration = ({
   horizontalOffset,
   visualHeight,
   visualWidth,
-}) => (
-  <Wrapper
-    verticalMargin={verticalMargin}
-    horizontalMargin={horizontalMargin}
-    height={visualHeight ? visualHeight : illustration.dimensions.height}
-    width={visualWidth ? visualWidth : illustration.dimensions.width}
-  >
-    <Img
-      image={illustration}
-      verticalOffset={verticalOffset}
-      horizontalOffset={horizontalOffset}
-    ></Img>
-  </Wrapper>
-);
+  mobileWidth,
+  mobileIllustration,
+  mobileVerticalMargin,
+  mobileHorizontalMargin,
+  mobileVerticalOffset,
+  mobileHorizontalOffset,
+  mobileVisualHeight,
+  mobileVisualWidth,
+}) => {
+  const responsiveProps = isMobileScreen()
+    ? {
+        img: mobileIllustration.url ? mobileIllustration : illustration,
+        vMargin: mobileVerticalMargin,
+        hMargin: mobileHorizontalMargin,
+        vOffset: mobileVerticalOffset,
+        hOffset: mobileHorizontalOffset,
+        vHeight: mobileVisualHeight,
+        vWidth: mobileVisualWidth,
+        width: mobileWidth,
+      }
+    : {
+        img: illustration,
+        vMargin: verticalMargin,
+        hMargin: horizontalMargin,
+        vOffset: verticalOffset,
+        hOffset: horizontalOffset,
+        vHeight: visualHeight,
+        vWidth: visualWidth,
+      };
+
+  const {
+    img,
+    vMargin,
+    hMargin,
+    vOffset,
+    hOffset,
+    vHeight,
+    vWidth,
+    width,
+    height,
+  } = responsiveProps;
+  console.log(vMargin);
+  return (
+    <Wrapper
+      verticalMargin={vMargin}
+      horizontalMargin={hMargin}
+      height={vHeight ? vHeight : height ? height : img.dimensions.height}
+      width={vWidth ? vWidth : width ? width : img.dimensions.width}
+    >
+      <Img
+        image={img}
+        verticalOffset={vOffset}
+        horizontalOffset={hOffset}
+        width={width}
+      ></Img>
+    </Wrapper>
+  );
+};
 
 export default Illustration;

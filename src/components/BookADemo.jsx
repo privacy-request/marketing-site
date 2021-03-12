@@ -14,7 +14,7 @@ const Wrapper = styled.section`
   padding: 3rem;
   width: fit-content;
   position: relative;
-  margin: 3rem auto 9rem auto;
+  margin: 9rem auto 9rem auto;
 
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 5rem;

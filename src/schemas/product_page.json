@@ -79,11 +79,11 @@
                   "label": "Heading"
                 }
               },
-              "subheadline1": {
+              "subheading": {
                 "type": "StructuredText",
                 "config": {
                   "single": "heading4",
-                  "label": "Subheadline"
+                  "label": "subheading"
                 }
               },
               "paragraph": {
@@ -146,6 +146,62 @@
                 "type": "Number",
                 "config": {
                   "label": "Horizontal margin",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_width": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile Width"
+                }
+              },
+              "illustration_mobile": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Illustration mobile"
+                }
+              },
+              "mobile_visual_height": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile visual height",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_visual_width": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile visual width",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_vertical_offset": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile vertical offset",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_horizontal_offset": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile horizontal offset",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_vertical_margin": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile vertical margin",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_horizontal_margin": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile horizontal margin",
                   "placeholder": "0"
                 }
               }
