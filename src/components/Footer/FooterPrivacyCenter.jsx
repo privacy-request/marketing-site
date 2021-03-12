@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { PrivacyCenterTitle, PrivacyCenterNavItem } from "../typography";
-import { STATIC_ROUTES, SCREEN_SIZES } from "../utils/constants";
+import { SCREEN_SIZES } from "../utils/constants";
 import styled from "styled-components";
 import Image from "../Image";
 

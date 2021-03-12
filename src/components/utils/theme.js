@@ -48,7 +48,7 @@ export default Object.assign(
         desktop: "0 0 8.7rem auto",
         mobile: "1.2rem 0 3.9rem 0",
       },
-      homepageHeader: "4.5rem",
+      homepageHeader: "5.6rem",
       homepageSections: "0rem",
       customerLogos: {
         desktop: "4.2rem",

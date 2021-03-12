@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import { HomepageHeadline, Paragraph, CallToAction } from "../typography";
 import { STATIC_ROUTES, SCREEN_SIZES } from "../utils/constants";
-import Image from "../Image";
+import HeroAnimation from "./HeroAnimation";
 import isMobileScreen from "../utils/isMobileScreen";
 
 const HeroContainer = styled.div`
@@ -26,18 +26,6 @@ const Header = styled.header`
   }
 `;
 
-const HeroArt = styled(Image)`
-  top: -10rem;
-  left: -7rem;
-  z-index: -1;
-  position: absolute;
-`;
-
-const HeroArtContainer = styled.div`
-  width: ${({ theme }) => theme.width.sectionColumLg};
-  position: relative;
-`;
-
 const Icon = styled.img`
   margin-right: 1.2rem;
 `;
@@ -54,10 +42,10 @@ const HomepageHero = () => {
     callToAction,
     callToActionIcon,
     headline,
-    heroArt,
     subheadline,
   } = data.homepage.edges[0].node.data;
   const isMobile = isMobileScreen();
+
   return (
     <HeroContainer isMobile={isMobile}>
       <Header isMobile={isMobile}>
@@ -68,11 +56,7 @@ const HomepageHero = () => {
           {callToAction.text}
         </CallToAction>
       </Header>
-      {!isMobile && (
-        <HeroArtContainer>
-          <HeroArt image={heroArt} />
-        </HeroArtContainer>
-      )}
+      {!isMobile && <HeroAnimation />}
     </HeroContainer>
   );
 };

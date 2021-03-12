@@ -70,7 +70,7 @@ const BookADemoBackgroundRight = styled(BookADemoRight)`
   mix-blend-mode: saturation;
 `;
 
-const BookADemo = ({}) => {
+const BookADemo = () => {
   const data = useStaticQuery(query);
   const {
     emailInputPlaceholder,

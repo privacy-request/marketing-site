@@ -3,7 +3,6 @@ import styled from "styled-components";
 import FooterNav from "./FooterNav";
 import FooterPrivacyCenter from "./FooterPrivacyCenter";
 import FooterSocial from "./FooterSocial";
-import { STATIC_ROUTES, SCREEN_SIZES } from "../utils/constants";
 
 const FooterWrapper = styled.footer`
   max-width: ${({ theme }) => theme.width.footer};
