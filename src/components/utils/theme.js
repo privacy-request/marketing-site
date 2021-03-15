@@ -35,7 +35,7 @@ export default Object.assign(
       productPage: "123.3rem",
       sectionColumLg: "70rem",
       sectionColum: "49rem",
-      heroHeadline: "49rem",
+      heroHeadline: "52rem",
       bookADemo: "83.4rem",
       footer: "126.4rem",
     },
