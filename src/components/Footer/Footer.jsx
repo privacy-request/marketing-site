@@ -5,7 +5,7 @@ import FooterPrivacyCenter from "./FooterPrivacyCenter";
 import FooterSocial from "./FooterSocial";
 
 const FooterWrapper = styled.footer`
-  max-width: ${({ theme }) => theme.width.footer};
+  max-width: ${({ theme }) => theme.width.section};
   margin: auto;
   padding: 0 3rem;
 `;

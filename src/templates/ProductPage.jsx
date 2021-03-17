@@ -30,7 +30,7 @@ const HeroBackgroundImage = styled(Image)`
 `;
 
 const Hero = styled.header`
-  max-width: 82rem;
+  max-width: ${({ theme }) => theme.width.productPageHero};
   min-height: 23rem;
   margin: 3rem auto 7.4rem auto;
   text-align: center;
@@ -89,8 +89,8 @@ const ProductPage = ({ data, path }) => {
 };
 
 // TODO: Move Call to action text and icon to its own content type
-export const productPageQuery = graphql`
-  query ProductPage($slug: String) {
+export const query = graphql`
+  query ProductPageQuery($slug: String) {
     productPage: prismicProductPage(uid: { eq: $slug }) {
       id
       data {

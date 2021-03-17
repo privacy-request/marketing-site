@@ -41,6 +41,7 @@ module.exports = {
           testimonials: require("./src/schemas/testimonials.json"),
           mailing_list_form: require("./src/schemas/mailing_list_form.json"),
           footer: require("./src/schemas/footer.json"),
+          calendar_page: require("./src/schemas/calendar_page.json"),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true;

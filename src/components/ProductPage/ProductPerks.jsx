@@ -75,6 +75,7 @@ const ProductPerks = ({ perks }) => {
               {...perk.primary}
               callToActionText="Book a demo"
               size="medium"
+              route="/calendar"
             />
             <Illustration {...perk.primary} />
           </Wrapper>

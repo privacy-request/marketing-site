@@ -19,7 +19,10 @@ const SEO = ({ title, desc, path, keywords }) => {
       facebook,
     },
   } = site;
-  const keywordsString = keywords.map((word) => word.keyword.text).join(",");
+  const keywordsString =
+    keywords.length > 1
+      ? keywords.map((word) => word.keyword.text).join(",")
+      : "";
   const seo = {
     title: title || defaultTitle,
     description: desc || defaultDescription,

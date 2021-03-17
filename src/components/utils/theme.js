@@ -33,11 +33,11 @@ export default Object.assign(
       site: "144rem",
       section: "120rem",
       productPage: "123.3rem",
+      productPageHero: "82rem",
       sectionColumLg: "70rem",
       sectionColum: "49rem",
       heroHeadline: "52rem",
       bookADemo: "83.4rem",
-      footer: "126.4rem",
     },
     padding: {
       site: "3rem",

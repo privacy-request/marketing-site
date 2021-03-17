@@ -59,7 +59,7 @@ const FooterNav = () => {
           <DesktopNavItem noHover>{productPagesNav.text}</DesktopNavItem>
           {productPages.map(({ url, title }) => (
             <DesktopNavSubitem>
-              <Link to={url}>{title}</Link>
+              <Link to={`/${url}`}>{title}</Link>
             </DesktopNavSubitem>
           ))}
         </NavSubList>
