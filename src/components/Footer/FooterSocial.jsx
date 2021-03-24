@@ -47,7 +47,12 @@ const FooterSocial = () => {
       <Copyright>{copyright.text}</Copyright>
       <SocialMedia>
         {socialMediaLinks.map((link) => (
-          <SocialMediaLink href={link.url.url} target="_blank" rel="noreferrer">
+          <SocialMediaLink
+            key={`social-links${link.url.url}`}
+            href={link.url.url}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image image={link.icon} />
           </SocialMediaLink>
         ))}

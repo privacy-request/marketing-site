@@ -13,7 +13,7 @@ const FooterWrapper = styled.footer`
 const Line = styled.div`
   width: 100%;
   height: 2px;
-  background: ${({ theme }) => theme.colour.grey.medium};
+  background: ${({ theme }) => theme.colour.grey.light};
   margin: 5rem 0rem;
 `;
 

@@ -49,7 +49,7 @@ const FooterPrivacyCenter = () => {
       </IconAndTitle>
       <PrivacyCenterList>
         {privacyCenterLinks.map((link) => (
-          <PrivacyCenterNavItem>
+          <PrivacyCenterNavItem key={`footer-pc-nav-${link.route.text}`}>
             <Link to={link.route.text}>{link.text.text}</Link>
           </PrivacyCenterNavItem>
         ))}

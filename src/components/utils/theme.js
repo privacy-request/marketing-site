@@ -10,8 +10,8 @@ export default Object.assign(
       },
       grey: {
         dark: "#203546",
-        medium: "#E3E3E3;",
-        light: "#E6F5FF",
+        medium: "#757575",
+        light: "#E3E3E3",
       },
       white: "#FFFFFF",
       yellow: "#FFF170",

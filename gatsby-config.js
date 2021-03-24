@@ -27,6 +27,24 @@ module.exports = {
         trackingId: "UA-154605502-2",
       },
     },
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleAnalytics: {
+          trackingId: "UA-154605502-2", // leave empty if you want to disable the tracker
+          cookieName: "gatsby-gdpr-google-analytics", // default
+          anonymize: true, // default
+          allowAdFeatures: false, // default
+        },
+        // googleTagManager: {
+        //   trackingId: "YOUR_GOOGLE_TAG_MANAGER_TRACKING_ID", // leave empty if you want to disable the tracker
+        //   cookieName: "gatsby-gdpr-google-tagmanager", // default
+        //   dataLayerName: "dataLayer", // default
+        // },
+        // defines the environments where the tracking should be available  - default is ["production"]
+        environments: ["production", "development"],
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
@@ -42,6 +60,7 @@ module.exports = {
           mailing_list_form: require("./src/schemas/mailing_list_form.json"),
           footer: require("./src/schemas/footer.json"),
           calendar_page: require("./src/schemas/calendar_page.json"),
+          cookie_banner: require("./src/schemas/cookie_banner.json"),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true;

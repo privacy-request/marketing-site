@@ -43,6 +43,7 @@ const Section = styled.section`
   ${({ index }) => sectionStyles[index]}
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     height: fit-content;
+    padding: 3rem;
   }
 `;
 

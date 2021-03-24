@@ -81,7 +81,7 @@ const Illustration = ({
     width,
     height,
   } = responsiveProps;
-  console.log(vMargin);
+
   return (
     <Wrapper
       verticalMargin={vMargin}

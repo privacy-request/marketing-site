@@ -27,10 +27,11 @@ const fontSize = {
 };
 
 const textDecoration = {
-  opacity: "0.5",
+  opacity: "0.7",
 };
 
 const lineHeight = {
+  xsmall: "2.7rem",
   small: "3rem",
   medium: "4rem",
   large: "5.2rem",
@@ -232,4 +233,31 @@ export const ProductPageSubheadline = styled.h2`
   font-size: ${fontSize.paragraph.medium};
   font-weight: normal;
   margin-bottom: 3rem;
+`;
+
+// CookieBanner
+export const CookieBannerText = styled.p`
+  font-size: ${fontSize.paragraph.xsmall};
+  margin: 0 1rem 1.3rem 0;
+  line-height: ${lineHeight.xsmall};
+`;
+
+export const AcceptLink = styled.p`
+  font-size: ${fontSize.link.small};
+  font-weight: bold;
+  color: ${({ theme }) => theme.colour.blue.dark};
+  cursor: pointer;
+  :hover {
+    opacity: ${textDecoration.opacity};
+  }
+`;
+
+export const DoNotAcceptLink = styled(AcceptLink)`
+  color: ${({ theme }) => theme.colour.grey.medium};
+  margin-right: 3rem;
+`;
+
+export const LearnMoreLink = styled(Link)`
+  margin-left: 0.8rem;
+  color: ${({ theme }) => theme.colour.blue.dark};
 `;

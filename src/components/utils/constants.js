@@ -3,6 +3,7 @@ export const STATIC_ROUTES = {
   CUSTOMERS: "/customers",
   CALENDAR: "/calendar",
   CONTACT: "/contact",
+  PRIVACY_POLICY: "/privacy-policy",
 };
 
 export const SCREEN_SIZES = {
