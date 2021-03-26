@@ -52,9 +52,6 @@ export const query = graphql`
             title: page_title {
               text
             }
-            productSectionBackground: product_over_section_background {
-              url
-            }
           }
         }
       }

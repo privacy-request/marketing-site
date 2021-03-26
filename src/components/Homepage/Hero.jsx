@@ -5,6 +5,7 @@ import { HomepageHeadline, Paragraph, CallToAction } from "../typography";
 import { STATIC_ROUTES, SCREEN_SIZES } from "../utils/constants";
 import HeroAnimation from "./HeroAnimation";
 import isMobileScreen from "../utils/isMobileScreen";
+import Headline from "./Headline";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -41,7 +42,8 @@ const HomepageHero = () => {
   const {
     callToAction,
     callToActionIcon,
-    headline,
+    headlinePrefix,
+    headlineTypewriter,
     subheadline,
   } = data.homepage.edges[0].node.data;
   const isMobile = isMobileScreen();
@@ -49,7 +51,7 @@ const HomepageHero = () => {
   return (
     <HeroContainer isMobile={isMobile}>
       <Header isMobile={isMobile}>
-        <HomepageHeadline>{headline.text}</HomepageHeadline>
+        <Headline prefix={headlinePrefix} typewriter={headlineTypewriter} />
         <Subheadline isMobile={isMobile}>{subheadline.text}</Subheadline>
         <CallToAction to={STATIC_ROUTES.CALENDAR}>
           <Icon src={callToActionIcon.url} />
@@ -73,8 +75,13 @@ const query = graphql`
             callToActionIcon: call_to_action_icon {
               url
             }
-            headline {
+            headlinePrefix: headline_prefix {
               text
+            }
+            headlineTypewriter: headline_typewriter {
+              word {
+                text
+              }
             }
             heroArt: hero_art {
               url

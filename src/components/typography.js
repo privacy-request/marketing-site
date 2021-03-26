@@ -153,6 +153,13 @@ export const HomepageHeadline = styled.h1`
   font-size: ${fontSize.header.xlarge};
   line-height: ${lineHeight.xlarge};
   width: ${({ theme: { width } }) => width.heroHeadline};
+  height: 24.9rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    height: 8.5rem;
+  }
+  @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
+    height: 12rem;
+  }
   background: linear-gradient(
     92.13deg,
     #009dff 3.73%,
