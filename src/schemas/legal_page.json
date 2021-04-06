@@ -1,0 +1,76 @@
+{
+  "Main": {
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Page Title"
+      }
+    },
+    "page_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Page Description"
+      }
+    },
+    "page_keywords": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "keyword": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "Keyword"
+            }
+          }
+        },
+        "label": "Page Keywords"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "route"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "paragraph": [],
+          "text_section": []
+        },
+        "choices": {
+          "text_section": {
+            "type": "Slice",
+            "fieldset": "Text Section",
+            "description": "Header with paragraphs section",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "heading"
+                }
+              }
+            },
+            "repeat": {
+              "paragraph": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Paragraph"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

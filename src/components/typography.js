@@ -268,3 +268,34 @@ export const LearnMoreLink = styled(Link)`
   margin-left: 0.8rem;
   color: ${({ theme }) => theme.colour.blue.dark};
 `;
+
+//  Legal Page
+export const LegalPageTitle = styled.h1`
+  font-size: ${fontSize.header.small};
+  color: ${({ theme }) => theme.colour.blue.dark};
+`;
+
+export const LegalPageNavItem = styled(Link)`
+  color: ${({ theme, active }) =>
+    active ? theme.colour.grey.dark : theme.colour.grey.medium};
+  font-size: ${fontSize.link.small};
+  font-weight: bold;
+  :hover {
+    opacity: ${({ active }) => (active ? "1" : textDecoration.opacity)};
+  }
+  line-height: 3rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-right: 1.8rem;
+  }
+`;
+
+export const LegalPageHeading = styled.h2`
+  font-size: ${fontSize.paragraph.large};
+  font-weight: bold;
+  margin: 4rem 0 1.8rem 0;
+`;
+
+export const LegalPageParagraph = styled.p`
+  font-size: ${fontSize.paragraph.medium};
+  margin-bottom: 2rem;
+`;

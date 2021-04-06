@@ -61,6 +61,7 @@ module.exports = {
           footer: require("./src/schemas/footer.json"),
           calendar_page: require("./src/schemas/calendar_page.json"),
           cookie_banner: require("./src/schemas/cookie_banner.json"),
+          legal_page: require("./src/schemas/legal_page.json"),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true;
