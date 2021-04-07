@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO/SEO";
-import Image from "../components/Image";
 import TrustedCustomers from "../components/TrustedCustomers";
 import ProductPerks from "../components/ProductPage/ProductPerks";
 import BookADemo from "../components/BookADemo";
@@ -13,13 +12,14 @@ import {
   ProductPageSubheadline,
   CallToAction,
 } from "../components/typography";
+import ProductPageHeroBackground from "../../assets/productPageHeroBackground.svg";
 
 const Wrapper = styled.main`
   max-width: ${({ theme }) => theme.width.productPage};
   margin: auto;
 `;
 
-const HeroBackgroundImage = styled(Image)`
+const HeroBackgroundImage = styled(ProductPageHeroBackground)`
   top: -145px;
   display: flex;
   position: absolute;
@@ -78,7 +78,7 @@ const ProductPage = ({ data, path }) => {
             <Icon src={callToActionIcon.url} />
             {callToAction.text}
           </CallToAction>
-          <HeroBackgroundImage image={heroBackgroundImage} />
+          <HeroBackgroundImage />
         </Hero>
         <TrustedCustomers centerText />
         <ProductPerks perks={body} />
