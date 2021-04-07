@@ -38,33 +38,46 @@ const CustomersHeadline = styled(Paragraph)`
 
 const TrustedCustomers = ({ centerText }) => {
   const data = useStaticQuery(query);
-  const { customerLogos, customerHeadline } = data.homepage.edges[0].node.data;
+
+  const {
+    logos,
+    headline,
+    displayFlag,
+  } = data.trustedCutomers.edges[0].node.data;
   return (
-    <TrustedCustomersWrapper centerText={centerText}>
-      <CustomersHeadline>{customerHeadline.text}</CustomersHeadline>
-      <Logos>
-        {customerLogos.map((logo) => (
-          <Logo key={`logo-${logo.logo.url}`} src={logo.logo.url} />
-        ))}
-      </Logos>
-    </TrustedCustomersWrapper>
+    <>
+      {displayFlag ? (
+        <TrustedCustomersWrapper centerText={centerText}>
+          <CustomersHeadline>{headline.text}</CustomersHeadline>
+          <Logos>
+            {logos.map((logo) => (
+              <Logo key={`logo-${logo.logo.url}`} src={logo.logo.url} />
+            ))}
+          </Logos>
+        </TrustedCustomersWrapper>
+      ) : null}
+    </>
   );
 };
 
 const query = graphql`
   query TrustedCustomersQuery {
-    homepage: allPrismicHomepage {
+    trustedCutomers: allPrismicTrustedCustomers {
       edges {
         node {
           data {
-            customerLogos: customer_logos {
-              logo {
-                url
-                alt
-              }
-            }
-            customerHeadline: customers_headline {
+            displayFlag: display_section_flag
+            headline {
               text
+            }
+            logos {
+              logo {
+                dimensions {
+                  height
+                  width
+                }
+                url
+              }
             }
           }
         }

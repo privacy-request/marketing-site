@@ -1,0 +1,34 @@
+{
+  "Main": {
+    "display_section_flag": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Display Section Flag"
+      }
+    },
+    "headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "headline"
+      }
+    },
+    "logos": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "logo"
+            }
+          }
+        },
+        "label": "logos"
+      }
+    }
+  }
+}

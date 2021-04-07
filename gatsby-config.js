@@ -62,6 +62,7 @@ module.exports = {
           calendar_page: require("./src/schemas/calendar_page.json"),
           cookie_banner: require("./src/schemas/cookie_banner.json"),
           legal_page: require("./src/schemas/legal_page.json"),
+          trusted_customers: require("./src/schemas/trusted_customers.json"),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true;
