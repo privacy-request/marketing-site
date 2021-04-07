@@ -35,14 +35,6 @@
         "label": "route"
       }
     },
-    "hero_background_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Hero Background Image"
-      }
-    },
     "headline": {
       "type": "StructuredText",
       "config": {

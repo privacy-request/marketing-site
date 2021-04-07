@@ -58,7 +58,6 @@ const ProductPage = ({ data, path }) => {
     title,
     body,
     headline,
-    heroBackgroundImage,
     subheadline,
   } = data.productPage.data;
   const { callToAction, callToActionIcon } = data.homepage.edges[0].node.data;
@@ -110,13 +109,6 @@ export const query = graphql`
         }
         subheadline {
           text
-        }
-        heroBackgroundImage: hero_background_image {
-          url
-          dimensions {
-            height
-            width
-          }
         }
 
         body {
