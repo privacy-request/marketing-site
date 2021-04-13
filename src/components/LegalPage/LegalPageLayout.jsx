@@ -20,9 +20,10 @@ const Title = styled(LegalPageTitle)`
 
 const NavAndContentWrapper = styled.div`
   display: flex;
-  margin-top: 4rem;
+  margin-top: 7rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     flex-direction: column;
+    margin-top: 4rem;
   }
 `;
 

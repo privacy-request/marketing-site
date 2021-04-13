@@ -35,13 +35,42 @@
         "label": "route"
       }
     },
+    "effective": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "effective"
+      }
+    },
+    "date": {
+      "type": "Date",
+      "config": {
+        "label": "date"
+      }
+    },
+    "introduction": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "paragraph": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, hyperlink",
+              "label": "paragraph"
+            }
+          }
+        },
+        "label": "introduction"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
         "labels": {
           "paragraph": [],
-          "text_section": []
+          "text_section": [],
+          "numbered_section": []
         },
         "choices": {
           "text_section": {
@@ -65,6 +94,44 @@
                 "config": {
                   "multi": "paragraph",
                   "label": "Paragraph"
+                }
+              }
+            }
+          },
+          "numbered_section": {
+            "type": "Slice",
+            "fieldset": "Numbered Section",
+            "description": "ToC friendly text section",
+            "icon": "format_list_numbered",
+            "display": "list",
+            "non-repeat": {
+              "toc_number": {
+                "type": "Number",
+                "config": {
+                  "label": "ToC Number"
+                }
+              },
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "heading"
+                }
+              }
+            },
+            "repeat": {
+              "subheading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "subheading"
+                }
+              },
+              "paragraph": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, hyperlink",
+                  "label": "paragraph"
                 }
               }
             }
