@@ -4,6 +4,7 @@ export const STATIC_ROUTES = {
   CALENDAR: "/calendar",
   CONTACT: "/contact",
   PRIVACY_POLICY: "/privacy-policy",
+  TERMS_OF_SERVICE: "/tos",
 };
 
 export const SCREEN_SIZES = {

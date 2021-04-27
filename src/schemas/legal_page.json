@@ -35,30 +35,17 @@
         "label": "id"
       }
     },
-    "effective": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading4",
-        "label": "effective"
-      }
-    },
-    "date": {
-      "type": "Date",
-      "config": {
-        "label": "date"
-      }
-    },
     "first_section": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, hyperlink, list-item",
+        "multi": "paragraph, strong, hyperlink, list-item",
         "label": "first section"
       }
     },
     "last_section": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, hyperlink, list-item",
+        "multi": "paragraph, strong, hyperlink, list-item",
         "label": "last section"
       }
     },
@@ -98,7 +85,7 @@
               "content": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, hyperlink, list-item",
+                  "multi": "paragraph, strong, hyperlink, list-item",
                   "label": "content"
                 }
               }

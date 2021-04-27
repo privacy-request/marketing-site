@@ -153,7 +153,7 @@ export const HomepageHeadline = styled.h1`
   font-size: ${fontSize.header.xlarge};
   line-height: ${lineHeight.xlarge};
   width: ${({ theme: { width } }) => width.heroHeadline};
-  height: 24.9rem;
+  height: auto;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     height: 8.5rem;
   }

@@ -50,10 +50,8 @@ const Content = styled.div`
   margin: auto;
 `;
 
-const PrivacyCenter = ({ data, path }) => {
-  const [currentPage, setCurrentPage] = useState(
-    path.substring(1, path.length - 1)
-  );
+const PrivacyCenter = ({ data, path, pageContext }) => {
+  const [currentPage, setCurrentPage] = useState(pageContext.slug);
   const pages = data.legalPage.edges.map((pageData) => ({
     ...pageData.node.data,
     uid: pageData.node.uid,
@@ -64,12 +62,12 @@ const PrivacyCenter = ({ data, path }) => {
     title,
     description,
     keywords,
-    effective,
-    date,
     firstSection,
     lastSection,
     body,
   } = activePage;
+
+  console.log({ pageContext, activePage });
 
   const navLinks = pages.map(({ title, body, uid }, index) => ({
     title: title.text,
@@ -123,8 +121,6 @@ const PrivacyCenter = ({ data, path }) => {
           <Content>
             <LegalPage
               {...{
-                effective,
-                date,
                 firstSection,
                 lastSection,
                 sections,
@@ -156,10 +152,6 @@ export const query = graphql`
             description: page_description {
               text
             }
-            effective {
-              text
-            }
-            date(formatString: "")
             firstSection: first_section {
               raw
             }

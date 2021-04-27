@@ -7,17 +7,9 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 
-const LegalPage = ({
-  effective,
-  date,
-  firstSection,
-  lastSection,
-  sections,
-  currentPage,
-}) => {
+const LegalPage = ({ firstSection, lastSection, sections, currentPage }) => {
   return (
     <Wrapper>
-      <LegalPageParagraph>{`${effective.text} ${date}`}</LegalPageParagraph>
       {firstSection.raw.map((element, index) => (
         <LegalPageParagraph key={`lp-intro-p-${index}-${currentPage}`}>
           {element.text}

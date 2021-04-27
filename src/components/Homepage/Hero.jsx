@@ -83,14 +83,6 @@ const query = graphql`
                 text
               }
             }
-            heroArt: hero_art {
-              url
-              alt
-              dimensions {
-                height
-                width
-              }
-            }
             subheadline {
               text
             }

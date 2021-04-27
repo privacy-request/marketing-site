@@ -51,13 +51,14 @@ const Headline = ({ prefix, typewriter }) => {
     }, 500);
     return () => clearTimeout(timeout2);
   }, [blink]);
-
+  console.log(typewriterWords.length > 0);
   return (
     <>
       <HomepageHeadline>
         {prefix.text}
         <br />
-        {` ${typewriterWords[index].substring(0, subIndex)} `}
+        {typewriterWords.length > 0 &&
+          ` ${typewriterWords[index].substring(0, subIndex)} `}
         <Cursor>{`${blink ? "|" : " "}`}</Cursor>
       </HomepageHeadline>
     </>
