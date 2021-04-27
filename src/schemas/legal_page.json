@@ -32,7 +32,7 @@
     "uid": {
       "type": "UID",
       "config": {
-        "label": "route"
+        "label": "id"
       }
     },
     "effective": {
@@ -48,19 +48,18 @@
         "label": "date"
       }
     },
-    "introduction": {
-      "type": "Group",
+    "first_section": {
+      "type": "StructuredText",
       "config": {
-        "fields": {
-          "paragraph": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, hyperlink",
-              "label": "paragraph"
-            }
-          }
-        },
-        "label": "introduction"
+        "multi": "paragraph, hyperlink, list-item",
+        "label": "first section"
+      }
+    },
+    "last_section": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, hyperlink, list-item",
+        "label": "last section"
       }
     },
     "body": {
@@ -73,31 +72,6 @@
           "numbered_section": []
         },
         "choices": {
-          "text_section": {
-            "type": "Slice",
-            "fieldset": "Text Section",
-            "description": "Header with paragraphs section",
-            "icon": "format_align_left",
-            "display": "list",
-            "non-repeat": {
-              "heading": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading3",
-                  "label": "heading"
-                }
-              }
-            },
-            "repeat": {
-              "paragraph": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph",
-                  "label": "Paragraph"
-                }
-              }
-            }
-          },
           "numbered_section": {
             "type": "Slice",
             "fieldset": "Numbered Section",
@@ -105,12 +79,6 @@
             "icon": "format_list_numbered",
             "display": "list",
             "non-repeat": {
-              "toc_number": {
-                "type": "Number",
-                "config": {
-                  "label": "ToC Number"
-                }
-              },
               "heading": {
                 "type": "StructuredText",
                 "config": {
@@ -127,11 +95,11 @@
                   "label": "subheading"
                 }
               },
-              "paragraph": {
+              "content": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, hyperlink",
-                  "label": "paragraph"
+                  "multi": "paragraph, hyperlink, list-item",
+                  "label": "content"
                 }
               }
             }

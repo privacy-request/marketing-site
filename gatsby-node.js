@@ -60,7 +60,9 @@ exports.createPages = async ({ graphql, actions }) => {
     )
   );
 
-  const legalPageTemplate = require.resolve("./src/templates/LegalPage.jsx");
+  const legalPageTemplate = require.resolve(
+    "./src/templates/privacyCenter.jsx"
+  );
 
   const legalPages = legalPageQueryResults.data.allPrismicLegalPage.edges;
 
