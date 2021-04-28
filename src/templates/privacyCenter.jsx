@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO/SEO";
@@ -64,6 +64,9 @@ const PrivacyCenter = ({ data, path }) => {
     };
   });
 
+  const replaceSpacesWithDashes = (str) =>
+    str.replace(/\s+/g, "-").toLowerCase();
+
   return (
     <Layout>
       <SEO
@@ -75,7 +78,11 @@ const PrivacyCenter = ({ data, path }) => {
       <Wrapper>
         <Title>{title.text}</Title>
         <NavAndContentWrapper>
-          <PrivacyNav currentRoute={uid} />
+          <PrivacyNav
+            sections={sections}
+            currentRoute={uid}
+            replaceSpacesWithDashes={replaceSpacesWithDashes}
+          />
           <Content>
             <LegalPage
               {...{
@@ -83,6 +90,7 @@ const PrivacyCenter = ({ data, path }) => {
                 lastSection,
                 sections,
                 uid,
+                replaceSpacesWithDashes,
               }}
             />
           </Content>

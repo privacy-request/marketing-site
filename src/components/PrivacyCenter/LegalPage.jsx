@@ -7,7 +7,13 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 
-const LegalPage = ({ firstSection, lastSection, sections, currentPage }) => {
+const LegalPage = ({
+  firstSection,
+  lastSection,
+  sections,
+  currentPage,
+  replaceSpacesWithDashes,
+}) => {
   return (
     <Wrapper>
       {firstSection.raw.map((element, index) => (
@@ -17,7 +23,9 @@ const LegalPage = ({ firstSection, lastSection, sections, currentPage }) => {
       ))}
       {sections.map((section, index) => (
         <React.Fragment key={`${currentPage}-section-${index}`}>
-          <LegalPageHeading>{section.heading}</LegalPageHeading>
+          <LegalPageHeading id={replaceSpacesWithDashes(section.heading)}>
+            {section.heading}
+          </LegalPageHeading>
           {section.content}
         </React.Fragment>
       ))}

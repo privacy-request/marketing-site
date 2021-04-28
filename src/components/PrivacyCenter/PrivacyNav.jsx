@@ -15,7 +15,7 @@ const NavWrapper = styled.div`
   }
 `;
 
-const PrivacyNav = ({ currentRoute }) => {
+const PrivacyNav = ({ currentRoute, replaceSpacesWithDashes }) => {
   const data = useStaticQuery(query);
 
   const navLinks = data.legalPages.edges.map(
@@ -44,7 +44,10 @@ const PrivacyNav = ({ currentRoute }) => {
           <LegalPageNavItem to={`/${route}`}>{title}</LegalPageNavItem>
           {route === currentRoute &&
             subheadings.map(({ subheading }, subindex) => (
-              <LegalPageNavSubItem as="p" key={`lp-nav-si-${subindex}`}>
+              <LegalPageNavSubItem
+                to={`/${route}#${replaceSpacesWithDashes(subheading)}`}
+                key={`lp-nav-si-${subindex}`}
+              >
                 {subheading}
               </LegalPageNavSubItem>
             ))}
