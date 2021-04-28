@@ -51,7 +51,7 @@ const Headline = ({ prefix, typewriter }) => {
     }, 500);
     return () => clearTimeout(timeout2);
   }, [blink]);
-  console.log(typewriterWords.length > 0);
+
   return (
     <>
       <HomepageHeadline>

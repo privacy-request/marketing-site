@@ -1,27 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO/SEO";
-import {
-  LegalPageNavItem,
-  LegalPageNavSubItem,
-} from "../components/typography";
 import styled from "styled-components";
 import { LegalPageTitle } from "../components/typography";
 import { SCREEN_SIZES } from "../components/utils/constants";
 import LegalPage from "../components/PrivacyCenter/LegalPage";
 import assignContent from "../components/PrivacyCenter/assignContent";
-
-const NavWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-right: 3rem;
-  min-width: 16rem;
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    flex-direction: row;
-    margin-bottom: 3rem;
-  }
-`;
+import PrivacyNav from "../components/PrivacyCenter/PrivacyNav";
 
 const Wrapper = styled.div`
   max-width: ${({ theme }) => theme.width.section};
@@ -50,14 +36,7 @@ const Content = styled.div`
   margin: auto;
 `;
 
-const PrivacyCenter = ({ data, path, pageContext }) => {
-  const [currentPage, setCurrentPage] = useState(pageContext.slug);
-  const pages = data.legalPage.edges.map((pageData) => ({
-    ...pageData.node.data,
-    uid: pageData.node.uid,
-  }));
-
-  const activePage = pages.find(({ uid }) => uid === currentPage);
+const PrivacyCenter = ({ data, path }) => {
   const {
     title,
     description,
@@ -65,19 +44,9 @@ const PrivacyCenter = ({ data, path, pageContext }) => {
     firstSection,
     lastSection,
     body,
-  } = activePage;
+  } = data.legalPage.data;
 
-  console.log({ pageContext, activePage });
-
-  const navLinks = pages.map(({ title, body, uid }, index) => ({
-    title: title.text,
-    index,
-    uid,
-    subheadings: body.map(({ primary: { heading } }, subindex) => ({
-      subheading: heading ? heading.text : "",
-      subindex,
-    })),
-  }));
+  const uid = data.legalPage.uid;
 
   const sections = body.map((section, index) => {
     const tocNumber = index + 1;
@@ -106,25 +75,14 @@ const PrivacyCenter = ({ data, path, pageContext }) => {
       <Wrapper>
         <Title>{title.text}</Title>
         <NavAndContentWrapper>
-          <NavWrapper>
-            {navLinks.map(({ title, index, subheadings, uid }) => (
-              <React.Fragment key={`lp-ni-${index}`}>
-                <LegalPageNavItem to={`/${uid}`}>{title}</LegalPageNavItem>
-                {subheadings.map(({ subheading }, subindex) => (
-                  <LegalPageNavSubItem key={`lp-nav-si-${subindex}`}>
-                    {subheading}
-                  </LegalPageNavSubItem>
-                ))}
-              </React.Fragment>
-            ))}
-          </NavWrapper>
+          <PrivacyNav currentRoute={uid} />
           <Content>
             <LegalPage
               {...{
                 firstSection,
                 lastSection,
                 sections,
-                currentPage,
+                uid,
               }}
             />
           </Content>
@@ -135,45 +93,41 @@ const PrivacyCenter = ({ data, path, pageContext }) => {
 };
 
 export const query = graphql`
-  query PrivacyCenterQuery {
-    legalPage: allPrismicLegalPage {
-      edges {
-        node {
-          uid
-          data {
-            title: page_title {
-              text
-            }
-            keywords: page_keywords {
-              keyword {
+  query LegalPageQuery($slug: String) {
+    legalPage: prismicLegalPage(uid: { eq: $slug }) {
+      uid
+      data {
+        description: page_description {
+          text
+        }
+        keywords: page_keywords {
+          keyword {
+            text
+          }
+        }
+        title: page_title {
+          text
+        }
+        firstSection: first_section {
+          raw
+        }
+        lastSection: last_section {
+          raw
+        }
+        body {
+          ... on PrismicLegalPageBodyNumberedSection {
+            id
+            primary {
+              heading {
                 text
               }
             }
-            description: page_description {
-              text
-            }
-            firstSection: first_section {
-              raw
-            }
-            lastSection: last_section {
-              raw
-            }
-            body {
-              ... on PrismicLegalPageBodyNumberedSection {
-                id
-                primary {
-                  heading {
-                    text
-                  }
-                }
-                items {
-                  content {
-                    raw
-                  }
-                  subheading {
-                    text
-                  }
-                }
+            items {
+              content {
+                raw
+              }
+              subheading {
+                text
               }
             }
           }
