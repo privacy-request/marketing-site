@@ -63,6 +63,7 @@ module.exports = {
           cookie_banner: require("./src/schemas/cookie_banner.json"),
           legal_page: require("./src/schemas/legal_page.json"),
           trusted_customers: require("./src/schemas/trusted_customers.json"),
+          demo_cta: require("./src/schemas/demo_cta.json"),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true;

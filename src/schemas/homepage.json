@@ -65,21 +65,6 @@
         "label": "Subheadline"
       }
     },
-    "call_to_action": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Call to action"
-      }
-    },
-    "call_to_action_icon": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Call to action icon"
-      }
-    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",

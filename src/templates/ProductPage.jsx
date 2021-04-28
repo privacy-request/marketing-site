@@ -6,13 +6,13 @@ import SEO from "../components/SEO/SEO";
 import TrustedCustomers from "../components/TrustedCustomers";
 import ProductPerks from "../components/ProductPage/ProductPerks";
 import BookADemo from "../components/BookADemo";
-import { STATIC_ROUTES, SCREEN_SIZES } from "../components/utils/constants";
+import { SCREEN_SIZES } from "../components/utils/constants";
 import {
   ProductPageHeadline,
   ProductPageSubheadline,
-  CallToAction,
 } from "../components/typography";
 import ProductPageHeroBackground from "../../assets/productPageHeroBackground.svg";
+import DemoCTA from "../components/DemoCTA";
 
 const Wrapper = styled.main`
   max-width: ${({ theme }) => theme.width.productPage};
@@ -47,9 +47,6 @@ const Hero = styled.header`
     margin-bottom: 5rem;
   }
 `;
-const Icon = styled.img`
-  margin-right: 1.2rem;
-`;
 
 const ProductPage = ({ data, path }) => {
   const {
@@ -60,7 +57,6 @@ const ProductPage = ({ data, path }) => {
     headline,
     subheadline,
   } = data.productPage.data;
-  const { callToAction, callToActionIcon } = data.homepage.edges[0].node.data;
   return (
     <Layout>
       <SEO
@@ -73,10 +69,7 @@ const ProductPage = ({ data, path }) => {
         <Hero>
           <ProductPageHeadline>{headline.text}</ProductPageHeadline>
           <ProductPageSubheadline>{subheadline.text}</ProductPageSubheadline>
-          <CallToAction to={STATIC_ROUTES.CALENDAR}>
-            <Icon src={callToActionIcon.url} />
-            {callToAction.text}
-          </CallToAction>
+          <DemoCTA withIcon />
           <HeroBackgroundImage />
         </Hero>
         <TrustedCustomers centerText />
@@ -87,7 +80,6 @@ const ProductPage = ({ data, path }) => {
   );
 };
 
-// TODO: Move Call to action text and icon to its own content type
 export const query = graphql`
   query ProductPageQuery($slug: String) {
     productPage: prismicProductPage(uid: { eq: $slug }) {
@@ -155,20 +147,6 @@ export const query = graphql`
               subheading {
                 text
               }
-            }
-          }
-        }
-      }
-    }
-    homepage: allPrismicHomepage {
-      edges {
-        node {
-          data {
-            callToAction: call_to_action {
-              text
-            }
-            callToActionIcon: call_to_action_icon {
-              url
             }
           }
         }

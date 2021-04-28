@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
-import { HomepageHeadline, Paragraph, CallToAction } from "../typography";
-import { STATIC_ROUTES, SCREEN_SIZES } from "../utils/constants";
+import { Paragraph } from "../typography";
+import { SCREEN_SIZES } from "../utils/constants";
 import HeroAnimation from "./HeroAnimation";
 import isMobileScreen from "../utils/isMobileScreen";
 import Headline from "./Headline";
+import DemoCTA from "../DemoCTA";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -27,10 +28,6 @@ const Header = styled.header`
   }
 `;
 
-const Icon = styled.img`
-  margin-right: 1.2rem;
-`;
-
 const Subheadline = styled(Paragraph)`
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 3.2rem;
@@ -40,8 +37,6 @@ const Subheadline = styled(Paragraph)`
 const HomepageHero = () => {
   const data = useStaticQuery(query);
   const {
-    callToAction,
-    callToActionIcon,
     headlinePrefix,
     headlineTypewriter,
     subheadline,
@@ -53,10 +48,7 @@ const HomepageHero = () => {
       <Header isMobile={isMobile}>
         <Headline prefix={headlinePrefix} typewriter={headlineTypewriter} />
         <Subheadline isMobile={isMobile}>{subheadline.text}</Subheadline>
-        <CallToAction to={STATIC_ROUTES.CALENDAR}>
-          <Icon src={callToActionIcon.url} />
-          {callToAction.text}
-        </CallToAction>
+        <DemoCTA withIcon />
       </Header>
       {!isMobile && <HeroAnimation />}
     </HeroContainer>
@@ -69,12 +61,6 @@ const query = graphql`
       edges {
         node {
           data {
-            callToAction: call_to_action {
-              text
-            }
-            callToActionIcon: call_to_action_icon {
-              url
-            }
             headlinePrefix: headline_prefix {
               text
             }

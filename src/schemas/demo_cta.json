@@ -1,0 +1,19 @@
+{
+  "Main": {
+    "text": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "text"
+      }
+    },
+    "icon": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "icon"
+      }
+    }
+  }
+}

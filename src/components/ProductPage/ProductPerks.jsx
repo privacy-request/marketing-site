@@ -1,6 +1,7 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import styled, { css } from "styled-components";
-import { SCREEN_SIZES } from "../utils/constants";
+import { SCREEN_SIZES, STATIC_ROUTES } from "../utils/constants";
 import SectionText from "../SectionText";
 import Illustration from "../Illustration";
 
@@ -58,7 +59,6 @@ const Wrapper = styled.section`
 `;
 
 const PerkText = styled(SectionText)`
-  /* padding: 7rem; */
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     padding: 0rem;
     margin-bottom: 2.6rem;
@@ -66,16 +66,18 @@ const PerkText = styled(SectionText)`
 `;
 
 const ProductPerks = ({ perks }) => {
+  const data = useStaticQuery(query);
+  const { text } = data.allPrismicDemoCta.edges[0].node.data;
   return (
     <>
       {perks.map((perk, index) => {
         return (
-          <Wrapper index={index}>
+          <Wrapper index={index} key={`product-perk-${index}`}>
             <PerkText
               {...perk.primary}
-              callToActionText="Book a demo"
+              callToActionText={text.text}
               size="medium"
-              route="/calendar"
+              route={STATIC_ROUTES.CALENDAR}
             />
             <Illustration {...perk.primary} />
           </Wrapper>
@@ -84,5 +86,21 @@ const ProductPerks = ({ perks }) => {
     </>
   );
 };
+
+const query = graphql`
+  query ProductPerks {
+    allPrismicDemoCta {
+      edges {
+        node {
+          data {
+            text {
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default ProductPerks;
