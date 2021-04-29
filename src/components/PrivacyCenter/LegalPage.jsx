@@ -1,39 +1,26 @@
 import React from "react";
-import { LegalPageParagraph, LegalPageHeading } from "../typography";
+import { LegalPageHeading } from "../typography";
 import styled from "styled-components";
+import { createKeyFromStr } from "../utils/helpers";
 
 const Wrapper = styled.div`
   max-width: 75rem;
   margin: auto;
 `;
 
-const LegalPage = ({
-  firstSection,
-  lastSection,
-  sections,
-  currentPage,
-  replaceSpacesWithDashes,
-}) => {
+const LegalPage = ({ sections, introduction, outro }) => {
   return (
     <Wrapper>
-      {firstSection.raw.map((element, index) => (
-        <LegalPageParagraph key={`lp-intro-p-${index}-${currentPage}`}>
-          {element.text}
-        </LegalPageParagraph>
-      ))}
-      {sections.map((section, index) => (
-        <React.Fragment key={`${currentPage}-section-${index}`}>
-          <LegalPageHeading id={replaceSpacesWithDashes(section.heading)}>
+      {introduction}
+      {sections.map((section) => (
+        <React.Fragment key={createKeyFromStr(section.heading)}>
+          <LegalPageHeading id={createKeyFromStr(section.heading)}>
             {section.heading}
           </LegalPageHeading>
           {section.content}
         </React.Fragment>
       ))}
-      {lastSection.raw.map((element, index) => (
-        <LegalPageParagraph key={`lp-outro-p-${index}-${currentPage}`}>
-          {element.text}
-        </LegalPageParagraph>
-      ))}
+      {outro}
     </Wrapper>
   );
 };

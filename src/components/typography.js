@@ -299,6 +299,7 @@ export const LegalPageHeading = styled.h2`
 export const LegalPageParagraph = styled.p`
   font-size: ${fontSize.paragraph.medium};
   margin-bottom: 2rem;
+  white-space: break-spaces;
 `;
 
 export const LegalPageListItem = styled.li`

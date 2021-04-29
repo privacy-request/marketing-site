@@ -1,56 +1,74 @@
 import React from "react";
-
+import { createKeyFromStr } from "../utils/helpers";
 import { LegalPageParagraph, LegalPageListItem } from "../typography";
 import styled from "styled-components";
+
 const UL = styled.ul`
   list-style: disc;
   margin-left: 3rem;
 `;
 
-const groupContent = (content, item) => {
-  const { type, text } = item;
-  switch (type) {
-    case "paragraph":
-      content.push({ type, value: text });
-      break;
-    case "list-item":
-      content[content.length - 1].type === "list-item"
-        ? content[content.length - 1].value.push(text)
-        : content.push({ type, value: [text] });
-      break;
-    default:
-      content.push({ type, value: text });
-      break;
-  }
-  return content;
+const A = styled.a`
+  color: ${({ theme }) => theme.colour.blue.dark};
+`;
+
+const groupListItems = (content) => {
+  const groupedContent = content.reduce((value, { type, text, spans }) => {
+    type === "list-item"
+      ? value[value.length - 1].type === "list-item"
+        ? value[value.length - 1].value.push(text)
+        : value.push({ type, value: [text], spans })
+      : value.push({ type, value: text, spans });
+    return value;
+  }, []);
+  return groupedContent;
 };
 
-const assignComponent = ({
-  content,
-  subheading,
-  tocNumber,
-  tocSubNumber,
-  index,
-}) => {
-  const { type, value } = content;
+const addSpans = ({ value, spans }) => {
+  const sortedSpans = [...spans].sort((a, b) => (a.start < b.start ? 1 : -1));
+  const valueWithSpan = sortedSpans.reduce(
+    (formattedValue, { start, end, type, data }, index) => {
+      const firstPass = index === 0;
+      const valueToSlice = !firstPass ? formattedValue[0] : formattedValue;
+      const startStr = valueToSlice.slice(0, start);
+      const endStr = valueToSlice.slice(end, valueToSlice.length);
+      const textToWrap = valueToSlice.slice(start, end);
+      const wrappedText =
+        type === "hyperlink" ? (
+          <A href={data.url} target="_blank">
+            {textToWrap}
+          </A>
+        ) : (
+          <b>{textToWrap}</b>
+        );
+
+      if (!firstPass) {
+        formattedValue.shift();
+        formattedValue.unshift(startStr, wrappedText, endStr);
+        return formattedValue;
+      }
+      return [startStr, wrappedText, endStr];
+    },
+    value
+  );
+  return valueWithSpan;
+};
+
+const assignComponent = (content) => {
+  const { type, value, spans } = content;
+  const valueWithSpan = spans.length > 0 ? addSpans({ value, spans }) : value;
   switch (type) {
     case "paragraph":
-      return index === 0 && !!subheading.text ? (
-        <LegalPageParagraph key={`lp-p-${tocNumber}-${tocSubNumber}-${index}`}>
-          {`${tocNumber}.${tocSubNumber} ${subheading.text}. ${value}`}
-        </LegalPageParagraph>
-      ) : (
-        <LegalPageParagraph key={`lp-p-${tocNumber}-${tocSubNumber}-${index}`}>
-          {value}
+      return (
+        <LegalPageParagraph key={createKeyFromStr(value)}>
+          {valueWithSpan}
         </LegalPageParagraph>
       );
     case "list-item":
       return (
-        <UL key={`lp-l-${tocNumber}-${tocSubNumber}`}>
-          {value.map((listItem, listIndex) => (
-            <LegalPageListItem
-              key={`lp-l-${tocNumber}-li-${listIndex}-${tocSubNumber}-${index}`}
-            >
+        <UL key={`ul-${createKeyFromStr(value[0])}`}>
+          {valueWithSpan.map((listItem) => (
+            <LegalPageListItem key={createKeyFromStr(listItem)}>
               {listItem}
             </LegalPageListItem>
           ))}
@@ -59,11 +77,27 @@ const assignComponent = ({
   }
 };
 
-const assignContent = ({ content, subheading, tocNumber, tocSubNumber }) => {
-  const groupedContent = content.reduce(groupContent, []);
-  const assignedContent = groupedContent.map((content, index) =>
-    assignComponent({ content, subheading, tocNumber, tocSubNumber, index })
+const appendToC = (tocObj, groupedContent) => {
+  const groupedContentCopy = [...groupedContent];
+  if (tocObj && groupedContentCopy[0].type === "paragraph") {
+    const { tocNumber, tocSubNumber, subheading } = tocObj;
+    groupedContentCopy[0].value = `${tocNumber}.${tocSubNumber} ${subheading.text}. ${groupedContent[0].value}`;
+  }
+  return groupedContentCopy;
+};
+
+const assignContent = (content, tocObj) => {
+  // Group list items
+  const groupedContent = groupListItems(content);
+
+  // Append ToC values to first paragraph
+  const groupedContentWithToC = appendToC(tocObj, groupedContent);
+
+  // Wrap content in appropriate compoponent
+  const assignedContent = groupedContentWithToC.map((content) =>
+    assignComponent(content)
   );
+
   return assignedContent;
 };
 

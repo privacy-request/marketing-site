@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { LegalPageNavItem, LegalPageNavSubItem } from "../typography";
 import { SCREEN_SIZES } from "../utils/constants";
+import { createKeyFromStr } from "../utils/helpers";
 
 const NavWrapper = styled.div`
   display: flex;
@@ -45,7 +46,7 @@ const PrivacyNav = ({ currentRoute, replaceSpacesWithDashes }) => {
           {route === currentRoute &&
             subheadings.map(({ subheading }, subindex) => (
               <LegalPageNavSubItem
-                to={`/${route}#${replaceSpacesWithDashes(subheading)}`}
+                to={`/${route}#${createKeyFromStr(subheading)}`}
                 key={`lp-nav-si-${subindex}`}
               >
                 {subheading}

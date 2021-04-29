@@ -45,17 +45,17 @@ const PrivacyCenter = ({ data, path }) => {
     lastSection,
     body,
   } = data.legalPage.data;
-
   const uid = data.legalPage.uid;
 
+  const introduction = assignContent(firstSection.raw);
+  const outro = assignContent(lastSection.raw);
   const sections = body.map((section, index) => {
     const tocNumber = index + 1;
     return {
       heading: section.primary.heading.text,
       tocNumber,
       content: section.items.map((subSection, index) =>
-        assignContent({
-          content: subSection.content.raw,
+        assignContent(subSection.content.raw, {
           subheading: subSection.subheading,
           tocNumber,
           tocSubNumber: index + 1,
@@ -63,9 +63,6 @@ const PrivacyCenter = ({ data, path }) => {
       ),
     };
   });
-
-  const replaceSpacesWithDashes = (str) =>
-    str.replace(/\s+/g, "-").toLowerCase();
 
   return (
     <Layout>
@@ -78,19 +75,16 @@ const PrivacyCenter = ({ data, path }) => {
       <Wrapper>
         <Title>{title.text}</Title>
         <NavAndContentWrapper>
-          <PrivacyNav
-            sections={sections}
-            currentRoute={uid}
-            replaceSpacesWithDashes={replaceSpacesWithDashes}
-          />
+          <PrivacyNav sections={sections} currentRoute={uid} />
           <Content>
             <LegalPage
               {...{
+                introduction,
+                outro,
                 firstSection,
                 lastSection,
                 sections,
                 uid,
-                replaceSpacesWithDashes,
               }}
             />
           </Content>
