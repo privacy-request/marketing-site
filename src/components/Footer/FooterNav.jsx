@@ -40,12 +40,13 @@ const FooterNav = () => {
     customersPageNav,
     homepageNav,
     productPagesNav,
+    productPagesSubitems,
   } = data.allPrismicNavigationBar.edges[0].node.data;
   const { contact, email, phone } = data.allPrismicFooter.edges[0].node.data;
 
-  const productPages = data.allPrismicProductPage.edges.map((page) => {
-    const url = page.node.uid;
-    const title = page.node.data.page_title.text;
+  const productPages = productPagesSubitems.map((subitem) => {
+    const url = subitem.route.text;
+    const title = subitem.text.text;
     return { url, title };
   });
 
@@ -94,19 +95,15 @@ const query = graphql`
             contactPageNav: contact_page_nav {
               text
             }
-          }
-        }
-      }
-    }
-    allPrismicProductPage {
-      edges {
-        node {
-          data {
-            page_title {
-              text
+            productPagesSubitems: product_pages_sub_items {
+              route {
+                text
+              }
+              text {
+                text
+              }
             }
           }
-          uid
         }
       }
     }

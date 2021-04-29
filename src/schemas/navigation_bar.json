@@ -37,6 +37,28 @@
         "label": "product pages nav"
       }
     },
+    "product_pages_sub_items": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "route": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading4",
+              "label": "route"
+            }
+          },
+          "text": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading4",
+              "label": "text"
+            }
+          }
+        },
+        "label": "product pages sub items"
+      }
+    },
     "customers_page_nav": {
       "type": "StructuredText",
       "config": {
