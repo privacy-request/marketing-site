@@ -40,7 +40,7 @@
       "type": "StructuredText",
       "config": {
         "single": "heading1",
-        "label": "Headline Prefix"
+        "label": "Headline Prefix text"
       }
     },
     "headline_typewriter": {
@@ -55,7 +55,26 @@
             }
           }
         },
-        "label": "headline typewriter"
+        "label": "headline typewriter words"
+      }
+    },
+    "typing_speed": {
+      "type": "Number",
+      "config": {
+        "label": "typing speed"
+      }
+    },
+    "backspace_delay": {
+      "type": "Number",
+      "config": {
+        "label": "backspace delay"
+      }
+    },
+    "loop_words": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "loop words"
       }
     },
     "subheadline": {

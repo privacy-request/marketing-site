@@ -10,7 +10,7 @@ const Cursor = styled.span`
   }
 `;
 
-const Headline = ({ prefix, typewriter }) => {
+const Headline = ({ prefix, typewriter, loop, speed, delay }) => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [blink, setBlink] = useState(true);
@@ -20,7 +20,6 @@ const Headline = ({ prefix, typewriter }) => {
 
   // typeWriter
   useEffect(() => {
-    if (index === typewriterWords.length) return;
     if (
       subIndex === typewriterWords[index].length + 1 &&
       index !== typewriterWords.length - 1 &&
@@ -32,14 +31,22 @@ const Headline = ({ prefix, typewriter }) => {
 
     if (subIndex === 0 && reverse) {
       setReverse(false);
-
-      setIndex((prev) => prev + 1);
+      setIndex(
+        index == typewriterWords.length - 1 && loop ? 0 : (prev) => prev + 1
+      );
       return;
     }
 
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, Math.max(reverse ? 75 : subIndex === typewriterWords[index].length ? 700 : 75));
+      if (
+        loop &&
+        index === typewriterWords.length - 1 &&
+        subIndex === typewriterWords[index].length
+      ) {
+        setReverse(true);
+      }
+    }, Math.max(reverse ? 75 : subIndex === typewriterWords[index].length ? delay : speed));
 
     return () => clearTimeout(timeout);
   }, [subIndex, index, reverse]);

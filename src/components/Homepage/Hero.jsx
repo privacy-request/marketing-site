@@ -40,13 +40,20 @@ const HomepageHero = () => {
     headlinePrefix,
     headlineTypewriter,
     subheadline,
+    loop,
+    speed,
+    delay,
   } = data.homepage.edges[0].node.data;
   const isMobile = isMobileScreen();
 
   return (
     <HeroContainer isMobile={isMobile}>
       <Header isMobile={isMobile}>
-        <Headline prefix={headlinePrefix} typewriter={headlineTypewriter} />
+        <Headline
+          prefix={headlinePrefix}
+          typewriter={headlineTypewriter}
+          {...{ loop, speed, delay }}
+        />
         <Subheadline isMobile={isMobile}>{subheadline.text}</Subheadline>
         <DemoCTA withIcon />
       </Header>
@@ -72,6 +79,9 @@ const query = graphql`
             subheadline {
               text
             }
+            loop: loop_words
+            speed: typing_speed
+            delay: backspace_delay
           }
         }
       }
