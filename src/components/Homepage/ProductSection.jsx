@@ -11,6 +11,8 @@ const sectionStyles = [
       color: ${({ theme }) => theme.colour.blue.dark};
     }
     background: #f7fcff;
+    z-index: 1;
+    mix-blend-mode: multiply;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     -webkit-clip-path: polygon(0 0, 100% 16rem, 100% 100%, 0 100%);
     @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
