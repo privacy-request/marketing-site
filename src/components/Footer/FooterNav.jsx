@@ -64,9 +64,9 @@ const FooterNav = () => {
             </DesktopNavSubitem>
           ))}
         </NavSubList>
-        <FooterNavItem>
+        {/* <FooterNavItem>
           <Link to={STATIC_ROUTES.CUSTOMERS}>{customersPageNav.text}</Link>
-        </FooterNavItem>
+        </FooterNavItem> */}
         <NavSubList>
           <DesktopNavItem noHover>{contact.text}</DesktopNavItem>
           <DesktopNavSubitem noHover>{email.text}</DesktopNavSubitem>

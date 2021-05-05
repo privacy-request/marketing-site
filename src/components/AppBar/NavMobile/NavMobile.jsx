@@ -60,9 +60,9 @@ const NavMobile = ({
               parentMenuOpen={isOpen}
             />
           </MobileNavItem>
-          <MobileNavItem active={path === STATIC_ROUTES.CUSTOMERS}>
+          {/* <MobileNavItem active={path === STATIC_ROUTES.CUSTOMERS}>
             <Link to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</Link>
-          </MobileNavItem>
+          </MobileNavItem> */}
           <MobileNavItem active={path === STATIC_ROUTES.CONTACT}>
             <Link to={STATIC_ROUTES.CONTACT}>{contactPageNavText}</Link>
           </MobileNavItem>

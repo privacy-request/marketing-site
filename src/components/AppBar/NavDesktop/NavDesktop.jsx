@@ -29,9 +29,9 @@ const NavDesktop = ({
           pages={productPages}
           path={path}
         />
-        <DesktopNavItem>
+        {/* <DesktopNavItem>
           <NavLink to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</NavLink>
-        </DesktopNavItem>
+        </DesktopNavItem> */}
         <DesktopNavItem>
           <CallToAction inverted="true" to={STATIC_ROUTES.CALENDAR}>
             {getADemoBtnText}
