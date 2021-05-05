@@ -287,6 +287,7 @@ export const LegalPageNavItem = styled(Link)`
 
 export const LegalPageNavSubItem = styled(LegalPageNavItem)`
   margin-left: 1.5rem;
+  font-weight: normal;
   color: ${({ theme }) => theme.colour.grey.medium};
 `;
 
