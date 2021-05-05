@@ -63,9 +63,9 @@ const NavMobile = ({
           {/* <MobileNavItem active={path === STATIC_ROUTES.CUSTOMERS}>
             <Link to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</Link>
           </MobileNavItem> */}
-          <MobileNavItem active={path === STATIC_ROUTES.CONTACT}>
+          {/* <MobileNavItem active={path === STATIC_ROUTES.CONTACT}>
             <Link to={STATIC_ROUTES.CONTACT}>{contactPageNavText}</Link>
-          </MobileNavItem>
+          </MobileNavItem> */}
           <MobileNavDemo active={path === STATIC_ROUTES.CALENDAR}>
             <Link to={STATIC_ROUTES.CALENDAR}>{getADemoBtnText}</Link>
           </MobileNavDemo>
