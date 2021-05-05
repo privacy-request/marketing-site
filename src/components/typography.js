@@ -307,3 +307,7 @@ export const LegalPageListItem = styled.li`
   font-size: ${fontSize.paragraph.medium};
   margin-bottom: 1rem;
 `;
+
+export const HyperLink = styled.a`
+  color: ${({ theme }) => theme.colour.blue.dark};
+`;

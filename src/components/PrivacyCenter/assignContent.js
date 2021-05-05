@@ -1,15 +1,15 @@
 import React from "react";
 import { createKeyFromStr } from "../utils/helpers";
-import { LegalPageParagraph, LegalPageListItem } from "../typography";
+import {
+  LegalPageParagraph,
+  LegalPageListItem,
+  HyperLink,
+} from "../typography";
 import styled from "styled-components";
 
 const UL = styled.ul`
   list-style: disc;
   margin-left: 3rem;
-`;
-
-const A = styled.a`
-  color: ${({ theme }) => theme.colour.blue.dark};
 `;
 
 const groupListItems = (content) => {
@@ -35,9 +35,9 @@ const addSpans = ({ value, spans }) => {
       const textToWrap = valueToSlice.slice(start, end);
       const wrappedText =
         type === "hyperlink" ? (
-          <A href={data.url} target="_blank">
+          <HyperLink href={data.url} target="_blank">
             {textToWrap}
-          </A>
+          </HyperLink>
         ) : (
           <b>{textToWrap}</b>
         );

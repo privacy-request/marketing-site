@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import styled, { css } from "styled-components";
-import { DesktopNavItem, DesktopNavSubitem } from "../typography";
+import { DesktopNavItem, DesktopNavSubitem, HyperLink } from "../typography";
 import { STATIC_ROUTES, SCREEN_SIZES } from "../utils/constants";
 
 const NavList = styled.ul`
@@ -69,7 +69,11 @@ const FooterNav = () => {
         </FooterNavItem> */}
         <NavSubList>
           <DesktopNavItem noHover>{contact.text}</DesktopNavItem>
-          <DesktopNavSubitem noHover>{email.text}</DesktopNavSubitem>
+          <DesktopNavSubitem noHover>
+            <HyperLink href={`mailto:${email.text}`} target="_blank">
+              {email.text}
+            </HyperLink>
+          </DesktopNavSubitem>
           <DesktopNavSubitem noHover>{phone.text}</DesktopNavSubitem>
         </NavSubList>
       </NavList>
