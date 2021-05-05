@@ -149,6 +149,59 @@ export const query = graphql`
               }
             }
           }
+          ... on PrismicProductPageBodyTextWithLayeredIllustration {
+            id
+            primary {
+              heading {
+                text
+              }
+              topIllustration: top_illustration {
+                alt
+                dimensions {
+                  height
+                  width
+                }
+                url
+              }
+              illustration {
+                alt
+                dimensions {
+                  height
+                  width
+                }
+                url
+              }
+              verticalMargin: vertical_margin
+              horizontalMargin: horizontal_margin
+              verticalOffset: vertical_offset
+              horizontalOffset: horizontal_offset
+              visualHeight: visual_height
+              visualWidth: visual_width
+              mobileWidth: mobile_width
+              mobileIllustration: illustration_mobile {
+                url
+                alt
+                dimensions {
+                  height
+                  width
+                }
+              }
+              verticalMargin: vertical_margin
+              horizontalMargin: horizontal_margin
+              mobileHorizontalOffset: mobile_horizontal_offset
+              mobileVerticalOffset: mobile_vertical_offset
+              mobileVerticalMargin: mobile_vertical_margin
+              mobileHorizontalMargin: mobile_horizontal_margin
+              mobileVisualHeight: mobile_visual_height
+              mobileVisualWidth: mobile_visual_width
+              paragraph {
+                text
+              }
+              subheading {
+                text
+              }
+            }
+          }
         }
       }
     }

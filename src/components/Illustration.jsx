@@ -30,10 +30,17 @@ const Wrapper = styled.div`
   }
   height: ${({ height }) => height}px;
   z-index: 2;
+  mix-blend-mode: ${({ mixBlend }) => (mixBlend ? "darken" : "initial")};
+`;
+
+const LayeredWrapper = styled(Wrapper)`
+  position: absolute;
+  right: 19.8rem;
 `;
 
 const Illustration = ({
   illustration,
+  topIllustration,
   verticalMargin,
   horizontalMargin,
   verticalOffset,
@@ -82,20 +89,34 @@ const Illustration = ({
     height,
   } = responsiveProps;
 
+  const wrapperProps = {
+    verticalMargin: vMargin,
+    horizontalMargin: hMargin,
+    height: vHeight ? vHeight : height ? height : img.dimensions.height,
+    width: vWidth ? vWidth : width ? width : img.dimensions.width,
+  };
+
+  const imgProps = {
+    image: img,
+    verticalOffset: vOffset,
+    horizontalOffset: hOffset,
+    width: width,
+    isBottom: !!topIllustration,
+  };
+
+  const isLayeredIllustration = !!topIllustration;
+
   return (
-    <Wrapper
-      verticalMargin={vMargin}
-      horizontalMargin={hMargin}
-      height={vHeight ? vHeight : height ? height : img.dimensions.height}
-      width={vWidth ? vWidth : width ? width : img.dimensions.width}
-    >
-      <Img
-        image={img}
-        verticalOffset={vOffset}
-        horizontalOffset={hOffset}
-        width={width}
-      ></Img>
-    </Wrapper>
+    <>
+      <Wrapper {...wrapperProps} mixBlend={isLayeredIllustration}>
+        <Img {...imgProps}></Img>
+      </Wrapper>
+      {isLayeredIllustration && (
+        <LayeredWrapper {...wrapperProps}>
+          <Img {...imgProps} image={topIllustration} />
+        </LayeredWrapper>
+      )}
+    </>
   );
 };
 

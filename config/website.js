@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: "/", // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
   title: "Privacy Request", // Navigation and Site Title
-  titleAlt: "Gatsby Prismic.io", // Title for JSONLD
+  titleAlt: "PrivacyRequest", // Title for JSONLD
   description:
     "Privacy Request provides data privacy solutions for companies to help them comply with emerging laws such as CCPA, GDPR.",
   url: "https://privacyrequest.com", // Domain of your site. No trailing slash!
