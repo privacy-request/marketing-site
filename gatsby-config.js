@@ -20,21 +20,14 @@ module.exports = {
 
   /* Plugins */
   plugins: [
-    "gatsby-plugin-styled-components",
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "UA-154605502-2",
-      },
-    },
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
           trackingId: "UA-154605502-2", // leave empty if you want to disable the tracker
           cookieName: "gatsby-gdpr-google-analytics", // default
+          head: true,
           anonymize: true, // default
-          allowAdFeatures: false, // default
         },
         // googleTagManager: {
         //   trackingId: "YOUR_GOOGLE_TAG_MANAGER_TRACKING_ID", // leave empty if you want to disable the tracker
@@ -45,6 +38,14 @@ module.exports = {
         environments: ["production", "development"],
       },
     },
+    "gatsby-plugin-styled-components",
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-154605502-2",
+      },
+    },
+
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {

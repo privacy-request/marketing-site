@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./utils/theme";
 import Footer from "./Footer/Footer";
 import CookieBanner from "./CookieBanner";
+import { CookiesProvider } from "react-cookie";
 
 const OverflowWrapper = styled.main`
   overflow: hidden;
@@ -14,11 +15,13 @@ const OverflowWrapper = styled.main`
 const Layout = ({ children, path }) => {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <CookieBanner />
-      <AppBar path={path} />
-      <OverflowWrapper>{children}</OverflowWrapper>
-      <Footer />
+      <CookiesProvider>
+        <GlobalStyles />
+        <CookieBanner />
+        <AppBar path={path} />
+        <OverflowWrapper>{children}</OverflowWrapper>
+        <Footer />
+      </CookiesProvider>
     </ThemeProvider>
   );
 };

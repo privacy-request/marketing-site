@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
@@ -12,6 +12,7 @@ import {
 import Close from "../../assets/close.svg";
 import Expand from "../../assets/expand.svg";
 import { STATIC_ROUTES, SCREEN_SIZES } from "./utils/constants";
+import { useCookies } from "react-cookie";
 
 const Wrapper = styled.div`
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
@@ -75,8 +76,12 @@ const ExpandBtn = styled(Expand)`
 `;
 
 const CookieBanner = () => {
+  const [cookies, setCookie] = useCookies(["gatsby-gdpr-google-analytics"]);
   const [expanded, setExpanded] = useState(false);
   const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    cookies.hasOwnProperty("gatsby-gdpr-google-analytics") && setHidden(true);
+  }, []);
   const data = useStaticQuery(query);
   const {
     accept,
@@ -87,8 +92,15 @@ const CookieBanner = () => {
   } = data.allPrismicCookieBanner.edges[0].node.data;
   const location = useLocation();
 
+  const cookieOptions = { path: "/", maxAge: 300000 };
   const acceptCookies = () => {
+    setCookie("gatsby-gdpr-google-analytics", true, cookieOptions);
     initializeAndTrack(location);
+    setHidden(true);
+  };
+
+  const declineCookies = () => {
+    setCookie("gatsby-gdpr-google-analytics", false, cookieOptions);
     setHidden(true);
   };
 
@@ -109,7 +121,7 @@ const CookieBanner = () => {
               )}
             </AnimatedCookieBannerText>
             <LinksWrapper>
-              <DoNotAcceptLink onClick={() => setHidden(true)}>
+              <DoNotAcceptLink onClick={declineCookies}>
                 {doNotAccept.text}
               </DoNotAcceptLink>
               <AcceptLink onClick={acceptCookies}>{accept.text}</AcceptLink>
