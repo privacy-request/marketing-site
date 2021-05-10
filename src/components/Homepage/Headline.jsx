@@ -32,7 +32,7 @@ const Headline = ({ prefix, typewriter, loop, speed, delay }) => {
     if (subIndex === 0 && reverse) {
       setReverse(false);
       setIndex(
-        index == typewriterWords.length - 1 && loop ? 0 : (prev) => prev + 1
+        index === typewriterWords.length - 1 && loop ? 0 : (prev) => prev + 1
       );
       return;
     }

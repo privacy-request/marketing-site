@@ -81,7 +81,7 @@ const CookieBanner = () => {
   const [hidden, setHidden] = useState(false);
   useEffect(() => {
     cookies.hasOwnProperty("gatsby-gdpr-google-analytics") && setHidden(true);
-  }, []);
+  }, [cookies]);
   const data = useStaticQuery(query);
   const {
     accept,

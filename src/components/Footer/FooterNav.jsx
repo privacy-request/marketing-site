@@ -37,7 +37,7 @@ const FooterNavItem = styled(DesktopNavItem)`
 const FooterNav = () => {
   const data = useStaticQuery(query);
   const {
-    customersPageNav,
+    // customersPageNav,
     homepageNav,
     productPagesNav,
     productPagesSubitems,

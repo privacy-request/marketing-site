@@ -58,7 +58,7 @@ const assignComponent = (content) => {
   const { type, value, spans } = content;
   const valueWithSpan = spans.length > 0 ? addSpans({ value, spans }) : value;
   switch (type) {
-    case "paragraph":
+    default:
       return (
         <LegalPageParagraph key={createKeyFromStr(value)}>
           {valueWithSpan}

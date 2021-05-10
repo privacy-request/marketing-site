@@ -11,6 +11,7 @@ const Img = styled(Image)`
   left: ${({ horizontalOffset }) =>
     horizontalOffset ? horizontalOffset : 0}px;
   margin: auto;
+  width: ${({ width }) => `${width}px` || "100%"};
   position: absolute;
 `;
 const Wrapper = styled.div`
@@ -30,10 +31,6 @@ const Wrapper = styled.div`
   }
   height: ${({ height }) => height}px;
   z-index: 2;
-`;
-
-const LayeredWrapper = styled(Wrapper)`
-  position: absolute;
 `;
 
 const Illustration = ({
@@ -97,7 +94,7 @@ const Illustration = ({
     image: img,
     verticalOffset: vOffset,
     horizontalOffset: hOffset,
-    width: width,
+    width: wrapperProps.width,
   };
 
   return (
