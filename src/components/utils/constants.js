@@ -1,7 +1,7 @@
 export const STATIC_ROUTES = {
   HOME: "/",
   CUSTOMERS: "/customers",
-  CALENDAR: "/calendar",
+  CALENDAR: "/apply",
   CONTACT: "/contact",
   PRIVACY_POLICY: "/privacy-policy",
   TERMS_OF_SERVICE: "/tos",

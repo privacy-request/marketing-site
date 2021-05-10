@@ -1,13 +1,13 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO/SEO";
+import Layout from "../../components/Layout";
+import SEO from "../../components/SEO/SEO";
 import styled from "styled-components";
 import {
   ProductPageHeadline,
   ProductPageSubheadline,
-} from "../components/typography";
-import { SCREEN_SIZES } from "../components/utils/constants";
+} from "../../components/typography";
+import { SCREEN_SIZES } from "../../components/utils/constants";
 import { InlineWidget } from "react-calendly";
 
 const Hero = styled.header`

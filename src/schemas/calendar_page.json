@@ -49,6 +49,20 @@
         "label": "calendar url",
         "placeholder": "data-url"
       }
+    },
+    "confirmation_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "confirmation heading"
+      }
+    },
+    "confirmation_message": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "confirmation message"
+      }
     }
   }
 }
