@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { SCREEN_SIZES, STATIC_ROUTES } from "../utils/constants";
 import SectionText from "../SectionText";
 import Illustration from "../Illustration";
+import LayeredIllustration from "../LayeredIllustration";
 
 const blueTitle = css`
   h2 {
@@ -43,12 +44,19 @@ const sectionStyles = [
 ];
 
 const Wrapper = styled.section`
-  padding: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 16px;
-
+  position: relative;
+  @media only screen and (min-width: ${SCREEN_SIZES.LAPTOP}px) {
+    div:nth-child(odd) {
+      padding: 8rem 0 8rem 8rem;
+    }
+    div:nth-child(even) {
+      padding: 8rem 8rem 8rem 0;
+    }
+  }
   ${({ index }) => sectionStyles[index]}
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     flex-direction: column-reverse;
@@ -68,9 +76,13 @@ const PerkText = styled(SectionText)`
 const ProductPerks = ({ perks }) => {
   const data = useStaticQuery(query);
   const { text } = data.allPrismicDemoCta.edges[0].node.data;
+  console.log(perks);
   return (
     <>
       {perks.map((perk, index) => {
+        const isLayered =
+          perk.__typename ===
+          "PrismicProductPageBodyTextWithLayeredIllustration";
         return (
           <Wrapper index={index} key={`product-perk-${index}`}>
             <PerkText
@@ -79,7 +91,11 @@ const ProductPerks = ({ perks }) => {
               size="medium"
               route={STATIC_ROUTES.CALENDAR}
             />
-            <Illustration {...perk.primary} />
+            {!isLayered ? (
+              <Illustration {...perk.primary} />
+            ) : (
+              <LayeredIllustration {...perk.primary} />
+            )}
           </Wrapper>
         );
       })}

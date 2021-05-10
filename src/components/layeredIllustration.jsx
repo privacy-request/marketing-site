@@ -12,6 +12,7 @@ const Img = styled(Image)`
     horizontalOffset ? horizontalOffset : 0}px;
   margin: auto;
   position: absolute;
+  mix-blend-mode: ${({ mixBlend }) => (mixBlend ? "darken" : "initial")};
 `;
 const Wrapper = styled.div`
   max-width: ${({ theme: { width } }) => width.sectionColumLg};
@@ -22,6 +23,7 @@ const Wrapper = styled.div`
     `${verticalMargin || 0}px ${
       horizontalMargin ? `${horizontalMargin}px` : "auto"
     }`};
+  background: inherit;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin: ${({ verticalMargin, horizontalMargin }) =>
       `${verticalMargin || 0}px ${
@@ -30,14 +32,14 @@ const Wrapper = styled.div`
   }
   height: ${({ height }) => height}px;
   z-index: 2;
-`;
-
-const LayeredWrapper = styled(Wrapper)`
-  position: absolute;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    background: linear-gradient(183.3deg, #ffe01b 62.45%, #fff170 160.76%);
+  }
 `;
 
 const Illustration = ({
   illustration,
+  topIllustration,
   verticalMargin,
   horizontalMargin,
   verticalOffset,
@@ -98,12 +100,14 @@ const Illustration = ({
     verticalOffset: vOffset,
     horizontalOffset: hOffset,
     width: width,
+    isBottom: !!topIllustration,
   };
 
   return (
     <>
       <Wrapper {...wrapperProps}>
-        <Img {...imgProps}></Img>
+        <Img {...imgProps} mixBlend></Img>
+        <Img {...imgProps} image={topIllustration} />
       </Wrapper>
     </>
   );
