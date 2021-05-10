@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import {
@@ -71,6 +71,7 @@ const BookADemoBackgroundRight = styled(BookADemoRight)`
 `;
 
 const BookADemo = () => {
+  const [email, setEmail] = useState("");
   const data = useStaticQuery(query);
   const {
     emailInputPlaceholder,
@@ -84,8 +85,12 @@ const BookADemo = () => {
         <BookADemoHeadline>{headline.text}</BookADemoHeadline>
         <BookADemoParagraph>{paragraph.text}</BookADemoParagraph>
         <MailingListForm>
-          <EmailInput placeholder={emailInputPlaceholder.text} />{" "}
-          <CallToAction to={STATIC_ROUTES.CALENDAR}>
+          <EmailInput
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={emailInputPlaceholder.text}
+          />
+          <CallToAction to={STATIC_ROUTES.CALENDAR} state={{ email }}>
             {submitBtnText.text}
           </CallToAction>
         </MailingListForm>

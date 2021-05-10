@@ -28,7 +28,13 @@ const Hero = styled.header`
   }
 `;
 
-const CalendarPage = ({ data, path }) => {
+const CalendarPage = ({
+  data,
+  path,
+  location: {
+    state: { email },
+  },
+}) => {
   const {
     calendarURL,
     headline,
@@ -49,7 +55,13 @@ const CalendarPage = ({ data, path }) => {
         <ProductPageHeadline>{headline.text}</ProductPageHeadline>
         <ProductPageSubheadline>{subheadline.text}</ProductPageSubheadline>
       </Hero>
-      <InlineWidget styles={{ height: "1000px" }} url={calendarURL.url} />
+      <InlineWidget
+        styles={{ height: "1000px" }}
+        prefill={{
+          email,
+        }}
+        url={calendarURL.url}
+      />
     </Layout>
   );
 };
