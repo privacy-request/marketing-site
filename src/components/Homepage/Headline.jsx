@@ -49,7 +49,7 @@ const Headline = ({ prefix, typewriter, loop, speed, delay }) => {
     }, Math.max(reverse ? 75 : subIndex === typewriterWords[index].length ? delay : speed));
 
     return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse, delay, loop, speed, typewriterWords]);
+  }, [subIndex, index, reverse, delay, loop, speed]);
 
   // blinker
   useEffect(() => {
