@@ -1,4 +1,5 @@
 const website = require("./config/website");
+const linkResolver = require("./src/utils/linkResolver");
 
 const pathPrefix = website.pathPrefix === "/" ? "" : website.pathPrefix;
 
@@ -53,6 +54,7 @@ module.exports = {
       options: {
         repositoryName: "pr-marketing-site",
         accessToken: website.prismicAccessToken,
+        linkResolver: () => (doc) => linkResolver(doc),
         schemas: {
           homepage: require("./src/schemas/homepage.json"),
           navigation_bar: require("./src/schemas/navigation_bar.json"),
