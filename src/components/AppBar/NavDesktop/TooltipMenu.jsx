@@ -21,7 +21,7 @@ const Tooltip = styled.div`
   visibility: hidden;
   opacity: 0;
   background: ${({ theme }) => theme.colour.white};
-  z-index: 1;
+  z-index: 4;
   ${TooltipWrapper}:hover & {
     visibility: visible;
     opacity: 1;

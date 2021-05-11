@@ -30,6 +30,7 @@ const HeroBackgroundImage = styled(ProductPageHeroBackground)`
 `;
 
 const Hero = styled.header`
+  z-index: 3;
   max-width: ${({ theme }) => theme.width.productPageHero};
   min-height: 23rem;
   margin: 3rem auto 7.4rem auto;
