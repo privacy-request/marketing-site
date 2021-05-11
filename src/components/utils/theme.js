@@ -4,6 +4,7 @@ export default Object.assign(
   {
     colour: {
       blue: {
+        darker: "#0085E6",
         dark: "#009DFF",
         medium: "#4DA9DA",
         light: "#F7FCFF",

@@ -32,11 +32,11 @@ const NavDesktop = ({
         {/* <DesktopNavItem>
           <NavLink to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</NavLink>
         </DesktopNavItem> */}
-        <DesktopNavItem>
+        <li>
           <CallToAction inverted="true" to={STATIC_ROUTES.CALENDAR}>
             {getADemoBtnText}
           </CallToAction>
-        </DesktopNavItem>
+        </li>
       </NavList>
     </nav>
   );

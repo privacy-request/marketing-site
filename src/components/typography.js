@@ -93,9 +93,15 @@ export const CallToAction = styled(Link)`
   justify-content: center;
   width: fit-content;
   padding: 0 2.4rem;
-  transition: transform 0.1s ease 0s;
-  :active {
-    transform: translateY(1px);
+  transition: all 0.25s ease;
+
+  &:hover {
+    border: 2px solid
+      ${({ theme, inverted }) =>
+        !inverted ? theme.colour.blue.darker : theme.colour.blue.dark};
+    color: white;
+    background: ${({ theme, inverted }) =>
+      inverted ? theme.colour.blue.dark : theme.colour.blue.darker};
   }
 `;
 
