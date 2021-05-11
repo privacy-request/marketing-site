@@ -20,11 +20,7 @@ const Hero = styled.header`
   align-items: center;
   position: relative;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    text-align: left;
-    padding: 0 3rem;
-    align-items: end;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
+    margin-top: 4rem;
   }
 `;
 
