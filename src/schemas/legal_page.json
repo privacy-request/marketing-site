@@ -49,6 +49,13 @@
         "label": "last section"
       }
     },
+    "prefix_sections_with_index": {
+      "type": "Boolean",
+      "config": {
+        "default_value": true,
+        "label": "prefix sections with index"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
@@ -61,7 +68,7 @@
         "choices": {
           "numbered_section": {
             "type": "Slice",
-            "fieldset": "Numbered Section",
+            "fieldset": "Section",
             "description": "ToC friendly text section",
             "icon": "format_list_numbered",
             "display": "list",

@@ -44,9 +44,9 @@ const PrivacyCenter = ({ data, path }) => {
     firstSection,
     lastSection,
     body,
+    prefixWithIndex,
   } = data.legalPage.data;
   const uid = data.legalPage.uid;
-
   const introduction = assignContent(firstSection.raw);
   const outro = assignContent(lastSection.raw);
   const sections = body.map((section, index) => {
@@ -59,6 +59,7 @@ const PrivacyCenter = ({ data, path }) => {
           subheading: subSection.subheading,
           tocNumber,
           tocSubNumber: index + 1,
+          appendToC: prefixWithIndex,
         })
       ),
     };
@@ -116,6 +117,7 @@ export const query = graphql`
         lastSection: last_section {
           raw
         }
+        prefixWithIndex: prefix_sections_with_index
         body {
           ... on PrismicLegalPageBodyNumberedSection {
             id

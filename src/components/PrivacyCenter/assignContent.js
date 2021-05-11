@@ -81,7 +81,9 @@ const appendToC = (tocObj, groupedContent) => {
   const groupedContentCopy = [...groupedContent];
   if (tocObj && groupedContentCopy[0].type === "paragraph") {
     const { tocNumber, tocSubNumber, subheading } = tocObj;
-    groupedContentCopy[0].value = `${tocNumber}.${tocSubNumber} ${subheading.text}. ${groupedContent[0].value}`;
+    groupedContentCopy[0].value = `${tocNumber}.${tocSubNumber} ${
+      subheading.text && subheading.text + "."
+    } ${groupedContent[0].value}`;
   }
   return groupedContentCopy;
 };
@@ -91,9 +93,12 @@ const assignContent = (content, tocObj) => {
   const groupedContent = groupListItems(content);
 
   // Append ToC values to first paragraph
-  const groupedContentWithToC = appendToC(tocObj, groupedContent);
+  const groupedContentWithToC =
+    tocObj && tocObj.appendToC
+      ? appendToC(tocObj, groupedContent)
+      : groupedContent;
 
-  // Wrap content in appropriate compoponent
+  // Wrap content in appropriate component
   const assignedContent = groupedContentWithToC.map((content) =>
     assignComponent(content)
   );
