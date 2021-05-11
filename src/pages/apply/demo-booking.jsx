@@ -6,6 +6,7 @@ import {
   ProductPageHeadline,
   ProductPageSubheadline,
 } from "../../components/typography";
+import { withPreview } from "gatsby-source-prismic";
 import { SCREEN_SIZES } from "../../components/utils/constants";
 import ProductPageHeroBackground from "../../../assets/productPageHeroBackground.svg";
 
@@ -81,4 +82,4 @@ export const query = graphql`
   }
 `;
 
-export default DemoBooking;
+export default withPreview(DemoBooking);

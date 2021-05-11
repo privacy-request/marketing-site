@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import { withPreview } from "gatsby-source-prismic";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO/SEO";
@@ -60,4 +61,4 @@ export const query = graphql`
   }
 `;
 
-export default HomePage;
+export default withPreview(HomePage);

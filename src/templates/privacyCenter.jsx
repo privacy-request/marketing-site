@@ -8,6 +8,7 @@ import { SCREEN_SIZES } from "../components/utils/constants";
 import LegalPage from "../components/PrivacyCenter/LegalPage";
 import assignContent from "../components/PrivacyCenter/assignContent";
 import PrivacyNav from "../components/PrivacyCenter/PrivacyNav";
+import { withPreview } from "gatsby-source-prismic";
 
 const Wrapper = styled.div`
   max-width: ${({ theme }) => theme.width.section};
@@ -141,4 +142,4 @@ export const query = graphql`
   }
 `;
 
-export default PrivacyCenter;
+export default withPreview(PrivacyCenter);

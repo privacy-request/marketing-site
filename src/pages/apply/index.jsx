@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../../components/Layout";
 import SEO from "../../components/SEO/SEO";
 import styled from "styled-components";
+import { withPreview } from "gatsby-source-prismic";
 import {
   ProductPageHeadline,
   ProductPageSubheadline,
@@ -90,4 +91,4 @@ export const query = graphql`
   }
 `;
 
-export default CalendarPage;
+export default withPreview(CalendarPage);
