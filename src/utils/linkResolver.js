@@ -1,4 +1,4 @@
-export const linkResolver = (doc) => {
+const linkResolver = (doc) => {
   if (doc.type === "homepage" || doc.type === "testimonials") {
     return `/`;
   }
