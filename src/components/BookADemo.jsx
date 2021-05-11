@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import {
   BookADemoHeadline,
@@ -79,12 +79,18 @@ const BookADemo = () => {
     paragraph,
     submitBtnText,
   } = data.allPrismicMailingListForm.edges[0].node.data;
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate("/apply", { state: { email } });
+  };
+
   return (
     <Wrapper>
       <Box>
         <BookADemoHeadline>{headline.text}</BookADemoHeadline>
         <BookADemoParagraph>{paragraph.text}</BookADemoParagraph>
-        <MailingListForm>
+        <MailingListForm onSubmit={onSubmit}>
           <EmailInput
             value={email}
             onChange={(e) => setEmail(e.target.value)}
