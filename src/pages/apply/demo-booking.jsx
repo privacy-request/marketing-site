@@ -35,7 +35,7 @@ const Hero = styled.header`
   }
 `;
 
-const Emoji = styled.p`
+const Emoji = styled.span`
   font-size: 7rem;
   margin-bottom: 0.5rem;
   width: 100%;
@@ -49,7 +49,9 @@ const DemoBooking = ({ data }) => {
   return (
     <Layout>
       <Hero>
-        <Emoji> &#127881;</Emoji>
+        <Emoji role="img" aria-label="Party popper">
+          &#127881;
+        </Emoji>
         <ProductPageHeadline>{confirmationHeading.text}</ProductPageHeadline>
         <ProductPageSubheadline>
           {confirmationMessage.text}
