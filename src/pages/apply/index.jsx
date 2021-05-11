@@ -28,13 +28,7 @@ const Hero = styled.header`
   }
 `;
 
-const CalendarPage = ({
-  data,
-  path,
-  location: {
-    state: { email },
-  },
-}) => {
+const CalendarPage = ({ data, path, location: { state } }) => {
   const {
     calendarURL,
     headline,
@@ -43,6 +37,7 @@ const CalendarPage = ({
     title,
     subheadline,
   } = data.allPrismicCalendarPage.edges[0].node.data;
+  const email = state ? state.email : "";
   return (
     <Layout>
       <SEO
