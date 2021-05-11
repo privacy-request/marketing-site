@@ -10,10 +10,10 @@ import { SCREEN_SIZES } from "../../components/utils/constants";
 import ProductPageHeroBackground from "../../../assets/productPageHeroBackground.svg";
 
 const HeroBackgroundImage = styled(ProductPageHeroBackground)`
-  top: -120px;
+  top: -145px;
   display: flex;
   position: absolute;
-  width: 143.3rem;
+  width: 100%;
   height: 509px;
   z-index: -1;
   opacity: 0.55;
@@ -27,14 +27,18 @@ const Hero = styled.header`
   flex-direction: column;
   align-items: center;
   position: relative;
-  height: 20rem;
+  height: 21rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    text-align: left;
     padding: 0 3rem;
-    align-items: end;
-    margin-top: 1rem;
+    margin-top: 4rem;
     margin-bottom: 5rem;
   }
+`;
+
+const Emoji = styled.p`
+  font-size: 7rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
 `;
 
 const DemoBooking = ({ data }) => {
@@ -45,6 +49,7 @@ const DemoBooking = ({ data }) => {
   return (
     <Layout>
       <Hero>
+        <Emoji> &#127881;</Emoji>
         <ProductPageHeadline>{confirmationHeading.text}</ProductPageHeadline>
         <ProductPageSubheadline>
           {confirmationMessage.text}
