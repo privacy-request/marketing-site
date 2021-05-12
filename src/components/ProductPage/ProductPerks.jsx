@@ -76,7 +76,7 @@ const PerkText = styled(SectionText)`
 const ProductPerks = ({ perks }) => {
   const data = useStaticQuery(query);
   const { text } = data.allPrismicDemoCta.edges[0].node.data;
-  console.log(perks);
+
   return (
     <>
       {perks.map((perk, index) => {
