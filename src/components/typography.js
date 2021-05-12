@@ -121,14 +121,13 @@ export const Header = styled.h2`
   margin-bottom: 0.8rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.header.small};
-    margin-bottom: 0.4rem;
     line-height: ${lineHeight.medium};
   }
 `;
 
 export const Subheader = styled.h3`
   font-size: ${fontSize.header.xsmall};
-  padding-bottom: 1.6rem;
+  padding-bottom: 1.4rem;
 `;
 
 // BookADemo
