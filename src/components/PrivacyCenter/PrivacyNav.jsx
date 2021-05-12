@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { LegalPageNavItem, LegalPageNavSubItem } from "../typography";
 import { SCREEN_SIZES } from "../utils/constants";
 import { createKeyFromStr } from "../utils/helpers";
+import isMobileScreen from "../utils/isMobileScreen";
 
 const NavWrapper = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const NavWrapper = styled.div`
 
 const PrivacyNav = ({ currentRoute, replaceSpacesWithDashes }) => {
   const data = useStaticQuery(query);
-
+  const isMobile = isMobileScreen();
   const navLinks = data.legalPages.edges.map(
     (
       {
@@ -44,6 +45,7 @@ const PrivacyNav = ({ currentRoute, replaceSpacesWithDashes }) => {
         <React.Fragment key={`lp-ni-${index}`}>
           <LegalPageNavItem to={`/${route}`}>{title}</LegalPageNavItem>
           {route === currentRoute &&
+            !isMobile &&
             subheadings.map(({ subheading }, subindex) => (
               <LegalPageNavSubItem
                 to={`/${route}#${createKeyFromStr(subheading)}`}

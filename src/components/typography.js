@@ -285,7 +285,8 @@ export const LegalPageNavItem = styled(Link)`
   color: ${({ theme }) => theme.colour.grey.dark};
   font-size: ${fontSize.link.small};
   font-weight: bold;
-  line-height: 3rem;
+  line-height: 2.2rem;
+  margin-bottom: 0.8rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-right: 1.8rem;
   }
