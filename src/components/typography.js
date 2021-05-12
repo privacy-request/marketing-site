@@ -117,8 +117,8 @@ export const Paragraph = styled.p`
 export const Header = styled.h2`
   font-size: ${({ size }) =>
     size ? fontSize.header[size] : fontSize.header.large};
-  margin-bottom: ${({ theme: { margin } }) => margin.HomepageHeadline};
 
+  margin-bottom: 0.8rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.header.small};
     margin-bottom: 0.4rem;
@@ -128,9 +128,7 @@ export const Header = styled.h2`
 
 export const Subheader = styled.h3`
   font-size: ${fontSize.header.xsmall};
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    margin-bottom: 0.8rem;
-  }
+  padding-bottom: 1.6rem;
 `;
 
 // BookADemo
@@ -286,8 +284,7 @@ export const LegalPageNavItem = styled(Link)`
   font-size: ${fontSize.link.small};
   font-weight: bold;
   line-height: 2.2rem;
-  margin-bottom: 0.8rem;
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+  margin-bottom: 0 @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-right: 1.8rem;
   }
 `;
