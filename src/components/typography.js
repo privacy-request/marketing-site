@@ -108,7 +108,7 @@ export const CallToAction = styled(Link)`
 export const Paragraph = styled.p`
   font-size: ${fontSize.paragraph.medium};
   margin-bottom: ${({ theme: { margin } }) => margin.paragraph};
-
+  margin-right: 2rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.paragraph.xsmall};
   }

@@ -51,7 +51,7 @@ const Wrapper = styled.section`
   position: relative;
   @media only screen and (min-width: ${SCREEN_SIZES.LAPTOP}px) {
     div:nth-child(odd) {
-      padding: 8rem 0 8rem 8rem;
+      padding: 8rem 3rem 8rem 8rem;
     }
     div:nth-child(even) {
       padding: 8rem 8rem 8rem 0;

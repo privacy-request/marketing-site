@@ -32,11 +32,11 @@ export default Object.assign(
     },
     width: {
       site: "144rem",
-      section: "120rem",
+      section: "125rem",
       productPage: "123.3rem",
       productPageHero: "82rem",
       sectionColumLg: "70rem",
-      sectionColum: "49rem",
+      sectionColum: "56rem",
       heroHeadline: "52rem",
       bookADemo: "83.4rem",
     },
