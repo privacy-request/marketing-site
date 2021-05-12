@@ -14,7 +14,7 @@ const Line = styled.div`
   width: 100%;
   height: 2px;
   background: ${({ theme }) => theme.colour.grey.light};
-  margin: 5rem 0rem;
+  margin: 4.6rem 0rem;
 `;
 
 const Footer = () => {

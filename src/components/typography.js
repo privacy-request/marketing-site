@@ -127,7 +127,7 @@ export const Header = styled.h2`
 
 export const Subheader = styled.h3`
   font-size: ${fontSize.header.xsmall};
-  padding-bottom: 1.4rem;
+  padding-bottom: 1.5rem;
 `;
 
 // BookADemo
@@ -222,7 +222,7 @@ export const PrivacyCenterTitle = styled.p`
 
 export const PrivacyCenterNavItem = styled(DesktopNavSubitem)`
   font-size: ${fontSize.link.xsmall};
-  line-height: 3rem;
+  line-height: 2.6rem;
 `;
 
 export const Copyright = styled.p`
@@ -283,7 +283,8 @@ export const LegalPageNavItem = styled(Link)`
   font-size: ${fontSize.link.small};
   font-weight: bold;
   line-height: 2.2rem;
-  margin-bottom: 0 @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+  margin-bottom: 0.6rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-right: 1.8rem;
   }
 `;

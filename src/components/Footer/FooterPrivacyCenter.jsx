@@ -15,10 +15,11 @@ const IconAndTitle = styled.div`
   align-items: center;
   margin-right: 3.3rem;
   margin-bottom: 2rem;
+  height: 4rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    flex-direction: column;
     margin-right: 0rem;
     margin-bottom: 0.6rem;
+    height: 2.6rem;
   }
 `;
 
@@ -31,7 +32,7 @@ const Wrapper = styled.div`
 `;
 
 const PrivacyCenterList = styled.ul`
-  margin-top: 1rem;
+  margin-top: 0.6rem;
 `;
 
 const FooterPrivacyCenter = () => {
