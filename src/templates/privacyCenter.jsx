@@ -19,14 +19,17 @@ const Wrapper = styled.div`
 const Title = styled(LegalPageTitle)`
   border-bottom: 1px solid #e3e3e3;
   padding-bottom: 5rem;
+  padding-left: 3rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     padding-bottom: 3rem;
+    padding-left: 0;
   }
 `;
 
 const NavAndContentWrapper = styled.div`
   display: flex;
   margin-top: 7rem;
+  margin-right: 3rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     flex-direction: column;
     margin-top: 4rem;

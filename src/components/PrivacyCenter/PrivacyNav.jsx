@@ -9,17 +9,16 @@ import isMobileScreen from "../utils/isMobileScreen";
 const NavWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 3rem;
+  margin: 0 3rem;
   min-width: 16rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    flex-direction: row;
-    margin-bottom: 3rem;
+    margin: 0 0 3rem 0;
   }
 `;
 
 const PrivacyNav = ({ currentRoute, replaceSpacesWithDashes }) => {
   const data = useStaticQuery(query);
-  const isMobile = isMobileScreen();
+  const isMobile = isMobileScreen(SCREEN_SIZES.TABLET);
   const navLinks = data.legalPages.edges.map(
     (
       {
