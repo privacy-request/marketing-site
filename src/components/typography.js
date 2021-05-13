@@ -299,6 +299,10 @@ export const LegalPageHeading = styled.h2`
   font-size: ${fontSize.paragraph.large};
   font-weight: bold;
   margin: 4rem 0 1.8rem 0;
+
+  // Offset scroll
+  padding-top: 11rem;
+  margin-top: -8rem;
 `;
 
 export const LegalPageParagraph = styled.p`
