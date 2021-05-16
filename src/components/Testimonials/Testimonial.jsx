@@ -1,37 +1,22 @@
 import React from "react";
-import styled from "styled-components";
 import { TestimonialParagraph, NameAndJob, Company } from "../typography";
 import Image from "../Image";
-import { SCREEN_SIZES } from "../utils/constants";
-
-const TestimonialWrapper = styled.div`
-  width: ${({ theme }) => theme.width.sectionColumLg};
-  display: flex;
-  align-items: center;
-  z-index: 2;
-  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    width: 100%;
-  }
-`;
-
-const Content = styled.div`
-  margin-left: 4rem;
-`;
+import { Wrapper, Content } from "./Testimonial.styles";
 
 const Testimonial = ({
-  testimonial: { avatar, company, jobTitle, name, testimonial },
+  testimonial: { avatar, company, job_title, name, testimonial },
   className,
 }) => {
   return (
-    <TestimonialWrapper className={className}>
+    <Wrapper className={className}>
       <Image image={avatar} />
       <Content>
         <TestimonialParagraph>{testimonial.text}</TestimonialParagraph>
         <NameAndJob>
-          {name.text}, {jobTitle.text} <Company>- {company.text}</Company>
+          {name.text}, {job_title.text} <Company>- {company.text}</Company>
         </NameAndJob>
       </Content>
-    </TestimonialWrapper>
+    </Wrapper>
   );
 };
 

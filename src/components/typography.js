@@ -183,6 +183,17 @@ export const HomepageHeadline = styled.h1`
   }
 `;
 
+export const HomepageSubHeadline = styled(Paragraph)`
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-bottom: 3.2rem;
+  }
+`;
+
+// Customers
+export const CustomersHeadline = styled(Paragraph)`
+  margin-left: ${({ theme: { margin } }) => margin.homepageSections};
+`;
+
 // Testimonials
 export const TestimonialsHeadline = styled.h5`
   font-size: ${fontSize.paragraph.small};

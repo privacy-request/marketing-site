@@ -1,0 +1,68 @@
+[
+  {
+    "id": "calendar_page",
+    "name": "Calendar page",
+    "repeatable": false,
+    "value": "calendar_page.json"
+  },
+  {
+    "id": "cookie_banner",
+    "name": "Cookie Banner",
+    "repeatable": false,
+    "value": "cookie_banner.json"
+  },
+  {
+    "id": "demo_cta",
+    "name": "Demo CTA",
+    "repeatable": false,
+    "value": "demo_cta.json"
+  },
+  {
+    "id": "footer",
+    "name": "Footer",
+    "repeatable": false,
+    "value": "footer.json"
+  },
+  {
+    "id": "homepage",
+    "name": "Homepage",
+    "repeatable": false,
+    "value": "homepage.json"
+  },
+  {
+    "id": "legal_page",
+    "name": "Legal page",
+    "repeatable": true,
+    "value": "legal_page.json"
+  },
+  {
+    "id": "mailing_list_form",
+    "name": "Mailing list form",
+    "repeatable": false,
+    "value": "mailing_list_form.json"
+  },
+  {
+    "id": "navigation_bar",
+    "name": "Navigation Bar",
+    "repeatable": false,
+    "value": "navigation_bar.json"
+  },
+  {
+    "id": "product_page",
+    "name": "Product page",
+    "repeatable": true,
+    "value": "product_page.json"
+  },
+  {
+    "id": "testimonials",
+    "name": "Testimonials",
+    "repeatable": false,
+    "value": "post.json"
+  },
+  {
+    "id": "trusted_customers",
+    "name": "Trusted Customers",
+    "repeatable": false,
+    "value": "trusted_customers.json"
+  }
+]

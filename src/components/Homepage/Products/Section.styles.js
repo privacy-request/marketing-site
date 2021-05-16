@@ -1,10 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { SCREEN_SIZES } from "../utils/constants";
-import SectionText from "../SectionText";
-import Illustration from "../Illustration";
+import { SCREEN_SIZES } from "../../utils/constants";
 
-const sectionStyles = [
+export const sectionStyles = [
   css`
     height: 80rem;
     h2 {
@@ -36,7 +34,7 @@ const sectionStyles = [
   `,
 ];
 
-const Section = styled.section`
+export const Section = styled.section`
   height: 67.5rem;
   margin: auto;
   position: relative;
@@ -49,14 +47,14 @@ const Section = styled.section`
   }
 `;
 
-const SiteWrapper = styled.div`
+export const SiteWrapper = styled.div`
   height: 100%;
   max-width: ${({ theme: { width } }) => width.site};
   margin: auto;
   z-index: 1;
 `;
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   height: 100%;
   max-width: ${({ theme: { width } }) => width.section};
   margin-left: auto;
@@ -67,17 +65,3 @@ const Wrapper = styled.div`
     flex-direction: column-reverse;
   }
 `;
-
-const Product = ({ index, section }) => {
-  return (
-    <Section index={index}>
-      <SiteWrapper>
-        <Wrapper>
-          <SectionText {...section.primary} callToActionText="Learn More" />
-          <Illustration {...section.primary} />
-        </Wrapper>
-      </SiteWrapper>
-    </Section>
-  );
-};
-export default Product;

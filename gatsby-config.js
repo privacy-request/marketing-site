@@ -22,21 +22,41 @@ module.exports = {
   /* Plugins */
   plugins: [
     {
+      resolve: "gatsby-source-prismic",
+      options: {
+        repositoryName: "pr-marketing-site",
+        accessToken: website.prismicAccessToken,
+        linkResolver: () => (doc) => linkResolver(doc),
+        prismicToolbar: true,
+        releaseID: "",
+        schemas: {
+          homepage: require("./custom_types/homepage.json"),
+          navigation_bar: require("./custom_types/navigation_bar.json"),
+          product_page: require("./custom_types/product_page.json"),
+          testimonials: require("./custom_types/testimonials.json"),
+          mailing_list_form: require("./custom_types/mailing_list_form.json"),
+          footer: require("./custom_types/footer.json"),
+          calendar_page: require("./custom_types/calendar_page.json"),
+          cookie_banner: require("./custom_types/cookie_banner.json"),
+          legal_page: require("./custom_types/legal_page.json"),
+          trusted_customers: require("./custom_types/trusted_customers.json"),
+          demo_cta: require("./custom_types/demo_cta.json"),
+        },
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true;
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: "UA-154605502-2", // leave empty if you want to disable the tracker
-          cookieName: "gatsby-gdpr-google-analytics", // default
+          trackingId: "UA-154605502-2",
+          cookieName: "gatsby-gdpr-google-analytics",
           head: true,
-          anonymize: true, // default
+          anonymize: true,
         },
-        // googleTagManager: {
-        //   trackingId: "YOUR_GOOGLE_TAG_MANAGER_TRACKING_ID", // leave empty if you want to disable the tracker
-        //   cookieName: "gatsby-gdpr-google-tagmanager", // default
-        //   dataLayerName: "dataLayer", // default
-        // },
-        // defines the environments where the tracking should be available  - default is ["production"]
-        environments: ["production", "development"],
+        environments: ["production"],
       },
     },
     "gatsby-plugin-styled-components",
@@ -49,30 +69,6 @@ module.exports = {
 
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-source-prismic",
-      options: {
-        repositoryName: "pr-marketing-site",
-        accessToken: website.prismicAccessToken,
-        linkResolver: () => (doc) => linkResolver(doc),
-        schemas: {
-          homepage: require("./src/schemas/homepage.json"),
-          navigation_bar: require("./src/schemas/navigation_bar.json"),
-          product_page: require("./src/schemas/product_page.json"),
-          testimonials: require("./src/schemas/testimonials.json"),
-          mailing_list_form: require("./src/schemas/mailing_list_form.json"),
-          footer: require("./src/schemas/footer.json"),
-          calendar_page: require("./src/schemas/calendar_page.json"),
-          cookie_banner: require("./src/schemas/cookie_banner.json"),
-          legal_page: require("./src/schemas/legal_page.json"),
-          trusted_customers: require("./src/schemas/trusted_customers.json"),
-          demo_cta: require("./src/schemas/demo_cta.json"),
-        },
-        shouldDownloadImage: ({ node, key, value }) => {
-          return true;
-        },
-      },
-    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {

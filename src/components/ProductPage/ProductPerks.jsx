@@ -80,9 +80,7 @@ const ProductPerks = ({ perks }) => {
   return (
     <>
       {perks.map((perk, index) => {
-        const isLayered =
-          perk.__typename ===
-          "PrismicProductPageBodyTextWithLayeredIllustration";
+        const isLayered = !!perk.primary.top_illustration;
         return (
           <Wrapper index={index} key={`product-perk-${index}`}>
             <PerkText

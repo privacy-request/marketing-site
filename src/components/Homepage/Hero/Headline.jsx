@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { SCREEN_SIZES } from "../utils/constants";
-import { HomepageHeadline } from "../typography";
+import { SCREEN_SIZES } from "../../utils/constants";
+import { HomepageHeadline } from "../../typography";
 
 const Cursor = styled.span`
   margin-left: -1.6rem;

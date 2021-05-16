@@ -4,9 +4,9 @@ import { withPreview } from "gatsby-source-prismic";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO/SEO";
-import TrustedCustomers from "../components/TrustedCustomers";
+import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
 import ProductPerks from "../components/ProductPage/ProductPerks";
-import BookADemo from "../components/BookADemo";
+import BookADemo from "../components/BookADemo/BookADemo";
 import { SCREEN_SIZES } from "../components/utils/constants";
 import {
   ProductPageHeadline,
@@ -50,15 +50,9 @@ const Hero = styled.header`
   }
 `;
 
-const ProductPage = ({ data, path }) => {
-  const {
-    description,
-    keywords,
-    title,
-    body,
-    headline,
-    subheadline,
-  } = data.productPage.data;
+export const ProductPage = ({ data, path }) => {
+  const { description, keywords, title, body, headline, subheadline } =
+    data.productPage.data;
   return (
     <Layout>
       <SEO
@@ -76,7 +70,7 @@ const ProductPage = ({ data, path }) => {
         </Hero>
         <TrustedCustomers centerText />
         <ProductPerks perks={body} />
-        <BookADemo />
+        <BookADemo {...data.prismicMailingListForm.data} />
       </Wrapper>
     </Layout>
   );
@@ -84,6 +78,9 @@ const ProductPage = ({ data, path }) => {
 
 export const query = graphql`
   query ProductPageQuery($slug: String) {
+    prismicMailingListForm {
+      ...BookADemoData
+    }
     productPage: prismicProductPage(uid: { eq: $slug }) {
       id
       data {
@@ -120,14 +117,14 @@ export const query = graphql`
                 }
                 url
               }
-              verticalMargin: vertical_margin
-              horizontalMargin: horizontal_margin
-              verticalOffset: vertical_offset
-              horizontalOffset: horizontal_offset
-              visualHeight: visual_height
-              visualWidth: visual_width
-              mobileWidth: mobile_width
-              mobileIllustration: illustration_mobile {
+              vertical_margin
+              horizontal_margin
+              vertical_offset
+              horizontal_offset
+              visual_height
+              visual_width
+              mobile_width
+              illustration_mobile {
                 url
                 alt
                 dimensions {
@@ -135,14 +132,14 @@ export const query = graphql`
                   width
                 }
               }
-              verticalMargin: vertical_margin
-              horizontalMargin: horizontal_margin
-              mobileHorizontalOffset: mobile_horizontal_offset
-              mobileVerticalOffset: mobile_vertical_offset
-              mobileVerticalMargin: mobile_vertical_margin
-              mobileHorizontalMargin: mobile_horizontal_margin
-              mobileVisualHeight: mobile_visual_height
-              mobileVisualWidth: mobile_visual_width
+              vertical_margin
+              horizontal_margin
+              mobile_horizontal_offset
+              mobile_vertical_offset
+              mobile_vertical_margin
+              mobile_horizontal_margin
+              mobile_visual_height
+              mobile_visual_width
               paragraph {
                 text
               }
@@ -157,7 +154,7 @@ export const query = graphql`
               heading {
                 text
               }
-              topIllustration: top_illustration {
+              top_illustration {
                 alt
                 dimensions {
                   height
@@ -173,14 +170,14 @@ export const query = graphql`
                 }
                 url
               }
-              verticalMargin: vertical_margin
-              horizontalMargin: horizontal_margin
-              verticalOffset: vertical_offset
-              horizontalOffset: horizontal_offset
-              visualHeight: visual_height
-              visualWidth: visual_width
-              mobileWidth: mobile_width
-              mobileIllustration: illustration_mobile {
+              vertical_margin
+              horizontal_margin
+              vertical_offset
+              horizontal_offset
+              visual_height
+              visual_width
+              mobile_width
+              illustration_mobile {
                 url
                 alt
                 dimensions {
@@ -188,14 +185,14 @@ export const query = graphql`
                   width
                 }
               }
-              verticalMargin: vertical_margin
-              horizontalMargin: horizontal_margin
-              mobileHorizontalOffset: mobile_horizontal_offset
-              mobileVerticalOffset: mobile_vertical_offset
-              mobileVerticalMargin: mobile_vertical_margin
-              mobileHorizontalMargin: mobile_horizontal_margin
-              mobileVisualHeight: mobile_visual_height
-              mobileVisualWidth: mobile_visual_width
+              vertical_margin
+              horizontal_margin
+              mobile_horizontal_offset
+              mobile_vertical_offset
+              mobile_vertical_margin
+              mobile_horizontal_margin
+              mobile_visual_height
+              mobile_visual_width
               paragraph {
                 text
               }

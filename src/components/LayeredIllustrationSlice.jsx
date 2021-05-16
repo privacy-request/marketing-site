@@ -39,41 +39,44 @@ const Wrapper = styled.div`
 
 const Illustration = ({
   illustration,
-  topIllustration,
-  verticalMargin,
-  horizontalMargin,
-  verticalOffset,
-  horizontalOffset,
-  visualHeight,
-  visualWidth,
-  mobileWidth,
-  mobileIllustration,
-  mobileVerticalMargin,
-  mobileHorizontalMargin,
-  mobileVerticalOffset,
-  mobileHorizontalOffset,
-  mobileVisualHeight,
-  mobileVisualWidth,
+  top_illustration,
+  vertical_margin,
+  horizontal_margin,
+  vertical_offset,
+  horizontal_offset,
+  visual_height,
+  visual_width,
+  mobile_width,
+  Illustration_mobile,
+  mobile_vertical_margin,
+  mobile_horizontal_margin,
+  mobile_vertical_offset,
+  mobile_horizontal_offset,
+  mobile_visual_height,
+  mobile_visual_width,
 }) => {
   const responsiveProps = isMobileScreen()
     ? {
-        img: mobileIllustration.url ? mobileIllustration : illustration,
-        vMargin: mobileVerticalMargin,
-        hMargin: mobileHorizontalMargin,
-        vOffset: mobileVerticalOffset,
-        hOffset: mobileHorizontalOffset,
-        vHeight: mobileVisualHeight,
-        vWidth: mobileVisualWidth,
-        width: mobileWidth,
+        img:
+          Illustration_mobile && Illustration_mobile.url
+            ? Illustration_mobile
+            : illustration,
+        vMargin: mobile_vertical_margin,
+        hMargin: mobile_horizontal_margin,
+        vOffset: mobile_vertical_offset,
+        hOffset: mobile_horizontal_offset,
+        vHeight: mobile_visual_height,
+        vWidth: mobile_visual_width,
+        width: mobile_width,
       }
     : {
         img: illustration,
-        vMargin: verticalMargin,
-        hMargin: horizontalMargin,
-        vOffset: verticalOffset,
-        hOffset: horizontalOffset,
-        vHeight: visualHeight,
-        vWidth: visualWidth,
+        vMargin: vertical_margin,
+        hMargin: horizontal_margin,
+        vOffset: vertical_offset,
+        hOffset: horizontal_offset,
+        vHeight: visual_height,
+        vWidth: visual_width,
       };
 
   const {
@@ -100,14 +103,14 @@ const Illustration = ({
     verticalOffset: vOffset,
     horizontalOffset: hOffset,
     width: width,
-    isBottom: !!topIllustration,
+    isBottom: !!top_illustration,
   };
 
   return (
     <>
       <Wrapper {...wrapperProps}>
         <Img {...imgProps} mixBlend></Img>
-        <Img {...imgProps} image={topIllustration} />
+        <Img {...imgProps} image={top_illustration} />
       </Wrapper>
     </>
   );
