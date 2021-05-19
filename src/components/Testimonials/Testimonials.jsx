@@ -14,14 +14,19 @@ import { HomepageContainer } from "../Homepage/Homepage.styles";
 const Testimonials = ({ testimonial_headline, testimonials }) => {
   const [focusedTestimonialIndex, setFocusedTestimonialIndex] = useState(0);
   const isMobile = isMobileScreen();
+
   const focusedTestimonial = testimonials[focusedTestimonialIndex];
   const nextTestimonial = testimonials[focusedTestimonialIndex + 1];
+
+  const displayLeftArrow = !isMobile && focusedTestimonialIndex !== 0;
+  const displayRightArrow =
+    !isMobile && focusedTestimonialIndex + 1 < testimonials.length;
   return (
     <HomepageContainer>
       <Wrapper>
         <TestimonialsHeadline>{testimonial_headline.text}</TestimonialsHeadline>
         <Carousel>
-          {!isMobile && (
+          {displayLeftArrow && (
             <LeftArrowBtn
               onClick={() =>
                 !!testimonials[focusedTestimonialIndex - 1] &&
@@ -32,7 +37,7 @@ const Testimonials = ({ testimonial_headline, testimonials }) => {
           {focusedTestimonial && (
             <FocusedTestimonial testimonial={focusedTestimonial} />
           )}
-          {!isMobile && (
+          {displayRightArrow && (
             <RightArrowBtn
               onClick={() =>
                 !!testimonials[focusedTestimonialIndex + 1] &&
