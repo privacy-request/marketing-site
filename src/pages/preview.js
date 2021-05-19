@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { withPreviewResolver } from "gatsby-source-prismic";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -10,7 +10,7 @@ const PreviewPage = ({ isPreview }) => {
   return <p>Loading</p>;
 };
 
-export default (props) => {
+const Preview = (props) => {
   const data = useStaticQuery(graphql`
     query {
       sitePlugin(name: { eq: "gatsby-source-prismic" }) {
@@ -26,3 +26,5 @@ export default (props) => {
     linkResolver: () => (doc) => linkResolver(doc),
   })(props);
 };
+
+export default Preview;

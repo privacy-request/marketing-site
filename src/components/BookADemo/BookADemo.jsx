@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { graphql, navigate, useStaticQuery } from "gatsby";
+import { navigate } from "gatsby";
 import {
   BookADemoHeadline,
   BookADemoParagraph,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { MobileNavSubitem } from "../../typography";
+import { MobileNavSubitem } from "../../../typography";
 import { Link } from "gatsby";
 
 const Container = styled.div`

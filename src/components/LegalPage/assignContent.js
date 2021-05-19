@@ -7,7 +7,7 @@ import {
 } from "../typography";
 import styled from "styled-components";
 
-const UL = styled.ul`
+const Ul = styled.ul`
   list-style: disc;
   margin-left: 3rem;
 `;
@@ -66,13 +66,13 @@ const assignComponent = (content) => {
       );
     case "list-item":
       return (
-        <UL key={`ul-${createKeyFromStr(value[0])}`}>
+        <Ul key={`ul-${createKeyFromStr(value[0])}`}>
           {valueWithSpan.map((listItem) => (
             <LegalPageListItem key={createKeyFromStr(listItem)}>
               {listItem}
             </LegalPageListItem>
           ))}
-        </UL>
+        </Ul>
       );
   }
 };

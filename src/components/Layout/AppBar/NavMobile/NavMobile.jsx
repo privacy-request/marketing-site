@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Hamburger from "./Hamburger";
-import { MobileNavItem, MobileNavDemo } from "../../typography";
-import { STATIC_ROUTES, SCREEN_SIZES } from "../../utils/constants";
+import { MobileNavItem, MobileNavDemo } from "../../../typography";
+import { STATIC_ROUTES, SCREEN_SIZES } from "../../../utils/constants";
 import AccordionMenu from "./AccordionMenu";
 
 const MobileMenu = styled.ul`

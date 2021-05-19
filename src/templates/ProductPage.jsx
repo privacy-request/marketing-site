@@ -1,65 +1,43 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { withPreview } from "gatsby-source-prismic";
-import styled from "styled-components";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO/SEO";
+import Layout from "../components/Layout/Layout";
+import Seo from "../components/SEO/SEO";
 import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
 import ProductPerks from "../components/ProductPage/ProductPerks";
 import BookADemo from "../components/BookADemo/BookADemo";
-import { SCREEN_SIZES } from "../components/utils/constants";
 import {
   ProductPageHeadline,
   ProductPageSubheadline,
 } from "../components/typography";
-import ProductPageHeroBackground from "../../assets/productPageHeroBackground.svg";
 import DemoCTA from "../components/DemoCTA";
-
-const Wrapper = styled.main`
-  max-width: ${({ theme }) => theme.width.productPage};
-  margin: auto;
-`;
-
-const HeroBackgroundImage = styled(ProductPageHeroBackground)`
-  top: -145px;
-  display: flex;
-  position: absolute;
-  width: 143.3rem;
-  height: 509px;
-  z-index: -1;
-  opacity: 0.55;
-`;
-
-const Hero = styled.header`
-  z-index: 3;
-  max-width: ${({ theme }) => theme.width.productPageHero};
-  min-height: 23rem;
-  margin: 3rem auto 7.4rem auto;
-  text-align: center;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    text-align: left;
-    padding: 0 3rem;
-    align-items: end;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-  }
-`;
+import {
+  Wrapper,
+  HeroBackgroundImage,
+  Hero,
+} from "../components/ProductPage/ProductPage.styles";
 
 export const ProductPage = ({ data, path }) => {
-  const { description, keywords, title, body, headline, subheadline } =
-    data.productPage.data;
+  const {
+    page_description,
+    page_keywords,
+    page_title,
+    body,
+    headline,
+    subheadline,
+  } = data.prismicProductPage.data;
+
   return (
-    <Layout>
-      <SEO
-        title={title.text}
-        desc={description.text}
+    <Layout
+      navigationBarData={data.prismicNavigationBar.data}
+      footerData={data.prismicFooter.data}
+      cookieBannerData={data.prismicCookieBanner.data}
+    >
+      <Seo
+        title={page_title.text}
+        desc={page_description.text}
         path={path}
-        keywords={keywords}
+        keywords={page_keywords}
       />
       <Wrapper>
         <Hero>
@@ -81,19 +59,28 @@ export const query = graphql`
     prismicMailingListForm {
       ...BookADemoData
     }
-    productPage: prismicProductPage(uid: { eq: $slug }) {
+    prismicNavigationBar {
+      ...NavigationData
+    }
+    prismicFooter {
+      ...FooterData
+    }
+    prismicCookieBanner {
+      ...CookieBannerData
+    }
+    prismicProductPage(uid: { eq: $slug }) {
       id
       data {
         headline {
           text
         }
-        title: page_title {
+        page_title {
           text
         }
-        description: page_description {
+        page_description {
           text
         }
-        keywords: page_keywords {
+        page_keywords {
           keyword {
             text
           }

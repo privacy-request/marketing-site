@@ -7,6 +7,10 @@ const linkResolver = (doc) => {
     return `/${doc.uid}`;
   }
 
+  if (doc.type === "calendar_page") {
+    return `/apply`;
+  }
+
   return "/";
 };
 

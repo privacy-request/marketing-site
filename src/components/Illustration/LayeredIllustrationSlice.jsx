@@ -1,43 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "./Image";
-import isMobileScreen from "./utils/isMobileScreen";
-import { SCREEN_SIZES } from "./utils/constants";
+import Image from "../Image";
+import isMobileScreen from "../utils/isMobileScreen";
+import { SCREEN_SIZES } from "../utils/constants";
+import { Wrapper, Img } from "./Illustration.styles";
 
-const Img = styled(Image)`
-  right: 0;
-  bottom: 0;
-  top: ${({ verticalOffset }) => (verticalOffset ? verticalOffset : 0)}px;
-  left: ${({ horizontalOffset }) =>
-    horizontalOffset ? horizontalOffset : 0}px;
-  margin: auto;
-  position: absolute;
+const LayeredImg = styled(Img)`
   mix-blend-mode: ${({ mixBlend }) => (mixBlend ? "darken" : "initial")};
 `;
-const Wrapper = styled.div`
-  max-width: ${({ theme: { width } }) => width.sectionColumLg};
-  position: relative;
-  display: flex;
-  width: ${({ width }) => `${width}px` || "100%"};
-  margin: ${({ verticalMargin, horizontalMargin }) =>
-    `${verticalMargin || 0}px ${
-      horizontalMargin ? `${horizontalMargin}px` : "auto"
-    }`};
+const LayeredWrapper = styled(Wrapper)`
   background: inherit;
-  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    margin: ${({ verticalMargin, horizontalMargin }) =>
-      `${verticalMargin || 0}px ${
-        horizontalMargin ? `${horizontalMargin}px` : "0"
-      }`};
-  }
-  height: ${({ height }) => height}px;
-  z-index: 2;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     background: linear-gradient(183.3deg, #ffe01b 62.45%, #fff170 160.76%);
   }
 `;
 
-const Illustration = ({
+const LayeredIllustration = ({
   illustration,
   top_illustration,
   vertical_margin,
@@ -108,12 +86,12 @@ const Illustration = ({
 
   return (
     <>
-      <Wrapper {...wrapperProps}>
-        <Img {...imgProps} mixBlend></Img>
-        <Img {...imgProps} image={top_illustration} />
-      </Wrapper>
+      <LayeredWrapper {...wrapperProps}>
+        <LayeredImg {...imgProps} mixBlend></LayeredImg>
+        <LayeredImg {...imgProps} image={top_illustration} />
+      </LayeredWrapper>
     </>
   );
 };
 
-export default Illustration;
+export default LayeredIllustration;

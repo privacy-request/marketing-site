@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Layout from "../../components/Layout";
+import Layout from "../../components/Layout/Layout";
 import styled from "styled-components";
 import {
   ProductPageHeadline,
@@ -43,19 +43,21 @@ const Emoji = styled.span`
 `;
 
 const DemoBooking = ({ data }) => {
-  const {
-    confirmationMessage,
-    confirmationHeading,
-  } = data.allPrismicCalendarPage.edges[0].node.data;
+  const { confirmation_message, confirmation_heading } =
+    data.prismicCalendarPage.data;
   return (
-    <Layout>
+    <Layout
+      navigationBarData={data.prismicNavigationBar.data}
+      footerData={data.prismicFooter.data}
+      cookieBannerData={data.prismicCookieBanner.data}
+    >
       <Hero>
         <Emoji role="img" aria-label="Party popper">
           &#127881;
         </Emoji>
-        <ProductPageHeadline>{confirmationHeading.text}</ProductPageHeadline>
+        <ProductPageHeadline>{confirmation_heading.text}</ProductPageHeadline>
         <ProductPageSubheadline>
-          {confirmationMessage.text}
+          {confirmation_message.text}
         </ProductPageSubheadline>
         <HeroBackgroundImage />
       </Hero>
@@ -65,17 +67,22 @@ const DemoBooking = ({ data }) => {
 
 export const query = graphql`
   query DemoBookingQuery {
-    allPrismicCalendarPage {
-      edges {
-        node {
-          data {
-            confirmationMessage: confirmation_message {
-              text
-            }
-            confirmationHeading: confirmation_heading {
-              text
-            }
-          }
+    prismicNavigationBar {
+      ...NavigationData
+    }
+    prismicFooter {
+      ...FooterData
+    }
+    prismicCookieBanner {
+      ...CookieBannerData
+    }
+    prismicCalendarPage {
+      data {
+        confirmation_message {
+          text
+        }
+        confirmation_heading {
+          text
         }
       }
     }

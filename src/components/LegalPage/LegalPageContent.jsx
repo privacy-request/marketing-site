@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 
-const LegalPage = ({ sections, introduction, outro }) => {
+const LegalPageContent = ({ sections, introduction, outro }) => {
   return (
     <Wrapper>
       {introduction}
@@ -25,4 +25,4 @@ const LegalPage = ({ sections, introduction, outro }) => {
   );
 };
 
-export default LegalPage;
+export default LegalPageContent;

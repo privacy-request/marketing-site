@@ -1,8 +1,8 @@
 import React from "react";
 // import { Link } from "gatsby";
 import styled from "styled-components";
-import { DesktopNavItem, CallToAction } from "../../typography";
-import { STATIC_ROUTES } from "../../utils/constants";
+import { DesktopNavItem, CallToAction } from "../../../typography";
+import { STATIC_ROUTES } from "../../../utils/constants";
 import TooltipMenu from "./TooltipMenu";
 
 // const NavLink = styled(Link)`

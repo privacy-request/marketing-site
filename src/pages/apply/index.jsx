@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Layout from "../../components/Layout";
-import SEO from "../../components/SEO/SEO";
+import Layout from "../../components/Layout/Layout";
+import Seo from "../../components/SEO/SEO";
 import styled from "styled-components";
 import { withPreview } from "gatsby-source-prismic";
 import {
@@ -27,21 +27,25 @@ const Hero = styled.header`
 
 const CalendarPage = ({ data, path, location: { state } }) => {
   const {
-    calendarURL,
+    calendar_url,
     headline,
-    description,
-    keywords,
-    title,
+    page_description,
+    page_keywords,
+    page_title,
     subheadline,
-  } = data.allPrismicCalendarPage.edges[0].node.data;
+  } = data.prismicCalendarPage.data;
   const email = state ? state.email : "";
   return (
-    <Layout>
-      <SEO
-        title={title.text}
-        desc={description.text}
+    <Layout
+      navigationBarData={data.prismicNavigationBar.data}
+      footerData={data.prismicFooter.data}
+      cookieBannerData={data.prismicCookieBanner.data}
+    >
+      <Seo
+        title={page_title.text}
+        desc={page_description.text}
         path={path}
-        keywords={keywords}
+        keywords={page_keywords}
       />
       <Hero>
         <ProductPageHeadline>{headline.text}</ProductPageHeadline>
@@ -52,7 +56,7 @@ const CalendarPage = ({ data, path, location: { state } }) => {
         prefill={{
           email,
         }}
-        url={calendarURL.url}
+        url={calendar_url.url}
       />
     </Layout>
   );
@@ -60,31 +64,36 @@ const CalendarPage = ({ data, path, location: { state } }) => {
 
 export const query = graphql`
   query CalendarPageQuery {
-    allPrismicCalendarPage {
-      edges {
-        node {
-          data {
-            calendarURL: calendar_url {
-              url
-            }
-            headline {
-              text
-            }
-            description: page_description {
-              text
-            }
-            keywords: page_keywords {
-              keyword {
-                text
-              }
-            }
-            title: page_title {
-              text
-            }
-            subheadline {
-              text
-            }
+    prismicNavigationBar {
+      ...NavigationData
+    }
+    prismicFooter {
+      ...FooterData
+    }
+    prismicCookieBanner {
+      ...CookieBannerData
+    }
+    prismicCalendarPage {
+      data {
+        calendar_url {
+          url
+        }
+        headline {
+          text
+        }
+        page_description {
+          text
+        }
+        page_keywords {
+          keyword {
+            text
           }
+        }
+        page_title {
+          text
+        }
+        subheadline {
+          text
         }
       }
     }

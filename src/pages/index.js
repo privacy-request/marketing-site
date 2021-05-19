@@ -1,50 +1,14 @@
-import * as React from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import { withPreview } from "gatsby-source-prismic";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO/SEO";
+import Layout from "../components/Layout/Layout";
+import Seo from "../components/SEO/SEO";
 import Hero from "../components/Homepage/Hero/Hero";
 import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
 import HomepageProducts from "../components/Homepage/Products/Products";
 import Testimonials from "../components/Testimonials/Testimonials";
 import BookADemo from "../components/BookADemo/BookADemo";
 import { HomepageContainer } from "../components/Homepage/Homepage.styles";
-
-export const query = graphql`
-  query homepageQuery {
-    prismicHomepage {
-      data {
-        page_description {
-          text
-        }
-        page_keywords {
-          keyword {
-            text
-          }
-        }
-        page_title {
-          text
-        }
-      }
-      id
-      type
-      prismicId
-    }
-    prismicHomepage {
-      ...HeroData
-      ...ProductsData
-    }
-    prismicTrustedCustomers {
-      ...TrustedCustomersData
-    }
-    prismicTestimonials {
-      ...TestimonialsData
-    }
-    prismicMailingListForm {
-      ...BookADemoData
-    }
-  }
-`;
 
 export const Homepage = ({ path, data }) => {
   const {
@@ -60,8 +24,13 @@ export const Homepage = ({ path, data }) => {
     body,
   } = data.prismicHomepage.data;
   return (
-    <Layout path={path}>
-      <SEO
+    <Layout
+      path={path}
+      navigationBarData={data.prismicNavigationBar.data}
+      footerData={data.prismicFooter.data}
+      cookieBannerData={data.prismicCookieBanner.data}
+    >
+      <Seo
         title={page_title.text}
         desc={page_description.text}
         path={path}
@@ -86,5 +55,50 @@ export const Homepage = ({ path, data }) => {
     </Layout>
   );
 };
+
+export const query = graphql`
+  query homepageQuery {
+    prismicHomepage {
+      data {
+        page_description {
+          text
+        }
+        page_keywords {
+          keyword {
+            text
+          }
+        }
+        page_title {
+          text
+        }
+      }
+      id
+      type
+      prismicId
+    }
+    prismicNavigationBar {
+      ...NavigationData
+    }
+    prismicFooter {
+      ...FooterData
+    }
+    prismicCookieBanner {
+      ...CookieBannerData
+    }
+    prismicHomepage {
+      ...HeroData
+      ...ProductsData
+    }
+    prismicTrustedCustomers {
+      ...TrustedCustomersData
+    }
+    prismicTestimonials {
+      ...TestimonialsData
+    }
+    prismicMailingListForm {
+      ...BookADemoData
+    }
+  }
+`;
 
 export default withPreview(Homepage);

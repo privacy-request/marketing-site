@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { SCREEN_SIZES } from "../utils/constants";
 import BookADemoLeft from "../../../assets/bookADemoLeft.svg";

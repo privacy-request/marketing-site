@@ -36,7 +36,7 @@ export const query = graphql`
             }
             vertical_margin
             horizontal_margin
-            learn_more_route
+            route: learn_more_route
             mobile_horizontal_offset
             mobile_vertical_offset
             mobile_vertical_margin

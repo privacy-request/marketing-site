@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { SCREEN_SIZES } from "../utils/constants";
+import { SCREEN_SIZES } from "../../utils/constants";
 
-const Container = styled.div`
+export const Container = styled.div`
   height: ${({ theme: { height } }) => height.appBar.desktop};
   width: 100vw;
   display: flex;
@@ -20,7 +19,7 @@ const Container = styled.div`
   }
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
@@ -29,23 +28,3 @@ const Content = styled.div`
   max-width: ${({ theme: { width } }) => width.section};
   padding: 0 ${({ theme: { padding } }) => padding.site};
 `;
-
-const AppBarContainer = ({ children }) => {
-  const [scrolled, setScrolled] = useState(false);
-
-  const handleScroll = () => {
-    const offset = window.scrollY;
-    setScrolled(offset > 1);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  });
-  return (
-    <Container scrolled={scrolled}>
-      <Content>{children}</Content>
-    </Container>
-  );
-};
-
-export default AppBarContainer;

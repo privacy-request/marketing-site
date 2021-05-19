@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { STATIC_ROUTES } from "../utils/constants";
-import Image from "../Image";
+import { STATIC_ROUTES } from "../../utils/constants";
+import Image from "../../Image";
 
 const LogoIcon = styled(Image)`
   margin-right: 1.4rem;

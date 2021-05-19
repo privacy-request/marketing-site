@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Facebook from "./Facebook";
 import Twitter from "./Twitter";
 
-const SEO = ({ title, desc, path, keywords }) => {
+const Seo = ({ title, desc, path, keywords }) => {
   const { site } = useStaticQuery(query);
 
   const {
@@ -59,7 +59,7 @@ const SEO = ({ title, desc, path, keywords }) => {
 };
 
 const query = graphql`
-  query SEO {
+  query Seo {
     site {
       siteMetadata {
         siteUrl
@@ -75,4 +75,4 @@ const query = graphql`
   }
 `;
 
-export default SEO;
+export default Seo;

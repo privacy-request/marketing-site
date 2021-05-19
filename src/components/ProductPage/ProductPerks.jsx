@@ -3,8 +3,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import styled, { css } from "styled-components";
 import { SCREEN_SIZES, STATIC_ROUTES } from "../utils/constants";
 import SectionText from "../SectionText";
-import Illustration from "../Illustration";
-import LayeredIllustration from "../LayeredIllustrationSlice";
+import Illustration from "../Illustration/Illustration";
+import LayeredIllustration from "../Illustration/LayeredIllustrationSlice";
 
 const blueTitle = css`
   h2 {

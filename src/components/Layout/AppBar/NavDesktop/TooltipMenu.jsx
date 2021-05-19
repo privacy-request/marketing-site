@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import { DesktopNavItem, DesktopNavSubitem } from "../../typography";
+import { DesktopNavItem, DesktopNavSubitem } from "../../../typography";
 
 const TooltipWrapper = styled.ul`
   margin-right: ${({ theme: { margin } }) => margin.navItemDesktop};
