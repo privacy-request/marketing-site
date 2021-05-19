@@ -330,3 +330,15 @@ export const LegalPageListItem = styled.li`
 export const HyperLink = styled.a`
   color: ${({ theme }) => theme.colour.blue.dark};
 `;
+
+// Company Pages
+export const CompanyPageTitle = styled.h1`
+  color: ${({ theme }) => theme.colour.blue.dark};
+  font-size: ${fontSize.header.medium};
+  margin-bottom: 1rem;
+`;
+
+export const CompanyPageSubTitle = styled.h2`
+  font-size: ${fontSize.header.small};
+  font-weight: normal;
+`;

@@ -59,6 +59,35 @@
         "label": "product pages sub items"
       }
     },
+    "company_pages_nav": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Company pages nav"
+      }
+    },
+    "company_pages_sub_items": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "routes": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading4",
+              "label": "routes"
+            }
+          },
+          "text": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading4",
+              "label": "text"
+            }
+          }
+        },
+        "label": "Company pages sub items"
+      }
+    },
     "customers_page_nav": {
       "type": "StructuredText",
       "config": {

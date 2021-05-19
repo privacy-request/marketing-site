@@ -1,0 +1,118 @@
+{
+  "Main": {
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Page title"
+      }
+    },
+    "page_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Page description"
+      }
+    },
+    "page_keywords": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "keyword": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "keyword"
+            }
+          }
+        },
+        "label": "page keywords"
+      }
+    },
+    "headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "headline"
+      }
+    },
+    "subheadline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "Subheadline"
+      }
+    },
+    "content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "content"
+      }
+    },
+    "core_values": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading4",
+              "label": "title"
+            }
+          },
+          "description": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "description"
+            }
+          }
+        },
+        "label": "Core values"
+      }
+    },
+    "team_members": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "avatar": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Avatar"
+            }
+          },
+          "name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "Name"
+            }
+          },
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "Title"
+            }
+          },
+          "linkedin": {
+            "type": "Link",
+            "config": {
+              "label": "Linkedin"
+            }
+          },
+          "twitter": {
+            "type": "Link",
+            "config": {
+              "label": "Twitter"
+            }
+          }
+        },
+        "label": "Team members"
+      }
+    }
+  }
+}

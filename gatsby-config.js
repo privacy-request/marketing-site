@@ -37,6 +37,7 @@ module.exports = {
           mailing_list_form: require("./custom_types/mailing_list_form.json"),
           footer: require("./custom_types/footer.json"),
           calendar_page: require("./custom_types/calendar_page.json"),
+          about_page: require("./custom_types/about_page.json"),
           cookie_banner: require("./custom_types/cookie_banner.json"),
           legal_page: require("./custom_types/legal_page.json"),
           trusted_customers: require("./custom_types/trusted_customers.json"),
