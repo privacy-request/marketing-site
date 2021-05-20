@@ -10,7 +10,6 @@ import {
 } from "../components/typography";
 import AboutContentBackground from "../../assets/aboutContentBackground.svg";
 import AboutHeroBackground from "../../assets/aboutHeroBackground.svg";
-import { SCREEN_SIZES } from "../components/utils/constants";
 
 const Wrapper = styled.div`
   position: relative;

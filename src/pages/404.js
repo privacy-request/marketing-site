@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import { withUnpublishedPreview } from "gatsby-source-prismic";
 import LegalPage from "../templates/LegalPage";
-import { ProductPage } from "../templates/ProductPage";
-import { Homepage } from "./index";
+import ProductPage from "../templates/ProductPage";
+import Homepage from "./index";
 
 import Layout from "../components/Layout/Layout";
 

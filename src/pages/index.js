@@ -10,7 +10,7 @@ import Testimonials from "../components/Testimonials/Testimonials";
 import BookADemo from "../components/BookADemo/BookADemo";
 import { HomepageContainer } from "../components/Homepage/Homepage.styles";
 
-export const Homepage = ({ path, data }) => {
+const Homepage = ({ path, data }) => {
   const {
     page_description,
     page_keywords,

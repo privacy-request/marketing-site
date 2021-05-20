@@ -17,7 +17,7 @@ import {
   Hero,
 } from "../components/ProductPage/ProductPage.styles";
 
-export const ProductPage = ({ data, path }) => {
+const ProductPage = ({ data, path }) => {
   const {
     page_description,
     page_keywords,

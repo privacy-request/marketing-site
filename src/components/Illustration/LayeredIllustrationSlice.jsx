@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "../Image";
 import isMobileScreen from "../utils/isMobileScreen";
 import { SCREEN_SIZES } from "../utils/constants";
 import { Wrapper, Img } from "./Illustration.styles";
