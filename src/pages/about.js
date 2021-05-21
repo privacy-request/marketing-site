@@ -19,6 +19,7 @@ import {
   Blob,
   Card,
 } from "../components/About/About.styles";
+import CoreValues from "../components/About/CoreValues/CoreValues";
 
 const AboutPage = ({ data, path }) => {
   const {
@@ -28,6 +29,8 @@ const AboutPage = ({ data, path }) => {
     subheadline,
     content,
     headline,
+    team_members,
+    core_values,
   } = data.prismicAboutPage.data;
   const isMobile = isMobileScreen();
   return (
@@ -57,6 +60,7 @@ const AboutPage = ({ data, path }) => {
           {!isMobile && <Blob />}
           <AboutContentEllipse />
         </Content>
+        <CoreValues coreValues={core_values} />
       </Wrapper>
     </Layout>
   );
@@ -94,6 +98,36 @@ export const query = graphql`
         }
         subheadline {
           text
+        }
+        team_members {
+          avatar {
+            alt
+            dimensions {
+              height
+              width
+            }
+            url
+          }
+          linkedin {
+            url
+          }
+          name {
+            text
+          }
+          title {
+            text
+          }
+          twitter {
+            url
+          }
+        }
+        core_values {
+          description {
+            text
+          }
+          title {
+            text
+          }
         }
       }
     }

@@ -32,6 +32,7 @@ export const Hero = styled.header`
 `;
 
 export const Content = styled.div`
+  z-index: -1;
   margin-bottom: -64rem;
   display: flex;
   align-items: center;

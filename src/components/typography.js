@@ -351,3 +351,19 @@ export const CompanyPageParagraph = styled.p`
   font-size: ${fontSize.paragraph.small};
   margin-bottom: 2.5rem;
 `;
+
+export const CoreValueTitle = styled.p`
+  font-size: ${fontSize.paragraph.large};
+  color: ${({ theme }) => theme.colour.blue.dark};
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin-bottom: 1.6rem;
+  }
+`;
+
+export const CoreValueDescription = styled.p`
+  font-size: ${fontSize.paragraph.medium};
+  text-align: center;
+`;
