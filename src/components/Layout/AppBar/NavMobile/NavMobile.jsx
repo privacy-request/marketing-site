@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Hamburger from "./Hamburger";
@@ -40,6 +40,14 @@ const NavMobile = ({
   path,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflowY = isOpen ? "hidden" : "scroll";
+    return () => {
+      document.body.style.overflowY = "scroll";
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };

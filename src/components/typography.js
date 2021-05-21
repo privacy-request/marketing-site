@@ -335,10 +335,19 @@ export const HyperLink = styled.a`
 export const CompanyPageTitle = styled.h1`
   color: ${({ theme }) => theme.colour.blue.dark};
   font-size: ${fontSize.header.medium};
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const CompanyPageSubTitle = styled.h2`
   font-size: ${fontSize.header.small};
   font-weight: normal;
+  line-height: 43px;
+`;
+
+export const CompanyPageParagraph = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  margin-bottom: 2.5rem;
 `;

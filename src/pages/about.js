@@ -4,51 +4,23 @@ import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import styled from "styled-components";
 import { withPreview } from "gatsby-source-prismic";
+import isMobileScreen from "../components/utils/isMobileScreen";
 import {
   CompanyPageTitle,
   CompanyPageSubTitle,
+  CompanyPageParagraph,
 } from "../components/typography";
-import AboutContentBackground from "../../assets/aboutContentBackground.svg";
-import AboutHeroBackground from "../../assets/aboutHeroBackground.svg";
-
-const Wrapper = styled.div`
-  position: relative;
-  max-width: 144rem;
-  margin: auto;
-`;
-
-const HeroBackground = styled(AboutHeroBackground)`
-  position: absolute;
-  z-index: -1;
-  left: 4rem;
-  top: 1.5rem;
-`;
-
-const ContentBackground = styled(AboutContentBackground)``;
-
-const Hero = styled.header`
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  flex-direction: column;
-  min-height: 30rem;
-  width: 73rem;
-`;
-
-const Content = styled.div`
-  position: absolute;
-  width: 802px;
-  height: 593px;
-  left: 319px;
-  top: 384px;
-  border-radius: 16px;
-  /* White */
-
-  background: #ffffff;
-`;
+import AboutContentEllipse from "../../assets/aboutContentEllipse.svg";
+import {
+  Wrapper,
+  HeroBackground,
+  Hero,
+  Content,
+  Blob,
+  Card,
+} from "../components/About/About.styles";
 
 const AboutPage = ({ data, path }) => {
-  console.log(data);
   const {
     page_description,
     page_keywords,
@@ -57,7 +29,7 @@ const AboutPage = ({ data, path }) => {
     content,
     headline,
   } = data.prismicAboutPage.data;
-
+  const isMobile = isMobileScreen();
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
@@ -74,10 +46,17 @@ const AboutPage = ({ data, path }) => {
         <Hero>
           <CompanyPageTitle>{headline.text}</CompanyPageTitle>
           <CompanyPageSubTitle>{subheadline.text}</CompanyPageSubTitle>
-          <HeroBackground />
+          {!isMobile && <HeroBackground />}
         </Hero>
-        <Content>{content.text}</Content>
-        <ContentBackground />
+        <Content isMobile={isMobile}>
+          <Card>
+            {content.raw.map((paragraph) => (
+              <CompanyPageParagraph>{paragraph.text}</CompanyPageParagraph>
+            ))}
+          </Card>
+          {!isMobile && <Blob />}
+          <AboutContentEllipse />
+        </Content>
       </Wrapper>
     </Layout>
   );
@@ -100,7 +79,7 @@ export const query = graphql`
           text
         }
         content {
-          text
+          raw
         }
         page_description {
           text
@@ -121,4 +100,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(AboutPage);
+export default AboutPage;
