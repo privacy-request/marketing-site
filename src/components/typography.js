@@ -367,3 +367,18 @@ export const CoreValueDescription = styled.p`
   font-size: ${fontSize.paragraph.medium};
   text-align: center;
 `;
+
+export const TeamMemberName = styled.p`
+  font-size: ${fontSize.header.xxsmall};
+  font-weight: bold;
+  color: ${({ theme }) => theme.colour.blue.medium};
+
+  margin-bottom: 0.2rem;
+  text-align: center;
+`;
+
+export const TeamMemberTitle = styled.p`
+  font-size: ${fontSize.header.xxsmall};
+  font-weight: bold;
+  text-align: center;
+`;

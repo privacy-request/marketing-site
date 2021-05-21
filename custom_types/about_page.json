@@ -72,6 +72,22 @@
         "label": "Core values"
       }
     },
+    "linkedin_logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "LinkedIn logo"
+      }
+    },
+    "twitter_logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Twitter Logo"
+      }
+    },
     "team_members": {
       "type": "Group",
       "config": {

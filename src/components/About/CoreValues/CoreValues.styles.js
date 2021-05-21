@@ -6,6 +6,10 @@ import { SCREEN_SIZES } from "../../utils/constants";
 
 export const Wrapper = styled.div`
   margin-bottom: 10rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    margin-bottom: 12rem;
+    margin-top: 3rem;
+  }
 `;
 export const ArrowBtnAndValue = styled.div`
   display: flex;

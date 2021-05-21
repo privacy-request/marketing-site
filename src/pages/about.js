@@ -2,7 +2,6 @@ import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
-import styled from "styled-components";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../components/utils/isMobileScreen";
 import {
@@ -20,6 +19,7 @@ import {
   Card,
 } from "../components/About/About.styles";
 import CoreValues from "../components/About/CoreValues/CoreValues";
+import TeamMembers from "../components/About/TeamMembers/TeamMembers";
 
 const AboutPage = ({ data, path }) => {
   const {
@@ -31,8 +31,11 @@ const AboutPage = ({ data, path }) => {
     headline,
     team_members,
     core_values,
+    twitter_logo,
+    linkedin_logo,
   } = data.prismicAboutPage.data;
   const isMobile = isMobileScreen();
+  console.log({ twitter_logo, linkedin_logo });
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
@@ -61,6 +64,11 @@ const AboutPage = ({ data, path }) => {
           <AboutContentEllipse />
         </Content>
         <CoreValues coreValues={core_values} />
+        <TeamMembers
+          teamMembers={team_members}
+          twitterLogo={twitter_logo}
+          linkedInLogo={linkedin_logo}
+        />
       </Wrapper>
     </Layout>
   );
@@ -98,6 +106,22 @@ export const query = graphql`
         }
         subheadline {
           text
+        }
+        linkedin_logo {
+          alt
+          dimensions {
+            height
+            width
+          }
+          url
+        }
+        twitter_logo {
+          alt
+          dimensions {
+            height
+            width
+          }
+          url
         }
         team_members {
           avatar {

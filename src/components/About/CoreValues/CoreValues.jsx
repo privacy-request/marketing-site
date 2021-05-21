@@ -53,7 +53,9 @@ const CoreValues = ({ coreValues }) => {
           <Filler />
         )}
       </ArrowBtnAndValue>
-      <Ellipses {...{ coreValues, focusedCoreValueIndex }} />
+      <Ellipses
+        {...{ coreValues, focusedCoreValueIndex, setFocusedCoreValueIndex }}
+      />
     </Wrapper>
   );
 };

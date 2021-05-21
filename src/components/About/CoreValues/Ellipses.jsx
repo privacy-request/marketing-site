@@ -7,6 +7,7 @@ const Ellipse = styled.div`
   border-radius: 50%;
   background: ${({ active, theme }) => (active ? "#E6F5FF" : "#203546")};
   margin: 0 0.72rem;
+  cursor: pointer;
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -14,11 +15,18 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const Ellipses = ({ coreValues, focusedCoreValueIndex }) => {
+const Ellipses = ({
+  coreValues,
+  focusedCoreValueIndex,
+  setFocusedCoreValueIndex,
+}) => {
   return (
     <Wrapper>
       {coreValues.map((value, index) => (
-        <Ellipse active={index === focusedCoreValueIndex} />
+        <Ellipse
+          onClick={() => setFocusedCoreValueIndex(index)}
+          active={index === focusedCoreValueIndex}
+        />
       ))}
     </Wrapper>
   );
