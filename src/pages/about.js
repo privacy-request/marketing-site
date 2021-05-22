@@ -158,4 +158,4 @@ export const query = graphql`
   }
 `;
 
-export default AboutPage;
+export default withPreview(AboutPage);
