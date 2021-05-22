@@ -11,6 +11,10 @@ const linkResolver = (doc) => {
     return `/apply`;
   }
 
+  if (doc.type === "about_page") {
+    return `/about`;
+  }
+
   return "/";
 };
 
