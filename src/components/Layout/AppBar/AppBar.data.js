@@ -42,6 +42,17 @@ export const query = graphql`
           text
         }
       }
+      company_pages_nav {
+        text
+      }
+      company_pages_sub_items {
+        route {
+          text
+        }
+        text {
+          text
+        }
+      }
     }
   }
 `;

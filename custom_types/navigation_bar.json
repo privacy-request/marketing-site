@@ -70,11 +70,11 @@
       "type": "Group",
       "config": {
         "fields": {
-          "routes": {
+          "route": {
             "type": "StructuredText",
             "config": {
               "single": "heading4",
-              "label": "routes"
+              "label": "route"
             }
           },
           "text": {

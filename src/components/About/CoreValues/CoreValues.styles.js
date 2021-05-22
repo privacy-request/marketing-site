@@ -5,7 +5,7 @@ import RightArrow from "../../../../assets/rightArrow.svg";
 import { SCREEN_SIZES } from "../../utils/constants";
 
 export const Wrapper = styled.div`
-  margin-bottom: 10rem;
+  margin-bottom: 12rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 12rem;
     margin-top: 3rem;
@@ -15,20 +15,23 @@ export const ArrowBtnAndValue = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  min-height: 14rem;
+  min-height: 16.5rem;
   margin-bottom: 3rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
+    min-height: 27.5rem;
+  }
 `;
 
 export const LeftArrowBtn = styled(LeftArrow)`
   cursor: pointer;
   margin-right: 3rem;
-  margin-top: 6rem;
+  margin-top: 8rem;
 `;
 
 export const RightArrowBtn = styled(RightArrow)`
   cursor: pointer;
   margin-left: 3rem;
-  margin-top: 6rem;
+  margin-top: 8rem;
 `;
 
 export const Filler = styled.div`

@@ -10,11 +10,13 @@ const AppBar = ({
   product_pages_nav,
   customers_page_nav,
   contact_page_nav,
+  company_pages_nav,
   homepage_nav,
   get_a_demo_button,
   logo_text,
   logo_icon,
   product_pages_sub_items,
+  company_pages_sub_items,
 }) => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -35,13 +37,21 @@ const AppBar = ({
     return { url, title };
   });
 
+  const CustomerPages = company_pages_sub_items.map((subitem) => {
+    const url = subitem.route.text;
+    const title = subitem.text.text;
+    return { url, title };
+  });
+
   const navProps = {
     getADemoBtnText: get_a_demo_button.text,
     productPagesNavText: product_pages_nav.text,
-    customersPageNavText: customers_page_nav.text,
+    customersPagesNavText: customers_page_nav.text,
+    companyPageNavText: company_pages_nav.text,
     contactPageNavText: contact_page_nav.text,
     homepageNavText: homepage_nav.text,
     productPages,
+    CustomerPages,
     path,
   };
 

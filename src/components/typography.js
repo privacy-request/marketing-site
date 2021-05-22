@@ -366,6 +366,7 @@ export const CoreValueTitle = styled.p`
 export const CoreValueDescription = styled.p`
   font-size: ${fontSize.paragraph.medium};
   text-align: center;
+  margin: auto;
 `;
 
 export const TeamMemberName = styled.p`

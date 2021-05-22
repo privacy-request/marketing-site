@@ -5,7 +5,9 @@ import { CoreValueTitle, CoreValueDescription } from "../../typography";
 
 const Wrapper = styled.div`
   width: 60rem;
-  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const CoreValue = ({ coreValue }) => {

@@ -35,7 +35,7 @@ const AboutPage = ({ data, path }) => {
     linkedin_logo,
   } = data.prismicAboutPage.data;
   const isMobile = isMobileScreen();
-  console.log({ twitter_logo, linkedin_logo });
+
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}

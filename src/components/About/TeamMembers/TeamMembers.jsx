@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   margin-bottom: auto;
   display: flex;
   margin-bottom: 15rem;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   flex-wrap: wrap;
   background: white;
