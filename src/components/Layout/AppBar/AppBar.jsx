@@ -37,7 +37,7 @@ const AppBar = ({
     return { url, title };
   });
 
-  const CustomerPages = company_pages_sub_items.map((subitem) => {
+  const CompanyPages = company_pages_sub_items.map((subitem) => {
     const url = subitem.route.text;
     const title = subitem.text.text;
     return { url, title };
@@ -47,11 +47,11 @@ const AppBar = ({
     getADemoBtnText: get_a_demo_button.text,
     productPagesNavText: product_pages_nav.text,
     customersPagesNavText: customers_page_nav.text,
-    companyPageNavText: company_pages_nav.text,
+    CompanyPagesNavText: company_pages_nav.text,
     contactPageNavText: contact_page_nav.text,
     homepageNavText: homepage_nav.text,
     productPages,
-    CustomerPages,
+    CompanyPages,
     path,
   };
 

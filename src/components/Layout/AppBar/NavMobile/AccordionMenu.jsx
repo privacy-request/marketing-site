@@ -13,7 +13,7 @@ const Title = styled.div`
 `;
 
 const Symbol = styled.div`
-  margin: 0 0 0.6rem 0.6rem;
+  margin: 0.6rem 0 0.6rem 0.6rem;
   font-weight: normal;
   transition: all 200ms ease;
   transform-origin: 48% 63%;

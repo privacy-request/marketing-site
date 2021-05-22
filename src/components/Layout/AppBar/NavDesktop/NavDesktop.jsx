@@ -19,8 +19,8 @@ const NavDesktop = ({
   productPagesNavText,
   productPages,
   customersPagesNavText,
-  companyPageNavText,
-  CustomerPages,
+  CompanyPagesNavText,
+  CompanyPages,
   path,
 }) => {
   return (
@@ -32,8 +32,8 @@ const NavDesktop = ({
           path={path}
         />
         <TooltipMenu
-          title={companyPageNavText}
-          pages={CustomerPages}
+          title={CompanyPagesNavText}
+          pages={CompanyPages}
           path={path}
         />
         {/* <DesktopNavItem>

@@ -37,6 +37,8 @@ const NavMobile = ({
   contactPageNavText,
   homepageNavText,
   productPages,
+  CompanyPages,
+  CompanyPagesNavText,
   path,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,6 +66,14 @@ const NavMobile = ({
             <AccordionMenu
               title={productPagesNavText}
               pages={productPages}
+              path={path}
+              parentMenuOpen={isOpen}
+            />
+          </MobileNavItem>
+          <MobileNavItem>
+            <AccordionMenu
+              title={CompanyPagesNavText}
+              pages={CompanyPages}
               path={path}
               parentMenuOpen={isOpen}
             />
