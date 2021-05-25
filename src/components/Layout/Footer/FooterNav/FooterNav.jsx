@@ -7,6 +7,7 @@ import {
 } from "../../../typography";
 import { STATIC_ROUTES } from "../../../utils/constants";
 import { NavList, NavSubList, NavItem } from "./FooterNav.styles";
+import { formatPages } from "../../../utils/helpers";
 
 const FooterNav = ({
   homepage_nav,
@@ -15,12 +16,11 @@ const FooterNav = ({
   contact,
   email,
   phone,
+  company_pages_nav,
+  company_pages_sub_items,
 }) => {
-  const productPages = product_pages_sub_items.map((subitem) => {
-    const url = subitem.route.text;
-    const title = subitem.text.text;
-    return { url, title };
-  });
+  const productPages = formatPages(product_pages_sub_items);
+  const companyPages = formatPages(company_pages_sub_items);
 
   return (
     <nav>
@@ -36,9 +36,14 @@ const FooterNav = ({
             </DesktopNavSubitem>
           ))}
         </NavSubList>
-        {/* <FooterNavItem>
-          <Link to={STATIC_ROUTES.CUSTOMERS}>{customersPageNav.text}</Link>
-        </FooterNavItem> */}
+        <NavSubList>
+          <DesktopNavItem noHover>{company_pages_nav.text}</DesktopNavItem>
+          {companyPages.map(({ url, title }) => (
+            <DesktopNavSubitem key={`footer-nav-${url}`}>
+              <Link to={`/${url}`}>{title}</Link>
+            </DesktopNavSubitem>
+          ))}
+        </NavSubList>
         <NavSubList>
           <DesktopNavItem noHover>{contact.text}</DesktopNavItem>
           <DesktopNavSubitem noHover>

@@ -19,8 +19,6 @@ const Layout = ({
   footerData,
   cookieBannerData,
 }) => {
-  const { homepage_nav, product_pages_nav, product_pages_sub_items } =
-    navigationBarData;
   return (
     <ThemeProvider theme={theme}>
       <CookiesProvider>
@@ -28,10 +26,7 @@ const Layout = ({
         <CookieBanner {...cookieBannerData} />
         <AppBar path={path} {...navigationBarData} />
         <OverflowWrapper>{children}</OverflowWrapper>
-        <Footer
-          {...footerData}
-          {...{ homepage_nav, product_pages_nav, product_pages_sub_items }}
-        />
+        <Footer {...footerData} navData={navigationBarData} />
       </CookiesProvider>
     </ThemeProvider>
   );

@@ -33,12 +33,12 @@ const MobileMenuList = styled.ul`
 const NavMobile = ({
   getADemoBtnText,
   productPagesNavText,
-  customersPageNavText,
-  contactPageNavText,
+  // customersPageNavText,
+  // contactPageNavText,
   homepageNavText,
   productPages,
-  CompanyPages,
-  CompanyPagesNavText,
+  companyPages,
+  // companyPagesNavText,
   path,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,19 +71,8 @@ const NavMobile = ({
             />
           </MobileNavItem>
           <MobileNavItem>
-            <AccordionMenu
-              title={CompanyPagesNavText}
-              pages={CompanyPages}
-              path={path}
-              parentMenuOpen={isOpen}
-            />
+            <Link to={`/${companyPages[0].url}`}>{companyPages[0].title}</Link>
           </MobileNavItem>
-          {/* <MobileNavItem active={path === STATIC_ROUTES.CUSTOMERS}>
-            <Link to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</Link>
-          </MobileNavItem> */}
-          {/* <MobileNavItem active={path === STATIC_ROUTES.CONTACT}>
-            <Link to={STATIC_ROUTES.CONTACT}>{contactPageNavText}</Link>
-          </MobileNavItem> */}
           <MobileNavDemo active={path === STATIC_ROUTES.CALENDAR}>
             <Link to={STATIC_ROUTES.CALENDAR}>{getADemoBtnText}</Link>
           </MobileNavDemo>
