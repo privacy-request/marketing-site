@@ -34,9 +34,8 @@ const CalendarPage = ({ data, path, location: { state } }) => {
     page_title,
     subheadline,
   } = data.prismicCalendarPage.data;
-  const { email, redirectFromBookADemoForm } = state.redirectFromBookADemoForm
-    ? state
-    : {};
+  const { email, redirectFromBookADemoForm } =
+    state && state.redirectFromBookADemoForm ? state : {};
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
