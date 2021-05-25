@@ -38,6 +38,7 @@ module.exports = {
           footer: require("./custom_types/footer.json"),
           calendar_page: require("./custom_types/calendar_page.json"),
           about_page: require("./custom_types/about_page.json"),
+          contact_page: require("./custom_types/contact_page.json"),
           cookie_banner: require("./custom_types/cookie_banner.json"),
           legal_page: require("./custom_types/legal_page.json"),
           trusted_customers: require("./custom_types/trusted_customers.json"),
