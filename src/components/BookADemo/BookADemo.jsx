@@ -22,10 +22,12 @@ const BookADemo = ({
   submit_button_text,
 }) => {
   const [email, setEmail] = useState("");
+  const state = { email, redirectFromBookADemoForm: true };
 
   const onSubmit = (e) => {
+    console.log("onSubmit");
     e.preventDefault();
-    navigate("/apply", { state: { email } });
+    navigate("/apply", { state });
   };
 
   return (
@@ -39,7 +41,7 @@ const BookADemo = ({
             onChange={(e) => setEmail(e.target.value)}
             placeholder={email_input_placeholder.text}
           />
-          <CallToAction to={STATIC_ROUTES.CALENDAR} state={{ email }}>
+          <CallToAction to={STATIC_ROUTES.CALENDAR} state={state}>
             {submit_button_text.text}
           </CallToAction>
         </MailingListForm>

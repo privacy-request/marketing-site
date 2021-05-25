@@ -34,7 +34,9 @@ const CalendarPage = ({ data, path, location: { state } }) => {
     page_title,
     subheadline,
   } = data.prismicCalendarPage.data;
-  const email = state ? state.email : "";
+  const { email, redirectFromBookADemoForm } = state.redirectFromBookADemoForm
+    ? state
+    : {};
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
@@ -55,6 +57,9 @@ const CalendarPage = ({ data, path, location: { state } }) => {
         styles={{ height: "1000px" }}
         prefill={{
           email,
+          customAnswers: {
+            a3: redirectFromBookADemoForm ? 1 : 0,
+          },
         }}
         url={calendar_url.url}
       />
