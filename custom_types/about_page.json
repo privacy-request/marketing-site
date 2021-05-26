@@ -50,6 +50,12 @@
         "label": "content"
       }
     },
+    "core_values_rotate_speed": {
+      "type": "Number",
+      "config": {
+        "label": "Core values rotate speed (milliseconds)"
+      }
+    },
     "core_values": {
       "type": "Group",
       "config": {

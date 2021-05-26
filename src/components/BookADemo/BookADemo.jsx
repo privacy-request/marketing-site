@@ -25,7 +25,6 @@ const BookADemo = ({
   const state = { email, redirectFromBookADemoForm: true };
 
   const onSubmit = (e) => {
-    console.log("onSubmit");
     e.preventDefault();
     navigate("/apply", { state });
   };

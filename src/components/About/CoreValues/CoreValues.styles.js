@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import LeftArrow from "../../../../assets/leftArrow.svg";
 import RightArrow from "../../../../assets/rightArrow.svg";
@@ -7,8 +6,7 @@ import { SCREEN_SIZES } from "../../utils/constants";
 export const Wrapper = styled.div`
   margin-bottom: 12rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    margin-bottom: 12rem;
-    margin-top: 3rem;
+    margin: 3rem 3rem 12rem 3rem;
   }
 `;
 export const ArrowBtnAndValue = styled.div`

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import isMobileScreen from "../../utils/isMobileScreen";
 import CoreValue from "./CoreValue";
 import Ellipses from "./Ellipses";
@@ -7,51 +7,52 @@ import {
   ArrowBtnAndValue,
   LeftArrowBtn,
   RightArrowBtn,
-  Filler,
 } from "./CoreValues.styles";
+import { useSwipeable } from "react-swipeable";
 
-const CoreValues = ({ coreValues }) => {
+const CoreValues = ({ coreValues, rotateSpeed }) => {
   const [focusedCoreValueIndex, setFocusedCoreValueIndex] = useState(0);
-  const isMobile = isMobileScreen();
 
-  const focusedCoreValue = coreValues[focusedCoreValueIndex];
-
-  const displayLeftArrow = !isMobile && focusedCoreValueIndex !== 0;
-  const displayRightArrow =
-    !isMobile && focusedCoreValueIndex + 1 < coreValues.length;
-
-  const HandleWrapperClick = () => {
-    if (isMobile) {
+  // auto rotate core Values
+  useEffect(() => {
+    const id = setTimeout(() => {
       setFocusedCoreValueIndex(
         coreValues[focusedCoreValueIndex + 1] ? focusedCoreValueIndex + 1 : 0
       );
-    }
+    }, rotateSpeed);
+    return () => clearTimeout(id);
+  }, [focusedCoreValueIndex]);
+
+  const swipeHandlers = useSwipeable({
+    onSwiped: ({ dir }) => {
+      if (dir === "Left") nextValue();
+      else if (dir === "Right") previousValue();
+    },
+  });
+
+  const nextValue = () => {
+    setFocusedCoreValueIndex(
+      coreValues[focusedCoreValueIndex + 1] ? focusedCoreValueIndex + 1 : 0
+    );
   };
 
+  const previousValue = () => {
+    setFocusedCoreValueIndex(
+      coreValues[focusedCoreValueIndex - 1]
+        ? focusedCoreValueIndex - 1
+        : coreValues.length - 1
+    );
+  };
+
+  const isMobile = isMobileScreen();
+  const focusedCoreValue = coreValues[focusedCoreValueIndex];
+
   return (
-    <Wrapper onClick={HandleWrapperClick}>
+    <Wrapper>
       <ArrowBtnAndValue>
-        {displayLeftArrow ? (
-          <LeftArrowBtn
-            onClick={() =>
-              !!coreValues[focusedCoreValueIndex - 1] &&
-              setFocusedCoreValueIndex(focusedCoreValueIndex - 1)
-            }
-          />
-        ) : (
-          <Filler />
-        )}
-        <CoreValue coreValue={focusedCoreValue} />
-        {displayRightArrow ? (
-          <RightArrowBtn
-            onClick={() =>
-              !!coreValues[focusedCoreValueIndex + 1] &&
-              setFocusedCoreValueIndex(focusedCoreValueIndex + 1)
-            }
-          />
-        ) : (
-          <Filler />
-        )}
+        {!isMobile && <LeftArrowBtn onClick={previousValue} />}
+        <CoreValue swipeHandlers={swipeHandlers} coreValue={focusedCoreValue} />
+        {!isMobile && <RightArrowBtn onClick={nextValue} />}
       </ArrowBtnAndValue>
       <Ellipses
         {...{ coreValues, focusedCoreValueIndex, setFocusedCoreValueIndex }}
