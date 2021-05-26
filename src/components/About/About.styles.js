@@ -71,7 +71,7 @@ export const Card = styled.div`
   margin: auto;
   background: #ffffff;
 
-  padding: 5.4rem 8.3rem;
+  padding: 5.4rem 8.3rem 3.4rem 8.3rem;
   box-sizing: border-box;
 
   z-index: 1;
