@@ -56,8 +56,10 @@ const AboutPage = ({ data, path }) => {
         </Hero>
         <Content isMobile={isMobile}>
           <Card>
-            {content.raw.map((paragraph) => (
-              <CompanyPageParagraph>{paragraph.text}</CompanyPageParagraph>
+            {content.raw.map((paragraph, index) => (
+              <CompanyPageParagraph key={`company-paragraph-${index}`}>
+                {paragraph.text}
+              </CompanyPageParagraph>
             ))}
           </Card>
           {!isMobile && <Blob />}

@@ -21,7 +21,7 @@ const CoreValues = ({ coreValues, rotateSpeed }) => {
       );
     }, rotateSpeed);
     return () => clearTimeout(id);
-  }, [focusedCoreValueIndex]);
+  }, [focusedCoreValueIndex, coreValues, rotateSpeed]);
 
   const swipeHandlers = useSwipeable({
     onSwiped: ({ dir }) => {

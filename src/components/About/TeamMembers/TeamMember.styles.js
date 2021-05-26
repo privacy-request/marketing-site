@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "styled-components";
 import Image from "../../Image";
-import { TeamMemberName, TeamMemberTitle } from "../../typography";
 import { SCREEN_SIZES } from "../../utils/constants";
 
 export const Wrapper = styled.div`
