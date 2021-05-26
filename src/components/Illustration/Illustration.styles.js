@@ -11,6 +11,9 @@ export const Img = styled(Image)`
   margin: auto;
   width: ${({ width }) => `${width}px` || "100%"};
   position: absolute;
+  @media only screen and (max-width: 1200px) {
+    max-width: ${({ scaleImage }) => (scaleImage ? "55rem" : "100rem")};
+  }
 `;
 
 export const Wrapper = styled.div`

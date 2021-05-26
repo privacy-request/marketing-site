@@ -18,6 +18,7 @@ const Illustration = ({
   mobile_horizontal_offset,
   mobile_visual_height,
   mobile_visual_width,
+  scaleImage,
 }) => {
   const responsiveProps = isMobileScreen()
     ? {
@@ -69,7 +70,7 @@ const Illustration = ({
   return (
     <>
       <Wrapper {...wrapperProps}>
-        <Img {...imgProps}></Img>
+        <Img scaleImage={scaleImage} {...imgProps}></Img>
       </Wrapper>
     </>
   );

@@ -90,9 +90,9 @@ const ProductPerks = ({ perks }) => {
               route={STATIC_ROUTES.CALENDAR}
             />
             {!isLayered ? (
-              <Illustration {...perk.primary} />
+              <Illustration scaleImage {...perk.primary} />
             ) : (
-              <LayeredIllustration {...perk.primary} />
+              <LayeredIllustration scaleImage {...perk.primary} />
             )}
           </Wrapper>
         );
