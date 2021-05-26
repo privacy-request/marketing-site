@@ -59,7 +59,10 @@ const NavMobile = ({
       <Hamburger active={isOpen} onClick={toggleMenu} />
       <MobileMenu isOpen={isOpen}>
         <MobileMenuList>
-          <MobileNavItem active={path === STATIC_ROUTES.HOME}>
+          <MobileNavItem
+            active={path === STATIC_ROUTES.HOME}
+            onClick={toggleMenu}
+          >
             <Link to={STATIC_ROUTES.HOME}>{homepageNavText}</Link>
           </MobileNavItem>
           <MobileNavItem>
@@ -68,12 +71,16 @@ const NavMobile = ({
               pages={productPages}
               path={path}
               parentMenuOpen={isOpen}
+              toggleMenu={toggleMenu}
             />
           </MobileNavItem>
-          <MobileNavItem>
+          <MobileNavItem onClick={toggleMenu}>
             <Link to={`/${companyPages[0].url}`}>{companyPages[0].title}</Link>
           </MobileNavItem>
-          <MobileNavDemo active={path === STATIC_ROUTES.CALENDAR}>
+          <MobileNavDemo
+            active={path === STATIC_ROUTES.CALENDAR}
+            onClick={toggleMenu}
+          >
             <Link to={STATIC_ROUTES.CALENDAR}>{getADemoBtnText}</Link>
           </MobileNavDemo>
         </MobileMenuList>
