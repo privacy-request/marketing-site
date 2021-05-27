@@ -13,21 +13,17 @@ const Footer = ({
   privacy_center_links,
   social_media_links,
   copyright,
-  homepage_nav,
-  product_pages_nav,
-  product_pages_sub_items,
+  navData,
 }) => {
   return (
     <Wrapper>
       <FooterNav
         {...{
-          homepage_nav,
-          product_pages_nav,
-          product_pages_sub_items,
           contact,
           email,
           phone,
         }}
+        {...navData}
       />
       <Line />
       <FooterPrivacyCenter

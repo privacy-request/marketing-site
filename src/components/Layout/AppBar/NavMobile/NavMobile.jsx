@@ -33,12 +33,12 @@ const MobileMenuList = styled.ul`
 const NavMobile = ({
   getADemoBtnText,
   productPagesNavText,
-  customersPageNavText,
-  contactPageNavText,
+  // customersPageNavText,
+  // contactPageNavText,
   homepageNavText,
   productPages,
-  CompanyPages,
-  CompanyPagesNavText,
+  companyPages,
+  // companyPagesNavText,
   path,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +59,10 @@ const NavMobile = ({
       <Hamburger active={isOpen} onClick={toggleMenu} />
       <MobileMenu isOpen={isOpen}>
         <MobileMenuList>
-          <MobileNavItem active={path === STATIC_ROUTES.HOME}>
+          <MobileNavItem
+            active={path === STATIC_ROUTES.HOME}
+            onClick={toggleMenu}
+          >
             <Link to={STATIC_ROUTES.HOME}>{homepageNavText}</Link>
           </MobileNavItem>
           <MobileNavItem>
@@ -68,23 +71,16 @@ const NavMobile = ({
               pages={productPages}
               path={path}
               parentMenuOpen={isOpen}
+              toggleMenu={toggleMenu}
             />
           </MobileNavItem>
-          <MobileNavItem>
-            <AccordionMenu
-              title={CompanyPagesNavText}
-              pages={CompanyPages}
-              path={path}
-              parentMenuOpen={isOpen}
-            />
+          <MobileNavItem onClick={toggleMenu}>
+            <Link to={`/${companyPages[0].url}`}>{companyPages[0].title}</Link>
           </MobileNavItem>
-          {/* <MobileNavItem active={path === STATIC_ROUTES.CUSTOMERS}>
-            <Link to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</Link>
-          </MobileNavItem> */}
-          {/* <MobileNavItem active={path === STATIC_ROUTES.CONTACT}>
-            <Link to={STATIC_ROUTES.CONTACT}>{contactPageNavText}</Link>
-          </MobileNavItem> */}
-          <MobileNavDemo active={path === STATIC_ROUTES.CALENDAR}>
+          <MobileNavDemo
+            active={path === STATIC_ROUTES.CALENDAR}
+            onClick={toggleMenu}
+          >
             <Link to={STATIC_ROUTES.CALENDAR}>{getADemoBtnText}</Link>
           </MobileNavDemo>
         </MobileMenuList>

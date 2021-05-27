@@ -23,9 +23,9 @@ const AboutPage = ({ data, path }) => {
     core_values,
     twitter_logo,
     linkedin_logo,
+    core_values_rotate_speed,
   } = data.prismicAboutPage.data;
   const isMobile = isMobileScreen();
-
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
@@ -42,14 +42,19 @@ const AboutPage = ({ data, path }) => {
         <PageHero headline={headline.text} subheadline={subheadline.text} />
         <Content isMobile={isMobile}>
           <Card>
-            {content.raw.map((paragraph) => (
-              <CompanyPageParagraph>{paragraph.text}</CompanyPageParagraph>
+            {content.raw.map((paragraph, index) => (
+              <CompanyPageParagraph key={`company-paragraph-${index}`}>
+                {paragraph.text}
+              </CompanyPageParagraph>
             ))}
           </Card>
           {!isMobile && <Blob />}
           <AboutContentEllipse />
         </Content>
-        <CoreValues coreValues={core_values} />
+        <CoreValues
+          rotateSpeed={core_values_rotate_speed}
+          coreValues={core_values}
+        />
         <TeamMembers
           teamMembers={team_members}
           twitterLogo={twitter_logo}
@@ -93,6 +98,7 @@ export const query = graphql`
         subheadline {
           text
         }
+        core_values_rotate_speed
         linkedin_logo {
           alt
           dimensions {

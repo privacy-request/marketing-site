@@ -22,8 +22,11 @@ const Wrapper = styled.div`
 const TeamMembers = ({ teamMembers, linkedInLogo, twitterLogo }) => {
   return (
     <Wrapper>
-      {teamMembers.map((teamMember) => (
-        <TeamMember {...{ teamMember, linkedInLogo, twitterLogo }} />
+      {teamMembers.map((teamMember, index) => (
+        <TeamMember
+          key={`teamMembers-${index}`}
+          {...{ teamMember, linkedInLogo, twitterLogo }}
+        />
       ))}
     </Wrapper>
   );

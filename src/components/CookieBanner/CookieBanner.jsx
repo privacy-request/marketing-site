@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "@reach/router";
-import { initializeAndTrack } from "gatsby-plugin-gdpr-cookies";
 import { AcceptLink, DoNotAcceptLink, LearnMoreLink } from "../typography";
-import { STATIC_ROUTES } from "../utils/constants";
-import { useCookies } from "react-cookie";
 import {
-  Wrapper,
+  AnimatedCookieBannerText,
+  CloseBtn,
+  ExpandBtn,
   Links,
   Notification,
-  CloseBtn,
-  AnimatedCookieBannerText,
-  ExpandBtn,
+  Wrapper,
 } from "./CookieBanner.styles";
+import React, { useEffect, useState } from "react";
+
+import { STATIC_ROUTES } from "../utils/constants";
+import { initializeAndTrack } from "gatsby-plugin-gdpr-cookies";
+import { useCookies } from "react-cookie";
+import { useLocation } from "@reach/router";
 
 const CookieBanner = ({
   accept,
@@ -29,7 +30,7 @@ const CookieBanner = ({
   }, [cookies]);
 
   const location = useLocation();
-  const cookieOptions = { path: "/", maxAge: 300000 };
+  const cookieOptions = { path: "/", maxAge: 300000, sameSite: "lax" };
 
   const acceptCookies = () => {
     setCookie("gatsby-gdpr-google-analytics", true, cookieOptions);

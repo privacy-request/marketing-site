@@ -24,6 +24,7 @@ const Ellipses = ({
     <Wrapper>
       {coreValues.map((value, index) => (
         <Ellipse
+          key={`ellipses-${index}`}
           onClick={() => setFocusedCoreValueIndex(index)}
           active={index === focusedCoreValueIndex}
         />

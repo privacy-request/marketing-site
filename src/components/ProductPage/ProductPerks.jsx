@@ -1,10 +1,12 @@
-import React from "react";
+import { SCREEN_SIZES, STATIC_ROUTES } from "../utils/constants";
 import { graphql, useStaticQuery } from "gatsby";
 import styled, { css } from "styled-components";
-import { SCREEN_SIZES, STATIC_ROUTES } from "../utils/constants";
-import SectionText from "../SectionText";
+
+import AlternatingIllustration from "../Illustration/AlternatingIllustration";
 import Illustration from "../Illustration/Illustration";
 import LayeredIllustration from "../Illustration/LayeredIllustrationSlice";
+import React from "react";
+import SectionText from "../SectionText";
 
 const blueTitle = css`
   h2 {
@@ -80,7 +82,6 @@ const ProductPerks = ({ perks }) => {
   return (
     <>
       {perks.map((perk, index) => {
-        const isLayered = !!perk.primary.top_illustration;
         return (
           <Wrapper index={index} key={`product-perk-${index}`}>
             <PerkText
@@ -89,10 +90,16 @@ const ProductPerks = ({ perks }) => {
               size="medium"
               route={STATIC_ROUTES.CALENDAR}
             />
-            {!isLayered ? (
-              <Illustration {...perk.primary} />
+            {perk.slice_type === "text_with_alternating_illustration" ? (
+              <AlternatingIllustration
+                scaleImage
+                {...perk.primary}
+                illustrations={perk.items}
+              />
+            ) : perk.slice_type === "text_with_layered_illustration" ? (
+              <LayeredIllustration scaleImage {...perk.primary} />
             ) : (
-              <LayeredIllustration {...perk.primary} />
+              <Illustration scaleImage {...perk.primary} />
             )}
           </Wrapper>
         );

@@ -1,9 +1,10 @@
-import React from "react";
-import isMobileScreen from "../utils/isMobileScreen";
-import { Wrapper, Img } from "./Illustration.styles";
+import { Img, Wrapper } from "./Illustration.styles";
+import React, { useEffect, useState } from "react";
 
-const Illustration = ({
-  illustration,
+import isMobileScreen from "../utils/isMobileScreen";
+
+const AlternatingIllustration = ({
+  illustrations,
   vertical_margin,
   horizontal_margin,
   vertical_offset,
@@ -11,7 +12,6 @@ const Illustration = ({
   visual_height,
   visual_width,
   mobile_width,
-  illustration_mobile,
   mobile_vertical_margin,
   mobile_horizontal_margin,
   mobile_vertical_offset,
@@ -19,10 +19,24 @@ const Illustration = ({
   mobile_visual_height,
   mobile_visual_width,
   scaleImage,
+  rotation_speed,
 }) => {
+  const [focusedIllustrationIndex, setFocusedIllustrationIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setFocusedIllustrationIndex(
+        illustrations[focusedIllustrationIndex + 1]
+          ? focusedIllustrationIndex + 1
+          : 0
+      );
+    }, rotation_speed);
+    return () => clearTimeout(id);
+  }, [focusedIllustrationIndex, rotation_speed]);
+
   const responsiveProps = isMobileScreen()
     ? {
-        img: illustration_mobile.url ? illustration_mobile : illustration,
+        img: illustrations[focusedIllustrationIndex].illustration,
         vMargin: mobile_vertical_margin,
         hMargin: mobile_horizontal_margin,
         vOffset: mobile_vertical_offset,
@@ -32,7 +46,7 @@ const Illustration = ({
         width: mobile_width,
       }
     : {
-        img: illustration,
+        img: illustrations[focusedIllustrationIndex].illustration,
         vMargin: vertical_margin,
         hMargin: horizontal_margin,
         vOffset: vertical_offset,
@@ -41,8 +55,14 @@ const Illustration = ({
         vWidth: visual_width,
       };
 
+  const maxHeight = illustrations.reduce((a, b) => {
+    return Math.max(
+      a.illustration ? a.illustration.dimensions.height : a,
+      b.illustration.dimensions.height
+    );
+  });
+
   const {
-    img,
     vMargin,
     hMargin,
     vOffset,
@@ -51,12 +71,13 @@ const Illustration = ({
     vWidth,
     width,
     height,
+    img,
   } = responsiveProps;
 
   const wrapperProps = {
     verticalMargin: vMargin,
     horizontalMargin: hMargin,
-    height: vHeight ? vHeight : height ? height : img.dimensions.height,
+    height: vHeight ? vHeight : height ? height : maxHeight,
     width: vWidth ? vWidth : width ? width : img.dimensions.width,
   };
 
@@ -65,6 +86,7 @@ const Illustration = ({
     verticalOffset: vOffset,
     horizontalOffset: hOffset,
     width: wrapperProps.width,
+    height: maxHeight,
   };
 
   return (
@@ -76,4 +98,4 @@ const Illustration = ({
   );
 };
 
-export default Illustration;
+export default AlternatingIllustration;

@@ -8,6 +8,9 @@ const TextContainer = styled.div`
   max-width: ${({ theme: { width } }) => width.sectionColum};
   z-index: 1;
   position: relative;
+  @media only screen and (max-width: 1100px) {
+    max-width: 50rem;
+  }
 `;
 
 const Icon = styled(Image)`

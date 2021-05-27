@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { Container, Content } from "./AppBar.styles";
+import React, { useEffect, useState } from "react";
+
 import Logo from "./Logo";
 import NavDesktop from "./NavDesktop/NavDesktop";
 import NavMobile from "./NavMobile/NavMobile";
+import { formatPages } from "../../utils/helpers";
 import isMobileScreen from "../../utils/isMobileScreen";
-import { Container, Content } from "./AppBar.styles";
 
 const AppBar = ({
   path,
@@ -27,31 +29,22 @@ const AppBar = ({
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-  });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const isMobile = isMobileScreen();
-
-  const productPages = product_pages_sub_items.map((subitem) => {
-    const url = subitem.route.text;
-    const title = subitem.text.text;
-    return { url, title };
-  });
-
-  const CompanyPages = company_pages_sub_items.map((subitem) => {
-    const url = subitem.route.text;
-    const title = subitem.text.text;
-    return { url, title };
-  });
+  const productPages = formatPages(product_pages_sub_items);
+  const companyPages = formatPages(company_pages_sub_items);
 
   const navProps = {
     getADemoBtnText: get_a_demo_button.text,
     productPagesNavText: product_pages_nav.text,
     customersPagesNavText: customers_page_nav.text,
-    CompanyPagesNavText: company_pages_nav.text,
+    companyPagesNavText: company_pages_nav.text,
     contactPageNavText: contact_page_nav.text,
     homepageNavText: homepage_nav.text,
     productPages,
-    CompanyPages,
+    companyPages,
     path,
   };
 

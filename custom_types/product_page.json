@@ -55,7 +55,8 @@
       "config": {
         "labels": {
           "text_with_illustration": [],
-          "text_with_layered_illustration": []
+          "text_with_layered_illustration": [],
+          "text_with_alternating_illustration": []
         },
         "choices": {
           "text_with_illustration": {
@@ -350,6 +351,142 @@
               }
             },
             "repeat": {}
+          },
+          "text_with_alternating_illustration": {
+            "type": "Slice",
+            "fieldset": "Text with alternating illustration",
+            "description": "Text with alternating illustration",
+            "icon": "clear_all",
+            "display": "list",
+            "non-repeat": {
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Heading"
+                }
+              },
+              "subheading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "subheading"
+                }
+              },
+              "paragraph": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Paragraph"
+                }
+              },
+              "rotation_speed": {
+                "type": "Number",
+                "config": {
+                  "label": "rotation speed"
+                }
+              },
+              "visual_height": {
+                "type": "Number",
+                "config": {
+                  "label": "Visual height",
+                  "placeholder": "0"
+                }
+              },
+              "visual_width": {
+                "type": "Number",
+                "config": {
+                  "label": "Visual width",
+                  "placeholder": "0"
+                }
+              },
+              "vertical_offset": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical offset",
+                  "placeholder": "0"
+                }
+              },
+              "horizontal_offset": {
+                "type": "Number",
+                "config": {
+                  "label": "horizontal offset",
+                  "placeholder": "0"
+                }
+              },
+              "vertical_margin": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical margin",
+                  "placeholder": "0"
+                }
+              },
+              "horizontal_margin": {
+                "type": "Number",
+                "config": {
+                  "label": "Horizontal margin",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_width": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile Width"
+                }
+              },
+              "mobile_visual_height": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile visual height",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_visual_width": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile visual width",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_vertical_offset": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile vertical offset",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_horizontal_offset": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile horizontal offset",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_vertical_margin": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile vertical margin",
+                  "placeholder": "0"
+                }
+              },
+              "mobile_horizontal_margin": {
+                "type": "Number",
+                "config": {
+                  "label": "Mobile horizontal margin",
+                  "placeholder": "0"
+                }
+              }
+            },
+            "repeat": {
+              "illustration": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Illustration"
+                }
+              }
+            }
           }
         }
       }
