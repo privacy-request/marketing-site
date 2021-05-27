@@ -27,7 +27,6 @@ module.exports = {
         repositoryName: "pr-marketing-site",
         accessToken: website.prismicAccessToken,
         linkResolver: () => (doc) => linkResolver(doc),
-        prismicToolbar: true,
         releaseID: "",
         schemas: {
           homepage: require("./custom_types/homepage.json"),
@@ -42,9 +41,6 @@ module.exports = {
           legal_page: require("./custom_types/legal_page.json"),
           trusted_customers: require("./custom_types/trusted_customers.json"),
           demo_cta: require("./custom_types/demo_cta.json"),
-        },
-        shouldDownloadImage: ({ node, key, value }) => {
-          return true;
         },
       },
     },
