@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { Container, Content } from "./AppBar.styles";
+import React, { useEffect, useState } from "react";
+
 import Logo from "./Logo";
 import NavDesktop from "./NavDesktop/NavDesktop";
 import NavMobile from "./NavMobile/NavMobile";
-import isMobileScreen from "../../utils/isMobileScreen";
-import { Container, Content } from "./AppBar.styles";
 import { formatPages } from "../../utils/helpers";
+import isMobileScreen from "../../utils/isMobileScreen";
 
 const AppBar = ({
   path,
@@ -28,7 +29,8 @@ const AppBar = ({
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-  });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const isMobile = isMobileScreen();
   const productPages = formatPages(product_pages_sub_items);
