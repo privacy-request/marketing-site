@@ -1,21 +1,22 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { withPreview } from "gatsby-source-prismic";
-import Layout from "../components/Layout/Layout";
-import Seo from "../components/SEO/SEO";
-import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
-import ProductPerks from "../components/ProductPage/ProductPerks";
-import BookADemo from "../components/BookADemo/BookADemo";
+import {
+  Hero,
+  HeroBackgroundImage,
+  Wrapper,
+} from "../components/ProductPage/ProductPage.styles";
 import {
   ProductPageHeadline,
   ProductPageSubheadline,
 } from "../components/typography";
+
+import BookADemo from "../components/BookADemo/BookADemo";
 import DemoCTA from "../components/DemoCTA";
-import {
-  Wrapper,
-  HeroBackgroundImage,
-  Hero,
-} from "../components/ProductPage/ProductPage.styles";
+import Layout from "../components/Layout/Layout";
+import ProductPerks from "../components/ProductPage/ProductPerks";
+import React from "react";
+import Seo from "../components/SEO/SEO";
+import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
+import { graphql } from "gatsby";
+import { withPreview } from "gatsby-source-prismic";
 
 const ProductPage = ({ data, path }) => {
   const {
@@ -92,6 +93,7 @@ export const query = graphql`
         body {
           ... on PrismicProductPageBodyTextWithIllustration {
             id
+            slice_type
             primary {
               heading {
                 text
@@ -137,6 +139,7 @@ export const query = graphql`
           }
           ... on PrismicProductPageBodyTextWithLayeredIllustration {
             id
+            slice_type
             primary {
               heading {
                 text
@@ -172,6 +175,46 @@ export const query = graphql`
                   width
                 }
               }
+              vertical_margin
+              horizontal_margin
+              mobile_horizontal_offset
+              mobile_vertical_offset
+              mobile_vertical_margin
+              mobile_horizontal_margin
+              mobile_visual_height
+              mobile_visual_width
+              paragraph {
+                text
+              }
+              subheading {
+                text
+              }
+            }
+          }
+          ... on PrismicProductPageBodyTextWithAlternatingIllustration {
+            items {
+              illustration {
+                dimensions {
+                  height
+                  width
+                }
+                url
+              }
+            }
+            id
+            slice_type
+            primary {
+              heading {
+                text
+              }
+              rotation_speed
+              vertical_margin
+              horizontal_margin
+              vertical_offset
+              horizontal_offset
+              visual_height
+              visual_width
+              mobile_width
               vertical_margin
               horizontal_margin
               mobile_horizontal_offset

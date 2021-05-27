@@ -1,14 +1,14 @@
+import BookADemo from "../components/BookADemo/BookADemo";
+import Hero from "../components/Homepage/Hero/Hero";
+import { HomepageContainer } from "../components/Homepage/Homepage.styles";
+import HomepageProducts from "../components/Homepage/Products/Products";
+import Layout from "../components/Layout/Layout";
 import React from "react";
+import Seo from "../components/SEO/SEO";
+import Testimonials from "../components/Testimonials/Testimonials";
+import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
 import { graphql } from "gatsby";
 import { withPreview } from "gatsby-source-prismic";
-import Layout from "../components/Layout/Layout";
-import Seo from "../components/SEO/SEO";
-import Hero from "../components/Homepage/Hero/Hero";
-import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
-import HomepageProducts from "../components/Homepage/Products/Products";
-import Testimonials from "../components/Testimonials/Testimonials";
-import BookADemo from "../components/BookADemo/BookADemo";
-import { HomepageContainer } from "../components/Homepage/Homepage.styles";
 
 const Homepage = ({ path, data }) => {
   const {

@@ -1,10 +1,11 @@
-import styled from "styled-components";
 import Image from "../Image";
 import { SCREEN_SIZES } from "../utils/constants";
+import styled from "styled-components";
 
 export const Img = styled(Image)`
   right: 0;
   bottom: 0;
+  height: ${({ height }) => (height ? `${height}px` : "auto")};
   top: ${({ verticalOffset }) => (verticalOffset ? verticalOffset : 0)}px;
   left: ${({ horizontalOffset }) =>
     horizontalOffset ? horizontalOffset : 0}px;
