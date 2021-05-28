@@ -50,20 +50,11 @@ module.exports = {
         googleAnalytics: {
           trackingId: "UA-154605502-2",
           cookieName: "gatsby-gdpr-google-analytics",
-          head: true,
           anonymize: true,
         },
-        environments: ["production"],
       },
     },
     "gatsby-plugin-styled-components",
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "UA-154605502-2",
-      },
-    },
-
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
