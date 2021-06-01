@@ -1,61 +1,39 @@
 import { graphql } from "gatsby";
-import styled from "styled-components";
-import React, { useState } from "react";
+import React from "react";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../components/utils/isMobileScreen";
-import ContactContentEllipse from "../../assets/contactPageEllipse.svg";
 import { CompanyPageParagraph } from "../components/typography";
-import { Wrapper, Blob } from "../components/About/About.styles";
-import PageHero from "../components/PageHero";
-import InputWithLabel from "../components/InputWithLabel";
-
-const Ellipse = styled(ContactContentEllipse)`
-  margin-bottom: -50rem;
-`;
-
-const Content = styled.div`
-  margin-top: -44rem;
-  z-index: -2;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  min-height: 500px;
-  position: relative;
-  padding: 0 3rem;
-
-  transform-origin: center;
-  min-height: 70rem;
-  background: linear-gradient(
-    92.13deg,
-    #009dff 3.73%,
-    #6bcbff 60.51%,
-    #8fd8ff 86.59%
-  );
-  @media only screen and (max-width: 600px) {
-    background-size: cover;
-  }
-`;
-
-const Card = styled.div`
-  width: 850px;
-  height: 100px;
-  position: relative;
-
-  border-radius: 16px;
-  box-shadow: 0px 28px 92px rgba(32, 53, 70, 0.3);
-  margin: auto;
-  background: #ffffff;
-  padding: 5.4rem 8.3rem 3.4rem 8.3rem;
-  box-sizing: border-box;
-
-  z-index: 10;
-`;
+import { Wrapper } from "../components/About/About.styles";
+import {
+  CompanyPageTitle,
+  CompanyPageSubTitle,
+} from "../components/typography";
+import {
+  ContactHeroBackground,
+  Ellipse,
+  Content,
+  Card,
+  ContactHero,
+} from "../components/ContactPage/ContactPage.styles";
+import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 
 const ContactPage = ({ data, path }) => {
-  const { page_description, page_keywords, page_title, subheadline, headline } =
-    data.prismicContactPage.data;
+  const {
+    page_description,
+    page_keywords,
+    page_title,
+    subheadline,
+    headline,
+    first_name_label,
+    last_name_label,
+    email_label,
+    phone_label,
+    job_title_company_label,
+    message_label,
+    submit_button,
+  } = data.prismicContactPage.data;
   const isMobile = isMobileScreen();
 
   return (
@@ -71,11 +49,25 @@ const ContactPage = ({ data, path }) => {
         keywords={page_keywords}
       />
       <Wrapper>
-        <PageHero headline={headline.text} subheadline={subheadline.text} />
+        <ContactHero>
+          <CompanyPageTitle>{headline.text}</CompanyPageTitle>
+          <CompanyPageSubTitle>{subheadline.text}</CompanyPageSubTitle>
+        </ContactHero>
+        {!isMobile && <ContactHeroBackground />}
         <Content>
           <Ellipse />
           <Card>
-            <InputWithLabel />
+            <ContactForm
+              {...{
+                first_name_label,
+                last_name_label,
+                email_label,
+                phone_label,
+                job_title_company_label,
+                message_label,
+                submit_button,
+              }}
+            />
           </Card>
         </Content>
       </Wrapper>
@@ -96,7 +88,7 @@ export const query = graphql`
     }
     prismicContactPage {
       data {
-        headline {
+        page_title {
           text
         }
         page_description {
@@ -107,13 +99,50 @@ export const query = graphql`
             text
           }
         }
-        page_title {
+        headline {
           text
         }
         subheadline {
           text
         }
+        first_name_label {
+          text
+        }
+        email_label {
+          text
+        }
+        phone_label {
+          text
+        }
+        job_title_company_label {
+          text
+        }
+        last_name_label {
+          text
+        }
+        message_label {
+          text
+        }
+        submit_button {
+          text
+        }
+        sales_associate_headline {
+          text
+        }
+        email_prefix {
+          text
+        }
+        email {
+          text
+        }
+        phone_prefix {
+          text
+        }
+        phone {
+          text
+        }
       }
+      prismicId
     }
   }
 `;

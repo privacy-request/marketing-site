@@ -7,13 +7,13 @@ const Label = styled.label``;
 
 const Input = styled.input``;
 
-const InputWithLabel = ({ value, label, onChange }) => {
+const InputWithLabel = ({ label, name }) => {
   console.log("test");
 
   return (
     <Wrapper>
-      <Label>{label}</Label>
-      <Input type="text" {...{ value, onChange }} />
+      <Label>{label.text}</Label>
+      <Input type="text" name={name} />
     </Wrapper>
   );
 };

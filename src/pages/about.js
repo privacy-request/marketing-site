@@ -9,7 +9,7 @@ import AboutContentEllipse from "../../assets/aboutContentEllipse.svg";
 import { Wrapper, Content, Blob, Card } from "../components/About/About.styles";
 import CoreValues from "../components/About/CoreValues/CoreValues";
 import TeamMembers from "../components/About/TeamMembers/TeamMembers";
-import PageHero from "../components/PageHero";
+import PageHero from "../components/PageHero/PageHero";
 
 const AboutPage = ({ data, path }) => {
   const {
