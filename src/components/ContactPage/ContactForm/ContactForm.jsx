@@ -40,7 +40,7 @@ const ContactForm = ({
   submit_button,
 }) => {
   return (
-    <Form method="POST" data-netlify="true">
+    <Form name="contact" method="POST" data-netlify="true">
       <NameRow>
         <Input name="firstName" label={first_name_label} />
         <Input name="lastName" label={last_name_label} />
