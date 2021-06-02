@@ -1,9 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import Input from "../../Input";
+import { SCREEN_SIZES } from "../../utils/constants";
 
-const NameRow = styled.div``;
+const NameRow = styled.div`
+  display: flex;
+  width: 100%;
+  div:first-child {
+    margin-right: 3rem;
+  }
+
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    flex-direction: column;
+  }
+`;
+
 const Form = styled.form``;
+
+const TextArea = styled(Input)`
+  height: 20.8rem;
+`;
+
+const SubmitButton = styled.button`
+  background: #009dff;
+  border-radius: 40px;
+  color: #ffffff;
+  width: 100%;
+  height: 4.8rem;
+  border: none;
+`;
+
 const ContactForm = ({
   first_name_label,
   last_name_label,
@@ -14,7 +40,7 @@ const ContactForm = ({
   submit_button,
 }) => {
   return (
-    <Form>
+    <Form action="https://formspree.io/f/mqkwqdey" method="POST">
       <NameRow>
         <Input name="firstName" label={first_name_label} />
         <Input name="lastName" label={last_name_label} />
@@ -22,6 +48,13 @@ const ContactForm = ({
       <Input name="email" label={email_label} />
       <Input name="jobTitle" label={job_title_company_label} />
       <Input name="phone" label={phone_label} />
+      <TextArea
+        textArea
+        name="message"
+        type="text-area"
+        label={message_label}
+      />
+      <SubmitButton type="submit">{submit_button.text}</SubmitButton>
     </Form>
   );
 };

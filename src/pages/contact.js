@@ -4,18 +4,22 @@ import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../components/utils/isMobileScreen";
-import { CompanyPageParagraph } from "../components/typography";
-import { Wrapper } from "../components/About/About.styles";
+import { Wrapper, Blob } from "../components/About/About.styles";
 import {
   CompanyPageTitle,
   CompanyPageSubTitle,
+  SalesCardTitle,
+  SalesCardParagraph,
 } from "../components/typography";
 import {
   ContactHeroBackground,
   Ellipse,
   Content,
-  Card,
+  ContactFormCard,
+  SalesCard,
   ContactHero,
+  Email,
+  Phone,
 } from "../components/ContactPage/ContactPage.styles";
 import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 
@@ -33,6 +37,11 @@ const ContactPage = ({ data, path }) => {
     job_title_company_label,
     message_label,
     submit_button,
+    sales_associate_headline,
+    email_prefix,
+    email,
+    phone_prefix,
+    phone,
   } = data.prismicContactPage.data;
   const isMobile = isMobileScreen();
 
@@ -56,7 +65,7 @@ const ContactPage = ({ data, path }) => {
         {!isMobile && <ContactHeroBackground />}
         <Content>
           <Ellipse />
-          <Card>
+          <ContactFormCard>
             <ContactForm
               {...{
                 first_name_label,
@@ -68,7 +77,19 @@ const ContactPage = ({ data, path }) => {
                 submit_button,
               }}
             />
-          </Card>
+          </ContactFormCard>
+          {!isMobile && <Blob />}
+          <SalesCard>
+            <SalesCardTitle>{sales_associate_headline.text}</SalesCardTitle>
+            <SalesCardParagraph>
+              {email_prefix.text}
+              <Email href={`mailto:${email.text}`} target="_blank">
+                {email.text}
+              </Email>
+              {phone_prefix.text}
+              <Phone href={`tel:+${phone.text}`}>{phone.text}</Phone>.
+            </SalesCardParagraph>
+          </SalesCard>
         </Content>
       </Wrapper>
     </Layout>

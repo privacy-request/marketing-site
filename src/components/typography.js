@@ -383,3 +383,21 @@ export const TeamMemberTitle = styled.p`
   font-weight: bold;
   text-align: center;
 `;
+
+// Contact Page
+export const SalesCardTitle = styled.h3`
+  font-size: ${fontSize.paragraph.large};
+  color: ${({ theme }) => theme.colour.blue.dark};
+  text-align: center;
+  margin-bottom: 1.6rem;
+  line-height: 3.1rem;
+`;
+
+export const SalesCardParagraph = styled.p`
+  font-size: ${fontSize.paragraph.medium};
+  line-height: 3.2rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.small};
+    line-height: 2.9rem;
+  }
+`;
