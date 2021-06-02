@@ -40,7 +40,7 @@ const ContactForm = ({
   submit_button,
 }) => {
   return (
-    <Form action="https://formspree.io/f/mqkwqdey" method="POST">
+    <Form method="POST" data-netlify="true">
       <NameRow>
         <Input name="firstName" label={first_name_label} />
         <Input name="lastName" label={last_name_label} />
