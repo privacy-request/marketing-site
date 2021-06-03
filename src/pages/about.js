@@ -4,22 +4,12 @@ import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../components/utils/isMobileScreen";
-import {
-  CompanyPageTitle,
-  CompanyPageSubTitle,
-  CompanyPageParagraph,
-} from "../components/typography";
+import { CompanyPageParagraph } from "../components/typography";
 import AboutContentEllipse from "../../assets/aboutContentEllipse.svg";
-import {
-  Wrapper,
-  HeroBackground,
-  Hero,
-  Content,
-  Blob,
-  Card,
-} from "../components/About/About.styles";
+import { Wrapper, Content, Blob, Card } from "../components/About/About.styles";
 import CoreValues from "../components/About/CoreValues/CoreValues";
 import TeamMembers from "../components/About/TeamMembers/TeamMembers";
+import PageHero from "../components/PageHero/PageHero";
 
 const AboutPage = ({ data, path }) => {
   const {
@@ -49,11 +39,7 @@ const AboutPage = ({ data, path }) => {
         keywords={page_keywords}
       />
       <Wrapper>
-        <Hero>
-          <CompanyPageTitle>{headline.text}</CompanyPageTitle>
-          <CompanyPageSubTitle>{subheadline.text}</CompanyPageSubTitle>
-          {!isMobile && <HeroBackground />}
-        </Hero>
+        <PageHero headline={headline.text} subheadline={subheadline.text} />
         <Content isMobile={isMobile}>
           <Card>
             {content.raw.map((paragraph, index) => (

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import AboutHeroBackground from "../../../assets/aboutHeroBackground.svg";
 import AboutContentBlob from "../../../assets/aboutContentBlob.svg";
 import { SCREEN_SIZES } from "../utils/constants";
 
@@ -8,27 +7,6 @@ export const Wrapper = styled.div`
   position: relative;
   max-width: 144rem;
   margin: auto;
-`;
-
-export const HeroBackground = styled(AboutHeroBackground)`
-  position: absolute;
-  z-index: -1;
-  left: 4rem;
-`;
-
-export const Hero = styled.header`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  min-height: 30rem;
-  width: 73rem;
-
-  margin: 0 auto 6rem auto;
-  @media only screen and (max-width: 860px) {
-    margin: 1rem 3.2rem 10rem 3.2rem;
-    width: auto;
-  }
 `;
 
 export const Content = styled.div`
