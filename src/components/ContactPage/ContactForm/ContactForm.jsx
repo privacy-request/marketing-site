@@ -45,6 +45,7 @@ const ContactForm = ({
       method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
+      action="/contact/thank-you"
     >
       <NameRow>
         <Input name="firstName" label={first_name_label} />
