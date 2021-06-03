@@ -126,6 +126,20 @@
         "single": "heading4",
         "label": "phone"
       }
+    },
+    "confirmation_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Confirmation heading"
+      }
+    },
+    "confirmation_message": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Confirmation message"
+      }
     }
   }
 }

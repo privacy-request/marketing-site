@@ -1,16 +1,16 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Layout from "../components/Layout/Layout";
-import Seo from "../components/SEO/SEO";
+import Layout from "../../components/Layout/Layout";
+import Seo from "../../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
-import isMobileScreen from "../components/utils/isMobileScreen";
-import { Wrapper, Blob } from "../components/About/About.styles";
+import isMobileScreen from "../../components/utils/isMobileScreen";
+import { Wrapper, Blob } from "../../components/About/About.styles";
 import {
   CompanyPageTitle,
   CompanyPageSubTitle,
   SalesCardTitle,
   SalesCardParagraph,
-} from "../components/typography";
+} from "../../components/typography";
 import {
   ContactHeroBackground,
   Ellipse,
@@ -20,8 +20,8 @@ import {
   ContactHero,
   Email,
   Phone,
-} from "../components/ContactPage/ContactPage.styles";
-import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
+} from "../../components/ContactPage/ContactPage.styles";
+import ContactForm from "../../components/ContactPage/ContactForm/ContactForm";
 
 const ContactPage = ({ data, path }) => {
   const {

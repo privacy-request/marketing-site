@@ -4,9 +4,9 @@ import Layout from "../../components/Layout/Layout";
 import { withPreview } from "gatsby-source-prismic";
 import ConfirmationMessage from "../../components/ConfirmationMessage/ConfirmationMessage";
 
-const DemoBooking = ({ data }) => {
+const ThankYou = ({ data }) => {
   const { confirmation_message, confirmation_heading } =
-    data.prismicCalendarPage.data;
+    data.prismicContactPage.data;
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
@@ -22,7 +22,7 @@ const DemoBooking = ({ data }) => {
 };
 
 export const query = graphql`
-  query DemoBookingQuery {
+  query test {
     prismicNavigationBar {
       ...NavigationData
     }
@@ -32,7 +32,7 @@ export const query = graphql`
     prismicCookieBanner {
       ...CookieBannerData
     }
-    prismicCalendarPage {
+    prismicContactPage {
       data {
         confirmation_message {
           text
@@ -45,4 +45,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(DemoBooking);
+export default withPreview(ThankYou);
