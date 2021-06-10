@@ -14,34 +14,9 @@ import {
 } from "../components/LegalPage/LegalPage.styles";
 
 const LegalPage = ({ data, path }) => {
-  const {
-    page_title,
-    page_description,
-    page_keywords,
-    first_section,
-    last_section,
-    body,
-    prefixWithIndex,
-  } = data.prismicLegalPage.data;
+  const { page_title, page_description, page_keywords, body, header } =
+    data.prismicLegalPage.data;
   const uid = data.prismicLegalPage.uid;
-  const introduction = assignContent(first_section.raw);
-  const outro = assignContent(last_section.raw);
-  const sections = body.map((section, index) => {
-    const tocNumber = index + 1;
-    return {
-      heading: section.primary.heading.text,
-      tocNumber,
-      content: section.items.map((subSection, index) =>
-        assignContent(subSection.content.raw, {
-          subheading: subSection.subheading,
-          tocNumber,
-          tocSubNumber: index + 1,
-          appendToC: prefixWithIndex,
-        })
-      ),
-    };
-  });
-
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
@@ -55,19 +30,20 @@ const LegalPage = ({ data, path }) => {
         keywords={page_keywords}
       />
       <Wrapper>
-        <Title>{page_title.text}</Title>
+        <Title>{header.text}</Title>
         <NavAndContentWrapper>
-          <PrivacyNav sections={sections} currentRoute={uid} />
+          {/* <PrivacyNav currentRoute={uid} />
           <Content>
             <LegalPageBody
               {...{
-                introduction,
-                outro,
-                sections,
+                first_section,
+                last_section,
+                body,
                 uid,
+                sections,
               }}
             />
-          </Content>
+          </Content> */}
         </NavAndContentWrapper>
       </Wrapper>
     </Layout>
@@ -99,29 +75,76 @@ export const query = graphql`
         page_title {
           text
         }
-        first_section {
-          raw
+        header {
+          text
         }
-        last_section {
-          raw
-        }
-        prefix_sections_with_index
         body {
-          ... on PrismicLegalPageBodyNumberedSection {
+          ... on PrismicLegalPageBodyHeading {
             id
             primary {
               heading {
                 text
               }
             }
-            items {
-              content {
+            slice_type
+          }
+          ... on PrismicLegalPageBodyTable2Col {
+            id
+            primary {
+              col1 {
                 raw
               }
-              subheading {
-                text
+              col2 {
+                raw
               }
             }
+            items {
+              col1 {
+                raw
+              }
+              col2 {
+                raw
+              }
+            }
+            slice_type
+          }
+          ... on PrismicLegalPageBodyTable5Col {
+            id
+            primary {
+              col1 {
+                raw
+              }
+              col2 {
+                raw
+              }
+              col3 {
+                raw
+              }
+              col4 {
+                raw
+              }
+              col5 {
+                raw
+              }
+            }
+            items {
+              col1 {
+                raw
+              }
+              col2 {
+                raw
+              }
+              col3 {
+                raw
+              }
+              col4 {
+                raw
+              }
+              col5 {
+                raw
+              }
+            }
+            slice_type
           }
         }
       }
@@ -129,4 +152,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(LegalPage);
+export default LegalPage;

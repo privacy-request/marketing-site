@@ -35,25 +35,11 @@
         "label": "id"
       }
     },
-    "first_section": {
+    "header": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, strong, hyperlink, list-item",
-        "label": "first section"
-      }
-    },
-    "last_section": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, hyperlink, list-item",
-        "label": "last section"
-      }
-    },
-    "prefix_sections_with_index": {
-      "type": "Boolean",
-      "config": {
-        "default_value": true,
-        "label": "prefix sections with index"
+        "single": "heading1",
+        "label": "Header"
       }
     },
     "body": {
@@ -61,39 +47,176 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "paragraph": [],
-          "text_section": [],
-          "numbered_section": []
+          "section": [],
+          "heading": [],
+          "table_2_col": [],
+          "table_5_col": [],
+          "rich_text_section": []
         },
         "choices": {
-          "numbered_section": {
+          "heading": {
             "type": "Slice",
-            "fieldset": "Section",
-            "description": "ToC friendly text section",
-            "icon": "format_list_numbered",
+            "fieldset": "Heading",
+            "description": "ToC friendly heading",
+            "icon": "vertical_align_top",
             "display": "list",
             "non-repeat": {
               "heading": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "heading3",
-                  "label": "heading"
+                  "single": "heading1",
+                  "label": "Heading"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "rich_text_section": {
+            "type": "Slice",
+            "fieldset": "Rich text",
+            "description": "Rich text section",
+            "icon": "dehaze",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "table2Col": {
+            "type": "Slice",
+            "fieldset": "Table (2 col)",
+            "description": "Rows of repeatable data",
+            "icon": "grid_on",
+            "non-repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col1",
+                  "placeholder": "Col 1 header"
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col2",
+                  "placeholder": "Col 2 header"
                 }
               }
             },
             "repeat": {
-              "subheading": {
+              "col1": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "heading4",
-                  "label": "subheading"
+                  "multi": "paragraph, strong, em",
+                  "label": "col1",
+                  "placeholder": "Column 1 content..."
                 }
               },
-              "content": {
+              "col2": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, strong, hyperlink, list-item",
-                  "label": "content"
+                  "multi": "paragraph, strong, em",
+                  "label": "col2",
+                  "placeholder": "Column 2 content..."
+                }
+              }
+            }
+          },
+          "table5Col": {
+            "type": "Slice",
+            "fieldset": "Table (5 col)",
+            "description": "Rows of repeatable data",
+            "icon": "grid_on",
+            "display": "list",
+            "non-repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col1",
+                  "placeholder": "Col 1 header"
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col2",
+                  "placeholder": "Col 2 header"
+                }
+              },
+              "col3": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col3",
+                  "placeholder": "Col 3 header"
+                }
+              },
+              "col4": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col4",
+                  "placeholder": "Col 4 header"
+                }
+              },
+              "col5": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col5",
+                  "placeholder": "Col 5 header"
+                }
+              }
+            },
+            "repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em",
+                  "label": "col1",
+                  "placeholder": "Column 1 content..."
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "col2",
+                  "placeholder": "Column 2 content..."
+                }
+              },
+              "col3": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em",
+                  "label": "col3",
+                  "placeholder": "Column 3 content..."
+                }
+              },
+              "col4": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "col4",
+                  "placeholder": "Column 4 content..."
+                }
+              },
+              "col5": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "col5",
+                  "placeholder": "Column 5 content..."
                 }
               }
             }

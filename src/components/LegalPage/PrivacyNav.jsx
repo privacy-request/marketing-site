@@ -19,6 +19,7 @@ const NavWrapper = styled.div`
 const PrivacyNav = ({ currentRoute, replaceSpacesWithDashes }) => {
   const data = useStaticQuery(query);
   const isMobile = isMobileScreen(SCREEN_SIZES.TABLET);
+  console.log(data);
   const navLinks = data.legalPages.edges.map(
     (
       {
@@ -69,7 +70,7 @@ const query = graphql`
               text
             }
             body {
-              ... on PrismicLegalPageBodyNumberedSection {
+              ... on PrismicLegalPageBodyHeading {
                 id
                 primary {
                   heading {
