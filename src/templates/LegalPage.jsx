@@ -16,7 +16,6 @@ import {
 const LegalPage = ({ data, path }) => {
   const { page_title, page_description, page_keywords, body, header } =
     data.prismicLegalPage.data;
-  const uid = data.prismicLegalPage.uid;
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
@@ -32,8 +31,11 @@ const LegalPage = ({ data, path }) => {
       <Wrapper>
         <Title>{header.text}</Title>
         <NavAndContentWrapper>
-          {/* <PrivacyNav currentRoute={uid} />
-          <Content>
+          <PrivacyNav
+            currentPage={data.prismicLegalPage}
+            pages={data.allPrismicLegalPage}
+          />
+          {/* <Content>
             <LegalPageBody
               {...{
                 first_section,
@@ -61,6 +63,18 @@ export const query = graphql`
     prismicCookieBanner {
       ...CookieBannerData
     }
+    allPrismicLegalPage {
+      edges {
+        node {
+          data {
+            header {
+              text
+            }
+          }
+          uid
+        }
+      }
+    }
     prismicLegalPage(uid: { eq: $slug }) {
       uid
       data {
@@ -84,6 +98,15 @@ export const query = graphql`
             primary {
               heading {
                 text
+              }
+            }
+            slice_type
+          }
+          ... on PrismicLegalPageBodyRichTextSection {
+            id
+            primary {
+              content {
+                raw
               }
             }
             slice_type
