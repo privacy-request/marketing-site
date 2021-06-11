@@ -10,13 +10,14 @@ const NavWrapper = styled.div`
   flex-direction: column;
   margin: 0 3rem;
   min-width: 16rem;
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+  max-width: 31rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin: 0 0 3rem 0;
   }
 `;
 
 const PrivacyNav = ({ currentPage, pages }) => {
-  const isMobile = isMobileScreen(SCREEN_SIZES.TABLET);
+  const isMobile = isMobileScreen(SCREEN_SIZES.LAPTOP);
   const navLinks = pages.edges.map(
     (
       {
@@ -34,7 +35,6 @@ const PrivacyNav = ({ currentPage, pages }) => {
   );
 
   const subHeadings = currentPage.data.body.reduce((headings, slice) => {
-    console.log("wtf", headings);
     if (slice.slice_type === "heading") {
       headings.push(slice.primary.heading.text);
     }

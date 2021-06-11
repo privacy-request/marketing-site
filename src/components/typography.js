@@ -327,27 +327,6 @@ export const LegalPageListItem = styled.li`
   margin-bottom: 1rem;
 `;
 
-export const LegalPageTextWrapper = styled.div`
-  p {
-    font-size: ${fontSize.paragraph.medium};
-    margin-bottom: 2rem;
-    white-space: break-spaces;
-  }
-  ul {
-    list-style: disc;
-    margin-left: 3rem;
-
-    li {
-      margin-bottom: 1rem;
-      font-size: ${fontSize.paragraph.medium};
-    }
-  }
-
-  a {
-    color: ${({ theme }) => theme.colour.blue.dark};
-  }
-`;
-
 export const HyperLink = styled.a`
   color: ${({ theme }) => theme.colour.blue.dark};
 `;
@@ -420,5 +399,43 @@ export const SalesCardParagraph = styled.p`
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.paragraph.small};
     line-height: 2.9rem;
+  }
+`;
+
+// Slice
+export const HeadingWrapper = styled.h2`
+  font-size: ${fontSize.paragraph.large};
+  font-weight: bold;
+  margin: 4rem 0 1.8rem 0;
+
+  // Offset scroll
+  padding-top: 11rem;
+  margin-top: -8rem;
+`;
+
+export const RichTextWrapper = styled.div`
+  p {
+    font-size: ${fontSize.paragraph.medium};
+    margin-bottom: 1.8rem;
+    white-space: break-spaces;
+  }
+  ul {
+    list-style: disc;
+    margin-left: 3rem;
+
+    li {
+      margin-bottom: 1rem;
+      font-size: ${fontSize.paragraph.medium};
+    }
+    margin-bottom: 1.8rem;
+  }
+
+  a {
+    color: ${({ theme }) => theme.colour.blue.dark};
+  }
+
+  h6 {
+    font-size: ${fontSize.paragraph.medium};
+    margin: 1rem 0 1.8rem 4rem;
   }
 `;
