@@ -28,6 +28,9 @@ const SubmitButton = styled.button`
   width: 100%;
   height: 4.8rem;
   border: none;
+  font-weight: bold;
+  font-size: 1.4rem;
+  cursor: pointer;
 `;
 
 const ContactForm = ({
