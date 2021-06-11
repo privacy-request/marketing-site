@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Input from "../../Input";
+import { CallToAction } from "../../typography";
 import { SCREEN_SIZES } from "../../utils/constants";
 
 const NameRow = styled.div`
@@ -21,15 +22,8 @@ const TextArea = styled(Input)`
   height: 20.8rem;
 `;
 
-const SubmitButton = styled.button`
-  background: #009dff;
-  border-radius: 40px;
-  color: #ffffff;
+const SubmitButton = styled(CallToAction)`
   width: 100%;
-  height: 4.8rem;
-  border: none;
-  font-weight: bold;
-  font-size: 1.4rem;
   cursor: pointer;
 `;
 
@@ -65,7 +59,9 @@ const ContactForm = ({
       />
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
-      <SubmitButton type="submit">{submit_button.text}</SubmitButton>
+      <SubmitButton as="button" type="submit">
+        {submit_button.text}
+      </SubmitButton>
     </Form>
   );
 };
