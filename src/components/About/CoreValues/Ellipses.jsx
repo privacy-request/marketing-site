@@ -5,7 +5,7 @@ const Ellipse = styled.div`
   height: 1.2rem;
   width: 1.2rem;
   border-radius: 50%;
-  background: ${({ active, theme }) => (active ? "#E6F5FF" : "#203546")};
+  background: ${({ active, theme }) => (active ? "#203546" : "#E6F5FF")};
   margin: 0 0.72rem;
   cursor: pointer;
 `;
