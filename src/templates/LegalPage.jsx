@@ -2,8 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
-import LegalPageBody from "../components/LegalPage/LegalPageContent";
-import assignContent from "../components/LegalPage/assignContent";
 import PrivacyNav from "../components/LegalPage/PrivacyNav";
 import { withPreview } from "gatsby-source-prismic";
 import {
@@ -12,36 +10,11 @@ import {
   NavAndContentWrapper,
   Content,
 } from "../components/LegalPage/LegalPage.styles";
+import SliceZone from "../components/Slices/SliceZone";
 
 const LegalPage = ({ data, path }) => {
-  const {
-    page_title,
-    page_description,
-    page_keywords,
-    first_section,
-    last_section,
-    body,
-    prefixWithIndex,
-  } = data.prismicLegalPage.data;
-  const uid = data.prismicLegalPage.uid;
-  const introduction = assignContent(first_section.raw);
-  const outro = assignContent(last_section.raw);
-  const sections = body.map((section, index) => {
-    const tocNumber = index + 1;
-    return {
-      heading: section.primary.heading.text,
-      tocNumber,
-      content: section.items.map((subSection, index) =>
-        assignContent(subSection.content.raw, {
-          subheading: subSection.subheading,
-          tocNumber,
-          tocSubNumber: index + 1,
-          appendToC: prefixWithIndex,
-        })
-      ),
-    };
-  });
-
+  const { page_title, page_description, page_keywords, body, header } =
+    data.prismicLegalPage.data;
   return (
     <Layout
       navigationBarData={data.prismicNavigationBar.data}
@@ -55,18 +28,14 @@ const LegalPage = ({ data, path }) => {
         keywords={page_keywords}
       />
       <Wrapper>
-        <Title>{page_title.text}</Title>
+        <Title>{header.text}</Title>
         <NavAndContentWrapper>
-          <PrivacyNav sections={sections} currentRoute={uid} />
+          <PrivacyNav
+            currentPage={data.prismicLegalPage}
+            pages={data.allPrismicLegalPage}
+          />
           <Content>
-            <LegalPageBody
-              {...{
-                introduction,
-                outro,
-                sections,
-                uid,
-              }}
-            />
+            <SliceZone slices={body} />
           </Content>
         </NavAndContentWrapper>
       </Wrapper>
@@ -85,6 +54,18 @@ export const query = graphql`
     prismicCookieBanner {
       ...CookieBannerData
     }
+    allPrismicLegalPage {
+      edges {
+        node {
+          data {
+            header {
+              text
+            }
+          }
+          uid
+        }
+      }
+    }
     prismicLegalPage(uid: { eq: $slug }) {
       uid
       data {
@@ -99,29 +80,85 @@ export const query = graphql`
         page_title {
           text
         }
-        first_section {
-          raw
+        header {
+          text
         }
-        last_section {
-          raw
-        }
-        prefix_sections_with_index
         body {
-          ... on PrismicLegalPageBodyNumberedSection {
+          ... on PrismicLegalPageBodyHeading {
             id
             primary {
               heading {
                 text
               }
             }
-            items {
+            slice_type
+          }
+          ... on PrismicLegalPageBodyRichTextSection {
+            id
+            primary {
               content {
                 raw
               }
-              subheading {
+            }
+            slice_type
+          }
+          ... on PrismicLegalPageBodyTable2Col {
+            id
+            primary {
+              col1 {
+                text
+              }
+              col2 {
                 text
               }
             }
+            items {
+              col1 {
+                text
+              }
+              col2 {
+                text
+              }
+            }
+            slice_type
+          }
+          ... on PrismicLegalPageBodyTable5Col {
+            id
+            primary {
+              col1 {
+                text
+              }
+              col2 {
+                text
+              }
+              col3 {
+                text
+              }
+              col4 {
+                text
+              }
+              col5 {
+                text
+              }
+            }
+            items {
+              col1 {
+                text
+              }
+              col2 {
+                text
+              }
+              col3 {
+                text
+              }
+              col4 {
+                text
+              }
+              col5 {
+                text
+              }
+            }
+            slice_type
           }
         }
       }

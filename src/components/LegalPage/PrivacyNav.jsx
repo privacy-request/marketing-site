@@ -1,5 +1,4 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { LegalPageNavItem, LegalPageNavSubItem } from "../typography";
 import { SCREEN_SIZES } from "../utils/constants";
@@ -11,46 +10,50 @@ const NavWrapper = styled.div`
   flex-direction: column;
   margin: 0 3rem;
   min-width: 16rem;
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+  max-width: 31rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin: 0 0 3rem 0;
   }
 `;
 
-const PrivacyNav = ({ currentRoute, replaceSpacesWithDashes }) => {
-  const data = useStaticQuery(query);
-  const isMobile = isMobileScreen(SCREEN_SIZES.TABLET);
-  const navLinks = data.legalPages.edges.map(
+const PrivacyNav = ({ currentPage, pages }) => {
+  const isMobile = isMobileScreen(SCREEN_SIZES.LAPTOP);
+  const navLinks = pages.edges.map(
     (
       {
         node: {
-          data: { title, body },
-          route,
+          data: { header },
+          uid,
         },
       },
       index
     ) => ({
-      title: title.text,
+      header: header.text,
       index,
-      route,
-      subheadings: body.map(({ primary: { heading } }, subindex) => ({
-        subheading: heading ? heading.text : "",
-        subindex,
-      })),
+      uid,
     })
   );
+
+  const subHeadings = currentPage.data.body.reduce((headings, slice) => {
+    if (slice.slice_type === "heading") {
+      headings.push(slice.primary.heading.text);
+    }
+    return headings;
+  }, []);
+
   return (
     <NavWrapper>
-      {navLinks.map(({ title, index, subheadings, route }) => (
+      {navLinks.map(({ header, index, uid }) => (
         <React.Fragment key={`lp-ni-${index}`}>
-          <LegalPageNavItem to={`/${route}`}>{title}</LegalPageNavItem>
-          {route === currentRoute &&
+          <LegalPageNavItem to={`/${uid}`}>{header}</LegalPageNavItem>
+          {uid === currentPage.uid &&
             !isMobile &&
-            subheadings.map(({ subheading }, subindex) => (
+            subHeadings.map((subHeading, subindex) => (
               <LegalPageNavSubItem
-                to={`/${route}#${createKeyFromStr(subheading)}`}
+                to={`/${uid}#${createKeyFromStr(subHeading)}`}
                 key={`lp-nav-si-${subindex}`}
               >
-                {subheading}
+                {subHeading}
               </LegalPageNavSubItem>
             ))}
         </React.Fragment>
@@ -58,32 +61,5 @@ const PrivacyNav = ({ currentRoute, replaceSpacesWithDashes }) => {
     </NavWrapper>
   );
 };
-
-const query = graphql`
-  query PrivacyNavQuery {
-    legalPages: allPrismicLegalPage {
-      edges {
-        node {
-          data {
-            title: page_title {
-              text
-            }
-            body {
-              ... on PrismicLegalPageBodyNumberedSection {
-                id
-                primary {
-                  heading {
-                    text
-                  }
-                }
-              }
-            }
-          }
-          route: uid
-        }
-      }
-    }
-  }
-`;
 
 export default PrivacyNav;
