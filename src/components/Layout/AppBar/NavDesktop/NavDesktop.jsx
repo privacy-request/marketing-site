@@ -18,6 +18,7 @@ const NavDesktop = ({
   getADemoBtnText,
   productPagesNavText,
   productPages,
+  contactPageNavText,
   // customersPagesNavText,
   // companyPagesNavText,
   companyPages,
@@ -36,9 +37,9 @@ const NavDesktop = ({
             {companyPages[0].title}
           </NavLink>
         </DesktopNavItem>
-        {/* <DesktopNavItem>
-          <NavLink to={STATIC_ROUTES.CUSTOMERS}>{customersPageNavText}</NavLink>
-        </DesktopNavItem> */}
+        <DesktopNavItem>
+          <NavLink to={STATIC_ROUTES.CONTACT}>{contactPageNavText}</NavLink>
+        </DesktopNavItem>
         <li>
           <CallToAction inverted="true" to={STATIC_ROUTES.CALENDAR}>
             {getADemoBtnText}

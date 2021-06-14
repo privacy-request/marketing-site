@@ -45,7 +45,9 @@ const FooterNav = ({
           ))}
         </NavSubList>
         <NavSubList>
-          <DesktopNavItem noHover>{contact.text}</DesktopNavItem>
+          <DesktopNavItem noHover>
+            <Link to={STATIC_ROUTES.CONTACT}>{contact.text}</Link>
+          </DesktopNavItem>
           <DesktopNavSubitem noHover>
             <HyperLink href={`mailto:${email.text}`} target="_blank">
               {email.text}
