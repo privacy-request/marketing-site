@@ -1,7 +1,14 @@
 import { Img, Wrapper } from "./Illustration.styles";
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState, useCallback } from "react";
+import { Transition } from "react-transition-group";
+import styled from "styled-components";
 import isMobileScreen from "../utils/isMobileScreen";
+
+const Fade = styled.div`
+  transition: 0.5s;
+  opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
+  display: ${({ state }) => (state === "exited" ? "none" : "block")};
+`;
 
 const AlternatingIllustration = ({
   illustrations,
@@ -21,17 +28,25 @@ const AlternatingIllustration = ({
   scaleImage,
   rotation_speed,
 }) => {
+  const [animate, setAnimate] = useState(false);
   const [focusedIllustrationIndex, setFocusedIllustrationIndex] = useState(0);
 
   useEffect(() => {
-    const id = setTimeout(() => {
+    setAnimate(true);
+    const incrementFocusedIllustration = setTimeout(() => {
       setFocusedIllustrationIndex(
         illustrations[focusedIllustrationIndex + 1]
           ? focusedIllustrationIndex + 1
           : 0
       );
     }, rotation_speed);
-    return () => clearTimeout(id);
+    const triggerAnimation = setTimeout(() => {
+      setAnimate(false);
+    }, rotation_speed - 500);
+    return () => {
+      clearTimeout(incrementFocusedIllustration);
+      clearTimeout(triggerAnimation);
+    };
   }, [focusedIllustrationIndex, rotation_speed]);
 
   const responsiveProps = isMobileScreen()
@@ -92,7 +107,13 @@ const AlternatingIllustration = ({
   return (
     <>
       <Wrapper {...wrapperProps}>
-        <Img scaleImage={scaleImage} {...imgProps}></Img>
+        <Transition in={animate} timeout={500}>
+          {(state) => (
+            <Fade state={state}>
+              <Img scaleImage={scaleImage} {...imgProps}></Img>
+            </Fade>
+          )}
+        </Transition>
       </Wrapper>
     </>
   );
