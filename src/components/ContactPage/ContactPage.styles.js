@@ -21,7 +21,6 @@ export const ContactHero = styled(Hero)`
   z-index: 2;
   left: 0;
   right: 0;
-  top: -2rem;
 `;
 
 export const Content = styled.div`
