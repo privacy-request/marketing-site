@@ -51,7 +51,7 @@ const ContactPage = ({ data, path }) => {
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
-      {/* <Seo
+      <Seo
         title={page_title.text}
         desc={page_description.text}
         path={path}
@@ -91,7 +91,7 @@ const ContactPage = ({ data, path }) => {
             </SalesCardParagraph>
           </SalesCard>
         </Content>
-      </Wrapper> */}
+      </Wrapper>
     </Layout>
   );
 };
