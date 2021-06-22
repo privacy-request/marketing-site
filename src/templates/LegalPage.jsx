@@ -114,10 +114,10 @@ export const query = graphql`
             }
             items {
               col1 {
-                text
+                raw
               }
               col2 {
-                text
+                raw
               }
             }
             slice_type
@@ -143,19 +143,19 @@ export const query = graphql`
             }
             items {
               col1 {
-                text
+                raw
               }
               col2 {
-                text
+                raw
               }
               col3 {
-                text
+                raw
               }
               col4 {
-                text
+                raw
               }
               col5 {
-                text
+                raw
               }
             }
             slice_type

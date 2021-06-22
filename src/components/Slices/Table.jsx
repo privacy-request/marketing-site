@@ -1,36 +1,39 @@
 import React from "react";
 import styled from "styled-components";
 import { SCREEN_SIZES } from "../utils/constants";
+import { RichText } from "prismic-reactjs";
+import { TableCell } from "../typography";
 
 const Wrapper = styled.table`
-  border: 1px solid black;
   border-collapse: collapse;
   margin-bottom: 1.8rem;
   font-size: 1.8rem;
+  table-layout: fixed;
+  width: 100%;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: 1.4rem;
+  }
+  @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
     font-size: 1.1rem;
   }
 `;
 
-const Row = styled.tr`
-  border: 1px solid black;
+const Row = styled.tr``;
+
+const Head = styled.thead`
+  background-color: #f6f6f4;
 `;
 
 const Heading = styled.th`
-  border: 1px solid black;
-  padding: 0.4rem 1rem 0.4rem 1rem;
+  color: #403b3b;
+  border: 1px solid #dbd9d2;
+  padding: 2rem;
   vertical-align: top;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    padding: 0.2rem;
+    padding: 1rem;
   }
-`;
-
-const Cell = styled.td`
-  border: 1px solid black;
-  padding: 0.4rem 1rem 0.4rem 1rem;
-  vertical-align: top;
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    padding: 0.2rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
+    padding: 0.5rem;
   }
 `;
 
@@ -40,15 +43,17 @@ const Table = ({ data }) => {
   );
   return (
     <Wrapper>
-      <Row>
+      <Head>
         {headers.map((header) => (
           <Heading>{header}</Heading>
         ))}
-      </Row>
+      </Head>
       {data.items.map((row) => (
         <Row>
           {Object.keys(row).map((key) => (
-            <Cell>{row[key].text}</Cell>
+            <TableCell>
+              <RichText render={row[key].raw} />
+            </TableCell>
           ))}
         </Row>
       ))}

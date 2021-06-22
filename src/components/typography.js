@@ -439,3 +439,30 @@ export const RichTextWrapper = styled.div`
     margin: 1rem 0 1.8rem 4rem;
   }
 `;
+
+export const TableCell = styled.td`
+  border: 1px solid #dbd9d2;
+  padding: 3.5rem;
+  vertical-align: top;
+  overflow-wrap: break-word;
+
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    padding: 1rem;
+  }
+
+  p {
+    white-space: break-spaces;
+  }
+  ul {
+    list-style: disc;
+    margin-left: 3rem;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  a {
+    color: ${({ theme }) => theme.colour.blue.dark};
+  }
+`;

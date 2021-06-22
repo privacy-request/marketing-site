@@ -21,7 +21,6 @@ export const Title = styled(LegalPageTitle)`
 export const NavAndContentWrapper = styled.div`
   display: flex;
   margin-top: 7rem;
-  margin-right: 3rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     flex-direction: column;
     margin-top: 4rem;
@@ -30,5 +29,6 @@ export const NavAndContentWrapper = styled.div`
 
 export const Content = styled.div`
   margin: auto;
-  max-width: 75rem;
+  width: 100%;
+  max-width: 93rem;
 `;
