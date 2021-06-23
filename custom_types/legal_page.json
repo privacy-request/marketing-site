@@ -116,6 +116,7 @@
                 "type": "StructuredText",
                 "config": {
                   "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
                   "label": "col1",
                   "placeholder": "Column 1 content..."
                 }
@@ -124,6 +125,7 @@
                 "type": "StructuredText",
                 "config": {
                   "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+                  "allowTargetBlank": true,
                   "label": "col2",
                   "placeholder": "Column 2 content..."
                 }
