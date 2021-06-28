@@ -4,7 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import Seo from "../../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../../components/utils/isMobileScreen";
-import { Wrapper, Blob } from "../../components/About/About.styles";
+import { Blob } from "../../components/About/About.styles";
 import {
   CompanyPageTitle,
   CompanyPageSubTitle,
@@ -12,6 +12,7 @@ import {
   SalesCardParagraph,
 } from "../../components/typography";
 import {
+  Wrapper,
   ContactHeroBackground,
   Ellipse,
   Content,
@@ -61,8 +62,8 @@ const ContactPage = ({ data, path }) => {
         <ContactHero>
           <CompanyPageTitle>{headline.text}</CompanyPageTitle>
           <CompanyPageSubTitle>{subheadline.text}</CompanyPageSubTitle>
+          {!isMobile && <ContactHeroBackground />}
         </ContactHero>
-        {!isMobile && <ContactHeroBackground />}
         <Content>
           <Ellipse />
           <ContactFormCard>
@@ -168,4 +169,4 @@ export const query = graphql`
   }
 `;
 
-export default ContactPage;
+export default withPreview(ContactPage);
