@@ -24,6 +24,8 @@ export const EmailInput = styled.input`
   border-radius: ${({ theme }) => theme.borderRadius.input};
   outline: none;
   border: none;
+  font-size: 1.8rem;
+  font-family: "alliance-no-1";
   margin-right: 1.6rem;
   padding-left: 1.2rem;
   margin-bottom: 1.6rem;
