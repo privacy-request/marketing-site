@@ -4,7 +4,6 @@ import Layout from "../../components/Layout/Layout";
 import Seo from "../../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../../components/utils/isMobileScreen";
-import { Blob } from "../../components/About/About.styles";
 import {
   CompanyPageTitle,
   CompanyPageSubTitle,
@@ -21,6 +20,7 @@ import {
   ContactHero,
   Email,
   Phone,
+  Blob
 } from "../../components/ContactPage/ContactPage.styles";
 import ContactForm from "../../components/ContactPage/ContactForm/ContactForm";
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ContactContentEllipse from "../../../assets/contactPageEllipse.svg";
+import AboutContentBlob from "../../../assets/aboutContentBlob.svg";
 import { HeroBackground, Hero } from "../PageHero/PageHero.styles.js";
 import { HyperLink } from "../typography";
 
@@ -20,6 +21,12 @@ export const Ellipse = styled(ContactContentEllipse)`
   @media only screen and (min-width: 2440px) {
     transform: scale(2.2);
   }
+`;
+
+export const Blob = styled(AboutContentBlob)`
+  margin-top: -37rem;
+  margin-left: 72rem;
+  margin-bottom: -18rem;
 `;
 
 export const Wrapper = styled.div`

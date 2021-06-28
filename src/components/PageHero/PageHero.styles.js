@@ -4,13 +4,14 @@ import AboutHeroBackground from "../../../assets/aboutHeroBackground.svg";
 export const HeroBackground = styled(AboutHeroBackground)`
   position: absolute;
   z-index: -1;
-  left: 4rem;
+  left: -31rem;
 `;
 
 export const Hero = styled.header`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 
   min-height: 30rem;
   width: 73rem;
@@ -20,4 +21,5 @@ export const Hero = styled.header`
     margin: 1rem 3.2rem 10rem 3.2rem;
     width: auto;
   }
+  
 `;
