@@ -4,7 +4,6 @@ import Layout from "../../components/Layout/Layout";
 import Seo from "../../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../../components/utils/isMobileScreen";
-import { Wrapper, Blob } from "../../components/About/About.styles";
 import {
   CompanyPageTitle,
   CompanyPageSubTitle,
@@ -12,6 +11,7 @@ import {
   SalesCardParagraph,
 } from "../../components/typography";
 import {
+  Wrapper,
   ContactHeroBackground,
   Ellipse,
   Content,
@@ -20,6 +20,7 @@ import {
   ContactHero,
   Email,
   Phone,
+  Blob
 } from "../../components/ContactPage/ContactPage.styles";
 import ContactForm from "../../components/ContactPage/ContactForm/ContactForm";
 
@@ -51,7 +52,7 @@ const ContactPage = ({ data, path }) => {
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
-      {/* <Seo
+      <Seo
         title={page_title.text}
         desc={page_description.text}
         path={path}
@@ -61,8 +62,8 @@ const ContactPage = ({ data, path }) => {
         <ContactHero>
           <CompanyPageTitle>{headline.text}</CompanyPageTitle>
           <CompanyPageSubTitle>{subheadline.text}</CompanyPageSubTitle>
+          {!isMobile && <ContactHeroBackground />}
         </ContactHero>
-        {!isMobile && <ContactHeroBackground />}
         <Content>
           <Ellipse />
           <ContactFormCard>
@@ -91,7 +92,7 @@ const ContactPage = ({ data, path }) => {
             </SalesCardParagraph>
           </SalesCard>
         </Content>
-      </Wrapper> */}
+      </Wrapper>
     </Layout>
   );
 };
@@ -168,4 +169,4 @@ export const query = graphql`
   }
 `;
 
-export default ContactPage;
+export default withPreview(ContactPage);

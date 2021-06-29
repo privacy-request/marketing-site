@@ -5,8 +5,7 @@ import Seo from "../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../components/utils/isMobileScreen";
 import { CompanyPageParagraph } from "../components/typography";
-import AboutContentEllipse from "../../assets/aboutContentEllipse.svg";
-import { Wrapper, Content, Blob, Card } from "../components/About/About.styles";
+import { Wrapper, Content, Blob, Card, Ellipse } from "../components/About/About.styles";
 import CoreValues from "../components/About/CoreValues/CoreValues";
 import TeamMembers from "../components/About/TeamMembers/TeamMembers";
 import PageHero from "../components/PageHero/PageHero";
@@ -49,7 +48,7 @@ const AboutPage = ({ data, path }) => {
             ))}
           </Card>
           {!isMobile && <Blob />}
-          <AboutContentEllipse />
+          <Ellipse />
         </Content>
         <CoreValues
           rotateSpeed={core_values_rotate_speed}
@@ -150,4 +149,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(AboutPage);
+export default AboutPage;

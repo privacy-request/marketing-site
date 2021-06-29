@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import ContactContentEllipse from "../../../assets/contactPageEllipse.svg";
+import AboutContentBlob from "../../../assets/aboutContentBlob.svg";
 import { HeroBackground, Hero } from "../PageHero/PageHero.styles.js";
 import { HyperLink } from "../typography";
 
 export const ContactHeroBackground = styled(HeroBackground)`
-  left: 5rem;
-  top: -1.6rem;
-  z-index: 1;
+    left: -31rem;
 `;
 
 export const Ellipse = styled(ContactContentEllipse)`
@@ -14,6 +13,26 @@ export const Ellipse = styled(ContactContentEllipse)`
   @media only screen and (max-width: 400px) {
     margin-top: 0;
   }
+  @media only screen and (min-width: 1440px) {
+    width: 100vw;
+    transform: scale(1.6);
+    margin-top: -20rem;
+  }
+  @media only screen and (min-width: 2440px) {
+    transform: scale(2.2);
+  }
+`;
+
+export const Blob = styled(AboutContentBlob)`
+  margin-top: -37rem;
+  margin-left: 72rem;
+  margin-bottom: -18rem;
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  margin: auto;
+
 `;
 
 export const ContactHero = styled(Hero)`
@@ -75,6 +94,10 @@ export const ContactFormCard = styled(Card)`
   @media only screen and (max-width: 500px) {
     margin-top: -26rem;
     padding: 3rem 2.3rem 3rem 2.3rem;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    margin-top: -22rem;
   }
 `;
 

@@ -4,9 +4,10 @@ import RightArrow from "../../../../assets/rightArrow.svg";
 import { SCREEN_SIZES } from "../../utils/constants";
 
 export const Wrapper = styled.div`
-  margin-bottom: 12rem;
+  margin-top: -19rem;
+  margin-bottom: 14rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    margin: 3rem 3rem 12rem 3rem;
+    margin: -9.5rem 3rem 12rem 3rem;
   }
 `;
 export const ArrowBtnAndValue = styled.div`
