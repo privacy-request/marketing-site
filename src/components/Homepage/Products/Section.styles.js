@@ -7,7 +7,8 @@ export const sectionStyles = [
     h2 {
       color: ${({ theme }) => theme.colour.blue.dark};
     }
-    background: #f7fcff;
+    transition: background-color 0.7s ease;
+    background: ${({ inViewport }) => (inViewport ? "#f7fcff" : "white")};
     z-index: 1;
     mix-blend-mode: multiply;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -18,18 +19,28 @@ export const sectionStyles = [
     }
   `,
   css`
-    background: ${({ theme }) => theme.colour.yellow};
+    transition: background-color 1s ease;
+    background: ${({ inViewport, theme }) =>
+      inViewport ? theme.colour.yellow : "#f7fcff"};
   `,
   css`
-    background: ${({ theme }) => theme.colour.grey.dark};
-    color: ${({ theme }) => theme.colour.white};
+    transition: all 1s ease;
+    background: ${({ theme, inViewport }) =>
+      inViewport ? theme.colour.grey.dark : theme.colour.yellow};
+    color: ${({ theme, inViewport }) =>
+      inViewport ? theme.colour.white : theme.colour.grey.dark};
   `,
   css`
+    transition: all 1s ease;
     height: 82rem;
     h2 {
-      color: ${({ theme }) => theme.colour.blue.dark};
+      color: ${({ theme, inViewport }) =>
+        inViewport ? theme.colour.blue.dark : theme.colour.white};
     }
-    background: ${({ theme }) => theme.colour.gradient.background.light};
+    background: ${({ theme, inViewport }) =>
+      inViewport
+        ? theme.colour.gradient.background.light
+        : theme.colour.grey.dark};
   `,
 ];
 
