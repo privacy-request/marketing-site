@@ -436,7 +436,7 @@ export const RichTextWrapper = styled.div`
 
   h6 {
     font-size: ${fontSize.paragraph.medium};
-    margin: 1rem 0 1.8rem 4rem;
+    margin: 1rem 0 1.8rem 0rem;
   }
 `;
 
