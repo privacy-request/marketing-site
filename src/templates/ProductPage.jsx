@@ -199,6 +199,7 @@ export const query = graphql`
                   width
                 }
                 url
+                alt
               }
             }
             id
