@@ -3,8 +3,9 @@ import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { CallToAction } from "./typography";
 import { STATIC_ROUTES } from "./utils/constants";
+import Image from "./Image";
 
-const Icon = styled.img`
+const Icon = styled(Image)`
   margin-right: 1.2rem;
 `;
 
@@ -13,7 +14,7 @@ const DemoCTA = ({ withIcon }) => {
   const { icon, text } = data.allPrismicDemoCta.edges[0].node.data;
   return (
     <CallToAction to={STATIC_ROUTES.CALENDAR}>
-      {withIcon && <Icon src={icon.url} />}
+      {withIcon && <Icon image={icon} />}
       {text.text}
     </CallToAction>
   );
@@ -28,6 +29,10 @@ const query = graphql`
             icon {
               alt
               url
+              dimensions {
+                height
+                width
+              }
             }
             text {
               text
