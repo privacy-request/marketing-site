@@ -17,9 +17,8 @@ const Input = styled.textarea`
   border-radius: 8px;
   padding: 1.6rem 2rem 1.6rem 2rem;
   height: 100%;
-  font-family: "alliance-no-1";
   font-size: 1.8rem;
-  letter-spacing: .01rem;
+  letter-spacing: 0.01rem;
 `;
 
 const Span = styled.span`
