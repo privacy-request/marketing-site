@@ -42,6 +42,7 @@ module.exports = {
           legal_page: require("./custom_types/legal_page.json"),
           trusted_customers: require("./custom_types/trusted_customers.json"),
           demo_cta: require("./custom_types/demo_cta.json"),
+          legal_page_nav: require("./custom_types/legal_page_nav.json"),
         },
       },
     },

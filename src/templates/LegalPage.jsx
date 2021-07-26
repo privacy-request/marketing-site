@@ -33,6 +33,7 @@ const LegalPage = ({ data, path }) => {
           <PrivacyNav
             currentPage={data.prismicLegalPage}
             pages={data.allPrismicLegalPage}
+            displayOrder={data.prismicLegalPageNav.data.display_order}
           />
           <Content>
             <SliceZone slices={body} />
@@ -53,6 +54,9 @@ export const query = graphql`
     }
     prismicCookieBanner {
       ...CookieBannerData
+    }
+    prismicLegalPageNav {
+      ...PrivacyNavData
     }
     allPrismicLegalPage {
       edges {

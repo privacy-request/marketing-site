@@ -1,0 +1,20 @@
+{
+  "Main": {
+    "display_order": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "page": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["legal_page"],
+              "label": "page"
+            }
+          }
+        },
+        "label": "display order"
+      }
+    }
+  }
+}

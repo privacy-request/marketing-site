@@ -16,23 +16,19 @@ const NavWrapper = styled.div`
   }
 `;
 
-const PrivacyNav = ({ currentPage, pages }) => {
+const PrivacyNav = ({ currentPage, pages, displayOrder }) => {
   const isMobile = isMobileScreen(SCREEN_SIZES.LAPTOP);
-  const navLinks = pages.edges.map(
-    (
-      {
-        node: {
-          data: { header },
-          uid,
-        },
-      },
-      index
-    ) => ({
-      header: header.text,
+
+  const navLinks = displayOrder.map((page, index) => {
+    const pageData = pages.edges.find(
+      (data) => data.node.uid === page.page.uid
+    );
+    return {
+      header: pageData.node.data.header.text,
       index,
-      uid,
-    })
-  );
+      uid: page.page.uid,
+    };
+  });
 
   const subHeadings = currentPage.data.body.reduce((headings, slice) => {
     if (slice.slice_type === "heading") {
