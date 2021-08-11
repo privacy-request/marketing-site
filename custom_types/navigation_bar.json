@@ -3,7 +3,7 @@
     "type_name": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
         "label": "Type Name"
       }
     },
@@ -26,7 +26,7 @@
     "homepage_nav": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
         "label": "Homepage nav"
       }
     },
@@ -100,6 +100,13 @@
       "config": {
         "single": "heading3",
         "label": "contact page nav"
+      }
+    },
+    "blog_page_nav": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Blog page nav"
       }
     },
     "get_a_demo_button": {

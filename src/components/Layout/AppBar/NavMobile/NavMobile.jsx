@@ -35,6 +35,7 @@ const NavMobile = ({
   productPagesNavText,
   // customersPageNavText,
   contactPageNavText,
+  blogPageNavText,
   homepageNavText,
   productPages,
   companyPages,
@@ -82,6 +83,12 @@ const NavMobile = ({
             onClick={toggleMenu}
           >
             <Link to={STATIC_ROUTES.CONTACT}>{contactPageNavText}</Link>
+          </MobileNavItem>
+          <MobileNavItem
+            active={path === STATIC_ROUTES.BLOG}
+            onClick={toggleMenu}
+          >
+            <Link to={STATIC_ROUTES.BLOG}>{blogPageNavText}</Link>
           </MobileNavItem>
           <MobileNavDemo
             active={path === STATIC_ROUTES.CALENDAR}

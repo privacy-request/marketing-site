@@ -45,6 +45,9 @@ export const query = graphql`
       company_pages_nav {
         text
       }
+      blog_page_nav {
+        text
+      }
       company_pages_sub_items {
         route {
           text

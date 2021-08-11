@@ -1,0 +1,253 @@
+{
+  "Main": {
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Page title"
+      }
+    },
+    "page_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Page description"
+      }
+    },
+    "page_keywords": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "keyword": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "keyword"
+            }
+          }
+        },
+        "label": "page keywords"
+      }
+    },
+    "headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Headline"
+      }
+    },
+    "date": {
+      "type": "Date",
+      "config": {
+        "label": "Date"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    },
+    "category": {
+      "type": "Select",
+      "config": {
+        "options": ["Industry news"],
+        "label": "category"
+      }
+    },
+    "author": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Author"
+      }
+    },
+    "author_avatar": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Author avatar"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": null,
+        "choices": {
+          "rich_text_section": {
+            "type": "Slice",
+            "fieldset": "Rich text",
+            "description": "Rich text section",
+            "icon": "dehaze",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "table5Col": {
+            "type": "Slice",
+            "fieldset": "Table (5 col)",
+            "description": "Rows of repeatable data",
+            "icon": "grid_on",
+            "display": "list",
+            "non-repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col1",
+                  "placeholder": "Col 1 header"
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col2",
+                  "placeholder": "Col 2 header"
+                }
+              },
+              "col3": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col3",
+                  "placeholder": "Col 3 header"
+                }
+              },
+              "col4": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col4",
+                  "placeholder": "Col 4 header"
+                }
+              },
+              "col5": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col5",
+                  "placeholder": "Col 5 header"
+                }
+              }
+            },
+            "repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "label": "col1",
+                  "placeholder": "Column 1 content..."
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "label": "col2",
+                  "placeholder": "Column 2 content..."
+                }
+              },
+              "col3": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "label": "col3",
+                  "placeholder": "Column 3 content..."
+                }
+              },
+              "col4": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "col4",
+                  "placeholder": "Column 4 content..."
+                }
+              },
+              "col5": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "label": "col5",
+                  "placeholder": "Column 5 content..."
+                }
+              }
+            }
+          },
+          "table2Col": {
+            "type": "Slice",
+            "fieldset": "Table (2 col)",
+            "description": "Rows of repeatable data",
+            "icon": "grid_on",
+            "non-repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col1",
+                  "placeholder": "Col 1 header"
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col2",
+                  "placeholder": "Col 2 header"
+                }
+              }
+            },
+            "repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "col1",
+                  "placeholder": "Column 1 content..."
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "col2",
+                  "placeholder": "Column 2 content..."
+                }
+              }
+            }
+          },
+          "media": {
+            "type": "Slice",
+            "fieldset": "Media",
+            "description": "Embed social media links",
+            "icon": "perm_media",
+            "display": "list",
+            "non-repeat": {
+              "link": {
+                "type": "Embed",
+                "config": {
+                  "label": "link"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}
