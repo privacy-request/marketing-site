@@ -26,7 +26,7 @@ const Homepage = ({ path, data }) => {
   return (
     <Layout
       path={path}
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -76,7 +76,7 @@ export const query = graphql`
       type
       prismicId
     }
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {

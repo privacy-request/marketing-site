@@ -17,7 +17,7 @@ const LegalPage = ({ data, path }) => {
     data.prismicLegalPage.data;
   return (
     <Layout
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -46,7 +46,7 @@ const LegalPage = ({ data, path }) => {
 
 export const query = graphql`
   query LegalPageQuery($slug: String) {
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {

@@ -38,7 +38,7 @@ const CalendarPage = ({ data, path, location: { state } }) => {
     state && state.redirectFromBookADemoForm ? state : {};
   return (
     <Layout
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -68,7 +68,7 @@ const CalendarPage = ({ data, path, location: { state } }) => {
 
 export const query = graphql`
   query CalendarPageQuery {
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {

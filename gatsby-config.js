@@ -30,7 +30,7 @@ module.exports = {
         releaseID: "",
         schemas: {
           homepage: require("./custom_types/homepage.json"),
-          navigation_bar: require("./custom_types/navigation_bar.json"),
+          navigation: require("./custom_types/navigation.json"),
           product_page: require("./custom_types/product_page.json"),
           testimonials: require("./custom_types/testimonials.json"),
           mailing_list_form: require("./custom_types/mailing_list_form.json"),

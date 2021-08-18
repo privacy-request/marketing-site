@@ -7,43 +7,46 @@ import {
 } from "../../../typography";
 import { STATIC_ROUTES } from "../../../utils/constants";
 import { NavList, NavSubList, NavItem } from "./FooterNav.styles";
-import { formatPages } from "../../../utils/helpers";
 
-const FooterNav = ({
-  homepage_nav,
-  product_pages_nav,
-  product_pages_sub_items,
-  contact,
-  email,
-  phone,
-  company_pages_nav,
-  company_pages_sub_items,
-}) => {
-  const productPages = formatPages(product_pages_sub_items);
-  const companyPages = formatPages(company_pages_sub_items);
-
+const FooterNav = ({ navItems, contact, email, phone }) => {
   return (
     <nav>
       <NavList>
         <NavItem>
-          <Link to={STATIC_ROUTES.HOME}>{homepage_nav.text}</Link>
+          <Link to={STATIC_ROUTES.HOME}>Home</Link>
         </NavItem>
-        <NavSubList>
-          <DesktopNavItem noHover>{product_pages_nav.text}</DesktopNavItem>
-          {productPages.map(({ url, title }) => (
-            <DesktopNavSubitem key={`footer-nav-${url}`}>
-              <Link to={`/${url}`}>{title}</Link>
-            </DesktopNavSubitem>
-          ))}
-        </NavSubList>
-        <NavSubList>
-          <DesktopNavItem noHover>{company_pages_nav.text}</DesktopNavItem>
-          {companyPages.map(({ url, title }) => (
-            <DesktopNavSubitem key={`footer-nav-${url}`}>
-              <Link to={`/${url}`}>{title}</Link>
-            </DesktopNavSubitem>
-          ))}
-        </NavSubList>
+        {navItems.map((item, index) => {
+          switch (item.slice_type) {
+            case "navigation_item":
+              if (item.primary.route.text == "/contact") {
+                return null;
+              }
+              return (
+                <NavItem key={`footerNavItem-${index}`}>
+                  <Link to={item.primary.route.text}>
+                    {item.primary.text.text}
+                  </Link>
+                </NavItem>
+              );
+            case "navigation_dropdown":
+              return (
+                <NavSubList key={`navSubList-${index}`}>
+                  <DesktopNavItem noHover>
+                    {item.primary.text.text}
+                  </DesktopNavItem>
+                  {item.items.map(({ text, route }) => (
+                    <DesktopNavSubitem
+                      key={`footer-nav-${route.text}-${index}`}
+                    >
+                      <Link to={route.text}>{text.text}</Link>
+                    </DesktopNavSubitem>
+                  ))}
+                </NavSubList>
+              );
+            default:
+              return null;
+          }
+        })}
         <NavSubList>
           <DesktopNavItem>
             <Link to={STATIC_ROUTES.CONTACT}>{contact.text}</Link>

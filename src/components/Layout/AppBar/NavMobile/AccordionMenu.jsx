@@ -36,7 +36,7 @@ const SubItems = styled.ul`
   height: auto;
 `;
 
-const AccordionMenu = ({ title, pages, parentMenuOpen, toggleMenu }) => {
+const AccordionMenu = ({ title, items, parentMenuOpen, toggleMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   !parentMenuOpen && isOpen && setIsOpen(false);
@@ -48,12 +48,12 @@ const AccordionMenu = ({ title, pages, parentMenuOpen, toggleMenu }) => {
         <Symbol isOpen={isOpen}>+</Symbol>
       </Title>
       <SubItems isOpen={isOpen}>
-        {pages.map((page, index) => (
+        {items.map((item, index) => (
           <MobileNavSubitem
             onClick={toggleMenu}
-            key={`accordionMenu-${page.url}-${index}`}
+            key={`accordionMenu-${item.route.text}-${index}`}
           >
-            <Link to={`/${page.url}`}>{page.title}</Link>
+            <Link to={item.route.text}>{item.text.text}</Link>
           </MobileNavSubitem>
         ))}
       </SubItems>

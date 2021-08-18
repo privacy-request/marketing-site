@@ -1,56 +1,64 @@
 import { graphql } from "gatsby";
 
 export const query = graphql`
-  fragment NavigationData on PrismicNavigationBar {
+  fragment NavigationData on PrismicNavigation {
     data {
-      product_pages_nav {
-        text
-      }
-      get_a_demo_button {
-        text
-      }
-      logo_text {
-        url
-        alt
-        dimensions {
-          height
-          width
+      body {
+        ... on PrismicNavigationBodyNavigationItem {
+          id
+          slice_type
+          primary {
+            route {
+              text
+            }
+            text {
+              text
+            }
+          }
+        }
+        ... on PrismicNavigationBodyNavigationDropdown {
+          id
+          slice_type
+          primary {
+            text {
+              text
+            }
+          }
+          items {
+            text {
+              text
+            }
+            route {
+              text
+            }
+          }
+        }
+        ... on PrismicNavigationBodyCallToAction {
+          id
+          slice_type
+          primary {
+            inverted
+            route {
+              text
+            }
+            text {
+              text
+            }
+          }
         }
       }
       logo_icon {
         url
-        alt
         dimensions {
           height
           width
         }
       }
-      customers_page_nav {
-        text
-      }
-      homepage_nav {
-        text
-      }
-      contact_page_nav {
-        text
-      }
-      product_pages_sub_items {
-        route {
-          text
-        }
-        text {
-          text
-        }
-      }
-      company_pages_nav {
-        text
-      }
-      company_pages_sub_items {
-        route {
-          text
-        }
-        text {
-          text
+      logo_text {
+        url
+        dimensions {
+          width
+          height
         }
       }
     }

@@ -11,7 +11,7 @@ const NotFoundPage = ({ path, data }) => {
   return (
     <Layout
       path={path}
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -22,7 +22,7 @@ const NotFoundPage = ({ path, data }) => {
 
 export const query = graphql`
   query NotFoundPageQuery {
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {
