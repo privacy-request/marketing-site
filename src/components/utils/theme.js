@@ -7,7 +7,7 @@ export default Object.assign(
         darker: "#0085E6",
         dark: "#009DFF",
         medium: "#4DA9DA",
-        light: "#F7FCFF",
+        light: "#E6F5FF",
       },
       grey: {
         dark: "#203546",
@@ -18,8 +18,7 @@ export default Object.assign(
       yellow: "#FFF170",
       gradient: {
         text: {
-          blue:
-            "linear-gradient(92.13deg, #009DFF 3.73%, #6BCBFF 60.51%, #8FD8FF 86.59%)",
+          blue: "linear-gradient(92.13deg, #009DFF 3.73%, #6BCBFF 60.51%, #8FD8FF 86.59%)",
         },
         background: {
           light:

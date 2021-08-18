@@ -466,3 +466,71 @@ export const TableCell = styled.td`
     color: ${({ theme }) => theme.colour.blue.dark};
   }
 `;
+
+// Book a demo banner
+export const BannerHeadline = styled.h4`
+  font-size: ${fontSize.paragraph.medium};
+  margin-bottom: 0.6rem;
+`;
+
+export const BannerDescription = styled.p`
+  font-size: ${fontSize.paragraph.xsmall};
+`;
+
+// Blog Page
+export const BlogTitle = styled.h3`
+  font-weight: bold;
+  font-size: ${fontSize.paragraph.large};
+  line-height: 3.1rem;
+  margin-bottom: 1.4rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.small};
+    margin-bottom: 1.2rem;
+  }
+`;
+
+export const BlogDescription = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  line-height: 2rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const BlogReadMore = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  color: ${({ theme }) => theme.colour.blue.dark};
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const BlogAuthor = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  color: ${({ theme }) => theme.colour.blue.dark};
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const BlogDate = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const BlogCategory = styled.p`
+  font-size: ${fontSize.header.xxsmall};
+  font-weight: bold;
+  color: ${({ theme }) => theme.colour.blue.medium};
+  background: ${({ theme }) => theme.colour.blue.light};
+
+  width: fit-content;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.link.xsmall};
+  }
+`;

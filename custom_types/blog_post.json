@@ -36,6 +36,13 @@
         "label": "Headline"
       }
     },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Description"
+      }
+    },
     "date": {
       "type": "Date",
       "config": {

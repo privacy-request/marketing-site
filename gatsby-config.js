@@ -44,6 +44,7 @@ module.exports = {
           trusted_customers: require("./custom_types/trusted_customers.json"),
           demo_cta: require("./custom_types/demo_cta.json"),
           legal_page_nav: require("./custom_types/legal_page_nav.json"),
+          book_a_demo_banner: require("./custom_types/book_a_demo_banner.json"),
         },
       },
     },
