@@ -30,18 +30,7 @@ const MobileMenuList = styled.ul`
   padding: 2.8rem ${({ theme: { padding } }) => padding.site};
 `;
 
-const NavMobile = ({
-  getADemoBtnText,
-  productPagesNavText,
-  // customersPageNavText,
-  contactPageNavText,
-  blogPageNavText,
-  homepageNavText,
-  productPages,
-  companyPages,
-  // companyPagesNavText,
-  path,
-}) => {
+const NavMobile = ({ items, path }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -64,38 +53,49 @@ const NavMobile = ({
             active={path === STATIC_ROUTES.HOME}
             onClick={toggleMenu}
           >
-            <Link to={STATIC_ROUTES.HOME}>{homepageNavText}</Link>
+            <Link to={STATIC_ROUTES.HOME}>Home</Link>
           </MobileNavItem>
-          <MobileNavItem>
-            <AccordionMenu
-              title={productPagesNavText}
-              pages={productPages}
-              path={path}
-              parentMenuOpen={isOpen}
-              toggleMenu={toggleMenu}
-            />
-          </MobileNavItem>
-          <MobileNavItem onClick={toggleMenu}>
-            <Link to={`/${companyPages[0].url}`}>{companyPages[0].title}</Link>
-          </MobileNavItem>
-          <MobileNavItem
-            active={path === STATIC_ROUTES.CONTACT}
-            onClick={toggleMenu}
-          >
-            <Link to={STATIC_ROUTES.CONTACT}>{contactPageNavText}</Link>
-          </MobileNavItem>
-          <MobileNavItem
-            active={path === STATIC_ROUTES.BLOG}
-            onClick={toggleMenu}
-          >
-            <Link to={STATIC_ROUTES.BLOG}>{blogPageNavText}</Link>
-          </MobileNavItem>
-          <MobileNavDemo
-            active={path === STATIC_ROUTES.CALENDAR}
-            onClick={toggleMenu}
-          >
-            <Link to={STATIC_ROUTES.CALENDAR}>{getADemoBtnText}</Link>
-          </MobileNavDemo>
+          {items.map((item, index) => {
+            switch (item.slice_type) {
+              case "navigation_item":
+                return (
+                  <MobileNavItem
+                    key={`mobileNavItem-${index}`}
+                    onClick={toggleMenu}
+                  >
+                    <Link to={item.primary.route.text}>
+                      {item.primary.text.text}
+                    </Link>
+                  </MobileNavItem>
+                );
+              case "navigation_dropdown":
+                return (
+                  <MobileNavItem key={`accordionMenu-${index}`}>
+                    <AccordionMenu
+                      title={item.primary.text.text}
+                      items={item.items}
+                      path={path}
+                      parentMenuOpen={isOpen}
+                      toggleMenu={toggleMenu}
+                    />
+                  </MobileNavItem>
+                );
+              case "call_to_action":
+                return (
+                  <MobileNavDemo
+                    key={`mobileNavDemo-${index}`}
+                    active={path === item.primary.route.text}
+                    onClick={toggleMenu}
+                  >
+                    <Link to={item.primary.route.text}>
+                      {item.primary.text.text}
+                    </Link>
+                  </MobileNavDemo>
+                );
+              default:
+                return null;
+            }
+          })}
         </MobileMenuList>
       </MobileMenu>
     </nav>

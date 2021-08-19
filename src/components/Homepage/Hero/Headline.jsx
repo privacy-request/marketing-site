@@ -17,7 +17,6 @@ const Headline = ({ prefix, typewriter, loop, speed, delay }) => {
   const [reverse, setReverse] = useState(false);
 
   const typewriterWords = typewriter.map((word) => word.word.text);
-  console.log(typewriterWords);
 
   // typeWriter
   useEffect(() => {

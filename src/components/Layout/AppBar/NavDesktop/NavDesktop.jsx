@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { CallToAction, DesktopNavItem } from "../../../typography";
-import { STATIC_ROUTES } from "../../../utils/constants";
 import TooltipMenu from "./TooltipMenu";
 
 const NavLink = styled(Link)`
@@ -14,41 +13,44 @@ const NavList = styled.ul`
   align-items: center;
 `;
 
-const NavDesktop = ({
-  getADemoBtnText,
-  productPagesNavText,
-  productPages,
-  contactPageNavText,
-  // customersPagesNavText,
-  // companyPagesNavText,
-  blogPageNavText,
-  companyPages,
-  path,
-}) => {
+const NavDesktop = ({ items, path }) => {
   return (
     <nav>
       <NavList>
-        <TooltipMenu
-          title={productPagesNavText}
-          pages={productPages}
-          path={path}
-        />
-        <DesktopNavItem>
-          <NavLink to={`/${companyPages[0].url}`}>
-            {companyPages[0].title}
-          </NavLink>
-        </DesktopNavItem>
-        <DesktopNavItem>
-          <NavLink to={STATIC_ROUTES.CONTACT}>{contactPageNavText}</NavLink>
-        </DesktopNavItem>
-        <DesktopNavItem>
-          <NavLink to={STATIC_ROUTES.BLOG}>{blogPageNavText}</NavLink>
-        </DesktopNavItem>
-        <li>
-          <CallToAction inverted="true" to={STATIC_ROUTES.CALENDAR}>
-            {getADemoBtnText}
-          </CallToAction>
-        </li>
+        {items.map((item, index) => {
+          switch (item.slice_type) {
+            case "navigation_item":
+              return (
+                <DesktopNavItem key={`navDesktopItem-${index}`}>
+                  <NavLink to={item.primary.route.text}>
+                    {item.primary.text.text}
+                  </NavLink>
+                </DesktopNavItem>
+              );
+            case "navigation_dropdown":
+              return (
+                <TooltipMenu
+                  key={`tooltipMenu-${index}`}
+                  title={item.primary.text.text}
+                  items={item.items}
+                  path={path}
+                />
+              );
+            case "call_to_action":
+              return (
+                <li key={`callToAction-${index}`}>
+                  <CallToAction
+                    inverted={item.primary.inverted ? "true" : null}
+                    to={item.primary.route.text}
+                  >
+                    {item.primary.text.text}
+                  </CallToAction>
+                </li>
+              );
+            default:
+              return null;
+          }
+        })}
       </NavList>
     </nav>
   );

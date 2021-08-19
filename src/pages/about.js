@@ -5,7 +5,13 @@ import Seo from "../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../components/utils/isMobileScreen";
 import { CompanyPageParagraph } from "../components/typography";
-import { Wrapper, Content, Blob, Card, Ellipse } from "../components/About/About.styles";
+import {
+  Wrapper,
+  Content,
+  Blob,
+  Card,
+  Ellipse,
+} from "../components/About/About.styles";
 import CoreValues from "../components/About/CoreValues/CoreValues";
 import TeamMembers from "../components/About/TeamMembers/TeamMembers";
 import PageHero from "../components/PageHero/PageHero";
@@ -27,7 +33,7 @@ const AboutPage = ({ data, path }) => {
   const isMobile = isMobileScreen();
   return (
     <Layout
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -66,7 +72,7 @@ const AboutPage = ({ data, path }) => {
 
 export const query = graphql`
   query AboutPageQuery {
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {
@@ -149,4 +155,4 @@ export const query = graphql`
   }
 `;
 
-export default AboutPage;
+export default withPreview(AboutPage);

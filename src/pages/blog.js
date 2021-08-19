@@ -84,7 +84,7 @@ export const query = graphql`
     prismicBookADemoBanner {
       ...BookADemoBannerData
     }
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {

@@ -13,7 +13,7 @@ const Footer = ({
   privacy_center_links,
   social_media_links,
   copyright,
-  navData,
+  navItems,
 }) => {
   return (
     <Wrapper>
@@ -22,8 +22,8 @@ const Footer = ({
           contact,
           email,
           phone,
+          navItems,
         }}
-        {...navData}
       />
       <Line />
       <FooterPrivacyCenter

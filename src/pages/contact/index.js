@@ -20,7 +20,7 @@ import {
   ContactHero,
   Email,
   Phone,
-  Blob
+  Blob,
 } from "../../components/ContactPage/ContactPage.styles";
 import ContactForm from "../../components/ContactPage/ContactForm/ContactForm";
 
@@ -48,7 +48,7 @@ const ContactPage = ({ data, path }) => {
 
   return (
     <Layout
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -99,7 +99,7 @@ const ContactPage = ({ data, path }) => {
 
 export const query = graphql`
   query ContactPageQuery {
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {

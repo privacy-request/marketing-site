@@ -1,0 +1,117 @@
+{
+  "Main": {
+    "logo_icon": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Logo Icon"
+      }
+    },
+    "logo_text": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Logo Text"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": null,
+        "choices": {
+          "navigation_item": {
+            "type": "Slice",
+            "fieldset": "Navigation Item",
+            "description": " Nav link text with route",
+            "icon": "navigation",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "text"
+                }
+              },
+              "route": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "route"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "navigation_dropdown": {
+            "type": "Slice",
+            "fieldset": "Navigation Dropdown",
+            "description": "Navigation dropdown with multiple navigation links",
+            "icon": "arrow_drop_down",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "text"
+                }
+              }
+            },
+            "repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "text"
+                }
+              },
+              "route": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "route"
+                }
+              }
+            }
+          },
+          "call_to_action": {
+            "type": "Slice",
+            "fieldset": "Call to action",
+            "description": "Nav bar friend call to action button",
+            "icon": "blur_circular",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "text"
+                }
+              },
+              "route": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "route"
+                }
+              },
+              "inverted": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "false",
+                  "default_value": true,
+                  "label": "inverted"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

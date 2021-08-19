@@ -64,18 +64,18 @@ const TooltipTriangle = styled.div`
   }
 `;
 
-const TooltipMenu = ({ title, pages, path }) => (
+const TooltipMenu = ({ title, items, path }) => (
   <TooltipWrapper>
     <Title as="div">{title}</Title>
     <Tooltip>
       <TooltipContent>
-        {pages.map((page, index) => (
+        {items.map((item, index) => (
           <TooltipTypography
-            key={`page-${page.url}`}
-            active={path === page.url}
-            isLastChild={index + 1 === pages.length}
+            key={`page-${item.route.text}`}
+            active={path === item.route.text}
+            isLastChild={index + 1 === items.length}
           >
-            <Link to={`/${page.url}`}>{page.title}</Link>
+            <Link to={item.route.text}>{item.text.text}</Link>
           </TooltipTypography>
         ))}
       </TooltipContent>

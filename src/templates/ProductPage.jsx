@@ -30,7 +30,7 @@ const ProductPage = ({ data, path }) => {
 
   return (
     <Layout
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -60,7 +60,7 @@ export const query = graphql`
     prismicMailingListForm {
       ...BookADemoData
     }
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {

@@ -9,7 +9,7 @@ const ThankYou = ({ data }) => {
     data.prismicContactPage.data;
   return (
     <Layout
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -23,7 +23,7 @@ const ThankYou = ({ data }) => {
 
 export const query = graphql`
   query test {
-    prismicNavigationBar {
+    prismicNavigation {
       ...NavigationData
     }
     prismicFooter {

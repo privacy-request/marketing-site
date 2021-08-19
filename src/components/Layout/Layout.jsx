@@ -16,7 +16,7 @@ const OverflowWrapper = styled.main`
 const Layout = ({
   children,
   path,
-  navigationBarData,
+  navigationData,
   footerData,
   cookieBannerData,
 }) => {
@@ -28,9 +28,9 @@ const Layout = ({
         </Helmet>
         <GlobalStyles />
         <CookieBanner {...cookieBannerData} />
-        <AppBar path={path} {...navigationBarData} />
+        <AppBar path={path} {...navigationData} />
         <OverflowWrapper>{children}</OverflowWrapper>
-        <Footer {...footerData} navData={navigationBarData} />
+        <Footer {...footerData} navItems={navigationData.body} />
       </CookiesProvider>
     </ThemeProvider>
   );
