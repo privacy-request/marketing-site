@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { SCREEN_SIZES } from "../utils/constants";
 
 export const Wrapper = styled.section`
-  padding: 3rem;
+  padding: 0 3rem;
   width: fit-content;
   position: relative;
-  margin: 9rem auto 9rem auto;
+  margin: 4rem auto 4rem auto;
 
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 5rem;

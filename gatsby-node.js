@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const productPageQueryResults = await wrapper(
     graphql(
       `
-        query MyQuery {
+        query createProductPagesQuery {
           allPrismicProductPage {
             edges {
               node {
@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const legalPageQueryResults = await wrapper(
     graphql(
       `
-        query CreateLegalPageQuery {
+        query CreateLegalPagesQuery {
           allPrismicLegalPage {
             edges {
               node {
@@ -70,6 +70,38 @@ exports.createPages = async ({ graphql, actions }) => {
       component: legalPageTemplate,
       context: {
         slug: legalPage.node.uid,
+      },
+    });
+  });
+
+  // Blog Posts
+  const blogPostQueryResults = await wrapper(
+    graphql(
+      `
+        query CreateBlogPostPagesQuery {
+          allPrismicBlogPost {
+            edges {
+              node {
+                uid
+              }
+            }
+          }
+        }
+      `
+    )
+  );
+
+  const BlogPostTemplate = require.resolve("./src/templates/BlogPost.jsx");
+
+  const blogPosts = blogPostQueryResults.data.allPrismicBlogPost.edges;
+
+  blogPosts.forEach((blogPost) => {
+    console.log(blogPost);
+    createPage({
+      path: `/${blogPost.node.uid}/`,
+      component: BlogPostTemplate,
+      context: {
+        slug: blogPost.node.uid,
       },
     });
   });

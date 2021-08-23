@@ -1,5 +1,11 @@
 {
   "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    },
     "page_title": {
       "type": "StructuredText",
       "config": {

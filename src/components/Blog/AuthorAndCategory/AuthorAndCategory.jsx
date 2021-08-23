@@ -21,8 +21,12 @@ const AuthorAndCategory = ({ avatar, authorName, category, date }) => {
       <TextWrapper>
         <NameAndDate>
           <BlogAuthor>{authorName}</BlogAuthor>
-          <Divider>—</Divider>
-          <BlogDate> {postDate}</BlogDate>
+          {date && (
+            <>
+              <Divider>—</Divider>
+              <BlogDate> {postDate}</BlogDate>
+            </>
+          )}
         </NameAndDate>
         <BlogCategory>{category.toUpperCase()}</BlogCategory>
       </TextWrapper>

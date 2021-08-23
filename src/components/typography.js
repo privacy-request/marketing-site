@@ -418,11 +418,24 @@ export const RichTextWrapper = styled.div`
     font-size: ${fontSize.paragraph.medium};
     margin-bottom: 1.8rem;
     white-space: break-spaces;
+    img {
+      width: 100%;
+      margin: 2rem 0rem;
+    }
   }
   ul {
     list-style: disc;
     margin-left: 3rem;
 
+    li {
+      margin-bottom: 1rem;
+      font-size: ${fontSize.paragraph.medium};
+    }
+    margin-bottom: 1.8rem;
+  }
+
+  ol {
+    margin-left: 3rem;
     li {
       margin-bottom: 1rem;
       font-size: ${fontSize.paragraph.medium};
@@ -437,6 +450,16 @@ export const RichTextWrapper = styled.div`
   h6 {
     font-size: ${fontSize.paragraph.medium};
     margin: 1rem 0 1.8rem 0rem;
+  }
+  h2 {
+    font-size: ${fontSize.paragraph.large};
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+  h3 {
+    font-size: ${fontSize.paragraph.medium};
+    margin-bottom: 1rem;
   }
 `;
 
@@ -497,7 +520,7 @@ export const BlogDescription = styled.p`
   }
 `;
 
-export const BlogReadMore = styled.p`
+export const BlogReadMore = styled(Link)`
   font-size: ${fontSize.paragraph.small};
   color: ${({ theme }) => theme.colour.blue.dark};
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
@@ -533,4 +556,16 @@ export const BlogCategory = styled.p`
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.link.xsmall};
   }
+`;
+
+// Blog Post
+export const BlogPostTitle = styled.h1`
+  font-size: ${fontSize.header.small};
+  max-width: 70rem;
+  margin-bottom: 1rem;
+`;
+
+export const BlogPostDate = styled.p`
+  font-size: ${fontSize.paragraph.xxsmall};
+  margin-bottom: 2.2rem;
 `;

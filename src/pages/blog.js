@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 2.4rem;
+  margin-bottom: 4rem;
 `;
 
 const Post = styled.div`
@@ -27,6 +28,7 @@ const Post = styled.div`
 
 const PostImage = styled.img`
   width: 100%;
+  border-radius: 0.8rem;
 `;
 
 const TitleAndDescription = styled.div`
@@ -36,11 +38,9 @@ const TitleAndDescription = styled.div`
 const Blog = ({ data, path }) => {
   //   const { page_description, page_keywords, page_title } =
   //     data.prismicAboutPage.data;
-  const isMobile = isMobileScreen();
-  console.log(data);
   return (
     <Layout
-      navigationBarData={data.prismicNavigationBar.data}
+      navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -67,7 +67,9 @@ const Blog = ({ data, path }) => {
                   {blogPost.node.data.description.text}
                 </BlogDescription>
               </TitleAndDescription>
-              <BlogReadMore>Read more</BlogReadMore>
+              <BlogReadMore to={`/${blogPost.node.uid}`}>
+                Read more
+              </BlogReadMore>
             </Post>
             {index == 1 && (
               <BookADemoBanner {...data.prismicBookADemoBanner.data} />
@@ -96,6 +98,7 @@ export const query = graphql`
     allPrismicBlogPost {
       edges {
         node {
+          uid
           data {
             author {
               text
