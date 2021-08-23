@@ -414,13 +414,14 @@ export const HeadingWrapper = styled.h2`
 `;
 
 export const RichTextWrapper = styled.div`
+  line-height: 2.6rem;
   p {
     font-size: ${fontSize.paragraph.medium};
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
     white-space: break-spaces;
     img {
       width: 100%;
-      margin: 2rem 0rem;
+      margin: 1rem 0rem;
     }
   }
   ul {
@@ -431,16 +432,16 @@ export const RichTextWrapper = styled.div`
       margin-bottom: 1rem;
       font-size: ${fontSize.paragraph.medium};
     }
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
   }
 
   ol {
     margin-left: 3rem;
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       font-size: ${fontSize.paragraph.medium};
     }
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
   }
 
   a {
@@ -453,13 +454,13 @@ export const RichTextWrapper = styled.div`
   }
   h2 {
     font-size: ${fontSize.paragraph.large};
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
   }
 
   h3 {
     font-size: ${fontSize.paragraph.medium};
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
   }
 `;
 
