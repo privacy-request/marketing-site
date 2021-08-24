@@ -24,13 +24,13 @@ const Wrapper = styled.div`
 const Post = styled.div`
   margin: 4rem 0;
   max-width: 83.3rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const PostImage = styled.img`
-  width: 100%;
+  max-width: 100%;
   border-radius: 0.8rem;
-  object-fit: none;
-  max-height: 40rem;
 `;
 
 const TitleAndDescription = styled.div`
