@@ -1,10 +1,14 @@
 import styled from "styled-components";
+import { SCREEN_SIZES } from "../../utils/constants";
 
 export const Wrapper = styled.div`
   max-width: 85rem;
   margin: auto;
   margin-top: 2rem;
   margin-bottom: 8rem;
+  @media only screen and (max-width: 91rem) {
+    padding: 0 3rem;
+  }
 `;
 
 export const BlogPostImage = styled.img`

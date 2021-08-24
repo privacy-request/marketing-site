@@ -29,6 +29,8 @@ const Post = styled.div`
 const PostImage = styled.img`
   width: 100%;
   border-radius: 0.8rem;
+  object-fit: none;
+  max-height: 40rem;
 `;
 
 const TitleAndDescription = styled.div`
