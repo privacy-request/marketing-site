@@ -6,6 +6,7 @@ export const STATIC_ROUTES = {
   PRIVACY_POLICY: "/privacy-policy",
   TERMS_OF_SERVICE: "/tos",
   BLOG: "/blog",
+  ABOUT: "/about",
 };
 
 export const SCREEN_SIZES = {

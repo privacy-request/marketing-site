@@ -507,6 +507,7 @@ export const BlogTitle = styled.h3`
   font-size: ${fontSize.paragraph.large};
   line-height: 3.1rem;
   margin-bottom: 1.4rem;
+  cursor: pointer;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.paragraph.small};
     margin-bottom: 1.2rem;
@@ -529,7 +530,7 @@ export const BlogReadMore = styled(Link)`
   }
 `;
 
-export const BlogAuthor = styled.p`
+export const BlogAuthor = styled(Link)`
   font-size: ${fontSize.paragraph.small};
   color: ${({ theme }) => theme.colour.blue.dark};
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {

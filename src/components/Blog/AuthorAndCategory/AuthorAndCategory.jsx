@@ -7,6 +7,7 @@ import {
   NameAndDate,
   Divider,
 } from "./AuthorAndCategory.styles";
+import { STATIC_ROUTES } from "../../utils/constants";
 
 const AuthorAndCategory = ({ avatar, authorName, category, date }) => {
   const postDate = new Date(date).toLocaleString("en-US", {
@@ -20,7 +21,7 @@ const AuthorAndCategory = ({ avatar, authorName, category, date }) => {
       <Image image={avatar} height={64} width={64} />
       <TextWrapper>
         <NameAndDate>
-          <BlogAuthor>{authorName}</BlogAuthor>
+          <BlogAuthor to={STATIC_ROUTES.ABOUT}>{authorName}</BlogAuthor>
           {date && (
             <>
               <Divider>—</Divider>

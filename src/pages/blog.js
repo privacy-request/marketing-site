@@ -13,6 +13,7 @@ import AuthorAndCategory from "../components/Blog/AuthorAndCategory/AuthorAndCat
 import BookADemoBanner from "../components/BookADemoBanner/BookADemoBanner";
 import useIntersection from "../components/utils/useIntersection";
 import { Fragment } from "react";
+import { navigate } from "gatsby";
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,6 +33,7 @@ const Post = styled.article`
 const PostImage = styled.img`
   max-width: 100%;
   border-radius: 0.8rem;
+  cursor: pointer;
 `;
 
 const TitleAndDescription = styled.div`
@@ -69,7 +71,10 @@ const Blog = ({ data, path }) => {
         {displayedBlogPosts.map((blogPost, index) => (
           <Fragment key={`blogpost-${blogPost.node.uid}`}>
             <Post ref={index + 1 === display ? ref : null}>
-              <PostImage src={blogPost.node.data.image.url}></PostImage>
+              <PostImage
+                onClick={() => navigate(`/${blogPost.node.uid}`)}
+                src={blogPost.node.data.image.url}
+              ></PostImage>
               <AuthorAndCategory
                 avatar={blogPost.node.data.author_avatar}
                 authorName={blogPost.node.data.author.text}
@@ -77,7 +82,9 @@ const Blog = ({ data, path }) => {
                 category={blogPost.node.data.category}
               />
               <TitleAndDescription>
-                <BlogTitle>{blogPost.node.data.headline.text}</BlogTitle>
+                <BlogTitle onClick={() => navigate(`/${blogPost.node.uid}`)}>
+                  {blogPost.node.data.headline.text}
+                </BlogTitle>
                 <BlogDescription>
                   {blogPost.node.data.description.text}
                 </BlogDescription>
