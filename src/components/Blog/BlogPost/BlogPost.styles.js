@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { SCREEN_SIZES } from "../../utils/constants";
 
 export const Wrapper = styled.div`
   max-width: 85rem;

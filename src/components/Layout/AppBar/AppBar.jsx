@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import NavDesktop from "./NavDesktop/NavDesktop";
 import NavMobile from "./NavMobile/NavMobile";
-import { formatPages } from "../../utils/helpers";
 import isMobileScreen from "../../utils/isMobileScreen";
 
 const AppBar = ({ path, logo_text, logo_icon, body }) => {

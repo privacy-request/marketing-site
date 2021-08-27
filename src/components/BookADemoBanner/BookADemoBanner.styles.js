@@ -27,6 +27,7 @@ export const EmailInput = styled.input`
   padding-left: 1.2rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     width: 100%;
+    margin: 3rem 0rem 1.6rem 0;
   }
 `;
 
@@ -42,6 +43,10 @@ export const BannerBox = styled.div`
     padding: 4rem 2.4rem;
     width: 100%;
     width: fit-content;
+  }
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    flex-direction: column;
+    padding: 2.7;
   }
   box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.09);
 `;

@@ -31,6 +31,7 @@ module.exports = {
         schemas: {
           homepage: require("./custom_types/homepage.json"),
           blog_post: require("./custom_types/blog_post.json"),
+          blog_page: require("./custom_types/blog_page.json"),
           navigation: require("./custom_types/navigation.json"),
           product_page: require("./custom_types/product_page.json"),
           testimonials: require("./custom_types/testimonials.json"),

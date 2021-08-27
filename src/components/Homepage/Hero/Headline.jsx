@@ -51,7 +51,7 @@ const Headline = ({ prefix, typewriter, loop, speed, delay }) => {
 
       return () => clearTimeout(timeout);
     }
-  }, [subIndex, index, reverse, delay, loop, speed]);
+  }, [subIndex, index, reverse, delay, loop, speed, typewriterWords]);
 
   // blinker
   useEffect(() => {

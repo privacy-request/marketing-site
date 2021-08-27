@@ -194,4 +194,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPost;
+export default withPreview(BlogPost);

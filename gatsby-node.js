@@ -96,7 +96,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPosts = blogPostQueryResults.data.allPrismicBlogPost.edges;
 
   blogPosts.forEach((blogPost) => {
-    console.log(blogPost);
     createPage({
       path: `/${blogPost.node.uid}/`,
       component: BlogPostTemplate,

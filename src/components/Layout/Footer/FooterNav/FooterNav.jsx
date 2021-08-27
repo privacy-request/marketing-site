@@ -18,7 +18,7 @@ const FooterNav = ({ navItems, contact, email, phone }) => {
         {navItems.map((item, index) => {
           switch (item.slice_type) {
             case "navigation_item":
-              if (item.primary.route.text == "/contact") {
+              if (item.primary.route.text === "/contact") {
                 return null;
               }
               return (

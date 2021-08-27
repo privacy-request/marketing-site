@@ -3,7 +3,7 @@ import Hero from "../components/Homepage/Hero/Hero";
 import { HomepageContainer } from "../components/Homepage/Homepage.styles";
 import HomepageProducts from "../components/Homepage/Products/Products";
 import Layout from "../components/Layout/Layout";
-import React from "react";
+import React, { useEffect } from "react";
 import Seo from "../components/SEO/SEO";
 import Testimonials from "../components/Testimonials/Testimonials";
 import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
@@ -23,6 +23,7 @@ const Homepage = ({ path, data }) => {
     backspace_delay,
     body,
   } = data.prismicHomepage.data;
+  useEffect(() => sessionStorage && sessionStorage.clear(), []);
   return (
     <Layout
       path={path}

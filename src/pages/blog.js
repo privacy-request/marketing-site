@@ -1,9 +1,8 @@
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
-import isMobileScreen from "../components/utils/isMobileScreen";
 import styled from "styled-components";
 import {
   BlogTitle,
@@ -12,6 +11,7 @@ import {
 } from "../components/typography";
 import AuthorAndCategory from "../components/Blog/AuthorAndCategory/AuthorAndCategory";
 import BookADemoBanner from "../components/BookADemoBanner/BookADemoBanner";
+import useIntersection from "../components/utils/useIntersection";
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   margin-bottom: 4rem;
 `;
 
-const Post = styled.div`
+const Post = styled.article`
   margin: 4rem 0;
   max-width: 83.3rem;
   display: flex;
@@ -38,24 +38,31 @@ const TitleAndDescription = styled.div`
 `;
 
 const Blog = ({ data, path }) => {
-  //   const { page_description, page_keywords, page_title } =
-  //     data.prismicAboutPage.data;
+  const { page_description, page_keywords, page_title } =
+    data.prismicBlogPage.data;
+  const [display, setDisplay] = useState(3);
+  const ref = useRef();
+  const inViewport = useIntersection(ref, "-100px");
+  useEffect(() => {
+    inViewport && setDisplay(display + 3);
+  }, [inViewport, display]);
+  const blogPosts = data.allPrismicBlogPost.edges.slice(0, display);
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
-      {/* <Seo
+      <Seo
         title={page_title.text}
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
-      /> */}
+      />
       <Wrapper>
-        {data.allPrismicBlogPost.edges.map((blogPost, index) => (
+        {blogPosts.map((blogPost, index) => (
           <>
-            <Post>
+            <Post ref={index + 1 === display ? ref : null}>
               <PostImage src={blogPost.node.data.image.url}></PostImage>
               <AuthorAndCategory
                 avatar={blogPost.node.data.author_avatar}
@@ -73,7 +80,7 @@ const Blog = ({ data, path }) => {
                 Read more
               </BlogReadMore>
             </Post>
-            {index == 1 && (
+            {index === 1 && (
               <BookADemoBanner {...data.prismicBookADemoBanner.data} />
             )}
           </>
@@ -96,6 +103,21 @@ export const query = graphql`
     }
     prismicCookieBanner {
       ...CookieBannerData
+    }
+    prismicBlogPage {
+      data {
+        page_description {
+          text
+        }
+        page_keywords {
+          keyword {
+            text
+          }
+        }
+        page_title {
+          text
+        }
+      }
     }
     allPrismicBlogPost {
       edges {
@@ -128,4 +150,4 @@ export const query = graphql`
   }
 `;
 
-export default Blog;
+export default withPreview(Blog);
