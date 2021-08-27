@@ -3,7 +3,11 @@ const linkResolver = (doc) => {
     return `/`;
   }
 
-  if (doc.type === "product_page" || doc.type === "legal_page") {
+  if (
+    doc.type === "product_page" ||
+    doc.type === "legal_page" ||
+    doc.type === "blog_post"
+  ) {
     return `/${doc.uid}`;
   }
 

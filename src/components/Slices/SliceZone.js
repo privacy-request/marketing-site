@@ -4,6 +4,7 @@ import RichTextSection from "./RichTextSection";
 import Heading from "./Heading";
 
 const SliceZone = ({ slices }) => {
+  console.log(slices);
   return slices.map((slice, index) => {
     if (!slice) return null;
     switch (slice.slice_type) {
@@ -14,6 +15,8 @@ const SliceZone = ({ slices }) => {
       case "table2Col":
       case "table5Col":
         return <Table key={index} data={slice} />;
+      case "media":
+        return <></>;
       default:
         return null;
     }
