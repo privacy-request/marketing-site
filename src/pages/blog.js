@@ -12,6 +12,7 @@ import {
 import AuthorAndCategory from "../components/Blog/AuthorAndCategory/AuthorAndCategory";
 import BookADemoBanner from "../components/BookADemoBanner/BookADemoBanner";
 import useIntersection from "../components/utils/useIntersection";
+import { Fragment } from "react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -45,8 +46,13 @@ const Blog = ({ data, path }) => {
   const inViewport = useIntersection(ref, "-100px");
   useEffect(() => {
     inViewport && setDisplay(display + 3);
-  }, [inViewport, display]);
-  const blogPosts = data.allPrismicBlogPost.edges.slice(0, display);
+  }, [inViewport]);
+  const blogPosts = data.allPrismicBlogPost.edges;
+  blogPosts.sort((a, b) => {
+    return new Date(b.node.data.date) - new Date(a.node.data.date);
+  });
+  const displayedBlogPosts = blogPosts.slice(0, display);
+
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
@@ -60,8 +66,8 @@ const Blog = ({ data, path }) => {
         keywords={page_keywords}
       />
       <Wrapper>
-        {blogPosts.map((blogPost, index) => (
-          <>
+        {displayedBlogPosts.map((blogPost, index) => (
+          <Fragment key={`blogpost-${blogPost.node.uid}`}>
             <Post ref={index + 1 === display ? ref : null}>
               <PostImage src={blogPost.node.data.image.url}></PostImage>
               <AuthorAndCategory
@@ -83,7 +89,7 @@ const Blog = ({ data, path }) => {
             {index === 1 && (
               <BookADemoBanner {...data.prismicBookADemoBanner.data} />
             )}
-          </>
+          </Fragment>
         ))}
       </Wrapper>
     </Layout>
@@ -150,4 +156,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(Blog);
+export default Blog;
