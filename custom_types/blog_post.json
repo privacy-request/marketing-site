@@ -66,7 +66,13 @@
     "category": {
       "type": "Select",
       "config": {
-        "options": ["Industry news"],
+        "options": [
+          "Company News",
+          "Policy",
+          "Customer Stories",
+          "Privacy",
+          "Engineering"
+        ],
         "label": "category"
       }
     },
@@ -89,7 +95,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": null,
+        "labels": {},
         "choices": {
           "rich_text_section": {
             "type": "Slice",
@@ -101,7 +107,7 @@
               "content": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading2, heading3, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading2,heading3,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "content"
                 }
               }
@@ -242,22 +248,6 @@
                 }
               }
             }
-          },
-          "media": {
-            "type": "Slice",
-            "fieldset": "Media",
-            "description": "Embed social media links",
-            "icon": "perm_media",
-            "display": "list",
-            "non-repeat": {
-              "link": {
-                "type": "Embed",
-                "config": {
-                  "label": "link"
-                }
-              }
-            },
-            "repeat": {}
           }
         }
       }
