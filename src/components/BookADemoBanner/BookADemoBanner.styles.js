@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { SCREEN_SIZES } from "../utils/constants";
 
 export const Wrapper = styled.section`
-  padding: 0 3rem;
-  width: fit-content;
+  width: 100%;
   position: relative;
   margin: 4rem auto 4rem auto;
 
@@ -13,8 +12,12 @@ export const Wrapper = styled.section`
 `;
 export const MailingListForm = styled.form`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 export const EmailInput = styled.input`
   width: 259px;
@@ -27,26 +30,25 @@ export const EmailInput = styled.input`
   padding-left: 1.2rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     width: 100%;
-    margin: 3rem 0rem 1.6rem 0;
+    margin: 2.7rem 0rem 1.7rem 0;
   }
 `;
 
 export const BannerBox = styled.div`
+  margin: auto;
   background: ${({ theme }) => theme.colour.yellow};
-  width: ${({ theme }) => theme.width.bookADemo};
   border-radius: ${({ theme }) => theme.borderRadius.bookADemo};
   display: flex;
-  align-items: center;
   padding: 2.7rem;
   box-sizing: border-box;
-  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    padding: 4rem 2.4rem;
-    width: 100%;
-    width: fit-content;
-  }
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     flex-direction: column;
     padding: 2.7;
   }
   box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.09);
+`;
+
+export const Text = styled.div`
+  margin-right: 1rem;
+  width: 100%;
 `;

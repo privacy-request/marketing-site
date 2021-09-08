@@ -20,12 +20,12 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 2.4rem;
-  margin-bottom: 4rem;
+  margin: 0 auto 4rem auto;
+  max-width: 83.3rem;
 `;
 
 const Post = styled.article`
   margin: 4rem 0;
-  max-width: 83.3rem;
   display: flex;
   flex-direction: column;
 `;

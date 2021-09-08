@@ -46,7 +46,10 @@ const BlogPost = ({ data, path }) => {
         <BlogPostTitle>{headline.text}</BlogPostTitle>
         <BlogPostDate>{postDate}</BlogPostDate>
         <BlogPostImage src={image.url} />
-        <SliceZone slices={body} />
+        <SliceZone
+          slices={body}
+          bookADemoBannerData={data.prismicBookADemoBanner.data}
+        />
         <AuthorAndCategory
           avatar={author_avatar}
           authorName={author.text}
@@ -61,6 +64,9 @@ export const query = graphql`
   query BlogPostQuery($slug: String) {
     prismicNavigation {
       ...NavigationData
+    }
+    prismicBookADemoBanner {
+      ...BookADemoBannerData
     }
     prismicFooter {
       ...FooterData
@@ -179,13 +185,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyMedia {
-            id
-            primary {
-              link {
-                url
-              }
-            }
+          ... on PrismicBlogPostBodyBookADemoBanner {
             slice_type
           }
         }

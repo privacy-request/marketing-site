@@ -95,7 +95,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {},
+        "labels": null,
         "choices": {
           "rich_text_section": {
             "type": "Slice",
@@ -248,6 +248,15 @@
                 }
               }
             }
+          },
+          "book_a_demo_banner": {
+            "type": "Slice",
+            "fieldset": "Book a demo banner",
+            "description": "book a demo banner",
+            "icon": "call_to_action",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
           }
         }
       }

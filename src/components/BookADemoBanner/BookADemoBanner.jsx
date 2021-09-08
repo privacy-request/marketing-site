@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { navigate } from "gatsby";
-import styled from "styled-components";
 import { BannerHeadline, BannerDescription, CallToAction } from "../typography";
 import { STATIC_ROUTES } from "../utils/constants";
 import {
@@ -8,11 +7,9 @@ import {
   MailingListForm,
   EmailInput,
   BannerBox,
+  Text,
 } from "./BookADemoBanner.styles";
 
-const Text = styled.div`
-  margin-right: 5rem;
-`;
 const BookADemoBanner = ({
   email_input_placeholder,
   headline,
