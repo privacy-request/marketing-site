@@ -157,12 +157,12 @@ export const HomepageHeadline = styled.h1`
   line-height: ${lineHeight.xlarge};
   width: ${({ theme: { width } }) => width.heroHeadline};
   height: auto;
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+  /* @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     height: 8.5rem;
   }
   @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
     height: 12rem;
-  }
+  } */
   background: linear-gradient(
     92.13deg,
     #009dff 3.73%,
@@ -184,8 +184,10 @@ export const HomepageHeadline = styled.h1`
 `;
 
 export const HomepageSubHeadline = styled(Paragraph)`
+  line-height: ${lineHeight.xsmall};
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    margin-bottom: 3.2rem;
+    margin-bottom: 1.6rem;
+    line-height: ${lineHeight.xxsmall};
   }
 `;
 
