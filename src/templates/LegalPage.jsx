@@ -88,6 +88,18 @@ export const query = graphql`
           text
         }
         body {
+          ... on PrismicLegalPageBodyNestedList {
+            slice_type
+            slice_label
+            items {
+              list_item {
+                text
+              }
+              nested_list {
+                raw
+              }
+            }
+          }
           ... on PrismicLegalPageBodyHeading {
             id
             primary {
