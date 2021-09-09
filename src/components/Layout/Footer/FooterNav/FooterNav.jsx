@@ -47,17 +47,6 @@ const FooterNav = ({ navItems, contact, email, phone }) => {
               return null;
           }
         })}
-        <NavSubList>
-          <DesktopNavItem>
-            <Link to={STATIC_ROUTES.CONTACT}>{contact.text}</Link>
-          </DesktopNavItem>
-          <DesktopNavSubitem noHover>
-            <HyperLink href={`mailto:${email.text}`} target="_blank">
-              {email.text}
-            </HyperLink>
-          </DesktopNavSubitem>
-          <DesktopNavSubitem noHover>{phone.text}</DesktopNavSubitem>
-        </NavSubList>
       </NavList>
     </nav>
   );
