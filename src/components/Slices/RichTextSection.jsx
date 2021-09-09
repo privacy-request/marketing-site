@@ -5,7 +5,7 @@ import { RichTextWrapper } from "../typography";
 const RichTextSection = ({ data }) => {
   return (
     <RichTextWrapper>
-      <RichText render={data.primary.content.raw} />
+      <RichText render={data} />
     </RichTextWrapper>
   );
 };

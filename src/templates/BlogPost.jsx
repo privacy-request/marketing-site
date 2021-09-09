@@ -188,6 +188,18 @@ export const query = graphql`
           ... on PrismicBlogPostBodyBookADemoBanner {
             slice_type
           }
+          ... on PrismicBlogPostBodyNestedList {
+            slice_type
+            slice_label
+            items {
+              list_item {
+                text
+              }
+              nested_list {
+                raw
+              }
+            }
+          }
         }
       }
     }

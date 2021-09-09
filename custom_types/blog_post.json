@@ -95,7 +95,18 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": null,
+        "labels": {
+          "nested_list": [
+            {
+              "display": "ordered list",
+              "name": "ordered_list"
+            },
+            {
+              "display": "unordered list",
+              "name": "unordered_list"
+            }
+          ]
+        },
         "choices": {
           "rich_text_section": {
             "type": "Slice",
@@ -257,6 +268,30 @@
             "display": "list",
             "non-repeat": {},
             "repeat": {}
+          },
+          "nested_list": {
+            "type": "Slice",
+            "fieldset": "Nested List",
+            "description": "nested list",
+            "icon": "list",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "list_item": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading3,heading6,strong,em",
+                  "label": "list item"
+                }
+              },
+              "nested_list": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+                  "label": "nested list"
+                }
+              }
+            }
           }
         }
       }
