@@ -18,6 +18,7 @@ const AuthorAndCategory = ({ avatar, authorName, category, date }) => {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
 
   return (
