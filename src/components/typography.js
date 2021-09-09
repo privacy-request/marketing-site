@@ -532,9 +532,9 @@ export const BlogReadMore = styled(Link)`
   }
 `;
 
-export const BlogAuthor = styled(Link)`
+export const BlogAuthor = styled.p`
   font-size: ${fontSize.paragraph.small};
-  color: ${({ theme }) => theme.colour.blue.dark};
+  /* color: ${({ theme }) => theme.colour.blue.dark}; */
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.paragraph.xsmall};
   }

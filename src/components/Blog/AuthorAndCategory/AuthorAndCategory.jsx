@@ -31,7 +31,7 @@ const AuthorAndCategory = ({ avatar, authorName, category, date }) => {
       />
       <TextWrapper>
         <NameAndDate>
-          <BlogAuthor to={STATIC_ROUTES.ABOUT}>{authorName}</BlogAuthor>
+          <BlogAuthor>{authorName}</BlogAuthor>
           {date && (
             <>
               <Divider>—</Divider>
