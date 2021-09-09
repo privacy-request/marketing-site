@@ -42,6 +42,13 @@ const TitleAndDescription = styled.div`
   margin-bottom: 3rem;
 `;
 
+export const Line = styled.div`
+  width: 100%;
+  height: 2px;
+  background: ${({ theme }) => theme.colour.grey.light};
+  margin: 4.6rem 0rem;
+`;
+
 const Blog = ({ data, path }) => {
   const { page_description, page_keywords, page_title } =
     data.prismicBlogPage.data;
@@ -95,6 +102,7 @@ const Blog = ({ data, path }) => {
                 Read more
               </BlogReadMore>
             </Post>
+            <Line />
             {index === 1 && (
               <BookADemoBanner {...data.prismicBookADemoBanner.data} />
             )}
