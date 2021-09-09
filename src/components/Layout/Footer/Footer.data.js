@@ -3,15 +3,6 @@ import { graphql } from "gatsby";
 export const query = graphql`
   fragment FooterData on PrismicFooter {
     data {
-      contact {
-        text
-      }
-      email {
-        text
-      }
-      phone {
-        text
-      }
       privacy_center {
         text
       }

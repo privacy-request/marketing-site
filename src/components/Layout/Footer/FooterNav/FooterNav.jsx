@@ -8,7 +8,7 @@ import {
 import { STATIC_ROUTES } from "../../../utils/constants";
 import { NavList, NavSubList, NavItem } from "./FooterNav.styles";
 
-const FooterNav = ({ navItems, contact, email, phone }) => {
+const FooterNav = ({ navItems }) => {
   return (
     <nav>
       <NavList>
