@@ -28,6 +28,7 @@ const BlogPost = ({ data, path }) => {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
 
   return (
