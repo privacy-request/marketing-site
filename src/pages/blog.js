@@ -33,7 +33,7 @@ const PostImage = styled.img`
   max-width: 100%;
   border-radius: 0.8rem;
   cursor: pointer;
-  height: 400px;
+  max-height: 400px;
   object-fit: cover;
 `;
 
