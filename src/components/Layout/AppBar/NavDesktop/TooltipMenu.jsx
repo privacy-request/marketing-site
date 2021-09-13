@@ -9,7 +9,7 @@ const TooltipWrapper = styled.ul`
 `;
 
 const Title = styled(DesktopNavItem)`
-  cursor: default;
+  cursor: pointer;
 `;
 
 const Tooltip = styled.div`

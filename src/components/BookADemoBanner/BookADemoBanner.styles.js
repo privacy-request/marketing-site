@@ -1,13 +1,10 @@
 import styled from "styled-components";
 import { SCREEN_SIZES } from "../utils/constants";
-import BookADemoLeft from "../../../assets/bookADemoLeft.svg";
-import BookADemoRight from "../../../assets/bookADemoRight.svg";
 
 export const Wrapper = styled.section`
-  padding: 3rem;
-  width: fit-content;
+  width: 100%;
   position: relative;
-  margin: 9rem auto 9rem auto;
+  margin: 4rem auto 4rem auto;
 
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 5rem;
@@ -15,51 +12,43 @@ export const Wrapper = styled.section`
 `;
 export const MailingListForm = styled.form`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 export const EmailInput = styled.input`
-  width: 307px;
+  width: 259px;
   height: 48px;
   border-radius: ${({ theme }) => theme.borderRadius.input};
   outline: none;
   border: none;
   font-size: 1.8rem;
   margin-right: 1.6rem;
-  margin-bottom: 1.6rem;
   padding-left: 1.2rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     width: 100%;
+    margin: 2.7rem 0rem 1.7rem 0;
   }
 `;
 
-export const Box = styled.div`
+export const BannerBox = styled.div`
+  margin: auto;
   background: ${({ theme }) => theme.colour.yellow};
-  width: ${({ theme }) => theme.width.bookADemo};
   border-radius: ${({ theme }) => theme.borderRadius.bookADemo};
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5.6rem;
+  padding: 2.7rem;
   box-sizing: border-box;
-  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    padding: 4rem 2.4rem;
-    width: 100%;
-    width: fit-content;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    flex-direction: column;
+    padding: 2.7;
   }
   box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.09);
 `;
 
-export const BookADemoBackgroundLeft = styled(BookADemoLeft)`
-  position: absolute;
-  left: -150px;
-  top: 0;
-  mix-blend-mode: saturation;
-`;
-
-export const BookADemoBackgroundRight = styled(BookADemoRight)`
-  position: absolute;
-  right: -100px;
-  bottom: -50px;
-  mix-blend-mode: saturation;
+export const Text = styled.div`
+  margin-right: 1rem;
+  width: 100%;
 `;

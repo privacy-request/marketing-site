@@ -51,7 +51,7 @@ const Headline = ({ prefix, typewriter, loop, speed, delay }) => {
 
       return () => clearTimeout(timeout);
     }
-  }, [subIndex, index, reverse, delay, loop, speed]);
+  }, [subIndex, index, reverse, delay, loop, speed, typewriterWords]);
 
   // blinker
   useEffect(() => {
@@ -66,9 +66,12 @@ const Headline = ({ prefix, typewriter, loop, speed, delay }) => {
       <HomepageHeadline>
         {prefix.text}
         <br />
-        {typewriterWords.length > 0 &&
-          ` ${typewriterWords[index].substring(0, subIndex)} `}
-        <Cursor>{`${blink ? "|" : " "}`}</Cursor>
+        {typewriterWords.length > 0 && (
+          <>
+            {` ${typewriterWords[index].substring(0, subIndex)} `}
+            <Cursor>{`${blink ? "|" : " "}`}</Cursor>
+          </>
+        )}
       </HomepageHeadline>
     </>
   );

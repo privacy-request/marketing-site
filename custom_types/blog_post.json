@@ -1,17 +1,23 @@
 {
   "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    },
     "page_title": {
       "type": "StructuredText",
       "config": {
         "single": "heading5",
-        "label": "Page Title"
+        "label": "Page title"
       }
     },
     "page_description": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph",
-        "label": "Page Description"
+        "single": "heading5",
+        "label": "Page description"
       }
     },
     "page_keywords": {
@@ -22,24 +28,67 @@
             "type": "StructuredText",
             "config": {
               "single": "heading5",
-              "label": "Keyword"
+              "label": "keyword"
             }
           }
         },
-        "label": "Page Keywords"
+        "label": "page keywords"
       }
     },
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "id"
-      }
-    },
-    "header": {
+    "headline": {
       "type": "StructuredText",
       "config": {
         "single": "heading1",
-        "label": "Header"
+        "label": "Headline"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Description"
+      }
+    },
+    "date": {
+      "type": "Date",
+      "config": {
+        "label": "Date"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    },
+    "category": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "Company News",
+          "Policy",
+          "Customer Stories",
+          "Privacy",
+          "Engineering"
+        ],
+        "label": "category"
+      }
+    },
+    "author": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Author"
+      }
+    },
+    "author_avatar": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Author avatar"
       }
     },
     "body": {
@@ -47,30 +96,18 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "section": [],
-          "heading": [],
-          "table_2_col": [],
-          "table_5_col": [],
-          "rich_text_section": []
+          "nested_list": [
+            {
+              "display": "ordered list",
+              "name": "ordered_list"
+            },
+            {
+              "display": "unordered list",
+              "name": "unordered_list"
+            }
+          ]
         },
         "choices": {
-          "heading": {
-            "type": "Slice",
-            "fieldset": "Heading",
-            "description": "ToC friendly heading",
-            "icon": "vertical_align_top",
-            "display": "list",
-            "non-repeat": {
-              "heading": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1",
-                  "label": "Heading"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "rich_text_section": {
             "type": "Slice",
             "fieldset": "Rich text",
@@ -81,56 +118,12 @@
               "content": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "multi": "paragraph,preformatted,heading2,heading3,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "content"
                 }
               }
             },
             "repeat": {}
-          },
-          "table2Col": {
-            "type": "Slice",
-            "fieldset": "Table (2 col)",
-            "description": "Rows of repeatable data",
-            "icon": "grid_on",
-            "non-repeat": {
-              "col1": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading5",
-                  "label": "Col1",
-                  "placeholder": "Col 1 header"
-                }
-              },
-              "col2": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading5",
-                  "label": "Col2",
-                  "placeholder": "Col 2 header"
-                }
-              }
-            },
-            "repeat": {
-              "col1": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
-                  "allowTargetBlank": true,
-                  "label": "col1",
-                  "placeholder": "Column 1 content..."
-                }
-              },
-              "col2": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
-                  "allowTargetBlank": true,
-                  "label": "col2",
-                  "placeholder": "Column 2 content..."
-                }
-              }
-            }
           },
           "table5Col": {
             "type": "Slice",
@@ -223,6 +216,59 @@
               }
             }
           },
+          "table2Col": {
+            "type": "Slice",
+            "fieldset": "Table (2 col)",
+            "description": "Rows of repeatable data",
+            "icon": "grid_on",
+            "non-repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col1",
+                  "placeholder": "Col 1 header"
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col2",
+                  "placeholder": "Col 2 header"
+                }
+              }
+            },
+            "repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "col1",
+                  "placeholder": "Column 1 content..."
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "col2",
+                  "placeholder": "Column 2 content..."
+                }
+              }
+            }
+          },
+          "book_a_demo_banner": {
+            "type": "Slice",
+            "fieldset": "Book a demo banner",
+            "description": "book a demo banner",
+            "icon": "call_to_action",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
+          },
           "nested_list": {
             "type": "Slice",
             "fieldset": "Nested List",
@@ -241,7 +287,7 @@
               "nested_list": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
                   "label": "nested list"
                 }
               }

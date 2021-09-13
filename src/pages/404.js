@@ -4,6 +4,8 @@ import { withUnpublishedPreview } from "gatsby-source-prismic";
 import LegalPage from "../templates/LegalPage";
 import ProductPage from "../templates/ProductPage";
 import Homepage from "./index";
+import BlogPost from "../templates/BlogPost";
+import BlogPage from "./blog";
 
 import Layout from "../components/Layout/Layout";
 
@@ -41,5 +43,7 @@ export default withUnpublishedPreview(NotFoundPage, {
     prismicHomepage: Homepage,
     product_page: ProductPage,
     legal_page: LegalPage,
+    blog_post: BlogPost,
+    blogPage: BlogPage,
   },
 });

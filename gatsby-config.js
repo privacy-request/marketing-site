@@ -30,6 +30,8 @@ module.exports = {
         releaseID: "",
         schemas: {
           homepage: require("./custom_types/homepage.json"),
+          blog_post: require("./custom_types/blog_post.json"),
+          blog_page: require("./custom_types/blog_page.json"),
           navigation: require("./custom_types/navigation.json"),
           product_page: require("./custom_types/product_page.json"),
           testimonials: require("./custom_types/testimonials.json"),
@@ -43,6 +45,7 @@ module.exports = {
           trusted_customers: require("./custom_types/trusted_customers.json"),
           demo_cta: require("./custom_types/demo_cta.json"),
           legal_page_nav: require("./custom_types/legal_page_nav.json"),
+          book_a_demo_banner: require("./custom_types/book_a_demo_banner.json"),
         },
       },
     },

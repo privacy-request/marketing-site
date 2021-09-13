@@ -8,7 +8,7 @@ import {
 import { STATIC_ROUTES } from "../../../utils/constants";
 import { NavList, NavSubList, NavItem } from "./FooterNav.styles";
 
-const FooterNav = ({ navItems, contact, email, phone }) => {
+const FooterNav = ({ navItems }) => {
   return (
     <nav>
       <NavList>
@@ -18,7 +18,7 @@ const FooterNav = ({ navItems, contact, email, phone }) => {
         {navItems.map((item, index) => {
           switch (item.slice_type) {
             case "navigation_item":
-              if (item.primary.route.text == "/contact") {
+              if (item.primary.route.text === "/contact") {
                 return null;
               }
               return (
@@ -47,17 +47,6 @@ const FooterNav = ({ navItems, contact, email, phone }) => {
               return null;
           }
         })}
-        <NavSubList>
-          <DesktopNavItem>
-            <Link to={STATIC_ROUTES.CONTACT}>{contact.text}</Link>
-          </DesktopNavItem>
-          <DesktopNavSubitem noHover>
-            <HyperLink href={`mailto:${email.text}`} target="_blank">
-              {email.text}
-            </HyperLink>
-          </DesktopNavSubitem>
-          <DesktopNavSubitem noHover>{phone.text}</DesktopNavSubitem>
-        </NavSubList>
       </NavList>
     </nav>
   );

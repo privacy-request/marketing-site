@@ -157,12 +157,12 @@ export const HomepageHeadline = styled.h1`
   line-height: ${lineHeight.xlarge};
   width: ${({ theme: { width } }) => width.heroHeadline};
   height: auto;
-  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+  /* @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     height: 8.5rem;
   }
   @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
     height: 12rem;
-  }
+  } */
   background: linear-gradient(
     92.13deg,
     #009dff 3.73%,
@@ -184,8 +184,10 @@ export const HomepageHeadline = styled.h1`
 `;
 
 export const HomepageSubHeadline = styled(Paragraph)`
+  line-height: ${lineHeight.xsmall};
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
-    margin-bottom: 3.2rem;
+    margin-bottom: 1.6rem;
+    line-height: ${lineHeight.xxsmall};
   }
 `;
 
@@ -414,10 +416,14 @@ export const HeadingWrapper = styled.h2`
 `;
 
 export const RichTextWrapper = styled.div`
+  line-height: 2.6rem;
   p {
     font-size: ${fontSize.paragraph.medium};
-    margin-bottom: 1.8rem;
+    margin-bottom: 2.6rem;
     white-space: break-spaces;
+    img {
+      width: 100%;
+    }
   }
   ul {
     list-style: disc;
@@ -427,7 +433,16 @@ export const RichTextWrapper = styled.div`
       margin-bottom: 1rem;
       font-size: ${fontSize.paragraph.medium};
     }
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  ol {
+    margin-left: 3rem;
+    li {
+      margin-bottom: 2rem;
+      font-size: ${fontSize.paragraph.medium};
+    }
+    margin-bottom: 2rem;
   }
 
   a {
@@ -437,6 +452,16 @@ export const RichTextWrapper = styled.div`
   h6 {
     font-size: ${fontSize.paragraph.medium};
     margin: 1rem 0 1.8rem 0rem;
+  }
+  h2 {
+    font-size: ${fontSize.paragraph.large};
+    margin-bottom: 3rem;
+    margin-top: 4rem;
+  }
+
+  h3 {
+    font-size: ${fontSize.paragraph.medium};
+    margin-bottom: 3rem;
   }
 `;
 
@@ -465,4 +490,85 @@ export const TableCell = styled.td`
   a {
     color: ${({ theme }) => theme.colour.blue.dark};
   }
+`;
+
+// Book a demo banner
+export const BannerHeadline = styled.h4`
+  font-size: ${fontSize.paragraph.medium};
+  margin-bottom: 0.6rem;
+`;
+
+export const BannerDescription = styled.p`
+  font-size: ${fontSize.paragraph.xsmall};
+`;
+
+// Blog Page
+export const BlogTitle = styled.h3`
+  font-weight: bold;
+  font-size: ${fontSize.paragraph.large};
+  line-height: 3.1rem;
+  margin-bottom: 1.4rem;
+  cursor: pointer;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.small};
+    margin-bottom: 1.2rem;
+  }
+`;
+
+export const BlogDescription = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  line-height: 2rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const BlogReadMore = styled(Link)`
+  font-size: ${fontSize.paragraph.small};
+  color: ${({ theme }) => theme.colour.blue.dark};
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const BlogAuthor = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  /* color: ${({ theme }) => theme.colour.blue.dark}; */
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const BlogDate = styled.p`
+  font-size: ${fontSize.paragraph.small};
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.paragraph.xsmall};
+  }
+`;
+
+export const BlogCategory = styled.p`
+  font-size: ${fontSize.header.xxsmall};
+  font-weight: bold;
+  color: ${({ theme }) => theme.colour.blue.medium};
+  background: ${({ theme }) => theme.colour.blue.light};
+
+  width: fit-content;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+
+  @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+    font-size: ${fontSize.link.xsmall};
+  }
+`;
+
+// Blog Post
+export const BlogPostTitle = styled.h1`
+  font-size: ${fontSize.header.small};
+  max-width: 70rem;
+  margin-bottom: 1rem;
+`;
+
+export const BlogPostDate = styled.p`
+  font-size: ${fontSize.paragraph.xxsmall};
+  margin-bottom: 2.2rem;
 `;

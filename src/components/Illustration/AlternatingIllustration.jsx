@@ -1,5 +1,5 @@
 import { Img, Wrapper } from "./Illustration.styles";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Transition } from "react-transition-group";
 import styled from "styled-components";
 import isMobileScreen from "../utils/isMobileScreen";
@@ -47,7 +47,7 @@ const AlternatingIllustration = ({
       clearTimeout(incrementFocusedIllustration);
       clearTimeout(triggerAnimation);
     };
-  }, [focusedIllustrationIndex, rotation_speed]);
+  }, [focusedIllustrationIndex, rotation_speed, illustrations]);
 
   const responsiveProps = isMobileScreen()
     ? {

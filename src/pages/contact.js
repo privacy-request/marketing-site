@@ -1,28 +1,23 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Layout from "../../components/Layout/Layout";
-import Seo from "../../components/SEO/SEO";
+import Layout from "../components/Layout/Layout";
+import Seo from "../components/SEO/SEO";
 import { withPreview } from "gatsby-source-prismic";
-import isMobileScreen from "../../components/utils/isMobileScreen";
+import isMobileScreen from "../components/utils/isMobileScreen";
+import { CompanyPageParagraph } from "../components/typography";
+import { Wrapper } from "../components/About/About.styles";
 import {
   CompanyPageTitle,
   CompanyPageSubTitle,
-  SalesCardTitle,
-  SalesCardParagraph,
-} from "../../components/typography";
+} from "../components/typography";
 import {
-  Wrapper,
   ContactHeroBackground,
   Ellipse,
   Content,
-  ContactFormCard,
-  SalesCard,
+  Card,
   ContactHero,
-  Email,
-  Phone,
-  Blob,
-} from "../../components/ContactPage/ContactPage.styles";
-import ContactForm from "../../components/ContactPage/ContactForm/ContactForm";
+} from "../components/ContactPage/ContactPage.styles";
+import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 
 const ContactPage = ({ data, path }) => {
   const {
@@ -38,17 +33,12 @@ const ContactPage = ({ data, path }) => {
     job_title_company_label,
     message_label,
     submit_button,
-    sales_associate_headline,
-    email_prefix,
-    email,
-    phone_prefix,
-    phone,
   } = data.prismicContactPage.data;
   const isMobile = isMobileScreen();
 
   return (
     <Layout
-      navigationData={data.prismicNavigation.data}
+      navigationBarData={data.prismicNavigationBar.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
     >
@@ -62,11 +52,11 @@ const ContactPage = ({ data, path }) => {
         <ContactHero>
           <CompanyPageTitle>{headline.text}</CompanyPageTitle>
           <CompanyPageSubTitle>{subheadline.text}</CompanyPageSubTitle>
-          {!isMobile && <ContactHeroBackground />}
         </ContactHero>
+        {!isMobile && <ContactHeroBackground />}
         <Content>
           <Ellipse />
-          <ContactFormCard>
+          <Card>
             <ContactForm
               {...{
                 first_name_label,
@@ -78,19 +68,7 @@ const ContactPage = ({ data, path }) => {
                 submit_button,
               }}
             />
-          </ContactFormCard>
-          {!isMobile && <Blob />}
-          <SalesCard>
-            <SalesCardTitle>{sales_associate_headline.text}</SalesCardTitle>
-            <SalesCardParagraph>
-              {email_prefix.text}
-              <Email href={`mailto:${email.text}`} target="_blank">
-                {email.text}
-              </Email>
-              {phone_prefix.text}
-              <Phone href={`tel:+${phone.text}`}>{phone.text}</Phone>.
-            </SalesCardParagraph>
-          </SalesCard>
+          </Card>
         </Content>
       </Wrapper>
     </Layout>
@@ -98,7 +76,7 @@ const ContactPage = ({ data, path }) => {
 };
 
 export const query = graphql`
-  query HomepageQuery {
+  query ContactPageQuery {
     prismicNavigation {
       ...NavigationData
     }
@@ -169,4 +147,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(ContactPage);
+export default ContactPage;

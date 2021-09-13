@@ -5,9 +5,6 @@ import FooterSocial from "./FooterSocial/FooterSocial";
 import { Wrapper, Line } from "./Footer.styles";
 
 const Footer = ({
-  contact,
-  email,
-  phone,
   privacy_center,
   privacy_center_icon,
   privacy_center_links,
@@ -17,14 +14,7 @@ const Footer = ({
 }) => {
   return (
     <Wrapper>
-      <FooterNav
-        {...{
-          contact,
-          email,
-          phone,
-          navItems,
-        }}
-      />
+      <FooterNav navItems={navItems} />
       <Line />
       <FooterPrivacyCenter
         {...{ privacy_center, privacy_center_icon, privacy_center_links }}
