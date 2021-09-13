@@ -2,7 +2,6 @@ import { graphql } from "gatsby";
 import React, { useRef, useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
-import { withPreview } from "gatsby-source-prismic";
 import styled from "styled-components";
 import {
   BlogTitle,
@@ -81,7 +80,7 @@ const Blog = ({ data, path }) => {
           <Fragment key={`blogpost-${blogPost.node.uid}`}>
             <Post ref={index + 1 === display ? ref : null}>
               <PostImage
-                onClick={() => navigate(`/${blogPost.node.uid}`)}
+                onClick={() => navigate(`/blog/${blogPost.node.uid}`)}
                 src={blogPost.node.data.image.url}
               ></PostImage>
               <AuthorAndCategory
@@ -91,14 +90,16 @@ const Blog = ({ data, path }) => {
                 category={blogPost.node.data.category}
               />
               <TitleAndDescription>
-                <BlogTitle onClick={() => navigate(`/${blogPost.node.uid}`)}>
+                <BlogTitle
+                  onClick={() => navigate(`/blog/${blogPost.node.uid}`)}
+                >
                   {blogPost.node.data.headline.text}
                 </BlogTitle>
                 <BlogDescription>
                   {blogPost.node.data.description.text}
                 </BlogDescription>
               </TitleAndDescription>
-              <BlogReadMore to={`/${blogPost.node.uid}`}>
+              <BlogReadMore to={`/blog/${blogPost.node.uid}`}>
                 Read more
               </BlogReadMore>
             </Post>
