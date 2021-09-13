@@ -3,14 +3,12 @@ const linkResolver = (doc) => {
     return `/`;
   }
 
-  if (
-    doc.type === "product_page" ||
-    doc.type === "legal_page" ||
-    doc.type === "blog_post"
-  ) {
+  if (doc.type === "product_page" || doc.type === "legal_page") {
     return `/${doc.uid}`;
   }
-
+  if (doc.type === "blog_post") {
+    return `/blog/${doc.uid}`;
+  }
   if (doc.type === "calendar_page") {
     return `/apply`;
   }

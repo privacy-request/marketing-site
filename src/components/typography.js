@@ -419,11 +419,10 @@ export const RichTextWrapper = styled.div`
   line-height: 2.6rem;
   p {
     font-size: ${fontSize.paragraph.medium};
-    margin-bottom: 2rem;
+    margin-bottom: 2.6rem;
     white-space: break-spaces;
     img {
       width: 100%;
-      margin: 1rem 0rem;
     }
   }
   ul {
@@ -457,7 +456,7 @@ export const RichTextWrapper = styled.div`
   h2 {
     font-size: ${fontSize.paragraph.large};
     margin-bottom: 3rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
   }
 
   h3 {
