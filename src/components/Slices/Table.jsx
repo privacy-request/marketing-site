@@ -44,9 +44,7 @@ const Table = ({ data }) => {
   return (
     <Wrapper>
       <Head>
-        {headers.map((header) => (
-          <Heading>{header}</Heading>
-        ))}
+        {headers.map((header) => header && <Heading>{header}</Heading>)}
       </Head>
       {data.items.map((row) => (
         <Row>
