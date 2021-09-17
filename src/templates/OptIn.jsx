@@ -2,11 +2,22 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
-import { Wrapper, Ellipse } from "../components/OptIn/OptIn.styles";
+import {
+  Wrapper,
+  Ellipse,
+  LeftBlob,
+  RightBlob,
+  HeroBlocks,
+  Left,
+  Right,
+  Content,
+} from "../components/OptIn/OptIn.styles";
+import isMobileScreen from "../components/utils/isMobileScreen";
 
 const OptIn = ({ data, path }) => {
   const { page_description, page_keywords, page_title } =
     data.prismicOptInPage.data;
+  const isMobile = isMobileScreen();
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
@@ -20,6 +31,17 @@ const OptIn = ({ data, path }) => {
         keywords={page_keywords}
       />
       <Wrapper>
+        <Content>
+          <Left>{!isMobile && <HeroBlocks />}</Left>
+          <Right></Right>
+        </Content>
+
+        {!isMobile && (
+          <>
+            <LeftBlob />
+            <RightBlob />
+          </>
+        )}
         <Ellipse />
       </Wrapper>
     </Layout>
