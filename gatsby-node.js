@@ -104,4 +104,34 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  // Opt In
+  const optInQueryResults = await wrapper(
+    graphql(
+      `
+        query CreateOptInPagesQuery {
+          allPrismicOptInPage {
+            edges {
+              node {
+                uid
+              }
+            }
+          }
+        }
+      `
+    )
+  );
+
+  const OptInPageTemplate = require.resolve("./src/templates/OptIn.jsx");
+  const OptInPages = optInQueryResults.data.allPrismicOptInPage.edges;
+
+  OptInPages.forEach((OptInPage) => {
+    createPage({
+      path: `/${OptInPage.node.uid}/`,
+      component: OptInPageTemplate,
+      context: {
+        slug: OptInPage.node.uid,
+      },
+    });
+  });
 };

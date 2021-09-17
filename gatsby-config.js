@@ -46,6 +46,7 @@ module.exports = {
           demo_cta: require("./custom_types/demo_cta.json"),
           legal_page_nav: require("./custom_types/legal_page_nav.json"),
           book_a_demo_banner: require("./custom_types/book_a_demo_banner.json"),
+          opt_in_page: require("./custom_types/opt_in_page.json"),
         },
       },
     },
