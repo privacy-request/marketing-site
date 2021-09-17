@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
+import { RichText } from "prismic-reactjs";
 import {
   Wrapper,
   Ellipse,
@@ -12,10 +13,12 @@ import {
   Right,
   Content,
 } from "../components/OptIn/OptIn.styles";
+import { OptInRichTextWrapper } from "../components/typography";
 import isMobileScreen from "../components/utils/isMobileScreen";
 
 const OptIn = ({ data, path }) => {
-  const { page_description, page_keywords, page_title } =
+  console.log(data);
+  const { page_description, page_keywords, page_title, left_side_rich_text } =
     data.prismicOptInPage.data;
   const isMobile = isMobileScreen();
   return (
@@ -32,7 +35,14 @@ const OptIn = ({ data, path }) => {
       />
       <Wrapper>
         <Content>
-          <Left>{!isMobile && <HeroBlocks />}</Left>
+          <Left>
+            <>
+              <OptInRichTextWrapper>
+                <RichText render={left_side_rich_text.raw} />
+              </OptInRichTextWrapper>
+              {!isMobile && <HeroBlocks />}
+            </>
+          </Left>
           <Right></Right>
         </Content>
 
@@ -74,6 +84,15 @@ export const query = graphql`
           }
         }
         page_title {
+          text
+        }
+        left_side_rich_text {
+          raw
+        }
+        form_title {
+          text
+        }
+        form_submit {
           text
         }
       }

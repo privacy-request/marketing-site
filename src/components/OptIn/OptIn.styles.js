@@ -3,6 +3,7 @@ import AboutContentEllipse from "../../../assets/aboutContentEllipse.svg";
 import OptInLeftBlob from "../../../assets/optInLeftBlob.svg";
 import OptInRightBlob from "../../../assets/optInRightBlob.svg";
 import OptInHero from "../../../assets/optInHero.svg";
+import { SCREEN_SIZES } from "../utils/constants";
 
 export const Wrapper = styled.div`
   background: linear-gradient(
@@ -17,31 +18,50 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 0 3rem;
+  height: 100%;
 `;
 
 export const Ellipse = styled(AboutContentEllipse)`
   position: absolute;
   top: 68rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    top: 160rem;
+  }
   @media only screen and (min-width: 1441px) {
     transform: scale(1.6);
-    top: 78rem;
+    top: 90rem;
   }
   @media only screen and (min-width: 2440px) {
     transform: scale(2.2);
+    top: 110rem;
   }
 `;
 
 export const Content = styled.div`
   display: flex;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin-top: 3rem;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 export const Left = styled.div`
   position: relative;
-  width: 51.3rem;
+  max-width: 51.3rem;
+  margin-right: 3rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin-right: 0;
+  }
 `;
 
 export const Right = styled.div`
   width: 68.7rem;
+  height: 839px;
 `;
 
 export const LeftBlob = styled(OptInLeftBlob)`

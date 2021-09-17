@@ -33,7 +33,7 @@ const textDecoration = {
 const lineHeight = {
   xsmall: "2.7rem",
   small: "3rem",
-  medium: "4rem",
+  medium: "4.1rem",
   large: "5.2rem",
   xlarge: "8.3rem",
 };
@@ -571,4 +571,67 @@ export const BlogPostTitle = styled.h1`
 export const BlogPostDate = styled.p`
   font-size: ${fontSize.paragraph.xxsmall};
   margin-bottom: 2.2rem;
+`;
+
+// Opt-in Page
+export const OptInRichTextWrapper = styled.div`
+  color: ${({ theme }) => theme.colour.white};
+  h1 {
+    font-size: ${fontSize.header.medium};
+    line-height: ${lineHeight.large};
+    margin-bottom: 1.6rem;
+    @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+      font-size: ${fontSize.header.small};
+      line-height: ${lineHeight.medium};
+    }
+  }
+  h2 {
+    font-size: ${fontSize.header.small};
+    line-height: ${lineHeight.medium};
+    margin-bottom: 1.6rem;
+    @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+      font-size: ${fontSize.header.xsmall};
+      line-height: ${lineHeight.small};
+    }
+  }
+  p {
+    font-size: ${fontSize.paragraph.medium};
+    margin-bottom: 3.5rem;
+    @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+      font-size: ${fontSize.paragraph.small};
+      line-height: 2.1rem;
+      margin-bottom: 2.1rem;
+    }
+  }
+
+  ol {
+    margin-left: 2.4rem;
+    font-size: ${fontSize.paragraph.medium};
+    margin-bottom: 3.5rem;
+    line-height: 3.7rem;
+    @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+      font-size: ${fontSize.paragraph.small};
+      line-height: 3.3rem;
+      margin-bottom: 2.1rem;
+    }
+    li {
+      padding-left: 1rem;
+    }
+  }
+
+  ul {
+    margin-left: 2.4rem;
+    list-style-image: url("/checkmark.svg");
+    font-size: ${fontSize.paragraph.medium};
+    margin-bottom: 3.5rem;
+    line-height: 3.7rem;
+    @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
+      font-size: ${fontSize.paragraph.small};
+      line-height: 3.3rem;
+      margin-bottom: 2.1rem;
+    }
+    li {
+      padding-left: 1rem;
+    }
+  }
 `;
