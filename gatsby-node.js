@@ -123,12 +123,25 @@ exports.createPages = async ({ graphql, actions }) => {
   );
 
   const OptInPageTemplate = require.resolve("./src/templates/OptIn.jsx");
+  const OptInConfirmationTemplate = require.resolve(
+    "./src/templates/OptInConfirmation.jsx"
+  );
   const OptInPages = optInQueryResults.data.allPrismicOptInPage.edges;
 
   OptInPages.forEach((OptInPage) => {
     createPage({
       path: `/${OptInPage.node.uid}/`,
       component: OptInPageTemplate,
+      context: {
+        slug: OptInPage.node.uid,
+      },
+    });
+  });
+
+  OptInPages.forEach((OptInPage) => {
+    createPage({
+      path: `/${OptInPage.node.uid}/thank-you`,
+      component: OptInConfirmationTemplate,
       context: {
         slug: OptInPage.node.uid,
       },
