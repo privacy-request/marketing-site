@@ -56,6 +56,20 @@
         "single": "heading3",
         "label": "Form submit"
       }
+    },
+    "confirmation_headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "confirmation_headline"
+      }
+    },
+    "confirmation_subheadline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "confirmation_subheadline"
+      }
     }
   }
 }

@@ -20,6 +20,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   padding: 0 3rem;
   height: 100%;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin-bottom: 8rem;
+  }
 `;
 
 export const Ellipse = styled(AboutContentEllipse)`
@@ -43,10 +46,11 @@ export const Content = styled.div`
   margin-top: 8rem;
   margin-bottom: 10rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    margin-top: 3rem;
+    margin-top: 0rem;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 4rem;
   }
 `;
 

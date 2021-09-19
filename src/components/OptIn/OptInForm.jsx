@@ -29,14 +29,14 @@ const SubmitButton = styled(CallToAction)`
   cursor: pointer;
 `;
 
-const OptInForm = ({ title, submit }) => {
+const OptInForm = ({ title, submit, pageRoute }) => {
   return (
     <Form
-      name="optIn"
+      name={pageRoute}
       method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
-      action="/contact/thank-you"
+      action={`/${pageRoute}/thank-you`}
     >
       <OptInFormTitle>{title}</OptInFormTitle>
       <NameRow>

@@ -52,7 +52,11 @@ const OptIn = ({ data, path }) => {
           </Left>
           <Right>
             <Card>
-              <OptInForm title={form_title.text} submit={form_submit.text} />
+              <OptInForm
+                pageRoute={data.prismicOptInPage.uid}
+                title={form_title.text}
+                submit={form_submit.text}
+              />
             </Card>
           </Right>
         </Content>
