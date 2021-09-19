@@ -6,6 +6,7 @@ import ProductPage from "../templates/ProductPage";
 import Homepage from "./index";
 import BlogPost from "../templates/BlogPost";
 import BlogPage from "./blog";
+import OptIn from "../templates/OptIn";
 
 import Layout from "../components/Layout/Layout";
 
@@ -45,5 +46,6 @@ export default withUnpublishedPreview(NotFoundPage, {
     legal_page: LegalPage,
     blog_post: BlogPost,
     blogPage: BlogPage,
+    opt_in_page: OptIn,
   },
 });

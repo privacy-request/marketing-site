@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import { RichText } from "prismic-reactjs";
+import { withPreview } from "gatsby-source-prismic";
 import {
   Wrapper,
   Ellipse,
@@ -115,4 +116,4 @@ export const query = graphql`
   }
 `;
 
-export default OptIn;
+export default withPreview(OptIn);
