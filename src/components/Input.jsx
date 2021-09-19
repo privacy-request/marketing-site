@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 3.2rem;
 `;
 
 const Label = styled.label`
@@ -32,7 +32,7 @@ const InputWithLabel = ({ label, name, type, className, textArea }) => {
   return (
     <Wrapper className={className}>
       <Label>
-        <Span>{label.text}</Span>
+        <Span>{label}</Span>
         <Input
           as={textArea ? "textArea" : "input"}
           type={type || "text"}

@@ -12,14 +12,21 @@ import {
   Left,
   Right,
   Content,
+  Card,
 } from "../components/OptIn/OptIn.styles";
 import { OptInRichTextWrapper } from "../components/typography";
 import isMobileScreen from "../components/utils/isMobileScreen";
+import OptInForm from "../components/OptIn/OptInForm";
 
 const OptIn = ({ data, path }) => {
-  console.log(data);
-  const { page_description, page_keywords, page_title, left_side_rich_text } =
-    data.prismicOptInPage.data;
+  const {
+    page_description,
+    page_keywords,
+    page_title,
+    left_side_rich_text,
+    form_title,
+    form_submit,
+  } = data.prismicOptInPage.data;
   const isMobile = isMobileScreen();
   return (
     <Layout
@@ -43,7 +50,11 @@ const OptIn = ({ data, path }) => {
               {!isMobile && <HeroBlocks />}
             </>
           </Left>
-          <Right></Right>
+          <Right>
+            <Card>
+              <OptInForm title={form_title.text} submit={form_submit.text} />
+            </Card>
+          </Right>
         </Content>
 
         {!isMobile && (

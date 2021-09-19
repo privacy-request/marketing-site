@@ -635,3 +635,10 @@ export const OptInRichTextWrapper = styled.div`
     }
   }
 `;
+
+export const OptInFormTitle = styled.p`
+  font-size: ${fontSize.paragraph.large};
+  color: ${({ theme }) => theme.colour.blue.dark};
+  font-weight: bold;
+  margin-bottom: 3.7rem;
+`;

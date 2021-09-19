@@ -24,23 +24,23 @@ export const Wrapper = styled.div`
 
 export const Ellipse = styled(AboutContentEllipse)`
   position: absolute;
-  top: 68rem;
+  top: 75rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    top: 160rem;
+    top: 167rem;
   }
   @media only screen and (min-width: 1441px) {
     transform: scale(1.6);
-    top: 90rem;
+    top: 97rem;
   }
   @media only screen and (min-width: 2440px) {
     transform: scale(2.2);
-    top: 110rem;
+    top: 117rem;
   }
 `;
 
 export const Content = styled.div`
   display: flex;
-  margin-top: 10rem;
+  margin-top: 8rem;
   margin-bottom: 10rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin-top: 3rem;
@@ -54,6 +54,7 @@ export const Left = styled.div`
   position: relative;
   max-width: 51.3rem;
   margin-right: 3rem;
+  margin-top: 4rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin-right: 0;
   }
@@ -61,13 +62,13 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   width: 68.7rem;
-  height: 839px;
+  height: 72.2rem;
 `;
 
 export const LeftBlob = styled(OptInLeftBlob)`
   position: absolute;
   left: 0;
-  top: 20rem;
+  top: 25rem;
 `;
 
 export const RightBlob = styled(OptInRightBlob)`
@@ -79,6 +80,25 @@ export const RightBlob = styled(OptInRightBlob)`
 export const HeroBlocks = styled(OptInHero)`
   opacity: 0.25;
   position: absolute;
-  left: 5rem;
-  top: 1.6rem;
+  left: -4rem;
+  top: -10.4rem;
+`;
+
+export const Card = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  height: 100%;
+  border-radius: 16px;
+  box-shadow: 0px 28px 92px rgba(32, 53, 70, 0.3);
+  margin: auto;
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  z-index: 1;
+
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+  }
 `;

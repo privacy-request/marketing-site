@@ -45,17 +45,17 @@ const ContactForm = ({
       action="/contact/thank-you"
     >
       <NameRow>
-        <Input name="firstName" label={first_name_label} />
-        <Input name="lastName" label={last_name_label} />
+        <Input name="firstName" label={first_name_label.text} />
+        <Input name="lastName" label={last_name_label.text} />
       </NameRow>
-      <Input name="email" label={email_label} />
-      <Input name="jobTitle" label={job_title_company_label} />
-      <Input name="phone" label={phone_label} />
+      <Input name="email" label={email_label.text} />
+      <Input name="jobTitle" label={job_title_company_label.text} />
+      <Input name="phone" label={phone_label.text} />
       <TextArea
         textArea
         name="message"
         type="text-area"
-        label={message_label}
+        label={message_label.text}
       />
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
