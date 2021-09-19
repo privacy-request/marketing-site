@@ -15,7 +15,7 @@ const Label = styled.label`
 const Input = styled.textarea`
   border: 1px solid rgba(117, 117, 117, 0.4);
   border-radius: 8px;
-  padding: 1.6rem 2rem 1.6rem 2rem;
+  padding: 1.25rem 2rem 1.25rem 2rem;
   height: 100%;
   font-size: 1.8rem;
   letter-spacing: 0.01rem;

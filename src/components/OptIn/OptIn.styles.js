@@ -61,8 +61,8 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-  width: 68.7rem;
-  height: 72.2rem;
+  max-width: 68.7rem;
+  height: 100%;
 `;
 
 export const LeftBlob = styled(OptInLeftBlob)`

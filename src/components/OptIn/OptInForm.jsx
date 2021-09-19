@@ -19,6 +19,9 @@ const NameRow = styled.div`
 const Form = styled.form`
   margin: 6.4rem;
   width: 100%;
+  @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
+    margin: 3.2rem 2.4rem;
+  }
 `;
 
 const SubmitButton = styled(CallToAction)`
