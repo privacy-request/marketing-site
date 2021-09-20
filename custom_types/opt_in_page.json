@@ -1,0 +1,75 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "route"
+      }
+    },
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Page title"
+      }
+    },
+    "page_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Page description"
+      }
+    },
+    "page_keywords": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "keyword": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading5",
+              "label": "keyword"
+            }
+          }
+        },
+        "label": "page keywords"
+      }
+    },
+    "left_side_rich_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,strong,em,hyperlink,list-item,o-list-item",
+        "allowTargetBlank": true,
+        "label": "left side rich text"
+      }
+    },
+    "form_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Form title"
+      }
+    },
+    "form_submit": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Form submit"
+      }
+    },
+    "confirmation_headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "confirmation_headline"
+      }
+    },
+    "confirmation_subheadline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "confirmation_subheadline"
+      }
+    }
+  }
+}
