@@ -14,10 +14,12 @@ import {
   Right,
   Content,
   Card,
+  AdditionalContent,
 } from "../components/OptIn/OptIn.styles";
 import { OptInRichTextWrapper } from "../components/typography";
 import isMobileScreen from "../components/utils/isMobileScreen";
 import OptInForm from "../components/OptIn/OptInForm";
+import SliceZone from "../components/Slices/SliceZone";
 
 const OptIn = ({ data, path }) => {
   const {
@@ -27,6 +29,7 @@ const OptIn = ({ data, path }) => {
     left_side_rich_text,
     form_title,
     form_submit,
+    body,
   } = data.prismicOptInPage.data;
   const isMobile = isMobileScreen();
   return (
@@ -60,15 +63,17 @@ const OptIn = ({ data, path }) => {
               />
             </Card>
           </Right>
+          {!isMobile && (
+            <>
+              <LeftBlob />
+              <RightBlob />
+            </>
+          )}
+          <Ellipse />
         </Content>
-
-        {!isMobile && (
-          <>
-            <LeftBlob />
-            <RightBlob />
-          </>
-        )}
-        <Ellipse />
+        <AdditionalContent>
+          <SliceZone slices={body} />
+        </AdditionalContent>
       </Wrapper>
     </Layout>
   );
@@ -110,6 +115,75 @@ export const query = graphql`
         }
         form_submit {
           text
+        }
+        body {
+          ... on PrismicOptInPageBodyRichTextSection {
+            id
+            primary {
+              content {
+                raw
+              }
+            }
+            slice_type
+          }
+          ... on PrismicOptInPageBodyTable5Col {
+            id
+            items {
+              col1 {
+                raw
+              }
+              col2 {
+                raw
+              }
+              col3 {
+                raw
+              }
+              col4 {
+                raw
+              }
+              col5 {
+                raw
+              }
+            }
+            primary {
+              col1 {
+                text
+              }
+              col2 {
+                text
+              }
+              col3 {
+                text
+              }
+              col4 {
+                text
+              }
+              col5 {
+                text
+              }
+            }
+            slice_type
+          }
+          ... on PrismicOptInPageBodyTable2Col {
+            id
+            items {
+              col1 {
+                raw
+              }
+              col2 {
+                raw
+              }
+            }
+            primary {
+              col1 {
+                text
+              }
+              col2 {
+                text
+              }
+            }
+            slice_type
+          }
         }
       }
     }

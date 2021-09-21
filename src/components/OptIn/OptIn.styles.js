@@ -6,19 +6,12 @@ import OptInHero from "../../../assets/optInHero.svg";
 import { SCREEN_SIZES } from "../utils/constants";
 
 export const Wrapper = styled.div`
-  background: linear-gradient(
-    92.13deg,
-    #009dff 3.73%,
-    #6bcbff 60.51%,
-    #8fd8ff 86.59%
-  );
   height: 80rem;
   position: relative;
 
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0 3rem;
   height: 100%;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin-bottom: 8rem;
@@ -27,26 +20,37 @@ export const Wrapper = styled.div`
 
 export const Ellipse = styled(AboutContentEllipse)`
   position: absolute;
-  top: 75rem;
+  bottom: -66rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     top: 167rem;
   }
   @media only screen and (min-width: 1441px) {
     transform: scale(1.6);
-    top: 97rem;
+    top: 92rem;
   }
   @media only screen and (min-width: 2440px) {
     transform: scale(2.2);
-    top: 117rem;
+    top: 112rem;
   }
 `;
 
 export const Content = styled.div`
+  position: relative;
+  background: linear-gradient(
+    92.13deg,
+    #009dff 3.73%,
+    #6bcbff 60.51%,
+    #8fd8ff 86.59%
+  );
+  width: 100%;
+  padding: 0 3rem;
   display: flex;
-  margin-top: 8rem;
+  justify-content: center;
   margin-bottom: 10rem;
+  padding: 8rem 0rem 3rem 0rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
-    margin-top: 0rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -59,6 +63,7 @@ export const Left = styled.div`
   max-width: 51.3rem;
   margin-right: 3rem;
   margin-top: 4rem;
+  padding-left: 3rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin-right: 0;
   }
@@ -67,6 +72,7 @@ export const Left = styled.div`
 export const Right = styled.div`
   max-width: 68.7rem;
   height: 100%;
+  padding: 0 3rem;
 `;
 
 export const LeftBlob = styled(OptInLeftBlob)`
@@ -98,11 +104,20 @@ export const Card = styled.div`
   box-shadow: 0px 28px 92px rgba(32, 53, 70, 0.3);
   margin: auto;
   background: #ffffff;
-
   box-sizing: border-box;
-
-  z-index: 1;
-
+  z-index: 2;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin-bottom: 4rem;
+  }
+`;
+export const AdditionalContent = styled.div`
+  z-index: 1;
+  max-width: 85rem;
+  background-color: white;
+  padding: 0 3rem;
+  margin-top: -3rem;
+  margin-bottom: 8rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
+    margin-bottom: 0rem;
   }
 `;
