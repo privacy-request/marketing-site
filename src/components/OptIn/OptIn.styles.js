@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 
 export const Ellipse = styled(AboutContentEllipse)`
   position: absolute;
-  bottom: -66rem;
+  bottom: -62rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     top: 167rem;
   }
@@ -64,8 +64,10 @@ export const Left = styled.div`
   margin-right: 3rem;
   margin-top: 4rem;
   padding-left: 3rem;
+  margin-bottom: 5rem;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin-right: 0;
+    margin-bottom: 0;
   }
 `;
 
