@@ -8,7 +8,6 @@ import Seo from "../components/SEO/SEO";
 import Testimonials from "../components/Testimonials/Testimonials";
 import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
 import { graphql } from "gatsby";
-import { withPreview } from "gatsby-source-prismic";
 
 const Homepage = ({ path, data }) => {
   const {
@@ -102,4 +101,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(Homepage);
+export default Homepage;

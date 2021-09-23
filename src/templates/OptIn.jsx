@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import { RichText } from "prismic-reactjs";
-import { withPreview } from "gatsby-source-prismic";
 import {
   Wrapper,
   Ellipse,
@@ -99,7 +98,7 @@ export const query = graphql`
     prismicForm(uid: { eq: $formID }) {
       data {
         body {
-          ... on PrismicFormBodyTwoTextInputs {
+          ... on PrismicFormDataBodyTwoTextInputs {
             id
             primary {
               label_1 {
@@ -117,7 +116,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicFormBodyTextInput {
+          ... on PrismicFormDataBodyTextInput {
             id
             primary {
               label {
@@ -129,7 +128,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicFormBodyCheckbox {
+          ... on PrismicFormDataBodyCheckbox {
             id
             primary {
               label {
@@ -168,7 +167,7 @@ export const query = graphql`
           text
         }
         body {
-          ... on PrismicOptInPageBodyRichTextSection {
+          ... on PrismicOptInPageDataBodyRichTextSection {
             id
             primary {
               content {
@@ -177,7 +176,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicOptInPageBodyTable5Col {
+          ... on PrismicOptInPageDataBodyTable5Col {
             id
             items {
               col1 {
@@ -215,7 +214,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicOptInPageBodyTable2Col {
+          ... on PrismicOptInPageDataBodyTable2Col {
             id
             items {
               col1 {
@@ -241,4 +240,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(OptIn);
+export default OptIn;

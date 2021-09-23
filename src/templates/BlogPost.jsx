@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
-import { withPreview } from "gatsby-source-prismic";
 import { BlogPostTitle, BlogPostDate } from "../components/typography";
 import {
   Wrapper,
@@ -120,7 +119,7 @@ export const query = graphql`
         }
         date
         body {
-          ... on PrismicBlogPostBodyRichTextSection {
+          ... on PrismicBlogPostDataBodyRichTextSection {
             id
             primary {
               content {
@@ -129,7 +128,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyTable5Col {
+          ... on PrismicBlogPostDataBodyTable5Col {
             id
             items {
               col1 {
@@ -167,7 +166,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyTable2Col {
+          ... on PrismicBlogPostDataBodyTable2Col {
             id
             items {
               col1 {
@@ -187,10 +186,10 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyBookADemoBanner {
+          ... on PrismicBlogPostDataBodyBookADemoBanner {
             slice_type
           }
-          ... on PrismicBlogPostBodyNestedList {
+          ... on PrismicBlogPostDataBodyNestedList {
             slice_type
             slice_label
             items {
@@ -208,4 +207,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(BlogPost);
+export default BlogPost;
