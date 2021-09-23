@@ -42,6 +42,7 @@ const BlogPost = ({ data, path }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={image.url}
       />
       <Wrapper>
         <BlogPostTitle>{headline.text}</BlogPostTitle>

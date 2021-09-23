@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Facebook from "./Facebook";
 import Twitter from "./Twitter";
 
-const Seo = ({ title, desc, path, keywords }) => {
+const Seo = ({ title, desc, path, keywords, banner }) => {
   const { site } = useStaticQuery(query);
 
   const {
@@ -27,7 +27,7 @@ const Seo = ({ title, desc, path, keywords }) => {
     title: title || defaultTitle,
     description: desc || defaultDescription,
     keywords: keywordsString | "",
-    image: defaultBanner,
+    image: banner || defaultBanner,
     url: `${siteUrl}${path || ""}`,
   };
 
