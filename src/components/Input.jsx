@@ -26,6 +26,7 @@ const Span = styled.span`
   line-height: 19px;
   margin-bottom: 1rem;
   color: #203546;
+  border-radius: 8px;
 `;
 
 const InputWithLabel = ({ label, name, type, className, textArea }) => {

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Input from "../Input";
+import Checkbox from "../Checkbox";
 import { CallToAction, OptInFormTitle } from "../typography";
 import { SCREEN_SIZES } from "../utils/constants";
 
@@ -52,7 +53,7 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
             );
           case "two_text_inputs":
             return (
-              <DoubleInputRow>
+              <DoubleInputRow key={index}>
                 <Input
                   name={input.primary.name_1.text}
                   label={input.primary.label_1.text}
@@ -62,6 +63,14 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
                   label={input.primary.label_2.text}
                 />
               </DoubleInputRow>
+            );
+          case "checkbox":
+            return (
+              <Checkbox
+                key={index}
+                name={input.primary.name.text}
+                label={input.primary.label.text}
+              />
             );
           default:
             return null;

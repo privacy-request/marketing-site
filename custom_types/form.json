@@ -73,6 +73,30 @@
               }
             },
             "repeat": {}
+          },
+          "checkbox": {
+            "type": "Slice",
+            "fieldset": "checkbox",
+            "description": "Checkbox input on a single line",
+            "icon": "check_box",
+            "display": "list",
+            "non-repeat": {
+              "label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "label"
+                }
+              },
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "name"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

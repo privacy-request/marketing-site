@@ -45,7 +45,7 @@ export default withUnpublishedPreview(NotFoundPage, {
     product_page: ProductPage,
     legal_page: LegalPage,
     blog_post: BlogPost,
-    blogPage: BlogPage,
+    blog_page: BlogPage,
     opt_in_page: OptIn,
   },
 });

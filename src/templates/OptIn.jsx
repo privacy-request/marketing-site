@@ -31,7 +31,6 @@ const OptIn = ({ data, path }) => {
     form_submit,
     body,
   } = data.prismicOptInPage.data;
-  console.log(data);
   const isMobile = isMobileScreen();
   const pageRoute = data.prismicOptInPage.uid;
   return (
@@ -119,6 +118,18 @@ export const query = graphql`
             slice_type
           }
           ... on PrismicFormBodyTextInput {
+            id
+            primary {
+              label {
+                text
+              }
+              name {
+                text
+              }
+            }
+            slice_type
+          }
+          ... on PrismicFormBodyCheckbox {
             id
             primary {
               label {
