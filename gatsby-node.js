@@ -114,6 +114,11 @@ exports.createPages = async ({ graphql, actions }) => {
             edges {
               node {
                 uid
+                data {
+                  form {
+                    uid
+                  }
+                }
               }
             }
           }
@@ -129,11 +134,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const OptInPages = optInQueryResults.data.allPrismicOptInPage.edges;
 
   OptInPages.forEach((OptInPage) => {
+    console.log("WTF!!!", OptInPage.node.data.form.uid);
     createPage({
       path: `/${OptInPage.node.uid}/`,
       component: OptInPageTemplate,
       context: {
         slug: OptInPage.node.uid,
+        formID: OptInPage.node.data.form.uid,
       },
     });
   });

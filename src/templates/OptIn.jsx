@@ -18,8 +18,8 @@ import {
 } from "../components/OptIn/OptIn.styles";
 import { OptInRichTextWrapper } from "../components/typography";
 import isMobileScreen from "../components/utils/isMobileScreen";
-import OptInForm from "../components/OptIn/OptInForm";
 import SliceZone from "../components/Slices/SliceZone";
+import Form from "../components/Form/Form";
 
 const OptIn = ({ data, path }) => {
   const {
@@ -31,7 +31,9 @@ const OptIn = ({ data, path }) => {
     form_submit,
     body,
   } = data.prismicOptInPage.data;
+  console.log(data);
   const isMobile = isMobileScreen();
+  const pageRoute = data.prismicOptInPage.uid;
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
@@ -56,10 +58,12 @@ const OptIn = ({ data, path }) => {
           </Left>
           <Right>
             <Card>
-              <OptInForm
-                pageRoute={data.prismicOptInPage.uid}
+              <Form
+                pageRoute={pageRoute}
+                actionRoute={`/${pageRoute}/thank-you`}
                 title={form_title.text}
                 submit={form_submit.text}
+                inputs={data.prismicForm.data.body}
               />
             </Card>
           </Right>
@@ -80,7 +84,7 @@ const OptIn = ({ data, path }) => {
 };
 
 export const query = graphql`
-  query OptInQuery($slug: String) {
+  query OptInQuery($slug: String, $formID: String) {
     prismicNavigation {
       ...NavigationData
     }
@@ -92,6 +96,42 @@ export const query = graphql`
     }
     prismicCookieBanner {
       ...CookieBannerData
+    }
+    prismicForm(uid: { eq: $formID }) {
+      data {
+        body {
+          ... on PrismicFormBodyTwoTextInputs {
+            id
+            primary {
+              label_1 {
+                text
+              }
+              label_2 {
+                text
+              }
+              name_1 {
+                text
+              }
+              name_2 {
+                text
+              }
+            }
+            slice_type
+          }
+          ... on PrismicFormBodyTextInput {
+            id
+            primary {
+              label {
+                text
+              }
+              name {
+                text
+              }
+            }
+            slice_type
+          }
+        }
+      }
     }
     prismicOptInPage(uid: { eq: $slug }) {
       uid

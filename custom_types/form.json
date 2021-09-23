@@ -1,0 +1,81 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Identifier"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": null,
+        "choices": {
+          "two_text_inputs": {
+            "type": "Slice",
+            "fieldset": "two text inputs",
+            "description": "text text inputs on a single row",
+            "icon": "short_text",
+            "display": "grid",
+            "non-repeat": {
+              "name_1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "name 1"
+                }
+              },
+              "label_1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "label 1"
+                }
+              },
+              "label_2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "label 2"
+                }
+              },
+              "name_2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "name 2"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "text_input": {
+            "type": "Slice",
+            "fieldset": "text input",
+            "description": "Single text input",
+            "icon": "input",
+            "display": "list",
+            "non-repeat": {
+              "label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "label"
+                }
+              },
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "name"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

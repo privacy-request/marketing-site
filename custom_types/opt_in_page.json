@@ -50,6 +50,14 @@
         "label": "Form title"
       }
     },
+    "form": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["form"],
+        "label": "Form"
+      }
+    },
     "form_submit": {
       "type": "StructuredText",
       "config": {
