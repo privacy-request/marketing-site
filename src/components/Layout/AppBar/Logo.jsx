@@ -5,12 +5,13 @@ import { STATIC_ROUTES } from "../../utils/constants";
 import Image from "../../Image";
 
 const LogoIcon = styled(Image)`
-  margin-right: 1.4rem;
   padding-bottom: 2px;
+  height: 3.8rem;
+  width: 3.8rem;
 `;
 
 const LogoText = styled(Image)`
-  height: 2.4rem;
+  height: 2rem;
 `;
 
 const LinkWrapper = styled(Link)`
