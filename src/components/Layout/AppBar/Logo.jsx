@@ -13,11 +13,16 @@ const LogoText = styled(Image)`
   height: 2.4rem;
 `;
 
+const LinkWrapper = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
+
 const Logo = ({ logoIcon, logoText }) => (
-  <Link to={STATIC_ROUTES.HOME}>
+  <LinkWrapper to={STATIC_ROUTES.HOME}>
     <LogoIcon image={logoIcon} />
     <LogoText image={logoText} />
-  </Link>
+  </LinkWrapper>
 );
 
 export default Logo;
