@@ -26,7 +26,7 @@ export const EmailInput = styled.input`
   border: none;
   font-size: 1.8rem;
   margin-right: 1.6rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 2.6rem;
   padding-left: 1.2rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     width: 100%;

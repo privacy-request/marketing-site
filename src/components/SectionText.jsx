@@ -16,7 +16,7 @@ const TextContainer = styled.div`
 const Icon = styled(Image)`
   position: absolute;
   right: calc(100% + 4rem);
-  top: 0.7rem;
+  top: 1.7rem;
 `;
 
 const SectionText = ({
