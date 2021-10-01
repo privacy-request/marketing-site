@@ -12,7 +12,9 @@ const SliceZone = ({ slices, bookADemoBannerData }) => {
       case "heading":
         return <Heading key={index} data={slice} />;
       case "rich_text_section":
-        return <RichTextSection key={index} data={slice.primary.content.raw} />;
+        return (
+          <RichTextSection key={index} data={slice.primary.content.richText} />
+        );
       case "table2Col":
       case "table5Col":
         return <Table key={index} data={slice} />;

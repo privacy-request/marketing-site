@@ -123,7 +123,7 @@ export const query = graphql`
             id
             primary {
               content {
-                raw
+                richText
               }
             }
             slice_type
@@ -132,19 +132,19 @@ export const query = graphql`
             id
             items {
               col1 {
-                raw
+                richText
               }
               col2 {
-                raw
+                richText
               }
               col3 {
-                raw
+                richText
               }
               col4 {
-                raw
+                richText
               }
               col5 {
-                raw
+                richText
               }
             }
             primary {
@@ -170,10 +170,10 @@ export const query = graphql`
             id
             items {
               col1 {
-                raw
+                richText
               }
               col2 {
-                raw
+                richText
               }
             }
             primary {
@@ -197,7 +197,7 @@ export const query = graphql`
                 text
               }
               nested_list {
-                raw
+                richText
               }
             }
           }
