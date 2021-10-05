@@ -10,7 +10,7 @@ module.exports = {
   ogLanguage: "en_US", // Facebook Language
 
   // JSONLD / Manifest
-  favicon: "src/images/pr-icon.png", // Used for manifest favicon generation
+  favicon: "src/images/opsware_data_logo_icon.svg", // Used for manifest favicon generation
   shortName: "Privacy Req", // shortname for manifest. MUST be shorter than 12 characters
   themeColor: "#3D63AE",
   backgroundColor: "#EBEDF2",

@@ -8,6 +8,7 @@ import Footer from "./Footer/Footer";
 import CookieBanner from "../CookieBanner/CookieBanner";
 import { CookiesProvider } from "react-cookie";
 import { Helmet } from "react-helmet";
+import "./font.css";
 
 const OverflowWrapper = styled.main`
   overflow: hidden;

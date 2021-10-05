@@ -109,6 +109,7 @@ export const Paragraph = styled.p`
   font-size: ${fontSize.paragraph.medium};
   margin-bottom: ${({ theme: { margin } }) => margin.paragraph};
   margin-right: 2rem;
+  line-height: 2.4rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.paragraph.xsmall};
   }
@@ -135,9 +136,10 @@ export const BookADemoHeadline = styled.h5`
   font-size: ${fontSize.header.large};
   font-weight: bold;
   text-align: center;
-  margin-bottom: 1.3rem;
+  margin-bottom: 3.4rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.paragraph.large};
+    margin-bottom: 1.6rem;
   }
 `;
 
@@ -145,6 +147,7 @@ export const BookADemoParagraph = styled.p`
   font-size: ${fontSize.paragraph.large};
   margin-bottom: 4.8rem;
   text-align: center;
+  line-height: 3.7rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.paragraph.small};
     margin-bottom: 2.6rem;
@@ -252,9 +255,9 @@ export const ProductPageHeadline = styled.h1`
   }
 `;
 
-export const ProductPageSubheadline = styled.h2`
+export const ProductPageSubheadline = styled(Paragraph)`
   font-size: ${fontSize.paragraph.medium};
-  font-weight: normal;
+  margin-right: 0;
   margin-bottom: 3rem;
 `;
 
@@ -352,9 +355,10 @@ export const CompanyPageSubTitle = styled.h2`
 export const CompanyPageParagraph = styled.p`
   font-size: ${fontSize.paragraph.small};
   margin-bottom: 2.5rem;
+  line-height: 2.6rem;
 `;
 
-export const CoreValueTitle = styled.p`
+export const CoreValueTitle = styled.h4`
   font-size: ${fontSize.paragraph.large};
   color: ${({ theme }) => theme.colour.blue.dark};
   text-align: center;
@@ -371,7 +375,7 @@ export const CoreValueDescription = styled.p`
   margin: auto;
 `;
 
-export const TeamMemberName = styled.p`
+export const TeamMemberName = styled.h5`
   font-size: ${fontSize.header.xxsmall};
   font-weight: bold;
   color: ${({ theme }) => theme.colour.blue.medium};
@@ -380,7 +384,7 @@ export const TeamMemberName = styled.p`
   text-align: center;
 `;
 
-export const TeamMemberTitle = styled.p`
+export const TeamMemberTitle = styled.h6`
   font-size: ${fontSize.header.xxsmall};
   font-weight: bold;
   text-align: center;
@@ -515,9 +519,10 @@ export const BlogTitle = styled.h3`
   }
 `;
 
-export const BlogDescription = styled.p`
+export const BlogDescription = styled(Paragraph)`
   font-size: ${fontSize.paragraph.small};
   line-height: 2rem;
+  margin-bottom: 0;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     font-size: ${fontSize.paragraph.xsmall};
   }

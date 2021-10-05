@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "alliance-no-1";
+  src: url("/fonts/AllianceNo1-Light.otf");
+}
+
+@font-face {
+  font-family: "alliance-no-1";
+  src: url("/fonts/AllianceNo1-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "alliance-no-2";
+  src: url("/fonts/AllianceNo2-Light.otf");
+  font-weight: bold;
+}
+
+* {
+  font-family: "alliance-no-1", serif;
+}
+p {
+  font-family: "alliance-no-2", serif;
+}

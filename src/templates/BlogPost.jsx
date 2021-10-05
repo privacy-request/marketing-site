@@ -166,6 +166,64 @@ export const query = graphql`
             }
             slice_type
           }
+          ... on PrismicBlogPostDataBodyTable4Col {
+            id
+            items {
+              col1 {
+                raw
+              }
+              col2 {
+                raw
+              }
+              col3 {
+                raw
+              }
+              col4 {
+                raw
+              }
+            }
+            primary {
+              col1 {
+                text
+              }
+              col2 {
+                text
+              }
+              col3 {
+                text
+              }
+              col4 {
+                text
+              }
+            }
+            slice_type
+          }
+          ... on PrismicBlogPostDataBodyTable3Col {
+            id
+            items {
+              col1 {
+                raw
+              }
+              col2 {
+                raw
+              }
+              col3 {
+                raw
+              }
+            }
+            primary {
+              col1 {
+                text
+              }
+              col2 {
+                text
+              }
+              col3 {
+                text
+              }
+            }
+            slice_type
+          }
           ... on PrismicBlogPostDataBodyTable2Col {
             id
             items {
