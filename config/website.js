@@ -1,21 +1,21 @@
 module.exports = {
   pathPrefix: "/", // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
-  title: "Privacy Request", // Navigation and Site Title
-  titleAlt: "PrivacyRequest", // Title for JSONLD
+  title: "Opsware Data", // Navigation and Site Title
+  titleAlt: "Opsware Data", // Title for JSONLD
   description:
-    "Privacy Request provides data privacy solutions for companies to help them comply with emerging laws such as CCPA, GDPR.",
-  url: "https://privacyrequest.com", // Domain of your site. No trailing slash!
+    "Opsware Data provides data privacy solutions for companies to help them comply with emerging laws such as CCPA, GDPR.",
+  url: "https://Opsware.co", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
   banner: "/Hero.png", // Used for SEO
   ogLanguage: "en_US", // Facebook Language
 
   // JSONLD / Manifest
   favicon: "src/images/opsware_data_logo_icon.svg", // Used for manifest favicon generation
-  shortName: "Privacy Req", // shortname for manifest. MUST be shorter than 12 characters
+  shortName: "Opsware", // shortname for manifest. MUST be shorter than 12 characters
   themeColor: "#3D63AE",
   backgroundColor: "#EBEDF2",
 
-  twitter: "@_privacyrequest", // Twitter Username
-  facebook: "privacyrequest", // Facebook Site Name
+  twitter: "@opswaredata", // Twitter Username
+  facebook: "opswaredata", // Facebook Site Name
   googleAnalyticsID: "UA-154605502-2",
 };
