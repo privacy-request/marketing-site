@@ -5,7 +5,7 @@ import Heading from "./Heading";
 import BookADemoBanner from "../BookADemoBanner/BookADemoBanner";
 import NestedList from "./NestedList";
 
-const SliceZone = ({ slices, bookADemoBannerData }) => {
+const SliceZone = ({ slices }) => {
   return slices.map((slice, index) => {
     if (!slice) return null;
     switch (slice.slice_type) {
@@ -21,7 +21,7 @@ const SliceZone = ({ slices, bookADemoBannerData }) => {
       case "table5Col":
         return <Table key={index} data={slice} />;
       case "book_a_demo_banner":
-        return <BookADemoBanner {...bookADemoBannerData} />;
+        return <BookADemoBanner />;
       case "nested_list":
         return <NestedList items={slice.items} type={slice.slice_label} />;
       case "media":

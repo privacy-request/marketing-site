@@ -10,7 +10,7 @@ import Homepage from "./index";
 import BlogPost from "../templates/BlogPost";
 import BlogPage from "./blog";
 import OptIn from "../templates/OptIn";
-import linkResolver from "../utils/linkResolver";
+import { linkResolver } from "../utils/linkResolver";
 
 import Layout from "../components/Layout/Layout";
 
@@ -42,16 +42,18 @@ export const query = graphql`
 `;
 
 // If an unpublished `page` document is previewed, PageTemplate will be rendered.
-export default withPrismicUnpublishedPreview(NotFoundPage, {
-  linkResolver,
-  repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-  componentResolver: componentResolverFromMap({
-    homepage: Homepage,
-    prismicHomepage: Homepage,
-    product_page: ProductPage,
-    legal_page: LegalPage,
-    blog_post: BlogPost,
-    blog_page: BlogPage,
-    opt_in_page: OptIn,
-  }),
-});
+export default withPrismicUnpublishedPreview(NotFoundPage, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+    componentResolver: componentResolverFromMap({
+      homepage: Homepage,
+      prismicHomepage: Homepage,
+      product_page: ProductPage,
+      legal_page: LegalPage,
+      blog_post: BlogPost,
+      blog_page: BlogPage,
+      opt_in_page: OptIn,
+    }),
+  },
+]);

@@ -97,6 +97,30 @@
               }
             },
             "repeat": {}
+          },
+          "text_area": {
+            "type": "Slice",
+            "fieldset": "text area",
+            "description": "large text area",
+            "icon": "texture",
+            "display": "list",
+            "non-repeat": {
+              "label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Label"
+                }
+              },
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Name"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

@@ -25,9 +25,6 @@ export const query = graphql`
     prismicNavigation {
       ...NavigationData
     }
-    prismicBookADemoBanner {
-      ...BookADemoBannerData
-    }
     prismicFooter {
       ...FooterData
     }

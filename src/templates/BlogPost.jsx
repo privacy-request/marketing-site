@@ -9,6 +9,8 @@ import {
 } from "../components/Blog/BlogPost/BlogPost.styles";
 import AuthorAndCategory from "../components/Blog/AuthorAndCategory/AuthorAndCategory";
 import SliceZone from "../components/Slices/SliceZone";
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
+import { linkResolver } from "../utils/linkResolver";
 
 const BlogPost = ({ data, path }) => {
   const {
@@ -47,10 +49,7 @@ const BlogPost = ({ data, path }) => {
         <BlogPostTitle>{headline.text}</BlogPostTitle>
         <BlogPostDate>{postDate}</BlogPostDate>
         <BlogPostImage src={image.url} />
-        <SliceZone
-          slices={body}
-          bookADemoBannerData={data.prismicBookADemoBanner.data}
-        />
+        <SliceZone slices={body} />
         <AuthorAndCategory
           avatar={author_avatar}
           authorName={author.text}
@@ -65,9 +64,6 @@ export const query = graphql`
   query BlogPostQuery($slug: String) {
     prismicNavigation {
       ...NavigationData
-    }
-    prismicBookADemoBanner {
-      ...BookADemoBannerData
     }
     prismicFooter {
       ...FooterData
@@ -89,6 +85,7 @@ export const query = graphql`
     }
     prismicBlogPost(uid: { eq: $slug }) {
       uid
+      _previewable
       data {
         page_description {
           text
@@ -265,4 +262,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPost;
+export default withPrismicPreview(BlogPost);
