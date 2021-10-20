@@ -1,4 +1,5 @@
-const linkResolver = (doc) => {
+exports.linkResolver = (doc) => {
+  console.log("WTF!!", doc);
   if (doc.type === "homepage" || doc.type === "testimonials") {
     return `/`;
   }
@@ -23,5 +24,3 @@ const linkResolver = (doc) => {
 
   return "/";
 };
-
-module.exports = linkResolver;

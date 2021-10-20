@@ -1,7 +1,11 @@
 const website = require("./config/website");
-const linkResolver = require("./src/utils/linkResolver");
+const { linkResolver } = require("./src/utils/linkResolver");
 
 const pathPrefix = website.pathPrefix === "/" ? "" : website.pathPrefix;
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
   /* General Information */
@@ -24,10 +28,9 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic",
       options: {
-        repositoryName: "pr-marketing-site",
-        accessToken: website.prismicAccessToken,
-        linkResolver: () => (doc) => linkResolver(doc),
-        releaseID: "",
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        linkResolver,
         schemas: {
           homepage: require("./custom_types/homepage.json"),
           blog_post: require("./custom_types/blog_post.json"),
@@ -48,7 +51,19 @@ module.exports = {
           book_a_demo_banner: require("./custom_types/book_a_demo_banner.json"),
           opt_in_page: require("./custom_types/opt_in_page.json"),
           form: require("./custom_types/form.json"),
+          book_a_d: {},
+          navigation_bar: {},
+          "opt-in-page": {},
+          privacy_center: {},
+          privacy_centre_page: {},
         },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-prismic-previews",
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       },
     },
     {

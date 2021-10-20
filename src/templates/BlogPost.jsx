@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
-import { withPreview } from "gatsby-source-prismic";
 import { BlogPostTitle, BlogPostDate } from "../components/typography";
 import {
   Wrapper,
@@ -10,6 +9,8 @@ import {
 } from "../components/Blog/BlogPost/BlogPost.styles";
 import AuthorAndCategory from "../components/Blog/AuthorAndCategory/AuthorAndCategory";
 import SliceZone from "../components/Slices/SliceZone";
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
+import { linkResolver } from "../utils/linkResolver";
 
 const BlogPost = ({ data, path }) => {
   const {
@@ -48,10 +49,7 @@ const BlogPost = ({ data, path }) => {
         <BlogPostTitle>{headline.text}</BlogPostTitle>
         <BlogPostDate>{postDate}</BlogPostDate>
         <BlogPostImage src={image.url} />
-        <SliceZone
-          slices={body}
-          bookADemoBannerData={data.prismicBookADemoBanner.data}
-        />
+        <SliceZone slices={body} />
         <AuthorAndCategory
           avatar={author_avatar}
           authorName={author.text}
@@ -66,9 +64,6 @@ export const query = graphql`
   query BlogPostQuery($slug: String) {
     prismicNavigation {
       ...NavigationData
-    }
-    prismicBookADemoBanner {
-      ...BookADemoBannerData
     }
     prismicFooter {
       ...FooterData
@@ -90,6 +85,7 @@ export const query = graphql`
     }
     prismicBlogPost(uid: { eq: $slug }) {
       uid
+      _previewable
       data {
         page_description {
           text
@@ -120,32 +116,32 @@ export const query = graphql`
         }
         date
         body {
-          ... on PrismicBlogPostBodyRichTextSection {
+          ... on PrismicBlogPostDataBodyRichTextSection {
             id
             primary {
               content {
-                raw
+                richText
               }
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyTable5Col {
+          ... on PrismicBlogPostDataBodyTable5Col {
             id
             items {
               col1 {
-                raw
+                richText
               }
               col2 {
-                raw
+                richText
               }
               col3 {
-                raw
+                richText
               }
               col4 {
-                raw
+                richText
               }
               col5 {
-                raw
+                richText
               }
             }
             primary {
@@ -167,7 +163,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyTable4Col {
+          ... on PrismicBlogPostDataBodyTable4Col {
             id
             items {
               col1 {
@@ -199,7 +195,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyTable3Col {
+          ... on PrismicBlogPostDataBodyTable3Col {
             id
             items {
               col1 {
@@ -225,14 +221,14 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyTable2Col {
+          ... on PrismicBlogPostDataBodyTable2Col {
             id
             items {
               col1 {
-                raw
+                richText
               }
               col2 {
-                raw
+                richText
               }
             }
             primary {
@@ -245,10 +241,10 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicBlogPostBodyBookADemoBanner {
+          ... on PrismicBlogPostDataBodyBookADemoBanner {
             slice_type
           }
-          ... on PrismicBlogPostBodyNestedList {
+          ... on PrismicBlogPostDataBodyNestedList {
             slice_type
             slice_label
             items {
@@ -256,7 +252,7 @@ export const query = graphql`
                 text
               }
               nested_list {
-                raw
+                richText
               }
             }
           }
@@ -266,4 +262,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(BlogPost);
+export default withPrismicPreview(BlogPost);
