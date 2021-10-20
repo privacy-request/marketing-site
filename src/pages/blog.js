@@ -55,11 +55,10 @@ const Blog = ({ data, path }) => {
   const ref = useRef();
   const inViewport = useIntersection(ref, "-100px");
   useEffect(() => {
-    inViewport && setDisplay(display + 3);
+    inViewport && setDisplay(display + 9);
   }, [inViewport]);
 
   const blogPosts = data.allPrismicBlogPost.edges;
-
   blogPosts.sort((a, b) => {
     return new Date(b.node.data.date) - new Date(a.node.data.date);
   });
