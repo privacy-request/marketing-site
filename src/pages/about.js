@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
+import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../components/utils/isMobileScreen";
 import { CompanyPageParagraph } from "../components/typography";
 import {
@@ -46,7 +47,7 @@ const AboutPage = ({ data, path }) => {
         <PageHero headline={headline.text} subheadline={subheadline.text} />
         <Content isMobile={isMobile}>
           <Card>
-            {content.richText.map((paragraph, index) => (
+            {content.raw.map((paragraph, index) => (
               <CompanyPageParagraph key={`company-paragraph-${index}`}>
                 {paragraph.text}
               </CompanyPageParagraph>
@@ -86,7 +87,7 @@ export const query = graphql`
           text
         }
         content {
-          richText
+          raw
         }
         page_description {
           text
@@ -154,4 +155,4 @@ export const query = graphql`
   }
 `;
 
-export default AboutPage;
+export default withPreview(AboutPage);

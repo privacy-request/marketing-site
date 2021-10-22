@@ -16,6 +16,7 @@ import React from "react";
 import Seo from "../components/SEO/SEO";
 import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
 import { graphql } from "gatsby";
+import { withPreview } from "gatsby-source-prismic";
 
 const ProductPage = ({ data, path }) => {
   const {
@@ -90,7 +91,7 @@ export const query = graphql`
         }
 
         body {
-          ... on PrismicProductPageDataBodyTextWithIllustration {
+          ... on PrismicProductPageBodyTextWithIllustration {
             id
             slice_type
             primary {
@@ -136,7 +137,7 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicProductPageDataBodyTextWithLayeredIllustration {
+          ... on PrismicProductPageBodyTextWithLayeredIllustration {
             id
             slice_type
             primary {
@@ -190,7 +191,7 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicProductPageDataBodyTextWithAlternatingIllustration {
+          ... on PrismicProductPageBodyTextWithAlternatingIllustration {
             items {
               illustration {
                 dimensions {
@@ -237,4 +238,4 @@ export const query = graphql`
   }
 `;
 
-export default ProductPage;
+export default withPreview(ProductPage);
