@@ -4,7 +4,7 @@ export const query = graphql`
   fragment ProductsData on PrismicHomepage {
     data {
       body {
-        ... on PrismicHomepageBodyTextWithIllustration {
+        ... on PrismicHomepageDataBodyTextWithIllustration {
           id
           primary {
             heading {

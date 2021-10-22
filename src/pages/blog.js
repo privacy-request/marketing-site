@@ -105,9 +105,7 @@ const Blog = ({ data, path }) => {
               </BlogReadMore>
             </Post>
             <Line />
-            {index === 1 && (
-              <BookADemoBanner {...data.prismicBookADemoBanner.data} />
-            )}
+            {index === 1 && <BookADemoBanner />}
           </Fragment>
         ))}
       </Wrapper>
@@ -117,9 +115,6 @@ const Blog = ({ data, path }) => {
 
 export const query = graphql`
   query BlogPageQuery {
-    prismicBookADemoBanner {
-      ...BookADemoBannerData
-    }
     prismicNavigation {
       ...NavigationData
     }

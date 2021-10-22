@@ -2,7 +2,6 @@ import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../../components/Layout/Layout";
 import Seo from "../../components/SEO/SEO";
-import { withPreview } from "gatsby-source-prismic";
 import isMobileScreen from "../../components/utils/isMobileScreen";
 import {
   CompanyPageTitle,
@@ -169,4 +168,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(ContactPage);
+export default ContactPage;
