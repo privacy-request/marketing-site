@@ -4,7 +4,7 @@ export const query = graphql`
   fragment NavigationData on PrismicNavigation {
     data {
       body {
-        ... on PrismicNavigationDataBodyNavigationItem {
+        ... on PrismicNavigationBodyNavigationItem {
           id
           slice_type
           primary {
@@ -16,7 +16,7 @@ export const query = graphql`
             }
           }
         }
-        ... on PrismicNavigationDataBodyNavigationDropdown {
+        ... on PrismicNavigationBodyNavigationDropdown {
           id
           slice_type
           primary {
@@ -33,7 +33,7 @@ export const query = graphql`
             }
           }
         }
-        ... on PrismicNavigationDataBodyCallToAction {
+        ... on PrismicNavigationBodyCallToAction {
           id
           slice_type
           primary {

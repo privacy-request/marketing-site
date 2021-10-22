@@ -18,4 +18,6 @@ module.exports = {
   twitter: "@opswaredata", // Twitter Username
   facebook: "opswaredata", // Facebook Site Name
   googleAnalyticsID: "UA-154605502-2",
+  prismicAccessToken:
+    "MC5YXzBrLXhFQUFDRUFiTDVK.77-977-977-977-9QO-_vVvvv70277-9Ge-_vVnvv71HXe-_vRYjZO-_vSzvv73vv70vXu-_vVEuZ1xQ",
 };

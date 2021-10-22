@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import { RichText } from "prismic-reactjs";
+import { withPreview } from "gatsby-source-prismic";
 import {
   Wrapper,
   Ellipse,
@@ -49,7 +50,7 @@ const OptIn = ({ data, path }) => {
           <Left>
             <>
               <OptInRichTextWrapper>
-                <RichText render={left_side_rich_text.richText} />
+                <RichText render={left_side_rich_text.raw} />
               </OptInRichTextWrapper>
               {!isMobile && <HeroBlocks />}
             </>
@@ -86,6 +87,9 @@ export const query = graphql`
     prismicNavigation {
       ...NavigationData
     }
+    prismicBookADemoBanner {
+      ...BookADemoBannerData
+    }
     prismicFooter {
       ...FooterData
     }
@@ -95,7 +99,7 @@ export const query = graphql`
     prismicForm(uid: { eq: $formID }) {
       data {
         body {
-          ... on PrismicFormDataBodyTwoTextInputs {
+          ... on PrismicFormBodyTwoTextInputs {
             id
             primary {
               label_1 {
@@ -113,7 +117,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicFormDataBodyTextInput {
+          ... on PrismicFormBodyTextInput {
             id
             primary {
               label {
@@ -125,7 +129,7 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicFormDataBodyCheckbox {
+          ... on PrismicFormBodyCheckbox {
             id
             primary {
               label {
@@ -155,7 +159,7 @@ export const query = graphql`
           text
         }
         left_side_rich_text {
-          richText
+          raw
         }
         form_title {
           text
@@ -164,32 +168,32 @@ export const query = graphql`
           text
         }
         body {
-          ... on PrismicOptInPageDataBodyRichTextSection {
+          ... on PrismicOptInPageBodyRichTextSection {
             id
             primary {
               content {
-                richText
+                raw
               }
             }
             slice_type
           }
-          ... on PrismicOptInPageDataBodyTable5Col {
+          ... on PrismicOptInPageBodyTable5Col {
             id
             items {
               col1 {
-                richText
+                raw
               }
               col2 {
-                richText
+                raw
               }
               col3 {
-                richText
+                raw
               }
               col4 {
-                richText
+                raw
               }
               col5 {
-                richText
+                raw
               }
             }
             primary {
@@ -211,14 +215,14 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicOptInPageDataBodyTable2Col {
+          ... on PrismicOptInPageBodyTable2Col {
             id
             items {
               col1 {
-                richText
+                raw
               }
               col2 {
-                richText
+                raw
               }
             }
             primary {
@@ -237,4 +241,4 @@ export const query = graphql`
   }
 `;
 
-export default OptIn;
+export default withPreview(OptIn);

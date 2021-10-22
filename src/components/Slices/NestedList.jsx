@@ -46,7 +46,7 @@ const NestedList = ({ items, type }) => {
         {items.map((item) => (
           <li>
             {item.list_item.text}
-            {<RichText render={item.nested_list.richText} />}
+            {<RichText render={item.nested_list.raw} />}
           </li>
         ))}
       </List>

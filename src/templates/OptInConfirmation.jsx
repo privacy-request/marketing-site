@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout/Layout";
+import { withPreview } from "gatsby-source-prismic";
 import ConfirmationMessage from "../components/ConfirmationMessage/ConfirmationMessage";
 
 const ThankYou = ({ data }) => {
@@ -25,6 +26,9 @@ export const query = graphql`
     prismicNavigation {
       ...NavigationData
     }
+    prismicBookADemoBanner {
+      ...BookADemoBannerData
+    }
     prismicFooter {
       ...FooterData
     }
@@ -45,4 +49,4 @@ export const query = graphql`
   }
 `;
 
-export default ThankYou;
+export default withPreview(ThankYou);

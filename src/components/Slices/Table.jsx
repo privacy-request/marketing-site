@@ -50,7 +50,7 @@ const Table = ({ data }) => {
         <Row>
           {Object.keys(row).map((key) => (
             <TableCell>
-              <RichText render={row[key].richText} />
+              <RichText render={row[key].raw} />
             </TableCell>
           ))}
         </Row>
