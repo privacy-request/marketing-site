@@ -8,7 +8,8 @@ import Seo from "../components/SEO/SEO";
 import Testimonials from "../components/Testimonials/Testimonials";
 import TrustedCustomers from "../components/TrustedCustomers/TrustedCustomers";
 import { graphql } from "gatsby";
-import { withPreview } from "gatsby-source-prismic";
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
+import { linkResolver } from "../utils/linkResolver";
 
 const Homepage = ({ path, data }) => {
   const {
@@ -60,6 +61,7 @@ const Homepage = ({ path, data }) => {
 export const query = graphql`
   query homepageQuery {
     prismicHomepage {
+      _previewable
       data {
         page_description {
           text
@@ -102,4 +104,9 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(Homepage);
+export default withPrismicPreview(Homepage, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+  },
+]);

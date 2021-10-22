@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/SEO/SEO";
 import PrivacyNav from "../components/LegalPage/PrivacyNav";
-import { withPreview } from "gatsby-source-prismic";
 import {
   Wrapper,
   Title,
@@ -88,7 +87,7 @@ export const query = graphql`
           text
         }
         body {
-          ... on PrismicLegalPageBodyNestedList {
+          ... on PrismicLegalPageDataBodyNestedList {
             slice_type
             slice_label
             items {
@@ -96,11 +95,11 @@ export const query = graphql`
                 text
               }
               nested_list {
-                raw
+                richText
               }
             }
           }
-          ... on PrismicLegalPageBodyHeading {
+          ... on PrismicLegalPageDataBodyHeading {
             id
             primary {
               heading {
@@ -109,16 +108,16 @@ export const query = graphql`
             }
             slice_type
           }
-          ... on PrismicLegalPageBodyRichTextSection {
+          ... on PrismicLegalPageDataBodyRichTextSection {
             id
             primary {
               content {
-                raw
+                richText
               }
             }
             slice_type
           }
-          ... on PrismicLegalPageBodyTable2Col {
+          ... on PrismicLegalPageDataBodyTable2Col {
             id
             primary {
               col1 {
@@ -130,15 +129,15 @@ export const query = graphql`
             }
             items {
               col1 {
-                raw
+                richText
               }
               col2 {
-                raw
+                richText
               }
             }
             slice_type
           }
-          ... on PrismicLegalPageBodyTable5Col {
+          ... on PrismicLegalPageDataBodyTable5Col {
             id
             primary {
               col1 {
@@ -159,19 +158,19 @@ export const query = graphql`
             }
             items {
               col1 {
-                raw
+                richText
               }
               col2 {
-                raw
+                richText
               }
               col3 {
-                raw
+                richText
               }
               col4 {
-                raw
+                richText
               }
               col5 {
-                raw
+                richText
               }
             }
             slice_type
@@ -182,4 +181,4 @@ export const query = graphql`
   }
 `;
 
-export default withPreview(LegalPage);
+export default LegalPage;
