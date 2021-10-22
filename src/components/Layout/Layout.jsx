@@ -26,6 +26,11 @@ const Layout = ({
       <CookiesProvider>
         <Helmet>
           <link rel="stylesheet" type="text/css" href="/fonts.css" />
+          <script
+            defer
+            data-domain="privacyrequest.com"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
         </Helmet>
         <GlobalStyles />
         <CookieBanner {...cookieBannerData} />
