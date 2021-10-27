@@ -25,6 +25,7 @@ const OptIn = ({ data, path }) => {
     page_description,
     page_keywords,
     page_title,
+    hide_navbar,
     left_side_rich_text,
     form_title,
     form_submit,
@@ -37,6 +38,7 @@ const OptIn = ({ data, path }) => {
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
+      hidNavBar={hide_navbar}
     >
       <Seo
         title={page_title.text}
@@ -163,6 +165,7 @@ export const query = graphql`
         page_title {
           text
         }
+        hide_navbar
         left_side_rich_text {
           richText
         }
