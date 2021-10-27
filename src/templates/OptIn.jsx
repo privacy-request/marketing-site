@@ -137,6 +137,15 @@ export const query = graphql`
             }
             slice_type
           }
+          ... on PrismicFormDataBodyRichTextSection {
+            id
+            primary {
+              content {
+                richText
+              }
+            }
+            slice_type
+          }
         }
       }
     }

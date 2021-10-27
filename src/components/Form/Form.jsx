@@ -4,7 +4,7 @@ import Input from "../Input";
 import Checkbox from "../Checkbox";
 import { CallToAction, OptInFormTitle } from "../typography";
 import { SCREEN_SIZES } from "../utils/constants";
-
+import RichTextSection from "../Slices/RichTextSection";
 const DoubleInputRow = styled.div`
   display: flex;
   width: 100%;
@@ -23,6 +23,9 @@ const FormWrapper = styled.form`
   @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
     margin: 3.2rem 2.4rem;
   }
+  p {
+    margin-bottom: 3.6rem;
+  }
 `;
 
 const SubmitButton = styled(CallToAction)`
@@ -31,6 +34,7 @@ const SubmitButton = styled(CallToAction)`
 `;
 
 const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
+  console.log(inputs);
   return (
     <FormWrapper
       name={pageRoute}
@@ -70,6 +74,13 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
                 key={index}
                 name={input.primary.name.text}
                 label={input.primary.label.text}
+              />
+            );
+          case "rich_text_section":
+            return (
+              <RichTextSection
+                key={index}
+                data={input.primary.content.richText}
               />
             );
           default:

@@ -10,7 +10,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": null,
+        "labels": {},
         "choices": {
           "two_text_inputs": {
             "type": "Slice",
@@ -117,6 +117,24 @@
                 "config": {
                   "single": "heading4",
                   "label": "Name"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "rich_text_section": {
+            "type": "Slice",
+            "fieldset": "Rich text",
+            "description": "Rich text section",
+            "icon": "dehaze",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading2,heading3,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank": true,
+                  "label": "content"
                 }
               }
             },
