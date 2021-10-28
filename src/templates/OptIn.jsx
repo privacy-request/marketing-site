@@ -38,7 +38,7 @@ const OptIn = ({ data, path }) => {
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
       cookieBannerData={data.prismicCookieBanner.data}
-      hidNavBar={hide_navbar}
+      hideNavBar={hide_navbar}
     >
       <Seo
         title={page_title.text}

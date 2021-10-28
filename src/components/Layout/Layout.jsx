@@ -20,7 +20,7 @@ const Layout = ({
   navigationData,
   footerData,
   cookieBannerData,
-  hidNavBar,
+  hideNavBar,
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -35,7 +35,7 @@ const Layout = ({
         </Helmet>
         <GlobalStyles />
         <CookieBanner {...cookieBannerData} />
-        {!hidNavBar && <AppBar path={path} {...navigationData} />}
+        <AppBar path={path} {...navigationData} hideNavBar={hideNavBar} />
         <OverflowWrapper>{children}</OverflowWrapper>
         <Footer {...footerData} navItems={navigationData.body} />
       </CookiesProvider>
