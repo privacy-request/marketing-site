@@ -6,7 +6,7 @@ import NavDesktop from "./NavDesktop/NavDesktop";
 import NavMobile from "./NavMobile/NavMobile";
 import isMobileScreen from "../../utils/isMobileScreen";
 
-const AppBar = ({ logo_text, logo_icon, body, hidNavBar }) => {
+const AppBar = ({ logo_text, logo_icon, body, hideNavBar }) => {
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
@@ -25,7 +25,7 @@ const AppBar = ({ logo_text, logo_icon, body, hidNavBar }) => {
     <Container scrolled={scrolled}>
       <Content>
         <Logo logoIcon={logo_icon} logoText={logo_text} />
-        {!hidNavBar &&
+        {!!hideNavBar &&
           (isMobile ? <NavMobile items={body} /> : <NavDesktop items={body} />)}
       </Content>
     </Container>

@@ -37,7 +37,6 @@ const SubmitButton = styled(CallToAction)`
 `;
 
 const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
-  console.log(inputs);
   return (
     <FormWrapper
       name={pageRoute}
