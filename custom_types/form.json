@@ -10,7 +10,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {},
+        "labels": null,
         "choices": {
           "two_text_inputs": {
             "type": "Slice",
@@ -135,6 +135,23 @@
                   "multi": "paragraph,preformatted,heading2,heading3,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "allowTargetBlank": true,
                   "label": "content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "submit_button": {
+            "type": "Slice",
+            "fieldset": "Submit button",
+            "description": "Submit button for form",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Text"
                 }
               }
             },

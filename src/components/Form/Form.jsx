@@ -5,6 +5,11 @@ import Checkbox from "../Checkbox";
 import { CallToAction, OptInFormTitle } from "../typography";
 import { SCREEN_SIZES } from "../utils/constants";
 import RichTextSection from "../Slices/RichTextSection";
+
+const DisclaimerText = styled(RichTextSection)`
+  margin-top: -1.6rem;
+`;
+
 const DoubleInputRow = styled.div`
   display: flex;
   width: 100%;
@@ -18,17 +23,15 @@ const DoubleInputRow = styled.div`
 `;
 
 const FormWrapper = styled.form`
-  margin: 6.4rem;
+  margin: 6.4rem 6.4rem 2.8rem 6.4rem;
   width: 100%;
   @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
     margin: 3.2rem 2.4rem;
   }
-  p {
-    margin-bottom: 3.6rem;
-  }
 `;
 
 const SubmitButton = styled(CallToAction)`
+  margin-bottom: 3.2rem;
   width: 100%;
   cursor: pointer;
 `;
@@ -43,6 +46,8 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
       data-netlify="true"
       action={actionRoute}
     >
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value={pageRoute} />
       <OptInFormTitle>{title}</OptInFormTitle>
       {inputs.map((input, index) => {
         if (!input) return null;
@@ -78,20 +83,22 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
             );
           case "rich_text_section":
             return (
-              <RichTextSection
+              <DisclaimerText
+                paragraphFontSize={"xsmall"}
                 key={index}
                 data={input.primary.content.richText}
               />
+            );
+          case "submit_button":
+            return (
+              <SubmitButton as="button" type="submit">
+                {submit}
+              </SubmitButton>
             );
           default:
             return null;
         }
       })}
-      <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value={pageRoute} />
-      <SubmitButton as="button" type="submit">
-        {submit}
-      </SubmitButton>
     </FormWrapper>
   );
 };

@@ -2,9 +2,12 @@ import React from "react";
 import { RichText } from "prismic-reactjs";
 import { RichTextWrapper } from "../typography";
 
-const RichTextSection = ({ data }) => {
+const RichTextSection = ({ data, paragraphFontSize, className }) => {
   return (
-    <RichTextWrapper>
+    <RichTextWrapper
+      paragraphFontSize={paragraphFontSize}
+      className={className}
+    >
       <RichText render={data} />
     </RichTextWrapper>
   );

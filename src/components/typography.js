@@ -422,7 +422,10 @@ export const HeadingWrapper = styled.h2`
 export const RichTextWrapper = styled.div`
   line-height: 2.6rem;
   p {
-    font-size: ${fontSize.paragraph.medium};
+    font-size: ${({ paragraphFontSize }) =>
+      paragraphFontSize
+        ? fontSize.paragraph[paragraphFontSize]
+        : fontSize.paragraph.medium};
     margin-bottom: 2.6rem;
     white-space: break-spaces;
     img {

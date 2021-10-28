@@ -148,6 +148,15 @@ export const query = graphql`
             }
             slice_type
           }
+          ... on PrismicFormDataBodySubmitButton {
+            id
+            primary {
+              text {
+                text
+              }
+            }
+            slice_type
+          }
         }
       }
     }
