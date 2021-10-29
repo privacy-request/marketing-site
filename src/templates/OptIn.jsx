@@ -28,7 +28,6 @@ const OptIn = ({ data, path }) => {
     hide_navbar,
     left_side_rich_text,
     form_title,
-    form_submit,
     body,
   } = data.prismicOptInPage.data;
   const isMobile = isMobileScreen();
@@ -62,7 +61,6 @@ const OptIn = ({ data, path }) => {
                 pageRoute={pageRoute}
                 actionRoute={`/${pageRoute}/thank-you`}
                 title={form_title.text}
-                submit={form_submit.text}
                 inputs={data.prismicForm.data.body}
               />
             </Card>
