@@ -91,7 +91,7 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
           case "submit_button":
             return (
               <SubmitButton as="button" type="submit">
-                {submit}
+                {input.primary.text.text}
               </SubmitButton>
             );
           default:
