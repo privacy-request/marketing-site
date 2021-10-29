@@ -464,6 +464,7 @@ export const RichTextWrapper = styled.div`
     font-size: ${fontSize.paragraph.large};
     margin-bottom: 3rem;
     margin-top: 4rem;
+    line-height: 3.6rem;
   }
 
   h3 {

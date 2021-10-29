@@ -22,6 +22,7 @@ const Layout = ({
   cookieBannerData,
   hideNavBar,
 }) => {
+  console.log(hideNavBar);
   return (
     <ThemeProvider theme={theme}>
       <CookiesProvider>

@@ -25,7 +25,7 @@ const AppBar = ({ logo_text, logo_icon, body, hideNavBar }) => {
     <Container scrolled={scrolled}>
       <Content>
         <Logo logoIcon={logo_icon} logoText={logo_text} />
-        {!!hideNavBar &&
+        {!hideNavBar &&
           (isMobile ? <NavMobile items={body} /> : <NavDesktop items={body} />)}
       </Content>
     </Container>

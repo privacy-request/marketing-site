@@ -181,9 +181,6 @@ export const query = graphql`
         form_title {
           text
         }
-        form_submit {
-          text
-        }
         body {
           ... on PrismicOptInPageDataBodyRichTextSection {
             id

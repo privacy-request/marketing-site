@@ -65,13 +65,6 @@
         "label": "Form"
       }
     },
-    "form_submit": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading3",
-        "label": "Form submit"
-      }
-    },
     "confirmation_headline": {
       "type": "StructuredText",
       "config": {
@@ -90,7 +83,14 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {},
+        "labels": {
+          "rich_text_section": [
+            {
+              "display": "reduce image size",
+              "name": "reduce_image_size"
+            }
+          ]
+        },
         "choices": {
           "rich_text_section": {
             "type": "Slice",
