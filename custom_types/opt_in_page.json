@@ -35,6 +35,14 @@
         "label": "page keywords"
       }
     },
+    "social_sharing_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "social sharing image"
+      }
+    },
     "hide_navbar": {
       "type": "Boolean",
       "config": {

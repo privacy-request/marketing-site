@@ -29,6 +29,7 @@ const OptIn = ({ data, path }) => {
     left_side_rich_text,
     form_title,
     body,
+    social_sharing_image,
   } = data.prismicOptInPage.data;
   const isMobile = isMobileScreen();
   const pageRoute = data.prismicOptInPage.uid;
@@ -44,6 +45,7 @@ const OptIn = ({ data, path }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={social_sharing_image.url}
       />
       <Wrapper>
         <Content>
@@ -171,6 +173,9 @@ export const query = graphql`
         }
         page_title {
           text
+        }
+        social_sharing_image {
+          url
         }
         hide_navbar
         left_side_rich_text {
