@@ -1,5 +1,4 @@
 exports.linkResolver = (doc) => {
-  console.log("WTF!!", doc);
   if (doc.type === "homepage" || doc.type === "testimonials") {
     return `/`;
   }

@@ -10,7 +10,6 @@ import {
 import AuthorAndCategory from "../components/Blog/AuthorAndCategory/AuthorAndCategory";
 import SliceZone from "../components/Slices/SliceZone";
 import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
-import { linkResolver } from "../utils/linkResolver";
 
 const BlogPost = ({ data, path }) => {
   const {
@@ -167,16 +166,16 @@ export const query = graphql`
             id
             items {
               col1 {
-                raw
+                richText
               }
               col2 {
-                raw
+                richText
               }
               col3 {
-                raw
+                richText
               }
               col4 {
-                raw
+                richText
               }
             }
             primary {
@@ -199,13 +198,13 @@ export const query = graphql`
             id
             items {
               col1 {
-                raw
+                richText
               }
               col2 {
-                raw
+                richText
               }
               col3 {
-                raw
+                richText
               }
             }
             primary {

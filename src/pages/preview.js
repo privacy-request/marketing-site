@@ -4,7 +4,6 @@ import * as React from "react";
 import { withPrismicPreviewResolver } from "gatsby-plugin-prismic-previews";
 import { linkResolver } from "../utils/linkResolver";
 
-console.log(linkResolver);
 const PreviewPage = () => {
   return (
     <div>
