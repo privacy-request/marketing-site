@@ -35,7 +35,7 @@ const InputWithLabel = ({ label, name, type, className, textArea }) => {
       <Label>
         <Span>{label}</Span>
         <Input
-          as={textArea ? "textArea" : "input"}
+          as={textArea ? "textarea" : "input"}
           type={type || "text"}
           name={name}
         />

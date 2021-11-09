@@ -30,6 +30,10 @@ const FormWrapper = styled.form`
   }
 `;
 
+const TextArea = styled(Input)`
+  height: 10.8rem;
+`;
+
 const SubmitButton = styled(CallToAction)`
   margin-bottom: 3.2rem;
   width: 100%;
@@ -88,9 +92,19 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
                 data={input.primary.content.richText}
               />
             );
+          case "text_area":
+            return (
+              <TextArea
+                key={index}
+                textArea
+                name={input.primary.name.text}
+                type="text-area"
+                label={input.primary.label.text}
+              />
+            );
           case "submit_button":
             return (
-              <SubmitButton as="button" type="submit">
+              <SubmitButton key={index} as="button" type="submit">
                 {input.primary.text.text}
               </SubmitButton>
             );
