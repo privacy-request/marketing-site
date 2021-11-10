@@ -67,16 +67,6 @@ module.exports = {
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       },
     },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: "UA-154605502-2",
-          cookieName: "gatsby-gdpr-google-analytics",
-          anonymize: true,
-        },
-      },
-    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
