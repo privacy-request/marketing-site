@@ -119,4 +119,8 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   );
 };
 
+Form.defaultProps = {
+  preFill: {},
+};
+
 export default Form;
