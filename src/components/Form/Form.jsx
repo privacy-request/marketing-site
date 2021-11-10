@@ -40,7 +40,7 @@ const SubmitButton = styled(CallToAction)`
   cursor: pointer;
 `;
 
-const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
+const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   return (
     <FormWrapper
       name={pageRoute}
@@ -59,6 +59,7 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
             return (
               <Input
                 key={index}
+                value={preFill[input.primary.name.text]}
                 name={input.primary.name.text}
                 label={input.primary.label.text}
               />
@@ -67,10 +68,12 @@ const Form = ({ title, submit, pageRoute, actionRoute, inputs }) => {
             return (
               <DoubleInputRow key={index}>
                 <Input
+                  value={preFill[input.primary.name_1.text]}
                   name={input.primary.name_1.text}
                   label={input.primary.label_1.text}
                 />
                 <Input
+                  value={preFill[input.primary.name_2.text]}
                   name={input.primary.name_2.text}
                   label={input.primary.label_2.text}
                 />

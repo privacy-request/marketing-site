@@ -17,9 +17,7 @@ const BookADemoPage = ({ data, path, location: { state } }) => {
   const { page_description, page_keywords, page_title, form_title, form } =
     data.prismicBookADemoPage.data;
   const isMobile = isMobileScreen(SCREEN_SIZES.LAPTOP_MEDIUM);
-  const { email, redirectFromBookADemoForm } =
-    state && state.redirectFromBookADemoForm ? state : {};
-  console.log(email);
+  const { email } = state && state.redirectFromBookADemoForm ? state : {};
   const pageRoute = "book-a-demo";
   return (
     <Layout
@@ -41,6 +39,7 @@ const BookADemoPage = ({ data, path, location: { state } }) => {
         <Right>
           <Card>
             <Form
+              preFill={{ email: email }}
               pageRoute={pageRoute}
               actionRoute={`/${pageRoute}/thank-you`}
               title={form_title.text}

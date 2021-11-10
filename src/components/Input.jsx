@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -29,7 +29,8 @@ const Span = styled.span`
   border-radius: 8px;
 `;
 
-const InputWithLabel = ({ label, name, type, className, textArea }) => {
+const InputWithLabel = ({ label, name, type, className, textArea, value }) => {
+  const [inputValue, setInputValue] = useState(value);
   return (
     <Wrapper className={className}>
       <Label>
@@ -38,6 +39,8 @@ const InputWithLabel = ({ label, name, type, className, textArea }) => {
           as={textArea ? "textarea" : "input"}
           type={type || "text"}
           name={name}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
         />
       </Label>
     </Wrapper>

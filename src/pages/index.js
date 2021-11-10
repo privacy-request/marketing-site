@@ -12,7 +12,6 @@ import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
 import { linkResolver } from "../utils/linkResolver";
 
 const Homepage = ({ path, data }) => {
-  console.log(data);
   const {
     page_description,
     page_keywords,
