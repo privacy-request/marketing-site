@@ -10,7 +10,6 @@ const ThankYou = ({ data }) => {
     <Layout
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
-      cookieBannerData={data.prismicCookieBanner.data}
     >
       <ConfirmationMessage
         heading={confirmation_heading.text}
@@ -27,9 +26,6 @@ export const query = graphql`
     }
     prismicFooter {
       ...FooterData
-    }
-    prismicCookieBanner {
-      ...CookieBannerData
     }
     prismicContactPage {
       data {

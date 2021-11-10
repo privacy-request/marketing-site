@@ -13,8 +13,8 @@ exports.linkResolver = (doc) => {
   if (doc.type === "blog_post") {
     return `/blog/${doc.uid}`;
   }
-  if (doc.type === "calendar_page") {
-    return `/apply`;
+  if (doc.type === "book-a-demo-page") {
+    return `/book-a-demo`;
   }
 
   if (doc.type === "about_page") {

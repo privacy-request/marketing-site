@@ -5,7 +5,6 @@ import AppBar from "./AppBar/AppBar";
 import { ThemeProvider } from "styled-components";
 import theme from "../utils/theme";
 import Footer from "./Footer/Footer";
-import CookieBanner from "../CookieBanner/CookieBanner";
 import { CookiesProvider } from "react-cookie";
 import { Helmet } from "react-helmet";
 import "./font.css";
@@ -14,14 +13,7 @@ const OverflowWrapper = styled.main`
   overflow: hidden;
 `;
 
-const Layout = ({
-  children,
-  path,
-  navigationData,
-  footerData,
-  cookieBannerData,
-  hideNavBar,
-}) => {
+const Layout = ({ children, path, navigationData, footerData, hideNavBar }) => {
   return (
     <ThemeProvider theme={theme}>
       <CookiesProvider>
@@ -34,7 +26,6 @@ const Layout = ({
           ></script>
         </Helmet>
         <GlobalStyles />
-        <CookieBanner {...cookieBannerData} />
         <AppBar path={path} {...navigationData} hideNavBar={hideNavBar} />
         <OverflowWrapper>{children}</OverflowWrapper>
         <Footer {...footerData} navItems={navigationData.body} />

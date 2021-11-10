@@ -37,7 +37,6 @@ const OptIn = ({ data, path }) => {
     <Layout
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
-      cookieBannerData={data.prismicCookieBanner.data}
       hideNavBar={hide_navbar}
     >
       <Seo
@@ -90,9 +89,6 @@ export const query = graphql`
     }
     prismicFooter {
       ...FooterData
-    }
-    prismicCookieBanner {
-      ...CookieBannerData
     }
     prismicForm(uid: { eq: $formID }) {
       data {

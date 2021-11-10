@@ -26,7 +26,7 @@ const BookADemo = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    navigate("/apply", { state });
+    navigate("/book-a-demo", { state });
   };
 
   return (
