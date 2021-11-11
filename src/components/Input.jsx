@@ -29,8 +29,25 @@ const Span = styled.span`
   border-radius: 8px;
 `;
 
-const InputWithLabel = ({ label, name, type, className, textArea, value }) => {
-  const [inputValue, setInputValue] = useState(value);
+const Warning = styled.span`
+  font-size: 16px;
+  color: #ff001e;
+  margin-top: 0.4rem;
+`;
+
+const InputWithLabel = ({
+  label,
+  name,
+  type,
+  className,
+  textArea,
+  value,
+  onChange,
+  warning,
+}) => {
+  const handleChange = (e) => {
+    onChange({ name: name, value: e.target.value });
+  };
   return (
     <Wrapper className={className}>
       <Label>
@@ -39,9 +56,10 @@ const InputWithLabel = ({ label, name, type, className, textArea, value }) => {
           as={textArea ? "textarea" : "input"}
           type={type || "text"}
           name={name}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          value={value}
+          onChange={handleChange}
         />
+        {warning && <Warning>Please fill out this field.</Warning>}
       </Label>
     </Wrapper>
   );

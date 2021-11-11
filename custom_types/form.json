@@ -33,11 +33,11 @@
                   "label": "label 1"
                 }
               },
-              "label_2": {
-                "type": "StructuredText",
+              "required_1": {
+                "type": "Boolean",
                 "config": {
-                  "single": "heading4",
-                  "label": "label 2"
+                  "default_value": false,
+                  "label": "required_1"
                 }
               },
               "name_2": {
@@ -45,6 +45,20 @@
                 "config": {
                   "single": "heading4",
                   "label": "name 2"
+                }
+              },
+              "label_2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "label 2"
+                }
+              },
+              "required_2": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "required_2"
                 }
               }
             },
@@ -57,6 +71,13 @@
             "icon": "input",
             "display": "list",
             "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "name"
+                }
+              },
               "label": {
                 "type": "StructuredText",
                 "config": {
@@ -64,11 +85,11 @@
                   "label": "label"
                 }
               },
-              "name": {
-                "type": "StructuredText",
+              "required": {
+                "type": "Boolean",
                 "config": {
-                  "single": "heading4",
-                  "label": "name"
+                  "default_value": false,
+                  "label": "required"
                 }
               }
             },
@@ -94,6 +115,13 @@
                   "single": "heading4",
                   "label": "name"
                 }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "required"
+                }
               }
             },
             "repeat": {}
@@ -105,6 +133,13 @@
             "icon": "texture",
             "display": "list",
             "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Name"
+                }
+              },
               "label": {
                 "type": "StructuredText",
                 "config": {
@@ -112,11 +147,11 @@
                   "label": "Label"
                 }
               },
-              "name": {
-                "type": "StructuredText",
+              "required": {
+                "type": "Boolean",
                 "config": {
-                  "single": "heading4",
-                  "label": "Name"
+                  "default_value": false,
+                  "label": "required"
                 }
               }
             },

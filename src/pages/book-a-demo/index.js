@@ -93,6 +93,7 @@ export const query = graphql`
                       name {
                         text
                       }
+                      required
                     }
                     slice_type
                   }
@@ -124,6 +125,7 @@ export const query = graphql`
                       label {
                         text
                       }
+                      required
                     }
                   }
                   ... on PrismicFormDataBodyTwoTextInputs {
@@ -136,12 +138,14 @@ export const query = graphql`
                       label_2 {
                         text
                       }
+                      required_1
                       name_1 {
                         text
                       }
                       name_2 {
                         text
                       }
+                      required_2
                     }
                   }
                   ... on PrismicFormDataBodyTextArea {
@@ -154,6 +158,7 @@ export const query = graphql`
                       label {
                         text
                       }
+                      required
                     }
                   }
                 }
