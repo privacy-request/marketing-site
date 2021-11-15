@@ -3,6 +3,8 @@ import { SCREEN_SIZES } from "../../components/utils/constants";
 
 export const Card = styled.div`
   max-width: 68.7rem;
+  min-width: 68.7rem;
+  min-height: 88rem;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -16,6 +18,7 @@ export const Card = styled.div`
   z-index: 2;
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin-bottom: 4rem;
+    min-width: 0rem;
   }
 `;
 
@@ -42,9 +45,14 @@ export const Left = styled.div`
   margin-top: 7rem;
   padding-left: 3rem;
   margin-bottom: 5rem;
+  min-width: 63rem;
+  @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP_LARGE}px) {
+    min-width: 50rem;
+  }
   @media only screen and (max-width: ${SCREEN_SIZES.LAPTOP}px) {
     margin-right: 0;
     margin-bottom: 0;
+    min-width: 0;
   }
 `;
 
