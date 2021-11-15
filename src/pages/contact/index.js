@@ -21,7 +21,7 @@ import {
   Phone,
   Blob,
 } from "../../components/ContactPage/ContactPage.styles";
-import ContactForm from "../../components/ContactPage/ContactForm/ContactForm";
+import Form from "../../components/Form/Form";
 
 const ContactPage = ({ data, path }) => {
   const {
@@ -30,18 +30,12 @@ const ContactPage = ({ data, path }) => {
     page_title,
     subheadline,
     headline,
-    first_name_label,
-    last_name_label,
-    email_label,
-    phone_label,
-    job_title_company_label,
-    message_label,
-    submit_button,
     sales_associate_headline,
     email_prefix,
     email,
     phone_prefix,
     phone,
+    form,
   } = data.prismicContactPage.data;
   const isMobile = isMobileScreen();
 
@@ -65,16 +59,10 @@ const ContactPage = ({ data, path }) => {
         <Content>
           <Ellipse />
           <ContactFormCard>
-            <ContactForm
-              {...{
-                first_name_label,
-                last_name_label,
-                email_label,
-                phone_label,
-                job_title_company_label,
-                message_label,
-                submit_button,
-              }}
+            <Form
+              pageRoute={path}
+              actionRoute={`/contact/thank-you`}
+              inputs={form.document.data.body}
             />
           </ContactFormCard>
           {!isMobile && <Blob />}
@@ -96,7 +84,7 @@ const ContactPage = ({ data, path }) => {
 };
 
 export const query = graphql`
-  query HomepageQuery {
+  query ContactPageQuery {
     prismicNavigation {
       ...NavigationData
     }
@@ -122,26 +110,12 @@ export const query = graphql`
         subheadline {
           text
         }
-        first_name_label {
-          text
-        }
-        email_label {
-          text
-        }
-        phone_label {
-          text
-        }
-        job_title_company_label {
-          text
-        }
-        last_name_label {
-          text
-        }
-        message_label {
-          text
-        }
-        submit_button {
-          text
+        form {
+          id
+          link_type
+          document {
+            ...FormData
+          }
         }
         sales_associate_headline {
           text

@@ -5,7 +5,7 @@ import { HeroBackground, Hero } from "../PageHero/PageHero.styles.js";
 import { HyperLink } from "../typography";
 
 export const ContactHeroBackground = styled(HeroBackground)`
-    left: -31rem;
+  left: -31rem;
 `;
 
 export const Ellipse = styled(ContactContentEllipse)`
@@ -32,7 +32,6 @@ export const Blob = styled(AboutContentBlob)`
 export const Wrapper = styled.div`
   position: relative;
   margin: auto;
-
 `;
 
 export const ContactHero = styled(Hero)`
@@ -85,7 +84,6 @@ export const Card = styled.div`
 export const ContactFormCard = styled(Card)`
   margin-top: -32rem;
   margin-bottom: 3rem;
-  padding: 6.2rem 8.3rem 9rem 8.3rem;
   @media only screen and (max-width: 575px) {
     margin-top: -30rem;
     padding: 5.4rem 4.3rem 3.4rem 4.3rem;

@@ -22,7 +22,7 @@ export const DoubleInputRow = styled.div`
 
 export const FormWrapper = styled.form`
   margin: 6.4rem 6.4rem 2.8rem 6.4rem;
-  width: 100%;
+
   @media only screen and (max-width: ${SCREEN_SIZES.MOBILE_LARGE}px) {
     margin: 3.2rem 2.4rem;
   }
