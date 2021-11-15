@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.p`
   width: 100%;
   margin-bottom: 3.2rem;
 `;

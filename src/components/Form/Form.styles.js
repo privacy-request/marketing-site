@@ -11,7 +11,7 @@ export const DisclaimerText = styled(RichTextSection)`
 export const DoubleInputRow = styled.div`
   display: flex;
   width: 100%;
-  div:first-child {
+  p:first-child {
     margin-right: 3rem;
   }
 
