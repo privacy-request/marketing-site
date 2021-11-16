@@ -58,7 +58,6 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   }, []);
 
   const onSubmit = (e) => {
-    e.preventDefault();
     const validationObj = { ...validation };
     let preventSubmit = false;
     Object.keys(values).forEach((name) => {
@@ -69,6 +68,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     });
 
     if (!preventSubmit) {
+      console.log(encode({ "form-name": pageRoute, ...values }));
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -77,6 +77,8 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     } else {
       setValidation(validationObj);
     }
+
+    e.preventDefault();
   };
 
   const onChange = ({ value, name }) => {
