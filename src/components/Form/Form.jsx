@@ -73,7 +73,9 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", ...values }),
-      });
+      })
+        .then(() => alert("Success!"))
+        .catch((error) => alert(error));
     } else {
       setValidation(validationObj);
     }
