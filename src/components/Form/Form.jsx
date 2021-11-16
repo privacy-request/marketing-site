@@ -55,7 +55,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       setValidation(validationObj);
       setValues(valuesObj);
     });
-  }, []);
+  }, [inputs]);
 
   const onSubmit = (e) => {
     const validationObj = { ...validation };
@@ -68,11 +68,11 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     });
     e.preventDefault();
     if (!preventSubmit) {
-      console.log({ ...values });
+      console.log({ "form-name": `${pageRoute}`, ...values });
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": pageRoute, ...values }),
+        body: encode({ "form-name": `${pageRoute}`, ...values }),
       }).then(navigate(actionRoute));
     } else {
       setValidation(validationObj);
