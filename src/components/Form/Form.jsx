@@ -72,7 +72,6 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       netlify-honeypot="bot-field"
       data-netlify="true"
       action={actionRoute}
-      onSubmit={onSubmit}
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value={pageRoute} />
