@@ -10,8 +10,15 @@ import {
 } from "./Form.styles";
 import { OptInFormTitle } from "../typography";
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   const [values, setValues] = useState();
+
   useEffect(() => {
     const valuesObj = {};
     inputs.forEach((input) => {
@@ -46,6 +53,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   }, []);
 
   const onSubmit = (e) => {
+    e.preventDefault();
     const valuesObj = { ...values };
     let preventSubmit = false;
     Object.keys(values).forEach((name) => {
@@ -55,8 +63,17 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       }
     });
 
-    setValues(valuesObj);
-    preventSubmit && e.preventDefault();
+    if (!preventSubmit) {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...values }),
+      })
+        .then(() => alert("Success!"))
+        .catch((error) => alert(error));
+    } else {
+      setValues(valuesObj);
+    }
   };
 
   const onChange = ({ value, name }) => {
@@ -72,6 +89,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       netlify-honeypot="bot-field"
       data-netlify="true"
       action={actionRoute}
+      onSubmit={onSubmit}
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value={pageRoute} />
