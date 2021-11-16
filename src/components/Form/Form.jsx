@@ -68,10 +68,11 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     });
     e.preventDefault();
     if (!preventSubmit) {
+      console.log({ ...values });
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": pageRoute, ...values }),
+        body: encode({ "form-name": "contact", ...values }),
       });
     } else {
       setValidation(validationObj);
