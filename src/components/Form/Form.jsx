@@ -72,7 +72,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": `${pageRoute}`, ...values }),
+        body: encode({ "form-name": "contact", ...values }),
       }).then(navigate(actionRoute));
     } else {
       setValidation(validationObj);
