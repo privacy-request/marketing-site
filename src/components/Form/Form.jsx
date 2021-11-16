@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { navigate } from "gatsby";
 import Input from "../Input";
 import Checkbox from "../Checkbox";
 import {
@@ -18,20 +19,22 @@ const encode = (data) => {
 
 const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   const [values, setValues] = useState();
+  const [validation, setValidation] = useState();
 
   useEffect(() => {
     const valuesObj = {};
+    const validationObj = {};
     inputs.forEach((input) => {
       const type = input.slice_type;
       if (type === "two_text_inputs") {
         const { name_1, name_2, required_1, required_2 } = input.primary;
-        valuesObj[name_1.text] = {
+        valuesObj[name_1.text] = preFill[name_1.text] || "";
+        valuesObj[name_2.text] = preFill[name_2.text] || "";
+        validationObj[name_1.text] = {
           required: required_1,
-          value: preFill[name_1.text] || "",
           warning: false,
         };
-        valuesObj[name_2.text] = {
-          value: preFill[name_2.text] || "",
+        validationObj[name_2.text] = {
           required: required_2,
           warning: false,
         };
@@ -41,24 +44,26 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
         type === "checkbox"
       ) {
         const { name, required } = input.primary;
-        valuesObj[name.text] = {
-          value: preFill[name.text] || "",
+        valuesObj[name.text] = preFill[name.text] || "";
+
+        validationObj[name.text] = {
           required: required,
           warning: false,
         };
       }
 
+      setValidation(validationObj);
       setValues(valuesObj);
     });
   }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const valuesObj = { ...values };
+    const validationObj = { ...validation };
     let preventSubmit = false;
     Object.keys(values).forEach((name) => {
-      if (!values[name].value && values[name].required) {
-        valuesObj[name].warning = true;
+      if (!values[name] && validation[name].required) {
+        validationObj[name].warning = true;
         preventSubmit = true;
       }
     });
@@ -67,21 +72,22 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...values }),
-      })
-        .then(() => alert("Success!"))
-        .catch((error) => alert(error));
+        body: encode({ "form-name": pageRoute, ...values }),
+      }).then(navigate(actionRoute));
     } else {
-      setValues(valuesObj);
+      setValidation(validationObj);
     }
   };
 
   const onChange = ({ value, name }) => {
     const valuesObj = { ...values };
-    valuesObj[name].value = value;
-    valuesObj[name].warning = false;
+    const validationObj = { ...validation };
+    valuesObj[name] = value;
+    validationObj[name].warning = false;
     setValues(valuesObj);
+    setValidation(validationObj);
   };
+
   return (
     <FormWrapper
       name={pageRoute}
@@ -105,7 +111,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
                   value={values[input.primary.name.text].value}
                   name={input.primary.name.text}
                   label={input.primary.label.text}
-                  warning={values[input.primary.name.text].warning}
+                  warning={validation[input.primary.name.text].warning}
                   onChange={onChange}
                 />
               );
@@ -117,14 +123,14 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
                     onChange={onChange}
                     name={input.primary.name_1.text}
                     label={input.primary.label_1.text}
-                    warning={values[input.primary.name_1.text].warning}
+                    warning={validation[input.primary.name_1.text].warning}
                   />
                   <Input
                     value={values[input.primary.name_2.text].value}
                     onChange={onChange}
                     name={input.primary.name_2.text}
                     label={input.primary.label_2.text}
-                    warning={values[input.primary.name_2.text].warning}
+                    warning={validation[input.primary.name_2.text].warning}
                   />
                 </DoubleInputRow>
               );
@@ -134,7 +140,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
                   key={index}
                   name={input.primary.name.text}
                   label={input.primary.label.text}
-                  required={input.primary.required}
+                  warning={validation[input.primary.name.text].warning}
                 />
               );
             case "rich_text_section":
@@ -148,12 +154,13 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
             case "text_area":
               return (
                 <TextArea
+                  value={values[input.primary.name.text].value}
                   key={index}
                   textArea
+                  onChange={onChange}
                   name={input.primary.name.text}
                   type="text-area"
                   label={input.primary.label.text}
-                  required={input.primary.required}
                 />
               );
             case "submit_button":
