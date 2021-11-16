@@ -89,14 +89,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   };
 
   return (
-    <FormWrapper
-      name={pageRoute}
-      method="post"
-      netlify-honeypot="bot-field"
-      data-netlify="true"
-      action={actionRoute}
-      onSubmit={onSubmit}
-    >
+    <FormWrapper onSubmit={onSubmit}>
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value={pageRoute} />
       <OptInFormTitle>{title}</OptInFormTitle>
