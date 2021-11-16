@@ -66,9 +66,8 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
         preventSubmit = true;
       }
     });
-
+    e.preventDefault();
     if (!preventSubmit) {
-      console.log(encode({ "form-name": pageRoute, ...values }));
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -77,8 +76,6 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     } else {
       setValidation(validationObj);
     }
-
-    e.preventDefault();
   };
 
   const onChange = ({ value, name }) => {
@@ -91,7 +88,13 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   };
 
   return (
-    <FormWrapper onSubmit={onSubmit}>
+    <FormWrapper
+      onSubmit={onSubmit}
+      name={pageRoute}
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value={pageRoute} />
       <OptInFormTitle>{title}</OptInFormTitle>
