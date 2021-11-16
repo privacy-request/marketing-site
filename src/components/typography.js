@@ -77,7 +77,6 @@ export const MobileNavSubitem = styled(MobileNavItem)`
   font-weight: normal;
 `;
 
-// Shared
 export const CallToAction = styled(Link)`
   font-size: ${fontSize.link.medium};
   font-weight: bold;
