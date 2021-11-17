@@ -66,15 +66,16 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
         preventSubmit = true;
       }
     });
-    e.preventDefault();
+
     if (!preventSubmit) {
-      console.log({ "form-name": `${pageRoute}`, ...values });
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "test", ...values }),
-      }).then(navigate(actionRoute));
+      // console.log({ "form-name": `${pageRoute}`, ...values });
+      // fetch("/", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      //   body: encode({ "form-name": "test", ...values }),
+      // }).then(navigate(actionRoute));
     } else {
+      e.preventDefault();
       setValidation(validationObj);
     }
   };
@@ -95,6 +96,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      action={actionRoute}
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value={pageRoute} />
