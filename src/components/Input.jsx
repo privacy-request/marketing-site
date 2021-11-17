@@ -46,7 +46,7 @@ const InputWithLabel = ({
   warning,
 }) => {
   const handleChange = (e) => {
-    onChange({ name: name, value: e.target.value });
+    onChange({ name: e.target.name, value: e.target.value });
   };
   return (
     <Wrapper className={className}>

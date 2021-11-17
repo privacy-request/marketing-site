@@ -58,6 +58,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   }, [inputs]);
 
   const onSubmit = (e) => {
+    e.preventDefault();
     const validationObj = { ...validation };
     let preventSubmit = false;
     Object.keys(values).forEach((name) => {
@@ -77,7 +78,6 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     } else {
       setValidation(validationObj);
     }
-    e.preventDefault();
   };
 
   const onChange = ({ value, name }) => {
@@ -92,6 +92,8 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   return (
     <FormWrapper
       onSubmit={onSubmit}
+      method="POST"
+      action={actionRoute}
       name={pageRoute}
       data-netlify="true"
       data-netlify-honeypot="bot-field"
