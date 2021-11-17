@@ -18,7 +18,7 @@ const BookADemoPage = ({ data, path, location: { state } }) => {
     data.prismicBookADemoPage.data;
   const isMobile = isMobileScreen(SCREEN_SIZES.LAPTOP_MEDIUM);
   const { email } = state && state.redirectFromBookADemoForm ? state : {};
-  const pageRoute = "book-a-demo";
+  const pageRoute = "test";
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
