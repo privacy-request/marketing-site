@@ -38,7 +38,6 @@ const ContactPage = ({ data, path }) => {
     form,
   } = data.prismicContactPage.data;
   const isMobile = isMobileScreen();
-
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
@@ -60,7 +59,7 @@ const ContactPage = ({ data, path }) => {
           <Ellipse />
           <ContactFormCard>
             <Form
-              pageRoute={path}
+              pageRoute={"contact"}
               actionRoute={`/contact/thank-you`}
               inputs={form.document.data.body}
             />
