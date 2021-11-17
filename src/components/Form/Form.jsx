@@ -68,16 +68,16 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     });
 
     if (!preventSubmit) {
-      // console.log({ "form-name": `${pageRoute}`, ...values });
-      // fetch("/", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      //   body: encode({ "form-name": "test", ...values }),
-      // }).then(navigate(actionRoute));
+      console.log({ "form-name": `${pageRoute}`, ...values });
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": pageRoute, ...values }),
+      }).then(navigate(actionRoute));
     } else {
-      e.preventDefault();
       setValidation(validationObj);
     }
+    e.preventDefault();
   };
 
   const onChange = ({ value, name }) => {
@@ -93,10 +93,8 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     <FormWrapper
       onSubmit={onSubmit}
       name={pageRoute}
-      method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      action={actionRoute}
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value={pageRoute} />
