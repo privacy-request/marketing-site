@@ -102,79 +102,86 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value={pageRoute} />
       <OptInFormTitle>{title}</OptInFormTitle>
-      {values &&
-        inputs.map((input, index) => {
-          if (!input) return null;
-          switch (input.slice_type) {
-            case "text_input":
-              return (
+      {inputs.map((input, index) => {
+        if (!input) return null;
+        switch (input.slice_type) {
+          case "text_input":
+            return (
+              <Input
+                key={index}
+                value={values && values[input.primary.name.text].value}
+                name={input.primary.name.text}
+                label={input.primary.label.text}
+                warning={
+                  validation && validation[input.primary.name.text].warning
+                }
+                onChange={onChange}
+              />
+            );
+          case "two_text_inputs":
+            return (
+              <DoubleInputRow key={index}>
                 <Input
-                  key={index}
-                  value={values[input.primary.name.text].value}
-                  name={input.primary.name.text}
-                  label={input.primary.label.text}
-                  warning={validation[input.primary.name.text].warning}
+                  value={values && values[input.primary.name_1.text].value}
                   onChange={onChange}
+                  name={input.primary.name_1.text}
+                  label={input.primary.label_1.text}
+                  warning={
+                    validation && validation[input.primary.name_1.text].warning
+                  }
                 />
-              );
-            case "two_text_inputs":
-              return (
-                <DoubleInputRow key={index}>
-                  <Input
-                    value={values[input.primary.name_1.text].value}
-                    onChange={onChange}
-                    name={input.primary.name_1.text}
-                    label={input.primary.label_1.text}
-                    warning={validation[input.primary.name_1.text].warning}
-                  />
-                  <Input
-                    value={values[input.primary.name_2.text].value}
-                    onChange={onChange}
-                    name={input.primary.name_2.text}
-                    label={input.primary.label_2.text}
-                    warning={validation[input.primary.name_2.text].warning}
-                  />
-                </DoubleInputRow>
-              );
-            case "checkbox":
-              return (
-                <Checkbox
-                  key={index}
-                  name={input.primary.name.text}
-                  label={input.primary.label.text}
-                  warning={validation[input.primary.name.text].warning}
-                />
-              );
-            case "rich_text_section":
-              return (
-                <DisclaimerText
-                  paragraphFontSize={"xsmall"}
-                  key={index}
-                  data={input.primary.content.richText}
-                />
-              );
-            case "text_area":
-              return (
-                <TextArea
-                  value={values[input.primary.name.text].value}
-                  key={index}
-                  textArea
+                <Input
+                  value={values && values[input.primary.name_2.text].value}
                   onChange={onChange}
-                  name={input.primary.name.text}
-                  type="text-area"
-                  label={input.primary.label.text}
+                  name={input.primary.name_2.text}
+                  label={input.primary.label_2.text}
+                  warning={
+                    validation && validation[input.primary.name_2.text].warning
+                  }
                 />
-              );
-            case "submit_button":
-              return (
-                <SubmitButton key={index} as="button" type="submit">
-                  {input.primary.text.text}
-                </SubmitButton>
-              );
-            default:
-              return null;
-          }
-        })}
+              </DoubleInputRow>
+            );
+          case "checkbox":
+            return (
+              <Checkbox
+                key={index}
+                name={input.primary.name.text}
+                label={input.primary.label.text}
+                warning={
+                  validation && validation[input.primary.name.text].warning
+                }
+              />
+            );
+          case "rich_text_section":
+            return (
+              <DisclaimerText
+                paragraphFontSize={"xsmall"}
+                key={index}
+                data={input.primary.content.richText}
+              />
+            );
+          case "text_area":
+            return (
+              <TextArea
+                value={values && values[input.primary.name.text].value}
+                key={index}
+                textArea
+                onChange={onChange}
+                name={input.primary.name.text}
+                type="text-area"
+                label={input.primary.label.text}
+              />
+            );
+          case "submit_button":
+            return (
+              <SubmitButton key={index} as="button" type="submit">
+                {input.primary.text.text}
+              </SubmitButton>
+            );
+          default:
+            return null;
+        }
+      })}
     </FormWrapper>
   );
 };
