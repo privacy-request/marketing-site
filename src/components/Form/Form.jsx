@@ -20,6 +20,7 @@ const encode = (data) => {
 const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   const [values, setValues] = useState();
   const [validation, setValidation] = useState();
+  const formName = `${pageRoute}-v2`;
 
   useEffect(() => {
     const valuesObj = {};
@@ -73,7 +74,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...values }),
+        body: encode({ "form-name": formName, ...values }),
       }).then(navigate(actionRoute));
     } else {
       setValidation(validationObj);
@@ -94,7 +95,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
       onSubmit={onSubmit}
       method="POST"
       action={actionRoute}
-      name={pageRoute}
+      name={formName}
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
