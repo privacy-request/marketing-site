@@ -18,9 +18,9 @@ const encode = (data) => {
 };
 
 const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
-  const [values, setValues] = useState();
-  const [validation, setValidation] = useState();
-  const formName = `${pageRoute}-v2`;
+  const [values, setValues] = useState({});
+  const [validation, setValidation] = useState({});
+  const formName = `${pageRoute}(from-remove-calendly-branch)`;
 
   useEffect(() => {
     const valuesObj = {};
@@ -70,7 +70,6 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
     });
 
     if (!preventSubmit) {
-      console.log({ "form-name": `${pageRoute}`, ...values });
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -109,11 +108,12 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
             return (
               <Input
                 key={index}
-                value={values && values[input.primary.name.text].value}
+                value={values[input.primary.name.text] || ""}
                 name={input.primary.name.text}
                 label={input.primary.label.text}
                 warning={
-                  validation && validation[input.primary.name.text].warning
+                  validation[input.primary.name.text] &&
+                  validation[input.primary.name.text].warning
                 }
                 onChange={onChange}
               />
@@ -122,21 +122,23 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
             return (
               <DoubleInputRow key={index}>
                 <Input
-                  value={values && values[input.primary.name_1.text].value}
+                  value={values[input.primary.name_1.text] || ""}
                   onChange={onChange}
                   name={input.primary.name_1.text}
                   label={input.primary.label_1.text}
                   warning={
-                    validation && validation[input.primary.name_1.text].warning
+                    validation[input.primary.name_1.text] &&
+                    validation[input.primary.name_1.text].warning
                   }
                 />
                 <Input
-                  value={values && values[input.primary.name_2.text].value}
+                  value={values[input.primary.name_2.text] || ""}
                   onChange={onChange}
                   name={input.primary.name_2.text}
                   label={input.primary.label_2.text}
                   warning={
-                    validation && validation[input.primary.name_2.text].warning
+                    validation[input.primary.name_2.text] &&
+                    validation[input.primary.name_2.text].warning
                   }
                 />
               </DoubleInputRow>
@@ -148,7 +150,8 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
                 name={input.primary.name.text}
                 label={input.primary.label.text}
                 warning={
-                  validation && validation[input.primary.name.text].warning
+                  validation[input.primary.name.text] &&
+                  validation[input.primary.name.text].warning
                 }
               />
             );
@@ -163,7 +166,7 @@ const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
           case "text_area":
             return (
               <TextArea
-                value={values && values[input.primary.name.text].value}
+                value={values[input.primary.name.text] || ""}
                 key={index}
                 textArea
                 onChange={onChange}
