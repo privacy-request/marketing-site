@@ -20,7 +20,7 @@ const encode = (data) => {
 const Form = ({ title, pageRoute, actionRoute, inputs, preFill }) => {
   const [values, setValues] = useState({});
   const [validation, setValidation] = useState({});
-  const formName = `${pageRoute}(from-remove-calendly-branch)`;
+  const formName = pageRoute;
 
   useEffect(() => {
     const valuesObj = {};
