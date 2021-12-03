@@ -112,6 +112,7 @@ export const Card = styled.div`
     margin-bottom: 4rem;
   }
 `;
+
 export const AdditionalContent = styled.div`
   z-index: 1;
   max-width: 85rem;

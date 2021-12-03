@@ -261,13 +261,6 @@ export const ProductPageSubheadline = styled(Paragraph)`
   margin-bottom: 3rem;
 `;
 
-// CookieBanner
-export const CookieBannerText = styled.p`
-  font-size: ${fontSize.paragraph.xsmall};
-  margin: 0 1rem 1.3rem 0;
-  line-height: ${lineHeight.xsmall};
-`;
-
 export const AcceptLink = styled.p`
   font-size: ${fontSize.link.small};
   font-weight: bold;

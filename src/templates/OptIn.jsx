@@ -30,6 +30,7 @@ const OptIn = ({ data, path }) => {
     form_title,
     body,
     social_sharing_image,
+    form,
   } = data.prismicOptInPage.data;
   const isMobile = isMobileScreen();
   const pageRoute = data.prismicOptInPage.uid;
@@ -37,7 +38,6 @@ const OptIn = ({ data, path }) => {
     <Layout
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
-      cookieBannerData={data.prismicCookieBanner.data}
       hideNavBar={hide_navbar}
     >
       <Seo
@@ -63,7 +63,7 @@ const OptIn = ({ data, path }) => {
                 pageRoute={pageRoute}
                 actionRoute={`/${pageRoute}/thank-you`}
                 title={form_title.text}
-                inputs={data.prismicForm.data.body}
+                inputs={form.document.data.body}
               />
             </Card>
           </Right>
@@ -84,81 +84,12 @@ const OptIn = ({ data, path }) => {
 };
 
 export const query = graphql`
-  query OptInQuery($slug: String, $formID: String) {
+  query OptInQuery($slug: String) {
     prismicNavigation {
       ...NavigationData
     }
     prismicFooter {
       ...FooterData
-    }
-    prismicCookieBanner {
-      ...CookieBannerData
-    }
-    prismicForm(uid: { eq: $formID }) {
-      data {
-        body {
-          ... on PrismicFormDataBodyTwoTextInputs {
-            id
-            primary {
-              label_1 {
-                text
-              }
-              label_2 {
-                text
-              }
-              name_1 {
-                text
-              }
-              name_2 {
-                text
-              }
-            }
-            slice_type
-          }
-          ... on PrismicFormDataBodyTextInput {
-            id
-            primary {
-              label {
-                text
-              }
-              name {
-                text
-              }
-            }
-            slice_type
-          }
-          ... on PrismicFormDataBodyCheckbox {
-            id
-            primary {
-              label {
-                text
-              }
-              name {
-                text
-              }
-            }
-            slice_type
-          }
-          ... on PrismicFormDataBodyRichTextSection {
-            id
-            primary {
-              content {
-                richText
-              }
-            }
-            slice_type
-          }
-          ... on PrismicFormDataBodySubmitButton {
-            id
-            primary {
-              text {
-                text
-              }
-            }
-            slice_type
-          }
-        }
-      }
     }
     prismicOptInPage(uid: { eq: $slug }) {
       uid
@@ -183,6 +114,13 @@ export const query = graphql`
         }
         form_title {
           text
+        }
+        form {
+          id
+          link_type
+          document {
+            ...FormData
+          }
         }
         body {
           ... on PrismicOptInPageDataBodyRichTextSection {

@@ -35,7 +35,6 @@ const BlogPost = ({ data, path }) => {
     <Layout
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
-      cookieBannerData={data.prismicCookieBanner.data}
     >
       <Seo
         title={page_title.text}
@@ -66,9 +65,6 @@ export const query = graphql`
     }
     prismicFooter {
       ...FooterData
-    }
-    prismicCookieBanner {
-      ...CookieBannerData
     }
     allPrismicLegalPage {
       edges {

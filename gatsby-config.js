@@ -51,8 +51,8 @@ module.exports = {
           book_a_demo_banner: require("./custom_types/book_a_demo_banner.json"),
           opt_in_page: require("./custom_types/opt_in_page.json"),
           form: require("./custom_types/form.json"),
+          book_a_demo_page: require("./custom_types/book_a_demo_page.json"),
           book_a_d: {},
-          book_a_demo_page: {},
           navigation_bar: {},
           "opt-in-page": {},
           privacy_center: {},
@@ -65,16 +65,6 @@ module.exports = {
       options: {
         repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: "UA-154605502-2",
-          cookieName: "gatsby-gdpr-google-analytics",
-          anonymize: true,
-        },
       },
     },
     "gatsby-plugin-styled-components",

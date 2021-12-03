@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.p`
   width: 100%;
   margin-bottom: 3.2rem;
 `;
@@ -29,16 +29,37 @@ const Span = styled.span`
   border-radius: 8px;
 `;
 
-const InputWithLabel = ({ label, name, type, className, textArea }) => {
+const Warning = styled.span`
+  font-size: 16px;
+  color: #ff001e;
+  margin-top: 0.4rem;
+`;
+
+const InputWithLabel = ({
+  label,
+  name,
+  type,
+  className,
+  textArea,
+  value,
+  onChange,
+  warning,
+}) => {
+  const handleChange = (e) => {
+    onChange({ name: e.target.name, value: e.target.value });
+  };
   return (
     <Wrapper className={className}>
       <Label>
         <Span>{label}</Span>
         <Input
-          as={textArea ? "textArea" : "input"}
+          as={textArea ? "textarea" : "input"}
           type={type || "text"}
           name={name}
+          value={value}
+          onChange={handleChange}
         />
+        {warning && <Warning>Please fill out this field.</Warning>}
       </Label>
     </Wrapper>
   );

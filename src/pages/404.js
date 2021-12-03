@@ -20,7 +20,6 @@ const NotFoundPage = ({ path, data }) => {
       path={path}
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
-      cookieBannerData={data.prismicCookieBanner.data}
     >
       <h1>Page not found!</h1>
     </Layout>
@@ -34,9 +33,6 @@ export const query = graphql`
     }
     prismicFooter {
       ...FooterData
-    }
-    prismicCookieBanner {
-      ...CookieBannerData
     }
   }
 `;

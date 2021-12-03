@@ -5,12 +5,11 @@ import ConfirmationMessage from "../../components/ConfirmationMessage/Confirmati
 
 const DemoBooking = ({ data }) => {
   const { confirmation_message, confirmation_heading } =
-    data.prismicCalendarPage.data;
+    data.prismicBookADemoPage.data;
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
-      cookieBannerData={data.prismicCookieBanner.data}
     >
       <ConfirmationMessage
         heading={confirmation_heading.text}
@@ -21,17 +20,14 @@ const DemoBooking = ({ data }) => {
 };
 
 export const query = graphql`
-  query DemoBookingQuery {
+  query DemoBookingThankYouQuery {
     prismicNavigation {
       ...NavigationData
     }
     prismicFooter {
       ...FooterData
     }
-    prismicCookieBanner {
-      ...CookieBannerData
-    }
-    prismicCalendarPage {
+    prismicBookADemoPage {
       data {
         confirmation_message {
           text
