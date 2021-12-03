@@ -58,7 +58,10 @@ const Blog = ({ data, path }) => {
     inViewport && setDisplay(display + 9);
   }, [inViewport]);
 
-  const blogPosts = data.allPrismicBlogPost.edges;
+  const blogPosts = data.allPrismicBlogPost.edges.filter((blogPost) => {
+    return new Date(blogPost.node.data.date) <= new Date().setHours(0, 0, 0, 0);
+  });
+
   blogPosts.sort((a, b) => {
     return new Date(b.node.data.date) - new Date(a.node.data.date);
   });
