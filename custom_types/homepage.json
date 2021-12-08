@@ -36,6 +36,14 @@
         "label": "Page keywords"
       }
     },
+    "notification_bar": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "notification bar"
+      }
+    },
     "headline_prefix": {
       "type": "StructuredText",
       "config": {

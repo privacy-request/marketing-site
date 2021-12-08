@@ -23,6 +23,7 @@ const Homepage = ({ path, data }) => {
     typing_speed,
     backspace_delay,
     body,
+    notification_bar
   } = data.prismicHomepage.data;
   useEffect(() => sessionStorage && sessionStorage.clear(), []);
   return (
@@ -30,6 +31,7 @@ const Homepage = ({ path, data }) => {
       path={path}
       navigationData={data.prismicNavigation.data}
       footerData={data.prismicFooter.data}
+      notificationBarRichText={notification_bar.richText}
     >
       <Seo
         title={page_title.text}
@@ -72,6 +74,9 @@ export const query = graphql`
         }
         page_title {
           text
+        }
+        notification_bar {
+          richText
         }
       }
       id
