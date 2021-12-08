@@ -435,7 +435,11 @@ export const RichTextWrapper = styled.div`
     }
     margin-bottom: 2rem;
   }
-
+  iframe {
+    height: 45rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
   ol {
     margin-left: 3rem;
     li {
