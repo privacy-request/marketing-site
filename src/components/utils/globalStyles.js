@@ -9,11 +9,6 @@ export default createGlobalStyle`
             padding: 0;
             box-sizing: inherit;
         }
-
-        body {
-            overflow-x: hidden;
-        }
-
         // 1 rem = 10px; 10px/16px = 62.5%
         font-size: 62.5%;
         color: ${({ theme }) => theme.colour.grey.dark};

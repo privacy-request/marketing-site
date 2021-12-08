@@ -3,7 +3,6 @@ import { SCREEN_SIZES } from "../../utils/constants";
 
 export const Container = styled.div`
   height: ${({ theme: { height } }) => height.appBar.desktop};
-  width: 100vw;
   display: flex;
   background: ${({ theme: { colour } }) => colour.white};
   z-index: 4;
