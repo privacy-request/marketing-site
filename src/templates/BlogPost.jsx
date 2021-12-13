@@ -23,6 +23,7 @@ const BlogPost = ({ data, path }) => {
     image,
     date,
     category,
+    hide_image,
   } = data.prismicBlogPost.data;
   const postDate = new Date(date).toLocaleString("en-US", {
     year: "numeric",
@@ -46,7 +47,7 @@ const BlogPost = ({ data, path }) => {
       <Wrapper>
         <BlogPostTitle>{headline.text}</BlogPostTitle>
         <BlogPostDate>{postDate}</BlogPostDate>
-        <BlogPostImage src={image.url} />
+        {!hide_image && <BlogPostImage src={image.url} />}
         <SliceZone slices={body} />
         <AuthorAndCategory
           avatar={author_avatar}
@@ -109,6 +110,7 @@ export const query = graphql`
         image {
           url
         }
+        hide_image
         date
         body {
           ... on PrismicBlogPostDataBodyRichTextSection {
