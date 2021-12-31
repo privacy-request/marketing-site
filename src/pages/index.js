@@ -16,6 +16,7 @@ const Homepage = ({ path, data }) => {
     page_description,
     page_keywords,
     page_title,
+    page_sharing_image,
     headline_prefix,
     headline_typewriter,
     subheadline,
@@ -36,6 +37,7 @@ const Homepage = ({ path, data }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={page_sharing_image.url}
       />
       <HomepageContainer>
         <Hero
@@ -72,6 +74,9 @@ export const query = graphql`
         }
         page_title {
           text
+        }
+        page_sharing_image {
+          url
         }
       }
       id
