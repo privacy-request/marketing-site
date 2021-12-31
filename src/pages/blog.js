@@ -49,7 +49,7 @@ export const Line = styled.div`
 `;
 
 const Blog = ({ data, path }) => {
-  const { page_description, page_keywords, page_title } =
+  const { page_description, page_keywords, page_title, page_sharing_image } =
     data.prismicBlogPage.data;
   const [display, setDisplay] = useState(3);
   const ref = useRef();
@@ -77,6 +77,7 @@ const Blog = ({ data, path }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={page_sharing_image.url}
       />
       <Wrapper>
         {displayedBlogPosts.map((blogPost, index) => (
@@ -135,6 +136,9 @@ export const query = graphql`
         }
         page_title {
           text
+        }
+        page_sharing_image {
+          url
         }
       }
     }

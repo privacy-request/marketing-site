@@ -12,8 +12,14 @@ import {
 import SliceZone from "../components/Slices/SliceZone";
 
 const LegalPage = ({ data, path }) => {
-  const { page_title, page_description, page_keywords, body, header } =
-    data.prismicLegalPage.data;
+  const {
+    page_title,
+    page_description,
+    page_keywords,
+    page_sharing_image,
+    body,
+    header,
+  } = data.prismicLegalPage.data;
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
@@ -24,6 +30,7 @@ const LegalPage = ({ data, path }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={page_sharing_image.url}
       />
       <Wrapper>
         <Title>{header.text}</Title>
@@ -78,6 +85,9 @@ export const query = graphql`
         }
         page_title {
           text
+        }
+        page_sharing_image {
+          url
         }
         header {
           text

@@ -29,6 +29,14 @@
         "label": "page keywords"
       }
     },
+    "page_sharing_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Sharing image"
+      }
+    },
     "headline": {
       "type": "StructuredText",
       "config": {
@@ -123,13 +131,15 @@
           "linkedin": {
             "type": "Link",
             "config": {
-              "label": "Linkedin"
+              "label": "Linkedin",
+              "select": null
             }
           },
           "twitter": {
             "type": "Link",
             "config": {
-              "label": "Twitter"
+              "label": "Twitter",
+              "select": null
             }
           }
         },

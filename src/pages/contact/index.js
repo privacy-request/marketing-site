@@ -28,6 +28,7 @@ const ContactPage = ({ data, path }) => {
     page_description,
     page_keywords,
     page_title,
+    page_sharing_image,
     subheadline,
     headline,
     sales_associate_headline,
@@ -48,6 +49,7 @@ const ContactPage = ({ data, path }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={page_sharing_image.url}
       />
       <Wrapper>
         <ContactHero>
@@ -102,6 +104,9 @@ export const query = graphql`
           keyword {
             text
           }
+        }
+        page_sharing_image {
+          url
         }
         headline {
           text

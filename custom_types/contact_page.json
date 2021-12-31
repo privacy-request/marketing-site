@@ -29,6 +29,14 @@
         "label": "page keywords"
       }
     },
+    "page_sharing_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Sharing image"
+      }
+    },
     "headline": {
       "type": "StructuredText",
       "config": {

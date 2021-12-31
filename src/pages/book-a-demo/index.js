@@ -14,8 +14,14 @@ import {
 } from "../../components/BookADemoPage/BookADemoPage.styles";
 
 const BookADemoPage = ({ data, path, location: { state } }) => {
-  const { page_description, page_keywords, page_title, form_title, form } =
-    data.prismicBookADemoPage.data;
+  const {
+    page_description,
+    page_keywords,
+    page_title,
+    page_sharing_image,
+    form_title,
+    form,
+  } = data.prismicBookADemoPage.data;
   const isMobile = isMobileScreen(SCREEN_SIZES.LAPTOP_MEDIUM);
   const { email } = state && state.redirectFromBookADemoForm ? state : {};
   const pageRoute = "book-a-demo";
@@ -29,6 +35,7 @@ const BookADemoPage = ({ data, path, location: { state } }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={page_sharing_image.url}
       />
       <Content>
         {!isMobile && (
@@ -69,6 +76,9 @@ export const query = graphql`
           keyword {
             text
           }
+        }
+        page_sharing_image {
+          url
         }
         page_title {
           text
