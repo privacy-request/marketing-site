@@ -63,6 +63,13 @@
         "label": "Image"
       }
     },
+    "hide_image": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "hide image"
+      }
+    },
     "category": {
       "type": "Select",
       "config": {

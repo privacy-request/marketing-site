@@ -29,6 +29,14 @@
         "label": "Page Keywords"
       }
     },
+    "page_sharing_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Sharing image"
+      }
+    },
     "uid": {
       "type": "UID",
       "config": {

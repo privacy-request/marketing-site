@@ -16,6 +16,7 @@ const Homepage = ({ path, data }) => {
     page_description,
     page_keywords,
     page_title,
+    page_sharing_image,
     headline_prefix,
     headline_typewriter,
     subheadline,
@@ -23,7 +24,7 @@ const Homepage = ({ path, data }) => {
     typing_speed,
     backspace_delay,
     body,
-    notification_bar
+    notification_bar,
   } = data.prismicHomepage.data;
   useEffect(() => sessionStorage && sessionStorage.clear(), []);
   return (
@@ -38,6 +39,7 @@ const Homepage = ({ path, data }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={page_sharing_image.url}
       />
       <HomepageContainer>
         <Hero
@@ -77,6 +79,9 @@ export const query = graphql`
         }
         notification_bar {
           richText
+        }
+        page_sharing_image {
+          url
         }
       }
       id

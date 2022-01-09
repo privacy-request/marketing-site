@@ -39,7 +39,21 @@
     "notification_bar": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, strong, em, hyperlink",
+        "single": "paragraph, strong, em, hyperlink"
+      }
+    },
+    "page_sharing_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Sharing image"
+      }
+    },
+    "notification_bar": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph,strong,em,hyperlink",
         "allowTargetBlank": true,
         "label": "notification bar"
       }

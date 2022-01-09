@@ -20,6 +20,7 @@ const AboutPage = ({ data, path }) => {
     page_description,
     page_keywords,
     page_title,
+    page_sharing_image,
     subheadline,
     content,
     headline,
@@ -40,6 +41,7 @@ const AboutPage = ({ data, path }) => {
         desc={page_description.text}
         path={path}
         keywords={page_keywords}
+        banner={page_sharing_image.url}
       />
       <Wrapper>
         <PageHero headline={headline.text} subheadline={subheadline.text} />
@@ -91,6 +93,9 @@ export const query = graphql`
           keyword {
             text
           }
+        }
+        page_sharing_image {
+          url
         }
         page_title {
           text
