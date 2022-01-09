@@ -8,6 +8,12 @@ import Footer from "./Footer/Footer";
 import { Helmet } from "react-helmet";
 import "./font.css";
 import NotificationBar from "./NotificationBar/NotificationBar";
+import { Transition } from "react-transition-group";
+
+const UpOnExit = styled.div`
+  transition: 0.5s;
+  margin-top: ${({ state }) => (state === "exited" ? "-4.6rem" : "0rem")};
+`;
 
 const OverflowWrapper = styled.main`
   overflow: hidden;
@@ -35,15 +41,19 @@ const Layout = ({
         ></script>
       </Helmet>
       <GlobalStyles />
-      {displayNotification && (
-        <NotificationBar
-          {...{
-            notificationBarRichText,
-            displayNotification,
-            setDisplayNotification,
-          }}
-        />
-      )}
+      <Transition in={displayNotification} timeout={500}>
+        {(state) => (
+          <UpOnExit state={state}>
+            <NotificationBar
+              {...{
+                notificationBarRichText,
+                displayNotification,
+                setDisplayNotification,
+              }}
+            />
+          </UpOnExit>
+        )}
+      </Transition>
       <AppBar path={path} {...navigationData} hideNavBar={hideNavBar} />
       <OverflowWrapper>{children}</OverflowWrapper>
       <Footer {...footerData} navItems={navigationData.body} />
