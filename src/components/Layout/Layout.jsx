@@ -41,7 +41,7 @@ const Layout = ({
         ></script>
       </Helmet>
       <GlobalStyles />
-      <Transition in={displayNotification} timeout={500}>
+      <Transition in={displayNotification}>
         {(state) => (
           <UpOnExit state={state}>
             <NotificationBar
