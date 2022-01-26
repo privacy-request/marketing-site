@@ -36,6 +36,12 @@
         "label": "Page keywords"
       }
     },
+    "notification_bar": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, strong, em, hyperlink"
+      }
+    },
     "page_sharing_image": {
       "type": "Image",
       "config": {
