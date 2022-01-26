@@ -27,9 +27,7 @@ const Layout = ({
   hideNavBar,
   notificationBarRichText,
 }) => {
-  const [displayNotification, setDisplayNotification] = useState(
-    notificationBarRichText && !!notificationBarRichText[0]?.text
-  );
+  const [displayNotification, setDisplayNotification] = useState(true);
   return (
     <ThemeProvider theme={theme}>
       <Helmet>
@@ -41,19 +39,21 @@ const Layout = ({
         ></script>
       </Helmet>
       <GlobalStyles />
-      <Transition in={displayNotification}>
-        {(state) => (
-          <UpOnExit state={state}>
-            <NotificationBar
-              {...{
-                notificationBarRichText,
-                displayNotification,
-                setDisplayNotification,
-              }}
-            />
-          </UpOnExit>
-        )}
-      </Transition>
+      {notificationBarRichText && !!notificationBarRichText[0]?.text && (
+        <Transition in={displayNotification}>
+          {(state) => (
+            <UpOnExit state={state}>
+              <NotificationBar
+                {...{
+                  notificationBarRichText,
+                  displayNotification,
+                  setDisplayNotification,
+                }}
+              />
+            </UpOnExit>
+          )}
+        </Transition>
+      )}
       <AppBar path={path} {...navigationData} hideNavBar={hideNavBar} />
       <OverflowWrapper>{children}</OverflowWrapper>
       <Footer {...footerData} navItems={navigationData.body} />
