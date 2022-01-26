@@ -28,7 +28,7 @@ const Layout = ({
   notificationBarRichText,
 }) => {
   const [displayNotification, setDisplayNotification] = useState(
-    !!notificationBarRichText
+    !!notificationBarRichText[0]?.text
   );
   return (
     <ThemeProvider theme={theme}>
