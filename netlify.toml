@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/apply"
+  to = "/book-a-demo"
+  status = 200
