@@ -17,8 +17,8 @@ const Image = ({
       className={className}
       src={url}
       alt={alt}
-      height={height ? height : dimensions.height}
-      width={width ? width : dimensions.width}
+      height={height || dimensions?.height}
+      width={width || dimensions?.width}
     />
   );
 };
