@@ -10,7 +10,7 @@ const Testimonial = ({
   return (
     <Wrapper className={className}>
       <Image image={avatar} />
-      <Content>
+      <Content hasAvatar={!!avatar.url}>
         <TestimonialParagraph>{testimonial.text}</TestimonialParagraph>
         <NameAndJob>
           {name.text}, {job_title.text} <Company>- {company.text}</Company>

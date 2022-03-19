@@ -12,5 +12,5 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  margin-left: 4rem;
+  margin-left: ${({hasAvatar}) => hasAvatar ? '4rem' : '0rem'};
 `;

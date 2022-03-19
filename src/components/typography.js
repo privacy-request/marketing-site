@@ -203,7 +203,7 @@ export const CustomersHeadline = styled(Paragraph)`
 export const TestimonialsHeadline = styled.h5`
   font-size: ${fontSize.paragraph.small};
   font-weight: normal;
-  margin-bottom: 4.8rem;
+  margin-bottom: 4rem;
   @media only screen and (max-width: ${SCREEN_SIZES.TABLET}px) {
     margin-bottom: 2.7rem;
     font-size: ${fontSize.paragraph.xsmall};
