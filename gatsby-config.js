@@ -51,6 +51,7 @@ module.exports = {
           opt_in_page: require("./custom_types/opt_in_page.json"),
           form: require("./custom_types/form.json"),
           book_a_demo_page: require("./custom_types/book_a_demo_page.json"),
+          integrations: require("./custom_types/integrations.json"),
           cookie_banner: {},
           book_a_d: {},
           navigation_bar: {},
