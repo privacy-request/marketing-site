@@ -55,7 +55,8 @@ const Blog = ({ data, path }) => {
   const ref = useRef();
   const inViewport = useIntersection(ref, "-100px");
   useEffect(() => {
-    inViewport && setDisplay(display + 9);
+    //TODO Add propper pagination/lazy loading
+    inViewport && setDisplay(display + 100);
   }, [inViewport]);
 
   const blogPosts = data.allPrismicBlogPost.edges.filter((blogPost) => {
