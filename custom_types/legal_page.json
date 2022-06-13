@@ -140,6 +140,67 @@
               }
             }
           },
+          "table3Col": {
+            "type": "Slice",
+            "fieldset": "Table (3 col)",
+            "description": "Rows of repeatable data",
+            "icon": "grid_on",
+            "non-repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col1",
+                  "placeholder": "Col 1 header"
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col2",
+                  "placeholder": "Col 2 header"
+                }
+              },
+              "col3": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Col3",
+                  "placeholder": "Col 3 header"
+                }
+              }
+            },
+            "repeat": {
+              "col1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "col1",
+                  "placeholder": "Column 1 content..."
+                }
+              },
+              "col2": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "col2",
+                  "placeholder": "Column 2 content..."
+                }
+              },
+              "col3": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "col3",
+                  "placeholder": "Column 3 content..."
+                }
+              }
+            }
+          },
           "table5Col": {
             "type": "Slice",
             "fieldset": "Table (5 col)",
