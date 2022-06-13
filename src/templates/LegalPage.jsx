@@ -143,6 +143,32 @@ export const query = graphql`
             }
             slice_type
           }
+          ... on PrismicLegalPageDataBodyTable3Col {
+            id
+            primary {
+              col1 {
+                text
+              }
+              col2 {
+                text
+              }
+              col3 {
+                text
+              }
+            }
+            items {
+              col1 {
+                richText
+              }
+              col2 {
+                richText
+              }
+              col3 {
+                richText
+              }
+            }
+            slice_type
+          }
           ... on PrismicLegalPageDataBodyTable5Col {
             id
             primary {
