@@ -16,6 +16,7 @@ import TeamMembers from "../components/About/TeamMembers/TeamMembers";
 import PageHero from "../components/PageHero/PageHero";
 
 const AboutPage = ({ data, path }) => {
+  if (!data.prismicAboutPage?.data) return null;
   const {
     page_description,
     page_keywords,
