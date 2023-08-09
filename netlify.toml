@@ -6,7 +6,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self' *.prismic.io plausible.io *.plausible.io *.netlify.com *.netlify.app; require-trusted-types-for 'script'; script-src 'sha256-dH+oOZOdDv+MWU0F8bCZOoFHX0jFM4+bwNqOKujbv90=' 'sha256-sePOsSfrYQMhpb7JJfRnOnaG7kmNkStGkK3MRYUHL0c=' 'sha256-1BRxDRlllq8pHzou8MbZCtkuMwN02YL0a0pWEFEMr3Q=' 'sha256-o4LYhp5wtluJ8/NWUV2vi+r5AxmP8X2zEvYHCpji+kI=' 'sha256-v1oYH69RcooFs6F5XhMTzHiWlftYwnuQHDxIz0suNeo=' 'sha256-n6qp5RzqWFPk8bwgYOlYGoExLtqxN33EngZLqOl9uWw=' 'sha256-oO7nAh3sl68wNmwW4arcjGzPfKA3VxeWrKWMF1/S4Lw=' 'sha256-5tEA8rXsyBgnuWhQOW4rVKe+XdvoF/UCnIt23duVX24='; style-src 'sha256-n6qp5RzqWFPk8bwgYOlYGoExLtqxN33EngZLqOl9uWw=' 'sha256-MtxTLcyxVEJFNLEIqbVTaqR4WWr0+lYSZ78AzGmNsuA=' 'sha256-Hh1lTrc8K17dkzSeEDH6rqZpsbxnLcSh5tfh0QP+3HI='"
+    Content-Security-Policy = "default-src 'self' *.prismic.io plausible.io *.plausible.io *.netlify.com *.netlify.app; object-src 'none'; require-trusted-types-for 'script'; script-src 'sha256-dH+oOZOdDv+MWU0F8bCZOoFHX0jFM4+bwNqOKujbv90=' 'sha256-sePOsSfrYQMhpb7JJfRnOnaG7kmNkStGkK3MRYUHL0c=' 'sha256-1BRxDRlllq8pHzou8MbZCtkuMwN02YL0a0pWEFEMr3Q=' 'sha256-o4LYhp5wtluJ8/NWUV2vi+r5AxmP8X2zEvYHCpji+kI=' 'sha256-v1oYH69RcooFs6F5XhMTzHiWlftYwnuQHDxIz0suNeo=' 'sha256-n6qp5RzqWFPk8bwgYOlYGoExLtqxN33EngZLqOl9uWw=' 'sha256-oO7nAh3sl68wNmwW4arcjGzPfKA3VxeWrKWMF1/S4Lw=' 'sha256-5tEA8rXsyBgnuWhQOW4rVKe+XdvoF/UCnIt23duVX24='; style-src 'sha256-n6qp5RzqWFPk8bwgYOlYGoExLtqxN33EngZLqOl9uWw=' 'sha256-MtxTLcyxVEJFNLEIqbVTaqR4WWr0+lYSZ78AzGmNsuA=' 'sha256-Hh1lTrc8K17dkzSeEDH6rqZpsbxnLcSh5tfh0QP+3HI='"
     Referrer-Policy = "no-referrer-when-downgrade"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
