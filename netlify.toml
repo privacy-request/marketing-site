@@ -3,3 +3,16 @@
   to = "/book-a-demo"
   status = 200
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' *.prismic.io plausible.io *.plausible.io *.netlify.com *.netlify.app; object-src 'none'; script-src 'unsafe-inline' *.netlify.app plausible.io *.plausible.io prismic.io *.prismic.io; style-src 'unsafe-inline' *.netlify.app"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Content-Type = "text/css"
