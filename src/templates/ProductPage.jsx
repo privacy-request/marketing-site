@@ -28,6 +28,8 @@ const ProductPage = ({ data, path }) => {
     subheadline,
   } = data.prismicProductPage.data;
 
+  console.log({ data });
+
   return (
     <Layout
       navigationData={data.prismicNavigation.data}
@@ -47,7 +49,7 @@ const ProductPage = ({ data, path }) => {
           <DemoCTA withIcon />
           <HeroBackgroundImage />
         </Hero>
-        <TrustedCustomers centerText />
+        <TrustedCustomers {...data.prismicTrustedCustomers.data} />
         <ProductPerks perks={body} />
         <BookADemo {...data.prismicMailingListForm.data} />
       </Wrapper>
@@ -65,6 +67,9 @@ export const query = graphql`
     }
     prismicFooter {
       ...FooterData
+    }
+    prismicTrustedCustomers {
+      ...TrustedCustomersData
     }
     prismicProductPage(uid: { eq: $slug }) {
       id
