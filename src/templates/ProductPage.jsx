@@ -49,7 +49,7 @@ const ProductPage = ({ data, path }) => {
           <DemoCTA withIcon />
           <HeroBackgroundImage />
         </Hero>
-        <TrustedCustomers {...data.prismicTrustedCustomers.data} />
+        {/* <TrustedCustomers {...data.prismicTrustedCustomers.data} /> */}
         <ProductPerks perks={body} />
         <BookADemo {...data.prismicMailingListForm.data} />
       </Wrapper>
