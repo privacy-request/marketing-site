@@ -32,9 +32,10 @@ const CloseButton = styled.div`
 const NotificationBar = ({
   notificationBarRichText,
   setDisplayNotification,
+  notificationBarRef,
 }) => {
   return (
-    <Notification>
+    <Notification ref={notificationBarRef}>
       <TextWrapper>
         <RichText render={notificationBarRichText} />
       </TextWrapper>

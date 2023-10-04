@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import GlobalStyles from "../utils/globalStyles";
 import styled from "styled-components";
 import AppBar from "./AppBar/AppBar";
@@ -12,7 +12,8 @@ import { Transition } from "react-transition-group";
 
 const UpOnExit = styled.div`
   transition: 0.5s;
-  margin-top: ${({ state }) => (state === "exited" ? "-4.6rem" : "0rem")};
+  margin-top: ${({ state, notificationBarHeight }) =>
+    state === "exited" ? `-${notificationBarHeight}px}` : "0rem"};
 `;
 
 const OverflowWrapper = styled.main`
@@ -28,6 +29,17 @@ const Layout = ({
   notificationBarRichText,
 }) => {
   const [displayNotification, setDisplayNotification] = useState(true);
+  const [notificationBarHeight, setNotificationBarHeight] = useState(0);
+  const notificationBarRef = useRef();
+
+  useEffect(() => {
+    if (!notificationBarRef?.current?.clientHeight) {
+      return;
+    }
+    console.log(notificationBarRef?.height);
+    setNotificationBarHeight(notificationBarRef?.current?.clientHeight);
+  }, [notificationBarRef?.current?.clientHeight]);
+
   return (
     <ThemeProvider theme={theme}>
       <Helmet>
@@ -42,12 +54,16 @@ const Layout = ({
       {notificationBarRichText && !!notificationBarRichText[0]?.text && (
         <Transition in={displayNotification}>
           {(state) => (
-            <UpOnExit state={state}>
+            <UpOnExit
+              state={state}
+              notificationBarHeight={notificationBarHeight}
+            >
               <NotificationBar
                 {...{
                   notificationBarRichText,
                   displayNotification,
                   setDisplayNotification,
+                  notificationBarRef,
                 }}
               />
             </UpOnExit>

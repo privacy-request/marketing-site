@@ -5,6 +5,7 @@ import {
   TrustedCustomersWrapper,
   Logo,
   Logos,
+  LogoContainer,
 } from "./TrustedCustomers.styles";
 
 export const query = graphql`
@@ -40,7 +41,9 @@ const TrustedCustomers = ({
           <CustomersHeadline>{headline.text}</CustomersHeadline>
           <Logos>
             {logos.map((logo) => (
-              <Logo key={`logo-${logo.logo.url}`} src={logo.logo.url} />
+              <LogoContainer key={`logo-${logo.logo.url}`}>
+                <Logo src={logo.logo.url} />
+              </LogoContainer>
             ))}
           </Logos>
         </TrustedCustomersWrapper>
